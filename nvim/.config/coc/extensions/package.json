@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "coc-css": ">=1.2.4",
+    "coc-eslint": ">=1.2.7",
+    "coc-json": ">=1.2.6",
+    "coc-pairs": ">=1.2.21",
+    "coc-prettier": ">=1.1.17",
+    "coc-snippets": ">=2.1.28",
+    "coc-tsserver": ">=1.5.5"
+  }
+}

@@ -1,0 +1,137 @@
+# HTML/JSX
+# TODO < snippet <${1}> </${1}>
+snippet t "<...></...>" b
+<${1}>${2}</$1>
+endsnippet
+
+snippet tt "<...>...</...>" b
+<${1}>
+	${2}
+</$1>
+endsnippet
+
+snippet div "Description" b
+<div>
+	${1}
+</div>
+endsnippet
+
+snippet divc "<div className=''>...</div>" b
+<div className='${1}'>
+	${2}
+</div>
+endsnippet
+
+snippet divcn "<div class=''>...</div>" b
+<div class='${1}'>
+	${2}
+</div>
+endsnippet
+
+snippet h1 "Description" b
+<h1>${1}</h1>
+endsnippet
+
+snippet h2 "Description" b
+<h2>${1}</h2>
+endsnippet
+
+snippet h3 "Description" b
+<h3>${1}</h3>
+endsnippet
+
+snippet h4 "Description" b
+<h4>${1}</h4>
+endsnippet
+
+snippet p "Description" b
+<p>${1}</p>
+endsnippet
+
+snippet inp "Description" b
+<input type='${1}' name='${2}'>${3}</input>
+endsnippet
+
+snippet btn "Description" b
+<button>${1}</button>
+endsnippet
+
+snippet for "<form></form>" b
+<form>
+	${1}
+</form>
+endsnippet
+
+# CSS 
+snippet class ".class { }" b
+.${1} {
+	${2}
+}
+endsnippet
+
+snippet media "@media (...:...) { }" b
+@media (${1}:${2}) {
+	${3}
+}
+endsnippet
+
+snippet root ":root {}" b
+:root {
+	${1}
+}
+endsnippet
+
+snippet body "body {}" b
+body {
+	${1}
+}
+endsnippet
+
+snippet * "* { }" b
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+endsnippet
+
+snippet roboto "googlefonts import font roboto" b
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+endsnippet
+
+snippet mont "googlefonts import font montserrat" b
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+endsnippet
+
+snippet wh100 "Description" b
+width: 100%;
+height: 100%;
+endsnippet
+
+snippet flex "Description" b
+display: flex;
+endsnippet
+
+snippet grid "Description" b
+display: grid;
+endsnippet
+# COMPONENT
+snippet react "Description" b
+import React from "react";
+
+function ${1}(){
+	return(
+		<h1>$1 Works!</h1>
+	);
+}
+
+export default $1
+endsnippet
+
+#ABNT
+
+snippet livro "abnt livro" b
+${1:ULTIMONOMEMAIUSCULO},${2:PRIMEIRALETRANOMEMAIUSCULO}.${3:NOMELIVRONEGRITO}.${4:EDITORA}..${5:LOCAL},${6:ANO}.
+endsnippet
+
+

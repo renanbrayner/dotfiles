@@ -1,0 +1,16 @@
+Looking for git in: git
+Using git 2.28.0 from git
+> git rev-parse --git-dir
+Open repository: /home/renan/code/job/frontend/hpa
+> git status -z -u
+> git symbolic-ref --short HEAD
+> git rev-parse master
+> git rev-parse --symbolic-full-name master@{u}
+fatal: no upstream configured for branch 'master'
+> git for-each-ref --sort -committerdate --format %(refname) %(objectname)
+> git remote --verbose
+> git config --get commit.template
+> git show --textconv :README.md
+> git ls-files --stage -- /home/renan/code/job/frontend/hpa/README.md
+> git cat-file -s 54ef09430b11a9e551ddfe1107287e168c6f0e11
+> git check-ignore -v -z --stdin

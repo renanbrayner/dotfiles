@@ -1,0 +1,21 @@
+[2020-09-04 14:43:59.968] [sharedprocess] [info] main {"machineId":"ee6e17f488449d4d805bc1bc3d57a5da9a275d3386a064131eef3b421cf72729","windowId":2}
+[2020-09-04 14:44:00.022] [sharedprocess] [error] [File Watcher (node.js)] Error: ENOENT: no such file or directory, stat '/home/renan/.config/Code/User/snippets'
+[2020-09-04 14:44:14.689] [sharedprocess] [info] Installing extension: dracula-theme.theme-dracula
+[2020-09-04 14:44:15.444] [sharedprocess] [info] Downloaded extension: dracula-theme.theme-dracula /home/renan/.config/Code/CachedExtensionVSIXs/dracula-theme.theme-dracula-2.22.1
+[2020-09-04 14:44:15.506] [sharedprocess] [info] Extracted extension to /home/renan/.vscode/extensions/.dracula-theme.theme-dracula-2.22.1: dracula-theme.theme-dracula
+[2020-09-04 14:44:15.506] [sharedprocess] [info] Renamed to /home/renan/.vscode/extensions/dracula-theme.theme-dracula-2.22.1
+[2020-09-04 14:44:15.507] [sharedprocess] [info] Installation completed. dracula-theme.theme-dracula
+[2020-09-04 14:44:15.567] [sharedprocess] [info] Extensions installed successfully: dracula-theme.theme-dracula
+[2020-09-04 14:44:39.993] [sharedprocess] [info] Starting to clean up unused language packs.
+[2020-09-04 14:45:59.462] [sharedprocess] [info] Installing extension: pkief.material-icon-theme
+[2020-09-04 14:46:00.575] [sharedprocess] [info] Downloaded extension: pkief.material-icon-theme /home/renan/.config/Code/CachedExtensionVSIXs/pkief.material-icon-theme-4.2.0
+[2020-09-04 14:46:01.946] [sharedprocess] [info] Extracted extension to /home/renan/.vscode/extensions/.pkief.material-icon-theme-4.2.0: pkief.material-icon-theme
+[2020-09-04 14:46:01.947] [sharedprocess] [info] Renamed to /home/renan/.vscode/extensions/pkief.material-icon-theme-4.2.0
+[2020-09-04 14:46:01.950] [sharedprocess] [info] Installation completed. pkief.material-icon-theme
+[2020-09-04 14:46:02.012] [sharedprocess] [info] Extensions installed successfully: pkief.material-icon-theme
+[2020-09-04 14:52:12.384] [sharedprocess] [info] Installing extension: vscodevim.vim
+[2020-09-04 14:52:13.212] [sharedprocess] [info] Downloaded extension: vscodevim.vim /home/renan/.config/Code/CachedExtensionVSIXs/vscodevim.vim-1.16.0
+[2020-09-04 14:52:13.286] [sharedprocess] [info] Extracted extension to /home/renan/.vscode/extensions/.vscodevim.vim-1.16.0: vscodevim.vim
+[2020-09-04 14:52:13.286] [sharedprocess] [info] Renamed to /home/renan/.vscode/extensions/vscodevim.vim-1.16.0
+[2020-09-04 14:52:13.289] [sharedprocess] [info] Installation completed. vscodevim.vim
+[2020-09-04 14:52:13.350] [sharedprocess] [info] Extensions installed successfully: vscodevim.vim

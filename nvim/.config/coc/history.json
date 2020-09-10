@@ -1,0 +1,26 @@
+{
+  "symbols": {
+    "%2Fhome%2Frenan%2F": {
+      "config%2Fnvim": [
+        "exit "
+      ]
+    },
+    "%2Fhome%2Frenan%2Fcode%2Flearn%2Ffullstack%2Fvoluntariado%2Fbackend": [
+      "z"
+    ]
+  },
+  "extensions": {
+    "%2Fhome%2Frenan%2F": {
+      "config%2Fnvim": [
+        "coc prettier"
+      ]
+    }
+  },
+  "outline": {
+    "%2Fhome%2Frenan%2F": {
+      "config%2Fnvim": [
+        "pq"
+      ]
+    }
+  }
+}
