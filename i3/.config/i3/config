@@ -185,8 +185,11 @@ gaps top -6
 
 #titleless
 for_window [class="^.*"] border pixel 0
+for_window [title="^DevTools - "] floating enable
+for_window [title="^devtools:"] floating enable
 
 # my bindings
+bindsym $mod+shift+h exec /home/renan/.config/i3/help.sh                        #navegador secundário
 bindsym $mod+w exec chromium                                                    #navegador secundário
 bindsym $mod+shift+w exec qutebrowser                                           #navegador
 bindsym $mod+shift+m exec /home/renan/.config/i3/monitor.sh                     #multihead

@@ -1,0 +1,28 @@
+snippet i "Description" b
+import ${1} from "$1";
+endsnippet
+
+snippet express "Description" b
+import express from "express";
+
+const app = express();
+endsnippet
+
+snippet appjson "Description" b
+app.use(express.json());
+endsnippet
+
+snippet => "Description" b
+(${2}) => ${1}
+endsnippet
+
+snippet =>{} "Description" b
+(${2}) => {
+	${1}
+}
+endsnippet
+
+snippet applis "Description" b
+const PORT = process.env.PORT || 3333;
+app.listen(PORT, () => console.log(\`Listening on port ${PORT}...\`));
+endsnippet

@@ -141,4 +141,4 @@ alias mv='mv -i'
 alias ..='cd ..'
 alias la='ls -A'
 alias neofetch='neofetch --kitty ~/.config/assets/neofetch/045-dracula.svg --size 30%'
-
+alias susp='systemctl suspend'

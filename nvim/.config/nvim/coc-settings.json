@@ -8,5 +8,7 @@
     "javascriptreact",
     "typescript.tsx",
     "graphql"
-  ]
+  ],
+  "prettier.singleQuote": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true
 }

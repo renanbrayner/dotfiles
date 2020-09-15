@@ -3,15 +3,12 @@ let mapleader =" "
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Ultimate autocompletion
-"Plug 'tsony-tsonev/nerdtree-git-plugin'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons' "icons in nerdtree
 Plug 'airblade/vim-gitgutter'
-Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
 Plug 'scrooloose/nerdcommenter' " Control + / comment
-"Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 Plug 'dracula/vim', { 'as': 'dracula' } " colortheme
 Plug 'mxw/vim-jsx' " Jsx syntax highlight
@@ -22,6 +19,9 @@ Plug 'PotatoesMaster/i3-vim-syntax' " i3 config syntax highlight
 Plug 'vim-airline/vim-airline' " powerfull statusbar
 Plug 'AndrewRadev/tagalong.vim' " auto change both tags  
 
+"Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
+"Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+
 call plug#end()
 
 " ----MY CONFIGS----
@@ -30,6 +30,10 @@ call plug#end()
 
 " Basics
 set encoding=utf-8
+set mouse=a
+
+" Open new splits at the bottom right
+set splitbelow splitright
 
 " No autocomment new line
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -77,6 +81,14 @@ nnoremap <leader>wc ZQ
 " Split
 nnoremap <leader>wv <C-W>v
 nnoremap <leader>ws <C-W>s
+nnoremap <leader>w= <C-W>=
+nnoremap <leader>wm <C-W>_
+
+" Open terminal bellow
+nnoremap <leader>t :10sp\|:term<CR>
+" Close terminal
+tnoremap <Esc> <C-\><C-n>
+tnoremap <C-v><Esc> <Esc>
 
 " Buffers
 nmap <leader>bb :bn<CR>
@@ -106,12 +118,10 @@ let g:airline_powerline_fonts = 1
 " NERDTree
 let NERDTreeMinimalUI=1
 
+" Live substitute preview
+set inccommand=nosplit
+
 " ----END OF MY CONFIGS----
-
-
-" open NERDTree automatically
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * NERDTree
 
 let g:NERDTreeGitStatusWithFlags = 1
 "let g:WebDevIconsUnicodeDecorateFolderNodes = 1

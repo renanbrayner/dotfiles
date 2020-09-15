@@ -12,9 +12,16 @@
   "extensions": {
     "%2Fhome%2Frenan%2F": {
       "config%2Fnvim": [
-        "coc prettier"
+        "coc prettier",
+        "ZQZQ",
+        " "
       ]
-    }
+    },
+    "%2Fhome%2Frenan%2Fcode%2Fnext%2Fnextfolio%2Fpages": [
+      "   exit",
+      " e ",
+      "ZZZZZ"
+    ]
   },
   "outline": {
     "%2Fhome%2Frenan%2F": {
@@ -22,5 +29,22 @@
         "pq"
       ]
     }
+  },
+  "commands": {
+    "%2Fhome%2Frenan%2Fcode%2Flearn%2Fvisualg": [
+      " wc"
+    ]
+  },
+  "lists": {
+    "%2Fhome%2Frenan%2F": {
+      "config%2Fnvim": [
+        "ZQ"
+      ]
+    }
+  },
+  "snippets": {
+    "%2Fhome%2Frenan%2Fcode%2Fnext%2Fnextfolio": [
+      "ZQ"
+    ]
   }
 }

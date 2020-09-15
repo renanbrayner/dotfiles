@@ -62,6 +62,15 @@ snippet for "<form></form>" b
 </form>
 endsnippet
 
+snippet ul "Description" b
+<ul>
+	${1}
+</ul>
+endsnippet
+
+snippet li "Description" b
+<li>${1}</li>
+endsnippet
 # CSS 
 snippet class ".class { }" b
 .${1} {
@@ -115,17 +124,26 @@ endsnippet
 snippet grid "Description" b
 display: grid;
 endsnippet
+
+snippet edf "export default function Function() {...}" b
+export default function ${1}() {
+	return(
+		<div>
+			<h1>$1 Works!</h1>
+		</div>
+	);
+}
+endsnippet
+
 # COMPONENT
 snippet react "Description" b
 import React from "react";
 
-function ${1}(){
+export default function ${1}(){
 	return(
 		<h1>$1 Works!</h1>
 	);
 }
-
-export default $1
 endsnippet
 
 #ABNT
