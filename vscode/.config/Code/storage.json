@@ -2,6 +2,7 @@
     "telemetry.machineId": "ee6e17f488449d4d805bc1bc3d57a5da9a275d3386a064131eef3b421cf72729",
     "openedPathsList": {
         "workspaces3": [
+            "file:///home/renan/code/ig/nightMode",
             "file:///home/renan/code/job/frontend/hpa"
         ],
         "files2": [
@@ -42,7 +43,8 @@
                             "items": [
                                 {
                                     "id": "workbench.action.reopenClosedEditor",
-                                    "label": "&&Reopen Closed Editor"
+                                    "label": "&&Reopen Closed Editor",
+                                    "enabled": false
                                 },
                                 {
                                     "id": "vscode.menubar.separator"
@@ -51,7 +53,18 @@
                                     "id": "openRecentFolder",
                                     "uri": {
                                         "$mid": 1,
-                                        "fsPath": "/home/renan/code/job/frontend/hpa",
+                                        "fsPath": "/home/renan/code/ig/nightMode",
+                                        "external": "file:///home/renan/code/ig/nightMode",
+                                        "path": "/home/renan/code/ig/nightMode",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/code/ig/nightMode"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
                                         "external": "file:///home/renan/code/job/frontend/hpa",
                                         "path": "/home/renan/code/job/frontend/hpa",
                                         "scheme": "file"
@@ -109,8 +122,7 @@
                     },
                     {
                         "id": "workbench.action.files.saveAs",
-                        "label": "Save &&As...",
-                        "enabled": false
+                        "label": "Save &&As..."
                     },
                     {
                         "id": "workbench.action.files.saveAll",
@@ -169,13 +181,6 @@
                                 {
                                     "id": "workbench.action.selectIconTheme",
                                     "label": "File &&Icon Theme"
-                                },
-                                {
-                                    "id": "vscode.menubar.separator"
-                                },
-                                {
-                                    "id": "workbench.userDataSync.actions.turnOn",
-                                    "label": "Turn on Settings Sync..."
                                 }
                             ]
                         }
@@ -413,8 +418,7 @@
                                 },
                                 {
                                     "id": "workbench.action.togglePanel",
-                                    "label": "Show &&Panel",
-                                    "checked": true
+                                    "label": "Show &&Panel"
                                 },
                                 {
                                     "id": "vscode.menubar.separator"
@@ -598,7 +602,8 @@
                     },
                     {
                         "id": "workbench.action.navigateToLastEditLocation",
-                        "label": "&&Last Edit Location"
+                        "label": "&&Last Edit Location",
+                        "enabled": false
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -909,7 +914,8 @@
                     },
                     {
                         "id": "workbench.action.terminal.split",
-                        "label": "&&Split Terminal"
+                        "label": "&&Split Terminal",
+                        "enabled": false
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -1471,17 +1477,17 @@
     "themeBackground": "#282a36",
     "windowsState": {
         "lastActiveWindow": {
-            "folder": "file:///home/renan/code/job/frontend/hpa",
-            "backupPath": "/home/renan/.config/Code/Backups/edb2f84edaca4c833a168b8cb6d000f2",
+            "folder": "file:///home/renan/code/ig/nightMode",
+            "backupPath": "/home/renan/.config/Code/Backups/083101113f5b2c312e717baf795de74a",
             "uiState": {
                 "mode": 1,
-                "x": 6,
-                "y": 39,
-                "width": 1354,
-                "height": 723
+                "x": 686,
+                "y": 37,
+                "width": 674,
+                "height": 725
             }
         },
         "openedWindows": []
     },
-    "pickerWorkingDir": "/home/renan/code/job/frontend"
+    "pickerWorkingDir": "/home/renan/code/ig"
 }

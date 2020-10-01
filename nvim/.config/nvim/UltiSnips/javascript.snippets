@@ -1,12 +1,31 @@
 # HTML/JSX
-# TODO < snippet <${1}> </${1}>
 snippet t "<...></...>" b
 <${1}>${2}</$1>
+endsnippet
+
+snippet tc "<... className='...'></...>" b
+<${1} className='${2}'>${3}</$1>
+endsnippet
+
+snippet tcn "<... class='...'></...>" b
+<${1} class='${2}'>${3}</$1>
 endsnippet
 
 snippet tt "<...>...</...>" b
 <${1}>
 	${2}
+</$1>
+endsnippet
+
+snippet ttc "<...>...</...>" b
+<${1} className='${2}'>
+	${3}
+</$1>
+endsnippet
+
+snippet ttcn "<...>...</...>" b
+<${1} class='${2}'>
+	${3}
 </$1>
 endsnippet
 
@@ -127,12 +146,18 @@ endsnippet
 
 snippet edf "export default function Function() {...}" b
 export default function ${1}() {
-	return(
+	return (
 		<div>
 			<h1>$1 Works!</h1>
 		</div>
 	);
 }
+endsnippet
+
+snippet stjsx "<style jsx>{`...`}</style>" b
+<style jsx>{\`
+	${1}
+\`}</style>
 endsnippet
 
 # COMPONENT
@@ -146,6 +171,14 @@ export default function ${1}(){
 }
 endsnippet
 
+# STYLED COMPONENTS
+snippet styled "import styled from 'styled-components'..." b
+import styled from 'styled-components';
+
+export const Container = styled.div\`
+	${1}
+\`;
+endsnippet
 #ABNT
 
 snippet livro "abnt livro" b

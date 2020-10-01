@@ -13,6 +13,9 @@ Abrir Terminal
 Abrir Wifi
 ↳ Win + N
 
+Abrir Menu
+↳ Win + D
+
 Abrir Monitor do Sistema
 ↳ Win + Y
 
@@ -23,8 +26,5 @@ Tirar Foto Com Webcam
 ↳ Win + P
 
 Fechar Programa Com Um Clique
-↳ Win + Esc
-
-Abrir Este Menu De Ajuda
-↳ Win + Shift + H"
+↳ Win + Esc"
 

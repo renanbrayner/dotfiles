@@ -13,6 +13,8 @@ settings:
         K: tab-next
   content.host_blocking.enabled:
     global: false
+  content.media.audio_capture:
+    https://discord.com: true
   content.media.video_capture:
     https://web.whatsapp.com: true
   content.notifications:

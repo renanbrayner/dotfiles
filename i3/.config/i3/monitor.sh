@@ -1,3 +1,3 @@
 #!/bin/bash
 randrctl auto &
-(sleep 3; /home/renan/.config/polybar/launch.sh; /home/renan/.fehbg) &
+(sleep 5; /home/renan/.config/polybar/launch.sh; /home/renan/.fehbg) &

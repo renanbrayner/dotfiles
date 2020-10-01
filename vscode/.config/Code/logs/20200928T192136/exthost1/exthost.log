@@ -1,0 +1,222 @@
+[2020-09-28 19:21:43.349] [exthost] [info] extension host started
+[2020-09-28 19:21:43.708] [exthost] [info] ExtensionService#_doActivateExtension vscode.microsoft-authentication {"startup":false,"extensionId":{"value":"vscode.microsoft-authentication","_lower":"vscode.microsoft-authentication"},"activationEvent":"onAuthenticationRequest:microsoft"}
+[2020-09-28 19:21:43.708] [exthost] [info] ExtensionService#loadCommonJSModule file:///opt/visual-studio-code/resources/app/extensions/microsoft-authentication/dist/extension.js
+[2020-09-28 19:21:43.853] [exthost] [info] ExtensionService#_doActivateExtension vscode.github-authentication {"startup":false,"extensionId":{"value":"vscode.github-authentication","_lower":"vscode.github-authentication"},"activationEvent":"onAuthenticationRequest:github"}
+[2020-09-28 19:21:43.853] [exthost] [info] ExtensionService#loadCommonJSModule file:///opt/visual-studio-code/resources/app/extensions/github-authentication/dist/extension.js
+[2020-09-28 19:21:43.960] [exthost] [info] ExtensionService#_doActivateExtension vscode.emmet {"startup":false,"extensionId":{"value":"vscode.emmet","_lower":"vscode.emmet"},"activationEvent":"onLanguage:html"}
+[2020-09-28 19:21:43.960] [exthost] [info] ExtensionService#loadCommonJSModule file:///opt/visual-studio-code/resources/app/extensions/emmet/dist/node/emmetNodeMain
+[2020-09-28 19:21:44.123] [exthost] [info] ExtensionService#_doActivateExtension vscode.html-language-features {"startup":false,"extensionId":{"value":"vscode.html-language-features","_lower":"vscode.html-language-features"},"activationEvent":"onLanguage:html"}
+[2020-09-28 19:21:44.124] [exthost] [info] ExtensionService#loadCommonJSModule file:///opt/visual-studio-code/resources/app/extensions/html-language-features/client/dist/node/htmlClientMain
+[2020-09-28 19:21:44.342] [exthost] [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch {"startup":true,"extensionId":{"value":"vscode.debug-auto-launch","_lower":"vscode.debug-auto-launch"},"activationEvent":"*"}
+[2020-09-28 19:21:44.342] [exthost] [info] ExtensionService#loadCommonJSModule file:///opt/visual-studio-code/resources/app/extensions/debug-auto-launch/dist/extension
+[2020-09-28 19:21:44.362] [exthost] [info] ExtensionService#_doActivateExtension vscode.git {"startup":true,"extensionId":{"value":"vscode.github","_lower":"vscode.github"},"activationEvent":"*"}
+[2020-09-28 19:21:44.362] [exthost] [info] ExtensionService#loadCommonJSModule file:///opt/visual-studio-code/resources/app/extensions/git/dist/main
+[2020-09-28 19:21:44.684] [exthost] [info] ExtensionService#_doActivateExtension vscode.merge-conflict {"startup":true,"extensionId":{"value":"vscode.merge-conflict","_lower":"vscode.merge-conflict"},"activationEvent":"*"}
+[2020-09-28 19:21:44.684] [exthost] [info] ExtensionService#loadCommonJSModule file:///opt/visual-studio-code/resources/app/extensions/merge-conflict/dist/mergeConflictMain
+[2020-09-28 19:21:44.753] [exthost] [info] ExtensionService#_doActivateExtension vscode.search-result {"startup":true,"extensionId":{"value":"vscode.search-result","_lower":"vscode.search-result"},"activationEvent":"*"}
+[2020-09-28 19:21:44.753] [exthost] [info] ExtensionService#loadCommonJSModule file:///opt/visual-studio-code/resources/app/extensions/search-result/dist/extension.js
+[2020-09-28 19:21:44.785] [exthost] [info] ExtensionService#_doActivateExtension PKief.material-icon-theme {"startup":true,"extensionId":{"value":"PKief.material-icon-theme","_lower":"pkief.material-icon-theme"},"activationEvent":"*"}
+[2020-09-28 19:21:44.785] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/renan/.vscode/extensions/pkief.material-icon-theme-4.3.0/dist/extension
+[2020-09-28 19:21:44.915] [exthost] [info] ExtensionService#_doActivateExtension ritwickdey.LiveServer {"startup":true,"extensionId":{"value":"ritwickdey.LiveServer","_lower":"ritwickdey.liveserver"},"activationEvent":"*"}
+[2020-09-28 19:21:44.915] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/renan/.vscode/extensions/ritwickdey.liveserver-5.6.1/out/src/extension
+[2020-09-28 19:21:48.803] [exthost] [info] ExtensionService#_doActivateExtension vscodevim.vim {"startup":true,"extensionId":{"value":"vscodevim.vim","_lower":"vscodevim.vim"},"activationEvent":"*"}
+[2020-09-28 19:21:48.803] [exthost] [info] ExtensionService#loadCommonJSModule file:///home/renan/.vscode/extensions/vscodevim.vim-1.17.1/out/extension
+[2020-09-28 19:21:49.420] [exthost] [info] ExtensionService#_doActivateExtension vscode.github {"startup":true,"extensionId":{"value":"vscode.github","_lower":"vscode.github"},"activationEvent":"*"}
+[2020-09-28 19:21:49.421] [exthost] [info] ExtensionService#loadCommonJSModule file:///opt/visual-studio-code/resources/app/extensions/github/dist/extension.js
+[2020-09-28 19:21:49.505] [exthost] [info] eager extensions activated
+[2020-09-28 19:25:16.943] [exthost] [info] ExtensionService#_doActivateExtension vscode.typescript-language-features {"startup":false,"extensionId":{"value":"vscode.typescript-language-features","_lower":"vscode.typescript-language-features"},"activationEvent":"onLanguage:javascript"}
+[2020-09-28 19:25:16.943] [exthost] [info] ExtensionService#loadCommonJSModule file:///opt/visual-studio-code/resources/app/extensions/typescript-language-features/dist/extension
+[2020-09-28 19:25:17.981] [exthost] [info] ExtensionService#_doActivateExtension vscode.css-language-features {"startup":false,"extensionId":{"value":"vscode.css-language-features","_lower":"vscode.css-language-features"},"activationEvent":"onLanguage:css"}
+[2020-09-28 19:25:17.982] [exthost] [info] ExtensionService#loadCommonJSModule file:///opt/visual-studio-code/resources/app/extensions/css-language-features/client/dist/node/cssClientMain
+[2020-09-28 19:48:06.117] [exthost] [info] ExtensionService#_doActivateExtension vscode.extension-editing {"startup":false,"extensionId":{"value":"vscode.extension-editing","_lower":"vscode.extension-editing"},"activationEvent":"onLanguage:typescript"}
+[2020-09-28 19:48:06.118] [exthost] [info] ExtensionService#loadCommonJSModule file:///opt/visual-studio-code/resources/app/extensions/extension-editing/dist/extensionEditingMain
+[2020-09-28 19:50:28.310] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-09-28 19:50:28.312] [exthost] [error] Error: <syntax> TypeScript Server Error (3.9.7)
+Debug Failure. False expression: Expected line to be non-zero
+Error: Debug Failure. False expression: Expected line to be non-zero
+    at failIfInvalidLocation (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:142445:22)
+    at ScriptInfo.positionToLineOffset (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:142418:17)
+    at toProtocolTextSpan (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149629:35)
+    at /opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149159:68
+    at Array.map (<anonymous>)
+    at IOSession.Session.toLocationNavigationTree (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149159:39)
+    at IOSession.Session.getNavigationTree (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149170:32)
+    at Session.handlers.ts.createMapFromTemplate._a.<computed> (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:148013:61)
+    at /opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149555:88
+    at IOSession.Session.executeWithRequestId (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149546:28)
+    at IOSession.Session.executeCommand (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149555:33)
+    at IOSession.Session.onMessage (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149579:35)
+    at Interface.<anonymous> (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:150895:27)
+    at Interface.emit (events.js:203:13)
+    at Interface._onLine (readline.js:316:10)
+    at Interface._normalWrite (readline.js:461:12)
+    at Socket.ondata (readline.js:172:10)
+    at Socket.emit (events.js:203:13)
+    at addChunk (_stream_readable.js:295:12)
+    at readableAddChunk (_stream_readable.js:276:11)
+    at Socket.Readable.push (_stream_readable.js:210:10)
+    at Pipe.onStreamRead (internal/stream_base_commons.js:166:17)
+	at Function.create (/opt/visual-studio-code/resources/app/extensions/typescript-language-features/dist/extension.js:1:75328)
+	at h.dispatchResponse (/opt/visual-studio-code/resources/app/extensions/typescript-language-features/dist/extension.js:1:69203)
+	at h.dispatchMessage (/opt/visual-studio-code/resources/app/extensions/typescript-language-features/dist/extension.js:1:68123)
+	at /opt/visual-studio-code/resources/app/extensions/typescript-language-features/dist/extension.js:1:67652
+	at l.fire (/opt/visual-studio-code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:46:222)
+	at g.onLengthData (/opt/visual-studio-code/resources/app/extensions/typescript-language-features/dist/extension.js:45:60018)
+	at Socket.<anonymous> (/opt/visual-studio-code/resources/app/extensions/typescript-language-features/dist/extension.js:45:59666)
+	at Socket.emit (events.js:203:13)
+	at addChunk (_stream_readable.js:295:12)
+	at readableAddChunk (_stream_readable.js:276:11)
+	at Socket.Readable.push (_stream_readable.js:210:10)
+	at Pipe.onStreamRead (internal/stream_base_commons.js:166:17)
+[2020-09-28 19:50:42.852] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-09-28 19:50:42.852] [exthost] [error] Error: <syntax> TypeScript Server Error (3.9.7)
+Debug Failure. False expression: Expected line to be non-zero
+Error: Debug Failure. False expression: Expected line to be non-zero
+    at failIfInvalidLocation (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:142445:22)
+    at ScriptInfo.positionToLineOffset (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:142418:17)
+    at toProtocolTextSpan (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149629:35)
+    at /opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149159:68
+    at Array.map (<anonymous>)
+    at IOSession.Session.toLocationNavigationTree (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149159:39)
+    at IOSession.Session.getNavigationTree (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149170:32)
+    at Session.handlers.ts.createMapFromTemplate._a.<computed> (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:148013:61)
+    at /opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149555:88
+    at IOSession.Session.executeWithRequestId (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149546:28)
+    at IOSession.Session.executeCommand (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149555:33)
+    at IOSession.Session.onMessage (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149579:35)
+    at Interface.<anonymous> (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:150895:27)
+    at Interface.emit (events.js:203:13)
+    at Interface._onLine (readline.js:316:10)
+    at Interface._normalWrite (readline.js:461:12)
+    at Socket.ondata (readline.js:172:10)
+    at Socket.emit (events.js:203:13)
+    at addChunk (_stream_readable.js:295:12)
+    at readableAddChunk (_stream_readable.js:276:11)
+    at Socket.Readable.push (_stream_readable.js:210:10)
+    at Pipe.onStreamRead (internal/stream_base_commons.js:166:17)
+	at Function.create (/opt/visual-studio-code/resources/app/extensions/typescript-language-features/dist/extension.js:1:75328)
+	at h.dispatchResponse (/opt/visual-studio-code/resources/app/extensions/typescript-language-features/dist/extension.js:1:69203)
+	at h.dispatchMessage (/opt/visual-studio-code/resources/app/extensions/typescript-language-features/dist/extension.js:1:68123)
+	at /opt/visual-studio-code/resources/app/extensions/typescript-language-features/dist/extension.js:1:67652
+	at l.fire (/opt/visual-studio-code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:46:222)
+	at g.onLengthData (/opt/visual-studio-code/resources/app/extensions/typescript-language-features/dist/extension.js:45:60018)
+	at Socket.<anonymous> (/opt/visual-studio-code/resources/app/extensions/typescript-language-features/dist/extension.js:45:59666)
+	at Socket.emit (events.js:203:13)
+	at addChunk (_stream_readable.js:295:12)
+	at readableAddChunk (_stream_readable.js:276:11)
+	at Socket.Readable.push (_stream_readable.js:210:10)
+	at Pipe.onStreamRead (internal/stream_base_commons.js:166:17)
+[2020-09-28 19:53:04.154] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-09-28 19:53:04.155] [exthost] [error] Error: <syntax> TypeScript Server Error (3.9.7)
+Debug Failure. False expression: Expected line to be non-zero
+Error: Debug Failure. False expression: Expected line to be non-zero
+    at failIfInvalidLocation (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:142445:22)
+    at ScriptInfo.positionToLineOffset (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:142418:17)
+    at toProtocolTextSpan (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149629:35)
+    at /opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149159:68
+    at Array.map (<anonymous>)
+    at IOSession.Session.toLocationNavigationTree (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149159:39)
+    at IOSession.Session.getNavigationTree (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149170:32)
+    at Session.handlers.ts.createMapFromTemplate._a.<computed> (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:148013:61)
+    at /opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149555:88
+    at IOSession.Session.executeWithRequestId (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149546:28)
+    at IOSession.Session.executeCommand (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149555:33)
+    at IOSession.Session.onMessage (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149579:35)
+    at Interface.<anonymous> (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:150895:27)
+    at Interface.emit (events.js:203:13)
+    at Interface._onLine (readline.js:316:10)
+    at Interface._normalWrite (readline.js:461:12)
+    at Socket.ondata (readline.js:172:10)
+    at Socket.emit (events.js:203:13)
+    at addChunk (_stream_readable.js:295:12)
+    at readableAddChunk (_stream_readable.js:276:11)
+    at Socket.Readable.push (_stream_readable.js:210:10)
+    at Pipe.onStreamRead (internal/stream_base_commons.js:166:17)
+	at Function.create (/opt/visual-studio-code/resources/app/extensions/typescript-language-features/dist/extension.js:1:75328)
+	at h.dispatchResponse (/opt/visual-studio-code/resources/app/extensions/typescript-language-features/dist/extension.js:1:69203)
+	at h.dispatchMessage (/opt/visual-studio-code/resources/app/extensions/typescript-language-features/dist/extension.js:1:68123)
+	at /opt/visual-studio-code/resources/app/extensions/typescript-language-features/dist/extension.js:1:67652
+	at l.fire (/opt/visual-studio-code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:46:222)
+	at g.onLengthData (/opt/visual-studio-code/resources/app/extensions/typescript-language-features/dist/extension.js:45:60018)
+	at Socket.<anonymous> (/opt/visual-studio-code/resources/app/extensions/typescript-language-features/dist/extension.js:45:59666)
+	at Socket.emit (events.js:203:13)
+	at addChunk (_stream_readable.js:295:12)
+	at readableAddChunk (_stream_readable.js:276:11)
+	at Socket.Readable.push (_stream_readable.js:210:10)
+	at Pipe.onStreamRead (internal/stream_base_commons.js:166:17)
+[2020-09-28 20:03:26.470] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-09-28 20:03:26.470] [exthost] [error] Error: <syntax> TypeScript Server Error (3.9.7)
+Debug Failure. False expression: Expected line to be non-zero
+Error: Debug Failure. False expression: Expected line to be non-zero
+    at failIfInvalidLocation (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:142445:22)
+    at ScriptInfo.positionToLineOffset (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:142418:17)
+    at toProtocolTextSpan (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149629:35)
+    at /opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149159:68
+    at Array.map (<anonymous>)
+    at IOSession.Session.toLocationNavigationTree (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149159:39)
+    at IOSession.Session.getNavigationTree (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149170:32)
+    at Session.handlers.ts.createMapFromTemplate._a.<computed> (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:148013:61)
+    at /opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149555:88
+    at IOSession.Session.executeWithRequestId (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149546:28)
+    at IOSession.Session.executeCommand (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149555:33)
+    at IOSession.Session.onMessage (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149579:35)
+    at Interface.<anonymous> (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:150895:27)
+    at Interface.emit (events.js:203:13)
+    at Interface._onLine (readline.js:316:10)
+    at Interface._normalWrite (readline.js:461:12)
+    at Socket.ondata (readline.js:172:10)
+    at Socket.emit (events.js:203:13)
+    at addChunk (_stream_readable.js:295:12)
+    at readableAddChunk (_stream_readable.js:276:11)
+    at Socket.Readable.push (_stream_readable.js:210:10)
+    at Pipe.onStreamRead (internal/stream_base_commons.js:166:17)
+	at Function.create (/opt/visual-studio-code/resources/app/extensions/typescript-language-features/dist/extension.js:1:75328)
+	at h.dispatchResponse (/opt/visual-studio-code/resources/app/extensions/typescript-language-features/dist/extension.js:1:69203)
+	at h.dispatchMessage (/opt/visual-studio-code/resources/app/extensions/typescript-language-features/dist/extension.js:1:68123)
+	at /opt/visual-studio-code/resources/app/extensions/typescript-language-features/dist/extension.js:1:67652
+	at l.fire (/opt/visual-studio-code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:46:222)
+	at g.onLengthData (/opt/visual-studio-code/resources/app/extensions/typescript-language-features/dist/extension.js:45:60018)
+	at Socket.<anonymous> (/opt/visual-studio-code/resources/app/extensions/typescript-language-features/dist/extension.js:45:59666)
+	at Socket.emit (events.js:203:13)
+	at addChunk (_stream_readable.js:295:12)
+	at readableAddChunk (_stream_readable.js:276:11)
+	at Socket.Readable.push (_stream_readable.js:210:10)
+	at Pipe.onStreamRead (internal/stream_base_commons.js:166:17)
+[2020-09-28 20:04:47.353] [exthost] [error] [vscode.typescript-language-features] provider FAILED
+[2020-09-28 20:04:47.353] [exthost] [error] Error: <syntax> TypeScript Server Error (3.9.7)
+Debug Failure. False expression: Expected line to be non-zero
+Error: Debug Failure. False expression: Expected line to be non-zero
+    at failIfInvalidLocation (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:142445:22)
+    at ScriptInfo.positionToLineOffset (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:142418:17)
+    at toProtocolTextSpan (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149629:35)
+    at /opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149159:68
+    at Array.map (<anonymous>)
+    at IOSession.Session.toLocationNavigationTree (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149159:39)
+    at IOSession.Session.getNavigationTree (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149170:32)
+    at Session.handlers.ts.createMapFromTemplate._a.<computed> (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:148013:61)
+    at /opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149555:88
+    at IOSession.Session.executeWithRequestId (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149546:28)
+    at IOSession.Session.executeCommand (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149555:33)
+    at IOSession.Session.onMessage (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:149579:35)
+    at Interface.<anonymous> (/opt/visual-studio-code/resources/app/extensions/node_modules/typescript/lib/tsserver.js:150895:27)
+    at Interface.emit (events.js:203:13)
+    at Interface._onLine (readline.js:316:10)
+    at Interface._normalWrite (readline.js:461:12)
+    at Socket.ondata (readline.js:172:10)
+    at Socket.emit (events.js:203:13)
+    at addChunk (_stream_readable.js:295:12)
+    at readableAddChunk (_stream_readable.js:276:11)
+    at Socket.Readable.push (_stream_readable.js:210:10)
+    at Pipe.onStreamRead (internal/stream_base_commons.js:166:17)
+	at Function.create (/opt/visual-studio-code/resources/app/extensions/typescript-language-features/dist/extension.js:1:75328)
+	at h.dispatchResponse (/opt/visual-studio-code/resources/app/extensions/typescript-language-features/dist/extension.js:1:69203)
+	at h.dispatchMessage (/opt/visual-studio-code/resources/app/extensions/typescript-language-features/dist/extension.js:1:68123)
+	at /opt/visual-studio-code/resources/app/extensions/typescript-language-features/dist/extension.js:1:67652
+	at l.fire (/opt/visual-studio-code/resources/app/out/vs/workbench/services/extensions/node/extensionHostProcess.js:46:222)
+	at g.onLengthData (/opt/visual-studio-code/resources/app/extensions/typescript-language-features/dist/extension.js:45:60018)
+	at Socket.<anonymous> (/opt/visual-studio-code/resources/app/extensions/typescript-language-features/dist/extension.js:45:59666)
+	at Socket.emit (events.js:203:13)
+	at addChunk (_stream_readable.js:295:12)
+	at readableAddChunk (_stream_readable.js:276:11)
+	at Socket.Readable.push (_stream_readable.js:210:10)
+	at Pipe.onStreamRead (internal/stream_base_commons.js:166:17)

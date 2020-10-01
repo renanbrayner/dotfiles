@@ -9,6 +9,18 @@
     "typescript.tsx",
     "graphql"
   ],
+  "eslint.filetypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
   "prettier.singleQuote": true,
-  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,7
+  "styled-components.tags": [
+    "styled",
+    "css",
+    "sty",
+    "createGlobalStyle"
+  ]
 }
