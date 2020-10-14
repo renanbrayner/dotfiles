@@ -6,29 +6,30 @@
 " ╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝ BY: github.com/renanbrayner
 
 
-let mapleader =" "
+let mapleader =" " " Dont know if its a good idea
  
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " Ultimate autocompletion
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'ryanoasis/vim-devicons' "icons in nerdtree
-Plug 'airblade/vim-gitgutter'
-Plug 'scrooloose/nerdcommenter' " Control + / comment
-Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
-Plug 'dracula/vim', { 'as': 'dracula' } " colortheme
-Plug 'mxw/vim-jsx' " Jsx syntax highlight
-Plug 'pangloss/vim-javascript' " Js syntax highlight
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' " my little baby - snip snap!
-Plug 'Yggdroot/indentLine' " lines on indentations
-Plug 'PotatoesMaster/i3-vim-syntax' " i3 config syntax highlight
-Plug 'vim-airline/vim-airline' " powerfull statusbar
-Plug 'AndrewRadev/tagalong.vim' " auto change both tags  
-
-"Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
-"Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}       " ultimate autocompletion
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'   " my little baby - snip snap!
+Plug 'airblade/vim-gitgutter'                         " git in vim
+Plug 'scrooloose/nerdcommenter'                       " Control + / comment
+Plug 'preservim/nerdtree'                             " file browser inside vim
+Plug 'Xuyuanp/nerdtree-git-plugin'                    " git stauts icons in nerdtree
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'        " syntax highlight in nerdtree
+Plug 'ryanoasis/vim-devicons'                         " icons in nerdtree
+Plug 'ctrlpvim/ctrlp.vim'                             " fuzzy find files
+Plug 'Yggdroot/indentLine'                            " lines on indentations
+Plug 'dracula/vim', { 'as': 'dracula' }               " colortheme
+Plug 'bling/vim-airline'                              " powerfull statusbar
+Plug 'AndrewRadev/tagalong.vim'                       " auto change both tags  
+Plug 'mattn/emmet-vim'                                " good old emmet
+Plug 'HerringtonDarkholme/yats.vim'                   " TS Syntax
+Plug 'mxw/vim-jsx'                                    " jsx syntax highlight
+Plug 'pangloss/vim-javascript'                        " js syntax highlight
+Plug 'PotatoesMaster/i3-vim-syntax'                   " i3 config syntax highlight
+Plug 'styled-components/vim-styled-components'        " styled components syntax highlight
+Plug 'prettier/vim-prettier', { 'do': 'npm install' } " not just prettier
 
 call plug#end()
 
@@ -39,6 +40,7 @@ call plug#end()
 " Basics
 set encoding=utf-8
 set mouse=a
+set clipboard=unnamedplus
 
 " Open new splits at the bottom right
 set splitbelow splitright
@@ -49,10 +51,16 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Save as root when needed
 cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
+" Prettier format on save
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
+
 " Rice
 colorscheme dracula
-hi Normal guibg=NONE ctermbg=NONE
-
+:set cursorline 
+highlight Normal guibg=NONE ctermbg=NONE
+highlight CursorLine guibg=238 ctermbg=238
+ 
 " Move trought windows
 nnoremap <leader>ww <C-W>W
 
@@ -82,7 +90,7 @@ vnoremap <A-Up> :m '<-2<CR>gv=gv
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-Down> :m '>+1<CR>gv=gv
 
-" Cose and save
+" Close and save
 nnoremap <leader>wq ZZ
 nnoremap <leader>wc ZQ
 
@@ -100,14 +108,17 @@ tnoremap <C-v><Esc> <Esc>
 
 " Buffers
 nmap <leader>bb :bn<CR>
+nmap <leader>bp :bp<CR>
+nmap <leader>bs :w<CR>
 nmap <leader>b :b
 
 " Explore files
 nmap <leader>. :Explore<CR>
 
 inoremap jk <ESC>
-nmap <leader>op :NERDTreeToggle<CR>
-au VimEnter *  NERDTree " Auto nerdtree
+nmap <silent> <leader>op :NERDTreeToggle<CR>
+
+"au VimEnter *  NERDTree " Auto nerdtree
 autocmd VimEnter * execute("normal \<C-w>W")
 
 " Control/ to comment"
@@ -171,35 +182,14 @@ set smarttab
 set cindent
 set tabstop=2
 set shiftwidth=2
-" always uses spaces instead of tab characters
-set expandtab
+set expandtab " always uses spaces instead of tab characters
 
-" colorscheme gruvbox
-
-" sync open file with NERDTree
-" " Check if NERDTree is open or active
-function! IsNERDTreeOpen()
-  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
-endfunction
-
-" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
-" file, and we're not in vimdiff
-function! SyncTree()
-  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
-    NERDTreeFind
-    wincmd p
-  endif
-endfunction
-
-" Highlight currently open buffer in NERDTree
-autocmd BufEnter * call SyncTree()
-
+"\ 'coc-eslint',
 " coc config
 let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-pairs',
   \ 'coc-tsserver',
-  \ 'coc-eslint',
   \ 'coc-prettier',
   \ 'coc-json',
   \ 'coc-css',
@@ -309,19 +299,19 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Using CocList
 " Show all diagnostics
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <leader>cd  :<C-u>CocList diagnostics<cr>
 " Manage extensions
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+nnoremap <silent> <leader>ce  :<C-u>CocList extensions<cr>
 " Show commands
-nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+nnoremap <silent> <leader>cc  :<C-u>CocList commands<cr>
 " Find symbol of current document
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+nnoremap <silent> <leader>co  :<C-u>CocList outline<cr>
 " Search workspace symbols
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent> <leader>cs  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
-nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+nnoremap <silent> <leader>cj  :<C-u>CocNext<CR>
 " Do default action for previous item.
-nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+nnoremap <silent> <leader>ck  :<C-u>CocPrev<CR>
 " Resume latest coc list
-nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+nnoremap <silent> <leader>cr  :<C-u>CocListResume<CR>
 

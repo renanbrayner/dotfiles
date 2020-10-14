@@ -1,4 +1,10 @@
-# Minhas edições
+
+# ███████╗███████╗██╗  ██╗
+# ╚══███╔╝██╔════╝██║  ██║
+#   ███╔╝ ███████╗███████║
+#  ███╔╝  ╚════██║██╔══██║
+# ███████╗███████║██║  ██║ CONFIG FILE
+# ╚══════╝╚══════╝╚═╝  ╚═╝ BY: github.com/renanbrayner
 
 ## Rice
 ZSH_THEME="powerlevel9k/powerlevel9k"
@@ -6,7 +12,6 @@ POWERLEVEL9K_MODE="awesome-fontconfig"
 
 ## Alias
 alias vim='nvim'
-alias c='cd ~/code/learn/c'
 alias learn='cd ~/code/learn'
 alias rm='rm -i'
 alias mv='mv -i'
@@ -15,13 +20,14 @@ alias la='ls -A'
 alias neofetch='neofetch --kitty ~/.config/assets/neofetch/045-dracula.svg --size 30%'
 alias susp='systemctl suspend'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
+alias airbnb='npm install --save-dev eslint-config-airbnb eslint eslint-plugin-jsx-a11y eslint-plugin-import eslint-plugin-react eslint-plugin-react-hooks'
 
 ## EXPORTS
 export EDITOR='nvim'
 
 ### CLEANUP
 export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
-export LESSHISTFILE=" "
+export LESSHISTFILE="-"
 export ZSH="$HOME/.config/oh-my-zsh"
 export ZSH_CACHE_DIR="$HOME/.config/oh-my-zsh/cache"
 

@@ -15,8 +15,11 @@ settings:
     global: false
   content.media.audio_capture:
     https://discord.com: true
+    https://web.whatsapp.com: true
   content.media.video_capture:
     https://web.whatsapp.com: true
+  content.mouse_lock:
+    https://www.figma.com: true
   content.notifications:
     https://www.bennish.net: true
   content.register_protocol_handler:

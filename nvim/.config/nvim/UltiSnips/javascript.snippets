@@ -145,13 +145,15 @@ display: grid;
 endsnippet
 
 snippet edf "export default function Function() {...}" b
-export default function ${1}() {
+function ${1}() {
 	return (
 		<div>
 			<h1>$1 Works!</h1>
 		</div>
 	);
 }
+
+export default $1
 endsnippet
 
 snippet stjsx "<style jsx>{`...`}</style>" b
@@ -173,11 +175,17 @@ endsnippet
 
 # STYLED COMPONENTS
 snippet styled "import styled from 'styled-components'..." b
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-export const Container = styled.div\`
+const Container = styled.div\`
 	${1}
-\`;
+\`
+
+export default Container
+endsnippet
+
+snippet Cont "Description" b
+import Container from './styles';
 endsnippet
 #ABNT
 

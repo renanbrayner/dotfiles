@@ -1,14 +1,7 @@
 {
   "suggest.noselect": false,
-  "coc.preferences.formatOnSaveFiletypes": [
-    "javascript",
-    "typescript",
-    "typescriptreact",
-    "json",
-    "javascriptreact",
-    "typescript.tsx",
-    "graphql"
-  ],
+  "eslint.enable": false,
+  "eslint.autoFixOnSave": true,
   "eslint.filetypes": [
     "javascript",
     "javascriptreact",
@@ -16,11 +9,6 @@
     "typescriptreact"
   ],
   "prettier.singleQuote": true,
-  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,7
-  "styled-components.tags": [
-    "styled",
-    "css",
-    "sty",
-    "createGlobalStyle"
-  ]
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+  "styled-components.tags": ["styled", "css", "sty", "createGlobalStyle"]
 }
