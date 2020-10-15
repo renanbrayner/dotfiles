@@ -6,13 +6,12 @@
 " ╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝ BY: github.com/renanbrayner
 
 
-let mapleader =" " " Dont know if its a good idea
+let mapleader =" "                                    " Dont know if its a good idea
  
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}       " ultimate autocompletion
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'   " my little baby - snip snap!
-Plug 'airblade/vim-gitgutter'                         " git in vim
 Plug 'scrooloose/nerdcommenter'                       " Control + / comment
 Plug 'preservim/nerdtree'                             " file browser inside vim
 Plug 'Xuyuanp/nerdtree-git-plugin'                    " git stauts icons in nerdtree
@@ -24,12 +23,17 @@ Plug 'dracula/vim', { 'as': 'dracula' }               " colortheme
 Plug 'bling/vim-airline'                              " powerfull statusbar
 Plug 'AndrewRadev/tagalong.vim'                       " auto change both tags  
 Plug 'mattn/emmet-vim'                                " good old emmet
-Plug 'HerringtonDarkholme/yats.vim'                   " TS Syntax
-Plug 'mxw/vim-jsx'                                    " jsx syntax highlight
-Plug 'pangloss/vim-javascript'                        " js syntax highlight
-Plug 'PotatoesMaster/i3-vim-syntax'                   " i3 config syntax highlight
-Plug 'styled-components/vim-styled-components'        " styled components syntax highlight
 Plug 'prettier/vim-prettier', { 'do': 'npm install' } " not just prettier
+Plug 'PotatoesMaster/i3-vim-syntax'                   " i3 config syntax highlight
+Plug 'HerringtonDarkholme/yats.vim'                   " ts Syntax
+Plug 'pangloss/vim-javascript'                        " js syntax highlight
+Plug 'mxw/vim-jsx'                                    " jsx syntax highlight
+Plug 'evanleck/vim-svelte'                            " svelte syntax highlight
+Plug 'styled-components/vim-styled-components'        " styled components syntax highlight (NEEDED EVEN WITH COC)
+
+" ----HACK----
+" installed this way instead of with CocInstall to prevent server crashing with typescript
+Plug 'coc-extensions/coc-svelte',{'do': 'yarn install --frozen-lockfile'}
 
 call plug#end()
 
@@ -80,10 +84,11 @@ nnoremap <A-Up> :m .-2<CR>==
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-Down> :m .+1<CR>==
 
-inoremap <A-k> :m .-2<CR>==gi
-inoremap <A-Up> :m .-2<CR>==gi
-inoremap <A-j> :m .+1<CR>==gi
-inoremap <A-Down> :m .+1<CR>==gi
+"TODO FIX THIS SH*T
+"inoremap <A-k> :m .-2<CR>==gi
+"inoremap <A-Up> :m .-2<CR>==gi
+"inoremap <A-j> :m .+1<CR>==gi
+"inoremap <A-Down> :m .+1<CR>==gi
 
 vnoremap <A-k> :m '<-2<CR>gv=gv
 vnoremap <A-Up> :m '<-2<CR>gv=gv
@@ -184,8 +189,6 @@ set tabstop=2
 set shiftwidth=2
 set expandtab " always uses spaces instead of tab characters
 
-"\ 'coc-eslint',
-" coc config
 let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-pairs',
@@ -303,7 +306,7 @@ nnoremap <silent> <leader>cd  :<C-u>CocList diagnostics<cr>
 " Manage extensions
 nnoremap <silent> <leader>ce  :<C-u>CocList extensions<cr>
 " Show commands
-nnoremap <silent> <leader>cc  :<C-u>CocList commands<cr>
+nnoremap <silent> <leader>cl  :<C-u>CocList commands<cr>
 " Find symbol of current document
 nnoremap <silent> <leader>co  :<C-u>CocList outline<cr>
 " Search workspace symbols

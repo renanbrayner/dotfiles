@@ -1,6 +1,10 @@
-getopt
+header
+background
+margin
+main
 fori
 diso
+getopt
 snippet
 class
 BSD4
@@ -16,7 +20,6 @@ box
 pos
 printf
 cout
-main
 GPL2
 i
 ret

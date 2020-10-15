@@ -21,7 +21,7 @@ vol () {
   fi
 
   notify-send "Volume $message by 10%" "Current volume: $vol%" --icon=$icon --expire-time=900
-  mpv /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
+  cvlc --play-and-exit /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
 }
 
 #!/bin/bash
