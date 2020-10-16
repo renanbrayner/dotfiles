@@ -52,7 +52,7 @@ window {
     background-color:               @background;
     text-color:                     @foreground;
     border:                  		    0px;
-    border-radius:                  0px;
+    border-radius: 0;
     border-color:                  	@border;
     height:                         190px;
     width:                          100%;
@@ -76,7 +76,7 @@ inputbar {
     text-color:                     @foreground;
     expand:                         false;
     border:                  		0px 0px 2px 0px;
-    border-radius:                  8px;
+    border-radius: 0;
     border-color:                  	@border;
     margin:                         10px 73% 0px 5px;
     padding:                        6px 6px -4px 6px;
@@ -121,7 +121,7 @@ element {
     background-color:               @background;
     text-color:                     @foreground;
     orientation:                    vertical;
-    border-radius:                  8px;
+    border-radius: 0;
     margin:                         0px 5px 0px 5px;
     padding:                        10px 0px 10px 0px;
 }
@@ -142,7 +142,7 @@ element normal.urgent,
 element alternate.urgent {
     background-color:               @urgent;
     text-color:                     @foreground;
-    border-radius:                  8px;
+    border-radius: 0;
 }
 
 element normal.active,
@@ -155,7 +155,7 @@ element selected {
     background-color:               @selected;
     text-color:                     @foreground;
     border:                  		0px 0px 3px 0px;
-    border-radius:                  8px;
+    border-radius: 0;
     border-color:                  	@border-sel;
 }
 

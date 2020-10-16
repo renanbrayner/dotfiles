@@ -17,6 +17,15 @@
 set $mod Mod4
 set $terminal kitty
 
+# COLORS                  IDK      BORDER   TEXT     INDICATOR
+client.focused            #282a36  #bd93f9  #f8f8f2  #ff79c6
+client.unfocused          #282a36  #282a36  #f8f8f2  #44475a
+client.focused_inactive   #282a36  #44475a  #f8f8f2  #6272a4
+client.urgent             #282a36  #f1fa8c  #f8f8f2  #ffb86c
+client.placeholder        #282a36  #6272a4  #f8f8f2  #8be9fd
+
+client.background         #bd93f9
+
 # Use mod (set to super by default) to move and resize floting windows
 floating_modifier $mod
 
@@ -39,10 +48,10 @@ bindsym $mod+d exec ~/.config/rofi/launchers-git/launcher.sh
 bindsym $mod+Shift+d exec ~/.config/rofi/scripts/run.sh
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -51,10 +60,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -63,16 +72,17 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+#bindsym $mod+h split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+#bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
 # i dont use stacking or tabbed layout
-bindsym $mod+e layout toggle split
+bindsym $mod+Shift+e layout toggle split
+bindsym $mod+e split toggle
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -138,7 +148,8 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+# This is handled by rofi scripts
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -148,16 +159,16 @@ mode "resize" {
 # Pressing right will grow the window’s width.
 # Pressing up will shrink the window’s height.
 # Pressing down will grow the window’s height.
-  bindsym j resize shrink width 10 px or 10 ppt
-  bindsym k resize grow height 10 px or 10 ppt
-  bindsym l resize shrink height 10 px or 10 ppt
-  bindsym semicolon resize grow width 10 px or 10 ppt
+  bindsym h resize shrink width 2 px or 2 ppt
+  bindsym k resize grow height 2 px or 2 ppt
+  bindsym j resize shrink height 2 px or 2 ppt
+  bindsym l resize grow width 2 px or 2 ppt
 
 # same bindings, but for the arrow keys
-  bindsym Left resize shrink width 5 px or 5 ppt
-  bindsym Down resize grow height 5 px or 5 ppt
-  bindsym Up resize shrink height 5 px or 5 ppt
-  bindsym Right resize grow width 5 px or 5 ppt
+  bindsym Left resize shrink width 2 px or 2 ppt
+  bindsym Up resize grow height 2 px or 2 ppt
+  bindsym Down resize shrink height 2 px or 2 ppt
+  bindsym Right resize grow width 2 px or 2 ppt
 
 # back to normal: Enter or Escape or $mod+r
   bindsym Return mode "default"
@@ -168,16 +179,15 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # gaps, top needs to give space to bar
-gaps inner 6
-gaps top 31
+gaps inner 0
 
 # titleless
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 2
 for_window [title="^DevTools - "] floating enable
 for_window [title="^devtools:"] floating enable
 
 # my bindings
-bindsym $mod+shift+h exec ~/.config/i3/scripts/help.sh                         #notificação com ajuda
+bindsym Control+h exec ~/.config/i3/scripts/help.sh                         #notificação com ajuda
 bindsym $mod+w exec chromium                                                     #navegador programar
 bindsym $mod+shift+w exec qutebrowser                                            #navegador principal
 bindsym $mod+shift+m exec ~/.config/i3/scripts/monitor.sh              #multihead
@@ -205,7 +215,7 @@ bindsym --release $mod+Control+Print exec ~/.config/i3/scripts/screenshot.bash -
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork   #idon't use i3lock but...idk
 exec --no-startup-id nm-applet                                           #idon't use tray too
 exec_always --no-startup-id ~/.fehbg &                                   #background
-exec_always --no-startup-id picom &                                      #compositor
+exec_always --no-startup-id killall picom & sleep 0.2 && picom &          #compositor
 exec_always --no-startup-id ~/.config/polybar/launch.sh                  #status bar
 exec --no-startup-id xrdb -load ~/.Xresources                            #load xresources
 #exec --IMPORTANT--
@@ -213,6 +223,6 @@ exec --no-startup-id setxkbmap -layout br &                              #teclad
 exec --no-startup-id xinput set-prop 9 313 1 &                           #tap to click
 
 #fibonacci pseudo layout
-default_orientation vertical
+default_orientation horizontal
 for_window [class=".*"] split t
 bindsym $mod+shift+q split t kill

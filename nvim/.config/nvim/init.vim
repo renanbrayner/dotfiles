@@ -1,3 +1,4 @@
+
 " ███╗   ██╗██╗   ██╗██╗███╗   ███╗
 " ████╗  ██║██║   ██║██║████╗ ████║
 " ██╔██╗ ██║██║   ██║██║██╔████╔██║
@@ -6,10 +7,9 @@
 " ╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝ BY: github.com/renanbrayner
 
 
-let mapleader =" "                                    " Dont know if its a good idea
- 
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
 
+Plug 'lambdalisue/suda.vim'                           " sudo powers
 Plug 'neoclide/coc.nvim', {'branch': 'release'}       " ultimate autocompletion
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'   " my little baby - snip snap!
 Plug 'scrooloose/nerdcommenter'                       " Control + / comment
@@ -19,6 +19,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'        " syntax highlight in nerd
 Plug 'ryanoasis/vim-devicons'                         " icons in nerdtree
 Plug 'ctrlpvim/ctrlp.vim'                             " fuzzy find files
 Plug 'Yggdroot/indentLine'                            " lines on indentations
+Plug 'mhinz/vim-startify'                             " fancy start page
 Plug 'dracula/vim', { 'as': 'dracula' }               " colortheme
 Plug 'bling/vim-airline'                              " powerfull statusbar
 Plug 'AndrewRadev/tagalong.vim'                       " auto change both tags  
@@ -29,31 +30,153 @@ Plug 'HerringtonDarkholme/yats.vim'                   " ts Syntax
 Plug 'pangloss/vim-javascript'                        " js syntax highlight
 Plug 'mxw/vim-jsx'                                    " jsx syntax highlight
 Plug 'evanleck/vim-svelte'                            " svelte syntax highlight
-Plug 'styled-components/vim-styled-components'        " styled components syntax highlight (NEEDED EVEN WITH COC)
+Plug 'styled-components/vim-styled-components'        " styled components syntax highlight
+Plug 'ap/vim-css-color'                               " colors syntax highlight ?
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] } " show command completion at bottom
 
 " ----HACK----
 " installed this way instead of with CocInstall to prevent server crashing with typescript
 Plug 'coc-extensions/coc-svelte',{'do': 'yarn install --frozen-lockfile'}
+" which_key#register function needs this to work
+autocmd User vim-which-key call which_key#register('<Space>', 'g:which_key_map')
 
 call plug#end()
 
 " ----MY CONFIGS----
-" caso eu precise utilizar um live server
-" lembrar $ npm install -g browser-sync
+" Wichkey and leader stuff
+let mapleader ="\<Space>"
+
+nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
+vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
+ 
+let g:which_key_disable_default_offset = 1
+let g:which_key_use_floating_win = 1
+
+let g:which_key_map =  {}
+
+" My bindings
+" windows
+"nnoremap <leader>ww <C-W>W 
+
+"nnoremap <leader>wh <C-W>h
+"nnoremap <leader>wj <C-W>j
+"nnoremap <leader>wk <C-W>k
+"nnoremap <leader>wl <C-W>l
+
+"nnoremap <leader>wv <C-W>v
+"nnoremap <leader>ws <C-W>s
+"nnoremap <leader>w= <C-W>=
+"nnoremap <leader>wm <C-W>_
+
+"nnoremap <leader>wq ZQ
+"nnoremap <leader>wc ZZ
+
+nnoremap <leader>w<Left> <C-W>h
+nnoremap <leader>w<Down> <C-W>j
+nnoremap <leader>w<Up> <C-W>k
+nnoremap <leader>w<Right> <C-W>l
+
+let g:which_key_map.w = {
+  \ 'name' : '+windows' ,
+  \ 'w' : ['<C-W>W'     , 'other-window']          ,
+  \ 'd' : ['<C-W>c'     , 'delete-window']         ,
+  \ 's' : ['<C-W>s'     , 'split-window-below']    ,
+  \ 'v' : ['<C-W>v'     , 'split-window-aside']    ,
+  \ 'h' : ['<C-W>h'     , 'window-left']           ,
+  \ 'j' : ['<C-W>j'     , 'window-below']          ,
+  \ 'l' : ['<C-W>l'     , 'window-right']          ,
+  \ 'k' : ['<C-W>k'     , 'window-up']             ,
+  \ 'H' : ['<C-W>5<'    , 'expand-window-left']    ,
+  \ 'J' : [':resize +5' , 'expand-window-below']   ,
+  \ 'L' : ['<C-W>5>'    , 'expand-window-right']   ,
+  \ 'K' : [':resize -5' , 'expand-window-up']      ,
+  \ '=' : ['<C-W>='     , 'balance-window']        ,
+  \ 'm' : ['<C-W>_'     , 'maximaze-window']       ,
+  \ 'q' : ['ZQ'         , 'close-window']          ,
+  \ 'c' : ['ZZ'         , 'save-and-close-window'] ,
+  \}
+
+" Open Stuff
+"nnoremap <leader>ot :10sp\|:term<CR>
+"nmap <silent> <leader>op :NERDTreeToggle<CR>
+
+let g:which_key_map.o = {
+      \ 'name' : '+open' ,
+      \ 't' : [':call ChooseTerm("term-slider", 1)<CR>', 'open-terminal-split'] ,
+      \ 'p' : [':NERDTreeToggle' , 'open-nerdtree']       ,
+      \}
+
+" Close terminal
+tnoremap <Esc> <C-\><C-n>
+tnoremap <C-v><Esc> <Esc>
+
+" Buffers
+"nmap <leader>bb :bn<CR>
+"nmap <leader>bp :bp<CR>
+"nmap <leader>bd :bdelete<CR>
+"nmap <leader>bl :buffers<CR>
+"nmap <leader>bs :w<CR>
+nmap <leader>bc :b
+
+let g:which_key_map.b = {
+      \ 'name' : '+buffers'  ,
+      \ 'b' : [':call NextBufferTab()'     , 'buffer-next']     ,
+      \ 'p' : [':call PrevBufferTab()'     , 'buffer-previous'] ,
+      \ 'd' : [':bdelete', 'buffer-delete']   ,
+      \ 't' : [':bdelete! term-slider', 'buffer-terminal-delete']   ,
+      \ 'l' : [':buffers', 'buffer-list-all'] ,
+      \ 's' : [':w'      , 'buffer-save']     ,
+      \ 'c' : 'buffer-command'                    ,
+      \}
+
+" Vim
+"nmap <leader>vq :qa!<CR>
+"nmap <leader>vc :wqa<CR>
+"nmap <leader>vs :wa<CR>
+"nmap <leader>vr :source ~/.config/nvim/init.vim<CR>
+
+let g:which_key_map.v = {
+      \ 'name' : 'vim',
+      \ 'q': [':qa!<CR>', 'vim-exit'],
+      \ 'c': [':wqa<CR>', 'vim-save-and-exit'],
+      \ 's': [':wa<CR>', 'vim-save'],
+      \ 'r': [':source ~/.config/nvim/init.vim', 'vim-reload-config'],
+      \}
+
+" Explore files
+nmap <leader>. :Explore<CR>
+
+" Move line up/down
+nnoremap <A-k> :m .-2<CR>==
+nnoremap <A-Up> :m .-2<CR>==
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-Down> :m .+1<CR>==
+
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+inoremap <A-Up> <Esc>:m .-2<CR>==gi
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-Down> <Esc>:m .+1<CR>==gi
+
+vnoremap <A-k> :m '<-2<CR>gv=gv
+vnoremap <A-Up> :m '<-2<CR>gv=gv
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-Down> :m '>+1<CR>gv=gv
 
 " Basics
 set encoding=utf-8
 set mouse=a
 set clipboard=unnamedplus
-
-" Open new splits at the bottom right
 set splitbelow splitright
+
 
 " No autocomment new line
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Save as root when needed
-cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+
+" Make control p faster
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " Prettier format on save
 let g:prettier#autoformat = 0
@@ -65,63 +188,9 @@ colorscheme dracula
 highlight Normal guibg=NONE ctermbg=NONE
 highlight CursorLine guibg=238 ctermbg=238
  
-" Move trought windows
-nnoremap <leader>ww <C-W>W
 
-nnoremap <leader>wh <C-W>h
-nnoremap <leader>wj <C-W>j
-nnoremap <leader>wk <C-W>k
-nnoremap <leader>wl <C-W>l
-
-nnoremap <leader>w<Left> <C-W>h
-nnoremap <leader>w<Down> <C-W>j
-nnoremap <leader>w<Up> <C-W>k
-nnoremap <leader>w<Right> <C-W>l
-
-" Move line up/down
-nnoremap <A-k> :m .-2<CR>==
-nnoremap <A-Up> :m .-2<CR>==
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-Down> :m .+1<CR>==
-
-"TODO FIX THIS SH*T
-"inoremap <A-k> :m .-2<CR>==gi
-"inoremap <A-Up> :m .-2<CR>==gi
-"inoremap <A-j> :m .+1<CR>==gi
-"inoremap <A-Down> :m .+1<CR>==gi
-
-vnoremap <A-k> :m '<-2<CR>gv=gv
-vnoremap <A-Up> :m '<-2<CR>gv=gv
-vnoremap <A-j> :m '>+1<CR>gv=gv
-vnoremap <A-Down> :m '>+1<CR>gv=gv
-
-" Close and save
-nnoremap <leader>wq ZZ
-nnoremap <leader>wc ZQ
-
-" Split
-nnoremap <leader>wv <C-W>v
-nnoremap <leader>ws <C-W>s
-nnoremap <leader>w= <C-W>=
-nnoremap <leader>wm <C-W>_
-
-" Open terminal bellow
-nnoremap <leader>t :10sp\|:term<CR>
-" Close terminal
-tnoremap <Esc> <C-\><C-n>
-tnoremap <C-v><Esc> <Esc>
-
-" Buffers
-nmap <leader>bb :bn<CR>
-nmap <leader>bp :bp<CR>
-nmap <leader>bs :w<CR>
-nmap <leader>b :b
-
-" Explore files
-nmap <leader>. :Explore<CR>
-
-inoremap jk <ESC>
-nmap <silent> <leader>op :NERDTreeToggle<CR>
+" airline tabs
+let g:airline#extensions#tabline#enabled = 1
 
 "au VimEnter *  NERDTree " Auto nerdtree
 autocmd VimEnter * execute("normal \<C-w>W")
@@ -141,9 +210,68 @@ let g:airline_powerline_fonts = 1
 
 " NERDTree
 let NERDTreeMinimalUI=1
+let NERDTreeWinPos="right"
 
 " Live substitute preview
 set inccommand=nosplit
+
+" Startify
+autocmd VimEnter *
+            \   if !argc()
+            \ |   Startify
+            \ |   NERDTree
+            \ |   wincmd w
+            \ | endif
+autocmd User StartifyBufferOpened :NERDTreeClose
+
+function! s:gitModified()
+    let files = systemlist('git ls-files -m 2>/dev/null')
+    return map(files, "{'line': v:val, 'path': v:val}")
+endfunction
+
+" same as above, but show untracked files, honouring .gitignore
+function! s:gitUntracked()
+    let files = systemlist('git ls-files -o --exclude-standard 2>/dev/null')
+    return map(files, "{'line': v:val, 'path': v:val}")
+endfunction
+
+function! s:nerdtreeBookmarks()
+    let bookmarks = systemlist("cut -d' ' -f 2 ~/.NERDTreeBookmarks")
+    let bookmarks = bookmarks[0:-2] " Slices an empty last line
+    return map(bookmarks, "{'line': v:val, 'path': v:val}")
+endfunction
+
+let g:startify_padding_left = 3
+
+let g:startify_lists = [
+        \ { 'type': 'files',     'header': ['   Most recently used files']},
+        \ { 'type': 'dir',       'header': ['   Most recently used files in '. getcwd()] },
+        \ { 'type': 'sessions',  'header': ['   Sessions']       },
+        \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+        \ { 'type': function('s:gitModified'),  'header': ['   git modified']},
+        \ { 'type': function('s:gitUntracked'), 'header': ['   git untracked']},
+        \ { 'type': 'commands',  'header': ['   Commands']       },
+        \ { 'type': function('s:nerdtreeBookmarks'), 'header': ['   NERDTree bookmarks']}
+        \ ]
+
+let g:startify_custom_header = [ 
+      \ '   ██████╗     ███████╗    ███╗   ██╗     █████╗    ███╗   ██╗',
+      \ '   ██╔══██╗    ██╔════╝    ████╗  ██║    ██╔══██╗   ████╗  ██║',
+      \ '   ██████╔╝    █████╗      ██╔██╗ ██║    ███████║   ██╔██╗ ██║',
+      \ '   ██╔══██╗    ██╔══╝      ██║╚██╗██║    ██╔══██║   ██║╚██╗██║',
+      \ '   ██║  ██║    ███████╗    ██║ ╚████║    ██║  ██║   ██║ ╚████║',
+      \ '   ╚═╝  ╚═╝    ╚══════╝    ╚═╝  ╚═══╝    ╚═╝  ╚═╝   ╚═╝  ╚═══╝',
+      \ '   ██████╗ ██████╗  █████╗ ██╗   ██╗███╗   ██╗███████╗██████╗ ',
+      \ '   ██╔══██╗██╔══██╗██╔══██╗╚██╗ ██╔╝████╗  ██║██╔════╝██╔══██╗',
+      \ '   ██████╔╝██████╔╝███████║ ╚████╔╝ ██╔██╗ ██║█████╗  ██████╔╝',
+      \ '   ██╔══██╗██╔══██╗██╔══██║  ╚██╔╝  ██║╚██╗██║██╔══╝  ██╔══██╗',
+      \ '   ██████╔╝██║  ██║██║  ██║   ██║   ██║ ╚████║███████╗██║  ██║',
+      \ '   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝',
+      \ '   - PORTFOLIO:  renanbrayner.vercel.app',
+      \ '   - GITHUB:     github.com/renanbrayner',
+      \ '   - INSTAGRAM:  @renan.brayner',
+      \ '   - LINKEDIN:   linkedin.com/in/renanbrayner',
+      \ ] 
 
 " ----END OF MY CONFIGS----
 
@@ -285,8 +413,8 @@ omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
 
 " Use <C-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-nmap <silent> <C-d> <Plug>(coc-range-select)
-xmap <silent> <C-d> <Plug>(coc-range-select)
+nmap <silent> <leader>cr <Plug>(coc-range-select)
+xmap <silent> <leader>cr <Plug>(coc-range-select)
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
@@ -316,5 +444,48 @@ nnoremap <silent> <leader>cj  :<C-u>CocNext<CR>
 " Do default action for previous item.
 nnoremap <silent> <leader>ck  :<C-u>CocPrev<CR>
 " Resume latest coc list
-nnoremap <silent> <leader>cr  :<C-u>CocListResume<CR>
+"nnoremap <silent> <leader>cr  :<C-u>CocListResume<CR>
 
+" Terminal configuration
+let g:airline#extensions#tabline#ignore_bufadd_pat = 'gundo|undotree|vimfiler|tagbar|nerd_tree|startify|!|term'
+
+au BufEnter * if &buftype == 'terminal' | startinsert | else | stopinsert | endif
+function! PrevBufferTab()
+  bprev
+  if &buftype == 'terminal'
+    bprev
+  endif
+endfunction
+function! NextBufferTab()
+  bnext
+  if &buftype == 'terminal'
+    bnext
+  endif
+endfunction
+
+
+function! ChooseTerm(termname, slider)
+    let pane = bufwinnr(a:termname)
+    let buf = bufexists(a:termname)
+    if pane > 0
+        " pane is visible
+        if a:slider > 0
+              :exe pane . "wincmd c"
+        else
+            :exe "e #" 
+        endif
+    elseif buf > 0
+        " buffer is not in pane
+        if a:slider
+            :exe "botright 10sp"
+        endif
+        :exe "buffer " . a:termname
+    else
+        " buffer is not loaded, create
+        if a:slider
+            :exe "botright 10sp"
+        endif
+        :terminal
+        :exe "f " a:termname
+    endif
+endfunction

@@ -41,63 +41,11 @@ alert = #f1fa8c
 
 [bar/top]
 monitor = ${env:MONITOR:HDMI1}
-width = 99.35%
-height = 27
-offset-x = 0.32%
-offset-y = 0.5%
-; radius = 8.0
-fixed-center = true
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-line-size = 2
-line-color = #f00
-
-;border-size = 6
-; border-color = #3B4252
-border-color = #002E3440
-
-padding-left = 0
-padding-right = 2
-
-module-margin-left = 0
-module-margin-right = 1
-
-font-0 = "Fira Code:pixelsize=9;1"
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=9;1
-
-modules-left = i3
-modules-center = xwindow
-modules-right = xbacklight pulseaudio memory cpu wlan eth battery date powermenu
-
-tray-position = none
-tray-padding = 2
-;tray-background = #0063ff
-
-;wm-restack = bspwm
-wm-restack = i3
-
-override-redirect = true
-
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
-
-cursor-click = pointer
-cursor-scroll = ns-resize
-
+inherit = bar/bottom
 
 [bar/bottom]
-;monitor = ${env:MONITOR:eDP-1}
-width = 99.1%
+width = 100%
 height = 27
-offset-x = 0.45%
-offset-y = 0.6%
-; radius = 8.0
 fixed-center = true 
 
 background = ${colors.background}
@@ -106,9 +54,8 @@ foreground = ${colors.foreground}
 line-size = 2
 line-color = #f00
 
-;border-size = 6
-; border-color = #3B4252
-border-color = #002E3440
+border-size = 2
+border-color = #282a36
 
 padding-left = 0
 padding-right = 2
@@ -126,18 +73,10 @@ modules-right = xbacklight pulseaudio memory cpu wlan eth battery date powermenu
 
 tray-position = none
 tray-padding = 2
-;tray-background = #0063ff
 
-;wm-restack = bspwm
 wm-restack = i3
 
-override-redirect = true
-
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
+override-redirect = false
 
 cursor-click = pointer
 cursor-scroll = ns-resize

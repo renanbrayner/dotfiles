@@ -49,7 +49,7 @@
   layout: horizontal;
 }
 #element {
-  border-radius: 8px;
+  border-radius: 0;
   padding: @option-element-padding;
   background-color: @background-light;
 }
@@ -79,13 +79,13 @@ textbox-prompt-colon {
   font: @text-font;
 }
 #prompt {
-  border-radius: 0px 8px 8px 0px;
+  border-radius: 0;
   margin: @menu-prompt-margin;
   background-color: @background-light;
   text-color: @accent;
 }
 #textbox-prompt-colon {
-  border-radius: 8px 0px 0px 8px;
+  border-radius: 0;
   expand: false;
   str: "System";
   background-color: @accent;
