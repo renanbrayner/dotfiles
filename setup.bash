@@ -12,7 +12,7 @@ EOF
 ./stages/prep/backup.bash
 ./stages/packages/yayinstall.bash
 ./stages/packages/packagesinstall.bash
-./stages/configs/stowall.bash
+./stowall.bash
 ./stages/configs/createdirs.bash
 ./stages/theming/icons.bash
 ./stages/theming/theme.bash
