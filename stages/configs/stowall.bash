@@ -18,4 +18,3 @@ stow ~/.dotfiles/qutebrowser
 stow ~/.dotfiles/ranger
 stow ~/.dotfiles/rofi
 stow ~/.dotfiles/vscode
-stow ~/.dotfiles/zsh

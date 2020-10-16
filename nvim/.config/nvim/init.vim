@@ -116,13 +116,13 @@ tnoremap <C-v><Esc> <Esc>
 "nmap <leader>bd :bdelete<CR>
 "nmap <leader>bl :buffers<CR>
 "nmap <leader>bs :w<CR>
-nmap <leader>bc :b
+nmap <leader>bc :b 
 
 let g:which_key_map.b = {
       \ 'name' : '+buffers'  ,
       \ 'b' : [':call NextBufferTab()'     , 'buffer-next']     ,
       \ 'p' : [':call PrevBufferTab()'     , 'buffer-previous'] ,
-      \ 'd' : [':bdelete', 'buffer-delete']   ,
+      \ 'd' : [':bp | bd #', 'buffer-delete']   ,
       \ 't' : [':bdelete! term-slider', 'buffer-terminal-delete']   ,
       \ 'l' : [':buffers', 'buffer-list-all'] ,
       \ 's' : [':w'      , 'buffer-save']     ,

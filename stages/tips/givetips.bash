@@ -12,7 +12,10 @@ Next steps:
   + .config/nvim/init.vim: change the custom header and key bindings.
   + .config/zsh/.zshrc: change aliases.
 
-  This setup lacks a display manager, i recomend lightdm with aether theme.
+  This script lacks:
+  + Display manager: lightdm with https://github.com/NoiSek/Aether recomended.
+  + Shell configuration: run setupzsh.bash after starting xsession if you want.
+  + Other stuff: i usually change the beep sound for the bell sound etc.
 
 -------------------------------------END OF SETUP-------------------------------------
 EOF

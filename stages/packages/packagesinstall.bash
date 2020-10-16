@@ -55,9 +55,11 @@ ttf-nerd-fonts-symbols \
 unzip \
 vlc \
 vulkan-intel \
+wget \
 woff-fira-code \
 woff2-fira-code \
 xclip \
 xf86-video-vesa \
 xorg \
 xorg-xinit \
+zsh \
