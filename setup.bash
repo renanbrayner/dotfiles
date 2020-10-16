@@ -9,6 +9,7 @@ cat << EOF
 
 EOF
 
+./stages/prep/backup.bash
 ./stages/packages/yayinstall.bash
 ./stages/packages/packagesinstall.bash
 ./stages/configs/stowall.bash
