@@ -14,7 +14,8 @@ Comands used:
   mv ~/.config/qutebrowser ~/.config/qutebrowser.backup
   mv ~/.config/ranger ~/.config/ranger.backup
   mv ~/.config/rofi ~/.config/rofi.backup 
-  mv ~/zshrc ~/zshrc.backup
+  mv ~/.themes ~/.themes.backup
+  mv ~/.icons ~/.icons.backup
 
 Warning: if you have any file/folder named the same as any backup it will lost.
 EOF
@@ -31,7 +32,5 @@ mv ~/.config/polybar ~/.config/polybar.backup
 mv ~/.config/qutebrowser ~/.config/qutebrowser.backup
 mv ~/.config/ranger ~/.config/ranger.backup
 mv ~/.config/rofi ~/.config/rofi.backup 
-mv ~/zshrc ~/zshrc.backup
-mv ~/.oh-my-zsh ~/.oh-my-zsh.backup
 mv ~/.themes ~/.themes.backup
 mv ~/.icons ~/.icons.backup
