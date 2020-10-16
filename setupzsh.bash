@@ -1,5 +1,7 @@
 #!/bin/bash
 echo "---- BACKUPING .oh-my-zsh AND .zshrc"
+rm -rf ~/.oh-my-zsh.backup
+rm -rf ~/.zshrc.backup
 mv ~/.oh-my-zsh ~/.oh-my-zsh.backup
 mv ~/.zshrc ~/.zshrc.backup
 
@@ -18,6 +20,7 @@ EOF
 
 echo "---- INSTALLING Oh-my-zsh IN ANOTHER TERMINAL EMULATOR"
 kitty -e sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+rm -rf ~/.zshrc
 
 echo "---- INSTALLING POWERLEVEL9k THEME"
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k

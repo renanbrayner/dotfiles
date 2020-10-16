@@ -17,6 +17,7 @@ Comands used:
 
 EOF
 
+cd ~/.dotfiles
 stow assets
 stow dunst
 stow i3

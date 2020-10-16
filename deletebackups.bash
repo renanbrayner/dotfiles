@@ -14,8 +14,6 @@ Comands used:
   rm -rf ~/.config/qutebrowser.backup
   rm -rf ~/.config/ranger.backup
   rm -rf ~/.config/rofi.backup 
-  rm -rf ~/zshrc.backup
-  rm -rf ~/.oh-my-zsh.backup
   rm -rf ~/.themes.backup
   rm -rf ~/.icons.backup
 
@@ -33,7 +31,5 @@ rm -rf ~/.config/polybar.backup
 rm -rf ~/.config/qutebrowser.backup
 rm -rf ~/.config/ranger.backup
 rm -rf ~/.config/rofi.backup 
-rm -rf ~/zshrc.backup
-rm -rf ~/.oh-my-zsh.backup
 rm -rf ~/.themes.backup
 rm -rf ~/.icons.backup

@@ -10,6 +10,7 @@ Comands used:
 EOF
 
 pacman -S --needed git base-devel
+cd ~
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
