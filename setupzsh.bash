@@ -14,7 +14,7 @@ git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/theme
 
 
 echo "---- STOWING .zshrc"
-stow ~/.dotfiles/zsh
+stow zsh
 
 echo "---- ISNTALLLING ASDF"
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf
