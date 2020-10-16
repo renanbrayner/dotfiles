@@ -54,7 +54,7 @@ window {
     border:                  		    0px;
     border-radius: 0;
     border-color:                  	@border;
-    height:                         125px;
+    height:                         130px;
     width:                          100%;
     location:                       south;
     anchor:                         south;

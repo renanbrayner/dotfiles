@@ -7,15 +7,18 @@
 # ╚═╝╚═════╝  BY: github.com/renanbrayner
 
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
-# monitorsNames: [
-# eDP1,
-# HDMI1
-#]
-#
 
 # Mod set to Super
 set $mod Mod4
+
+# common
 set $terminal kitty
+set $primary_browser chromium
+set $secondary_browser qutebrowser
+
+# xrandr --listmonitors to find out the name of yours
+set $primary_monitor eDP-1
+set $secondary_monitor HDMI-1
 
 # COLORS                  IDK      BORDER   TEXT     INDICATOR
 client.focused            #282a36  #bd93f9  #f8f8f2  #ff79c6
@@ -107,17 +110,16 @@ set $ws9 "9"
 set $ws10 "10"
 
 # set workspaces displays odd = primary, even = secondary
-# xrandr --listmonitors to find out the name of yours
-workspace 1 output eDP1
-workspace 2 output HDMI1
-workspace 3 output eDP1
-workspace 4 output HDMI1
-workspace 5 output eDP1
-workspace 6 output HDMI1
-workspace 7 output eDP1
-workspace 8 output HDMI1
-workspace 9 output eDP1
-workspace 10 output HDMI1
+workspace 1 output $primary_monitor
+workspace 2 output $secondary_monitor
+workspace 3 output $primary_monitor
+workspace 4 output $secondary_monitor
+workspace 5 output $primary_monitor
+workspace 6 output $secondary_monitor
+workspace 7 output $primary_monitor
+workspace 8 output $secondary_monitor
+workspace 9 output $primary_monitor
+workspace 10 output $secondary_monitor
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -187,18 +189,18 @@ for_window [title="^DevTools - "] floating enable
 for_window [title="^devtools:"] floating enable
 
 # my bindings
-bindsym Control+h exec ~/.config/i3/scripts/help.sh                         #notificação com ajuda
-bindsym $mod+w exec chromium                                                     #navegador programar
-bindsym $mod+shift+w exec qutebrowser                                            #navegador principal
+bindsym Control+Shift+h exec ~/.config/i3/scripts/help.sh                         #notificação com ajuda
+bindsym $mod+w exec $primary_browser                                        #navegador programar
+bindsym $mod+shift+w exec $secondary_browser                                            #navegador principal
 bindsym $mod+shift+m exec ~/.config/i3/scripts/monitor.sh              #multihead
 bindsym --release $mod+Escape exec xkill                                         #fechar janela
 bindsym --release $mod+Shift+Escape exec ~/.config/rofi/scripts/powermenu.sh #menu de desligar
 bindsym XF86MonBrightnessUp exec ~/.config/i3/scripts/brightness.bash --up       #brilho
 bindsym XF86MonBrightnessDown exec ~/.config/i3/scripts/brightness.bash --down   #brilho
-bindsym $mod+g exec kitty -e ranger                                              #ranger file manager
-bindsym $mod+y exec kitty -e ytop                                                #gtop system monitor
+bindsym $mod+g exec $terminal -e ranger                                              #ranger file manager
+bindsym $mod+y exec $terminal -e ytop                                                #gtop system monitor
 bindsym $mod+Control+p exec ffmpeg -y -f video4linux2 -s 1280x720 -i /dev/video0 -ss 0:0:1 -frames 1 /tmp/outputphoto.jpg && xclip -selection clipboard -t image/jpg -i /tmp/outputphoto.jpg    #take photo from webcam and copy to clipboard
-bindsym $mod+p exec ffmpeg -y -f video4linux2 -s 1280x720 -i /dev/video0 -ss 0:0:1 -frames 1 ~/Pictures/webcampic/"`date +"%Y-%m-%d_%H:%M:%S"`".png                                             #take photo from webcam and save
+bindsym $mod+p exec ffmpeg -y -f video4linux2 -s 1280x720 -i /dev/video0 -ss 0:0:1 -frames 1 ~/Pictures/webcam/"`date +"%Y-%m-%d_%H:%M:%S"`".png                                             #take photo from webcam and save
 bindsym $mod+n exec kitty -e nmtui
 
 ## screenshots
@@ -215,7 +217,8 @@ bindsym --release $mod+Control+Print exec ~/.config/i3/scripts/screenshot.bash -
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork   #idon't use i3lock but...idk
 exec --no-startup-id nm-applet                                           #idon't use tray too
 exec_always --no-startup-id ~/.fehbg &                                   #background
-exec_always --no-startup-id killall picom & sleep 0.2 && picom &          #compositor
+exec_always --no-startup-id killall picom & sleep 0.2 && picom &         #compositor
+exec_always --no-startup-id dunst &                                      #notifications
 exec_always --no-startup-id ~/.config/polybar/launch.sh                  #status bar
 exec --no-startup-id xrdb -load ~/.Xresources                            #load xresources
 #exec --IMPORTANT--

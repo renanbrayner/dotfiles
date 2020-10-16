@@ -14,8 +14,8 @@
 * {
   /* General */
   text-font:                            "Fira Code 14";
-  icon-font:                            "Hermit Nerd Font Mono 30";
-  icon-font-small:                      "Hermit Nerd Font Mono 24";
+  icon-font:                            "Hurmit Nerd Font Mono 30";
+  icon-font-small:                      "Hurmit Nerd Font Mono 24";
 
   option-6-listview-spacing:            10px;
 
