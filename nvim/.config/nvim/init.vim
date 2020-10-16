@@ -120,7 +120,8 @@ nmap <leader>bc :b
 
 let g:which_key_map.b = {
       \ 'name' : '+buffers'  ,
-      \ 'b' : [':call NextBufferTab()'     , 'buffer-next']     ,
+      \ 'b' : [':CtrlPBuffer'     , 'buffer-next']     ,
+      \ 'n' : [':call NextBufferTab()'     , 'buffer-next']     ,
       \ 'p' : [':call PrevBufferTab()'     , 'buffer-previous'] ,
       \ 'd' : [':bp | bd #', 'buffer-delete']   ,
       \ 't' : [':bdelete! term-slider', 'buffer-terminal-delete']   ,
@@ -140,7 +141,6 @@ let g:which_key_map.v = {
       \ 'q': [':qa!', 'vim-exit'],
       \ 'c': [':wqa', 'vim-save-and-exit'],
       \ 's': [':wa', 'vim-save'],
-      \ 'r': [':source ~/.config/nvim/init.vim', 'vim-reload-config'],
       \}
 
 " Explore files

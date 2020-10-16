@@ -1,8 +1,8 @@
 #!/bin/bash
 cat << EOF
----------------------------------DIRECTORIES CREATION---------------------------------
+------------------------------------STOW ALL FILES------------------------------------
 Comands used:
-  stow ~/.dotfiles/<all folders name>
+  stow ~/.dotfiles/<all folders name> # for each folder except zsh
 
 EOF
 

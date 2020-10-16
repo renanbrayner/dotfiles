@@ -13,4 +13,6 @@ EOF
 ./stages/packages/packagesinstall.bash
 ./stages/configs/stowall.bash
 ./stages/configs/createdirs.bash
+./stages/theming/icons.bash
+./stages/theming/theme.bash
 ./stages/tips/givetips.bash

@@ -14,3 +14,5 @@ EOF
 mkdir ~/Pictures
 mkdir ~/Pictures/screenshots
 mkdir ~/Pictures/webcam
+mkdir ~/.icons
+mkdir ~/.themes
