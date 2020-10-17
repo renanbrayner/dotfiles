@@ -12,7 +12,7 @@
 set $mod Mod4
 
 # common
-set $terminal kitty
+set $terminal alacritty
 set $primary_browser chromium
 set $secondary_browser qutebrowser
 
@@ -44,6 +44,7 @@ bindsym XF86AudioRaiseVolume exec ~/.config/i3/scripts/volume.bash --up
 bindsym XF86AudioLowerVolume exec ~/.config/i3/scripts/volume.bash --down
 bindsym XF86AudioMute exec ~/.config/i3/scripts/mute.bash 
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
 bindsym $mod+Return exec $terminal
 
 # run rofi scripts to exec apps and commands

@@ -5,7 +5,7 @@ Comands used:
   rm -rf ~/.config/assets.backup
   rm -rf ~/.config/dunstrc.backup
   rm -rf ~/.config/i3.backup   
-  rm -rf ~/.config/kitty.backup 
+  rm -rf ~/.config/alacritty.backup 
   rm -rf ~/.config/neofetch.backup
   rm -rf ~/.config/nvim.backup
   rm -rf ~/.config/coc.backup 
@@ -22,7 +22,7 @@ EOF
 rm -rf ~/.config/assets.backup
 rm -rf ~/.config/dunstrc.backup
 rm -rf ~/.config/i3.backup   
-rm -rf ~/.config/kitty.backup 
+rm -rf ~/.config/alacritty.backup 
 rm -rf ~/.config/neofetch.backup
 rm -rf ~/.config/nvim.backup
 rm -rf ~/.config/coc.backup 

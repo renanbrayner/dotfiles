@@ -5,7 +5,7 @@ Comands used:
   mv ~/.config/assets ~/.config/assets.backup
   mv ~/.config/dunstrc ~/.config/dunstrc.backup
   mv ~/.config/i3 ~/.config/i3.backup   
-  mv ~/.config/kitty ~/.config/kitty.backup 
+  mv ~/.config/alacritty ~/.config/alacritty.backup 
   mv ~/.config/neofetch ~/.config/neofetch.backup
   mv ~/.config/nvim ~/.config/nvim.backup
   mv ~/.config/coc ~/.config/coc.backup 
@@ -23,7 +23,7 @@ EOF
 mv ~/.config/assets ~/.config/assets.backup
 mv ~/.config/dunstrc ~/.config/dunstrc.backup
 mv ~/.config/i3 ~/.config/i3.backup   
-mv ~/.config/kitty ~/.config/kitty.backup 
+mv ~/.config/alacritty ~/.config/alacritty.backup 
 mv ~/.config/neofetch ~/.config/neofetch.backup
 mv ~/.config/nvim ~/.config/nvim.backup
 mv ~/.config/coc ~/.config/coc.backup 

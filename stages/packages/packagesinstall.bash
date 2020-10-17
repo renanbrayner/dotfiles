@@ -5,7 +5,7 @@ Comands used:
   yay -S --needed <package list> 
 
 EOF
-yay -S --needed \
+yay -S \
 alsa-utils \
 arandr \
 aria2 \
@@ -21,7 +21,7 @@ i3blocks \
 i3lock \
 i3status \
 imagemagick \
-kitty \
+alacritty \
 libnotify \
 lxappearance \
 neofetch \

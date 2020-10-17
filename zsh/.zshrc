@@ -10,6 +10,9 @@
 ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_MODE="awesome-fontconfig"
 
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user vi_mode dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator history time)
+
 ## Alias
 alias vim='nvim'
 alias learn='cd ~/code/learn'
@@ -17,7 +20,8 @@ alias rm='rm -i'
 alias mv='mv -i'
 alias ..='cd ..'
 alias la='ls -A'
-alias neofetch='neofetch --kitty ~/.config/assets/neofetch/045-dracula.svg --size 30%'
+#alias neofetch='neofetch --w3m ~/.config/assets/neofetch/045-dracula.svg --size 30%'
+alias neofetch='neofetch --off'
 alias susp='systemctl suspend'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 alias airbnb='npm install --save-dev eslint-config-airbnb eslint eslint-plugin-jsx-a11y eslint-plugin-import eslint-plugin-react eslint-plugin-react-hooks'
@@ -146,3 +150,6 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
 zinit light softmoth/zsh-vim-mode
 
+## HACK
+
+cd ~

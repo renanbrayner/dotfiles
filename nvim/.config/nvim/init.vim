@@ -11,7 +11,7 @@ call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"
 
 Plug 'lambdalisue/suda.vim'                           " sudo powers
 Plug 'neoclide/coc.nvim', {'branch': 'release'}       " ultimate autocompletion
-" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'   " my little baby - snip snap!
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'   " my little baby - snip snap!
 Plug 'scrooloose/nerdcommenter'                       " Control + / comment
 Plug 'preservim/nerdtree'                             " file browser inside vim
 Plug 'Xuyuanp/nerdtree-git-plugin'                    " git stauts icons in nerdtree

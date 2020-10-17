@@ -5,7 +5,7 @@ Comands used:
   stow assets
   stow dunst
   stow i3
-  stow kitty
+  stow alacritty
   stow neofetch
   stow nvim
   stow picom
@@ -21,7 +21,7 @@ cd ~/.dotfiles
 stow assets
 stow dunst
 stow i3
-stow kitty
+stow alacritty
 stow neofetch
 stow nvim
 stow picom
