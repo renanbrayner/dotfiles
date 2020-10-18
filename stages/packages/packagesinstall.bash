@@ -6,6 +6,7 @@ Comands used:
 
 EOF
 yay -S \
+alacritty \
 alsa-utils \
 arandr \
 aria2 \
@@ -15,13 +16,13 @@ dunst \
 expac \
 feh \
 git \
+gotop \
 gvfs \
-i3-gaps \
+i3-wm \
 i3blocks \
 i3lock \
 i3status \
 imagemagick \
-alacritty \
 libnotify \
 lxappearance \
 neofetch \

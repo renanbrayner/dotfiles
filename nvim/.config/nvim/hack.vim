@@ -6,6 +6,7 @@
 " ██║ ╚████║ ╚████╔╝ ██║██║ ╚═╝ ██║ CONFIG FILE
 " ╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝ BY: github.com/renanbrayner
 
+
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
 
 Plug 'lambdalisue/suda.vim'                           " sudo powers
@@ -119,7 +120,7 @@ nmap <leader>bc :b
 
 let g:which_key_map.b = {
       \ 'name' : '+buffers'  ,
-      \ 'b' : [':CtrlPBuffer'     , 'buffer-fuzzy-find']     ,
+      \ 'b' : [':CtrlPBuffer'     , 'buffer-next']     ,
       \ 'n' : [':call NextBufferTab()'     , 'buffer-next']     ,
       \ 'p' : [':call PrevBufferTab()'     , 'buffer-previous'] ,
       \ 'd' : [':bp | bd #', 'buffer-delete']   ,

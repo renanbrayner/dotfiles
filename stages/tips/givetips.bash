@@ -20,6 +20,19 @@ Next steps:
   + Display manager: lightdm with https://github.com/NoiSek/Aether recomended.
   + Shell configuration: run setupzsh.bash after starting xsession if you want.
   + Other stuff: i usually change the beep sound for the bell sound etc.
+  
+  Changing ugly PC speaker beep sound:
+    Add this two lines to the end of /etc/pulse/default.pa:
+
+      load-sample-lazy x11-bell /usr/share/sounds/freedesktop/stereo/bell.oga
+      load-module module-x11-bell sample=x11-bell 
+
+    Or change the bell.oga to any sound that fits your taste
+
+  Configure multiple displays:
+    to confiure multiple displays run arandr save your layout
+    and eddit the ~/.config/i3/scripts/monitor.bash (its really bad code im
+    a total noob at bash/shell scripting)
 
 -------------------------------------END OF SETUP-------------------------------------
 EOF

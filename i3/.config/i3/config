@@ -5,13 +5,51 @@
 # ██║ ╚═══██╗
 # ██║██████╔╝ CONFIG FILE
 # ╚═╝╚═════╝  BY: github.com/renanbrayner
-
+#
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
+#
+#------------------------------
+#   CHEAT SHEET
+#------------------------------
+#
+# List of most keybindings
+#
+# Ctrl + Shift + H        : Help menu (in portuguese)
+# Mod + Shift + Q         : Close window
+# Mod + W                 : Primary browser
+# Mod + Shift + W         : Secondary browser
+# Mod + Return            : Terminal emulator
+# Mod + D                 : Application launcher
+# Mod + Shift + D         : Run command
+# Mod + T                 : System monitor (terminal app)
+# Mod + G                 : File manager (terminal app)
+# Mod + N                 : Connect to network
+# Mod + Shift + M         : Configure Displays
+# Mod + V                 : Text Editor
+# Mod + Shift + C         : Reload this configuration file
+# Mod + Shift + R         : Restart i3 in place
+# Mod + R                 : Resize mode
+# Mod + Number            : Go to workspace number n
+# Mod + Shift + Number    : Send window to workspace number n
+# Mod + Direction         : Change focus to direction
+# Mod + Shift + Direction : Move window to direction
+# Mod + F                 : Toggle fullscreen mode
+# Mod + Shift + Space     : Toggle floagint mode
+# Mod + Escape            : Click to kill application
+# Mod + Shift + Escape    : Open power menu
+# Print                   : Print entire screen
+# Pring + Shift           : Print selection
+# Print + Mod             : Print window in focus
+# PrintCommand + Control  : Run print copying to clipboard
+#
+#------------------------------
+#   VARIABLES
+#------------------------------
 
 # Mod set to Super
 set $mod Mod4
+floating_modifier $mod
 
-# common
 set $terminal alacritty
 set $primary_browser chromium
 set $secondary_browser qutebrowser
@@ -19,6 +57,10 @@ set $secondary_browser qutebrowser
 # xrandr --listmonitors to find out the name of yours
 set $primary_monitor eDP-1
 set $secondary_monitor HDMI-1
+
+#------------------------------
+#   DRACULA THEME
+#------------------------------
 
 # COLORS                  IDK      BORDER   TEXT     INDICATOR
 client.focused            #282a36  #bd93f9  #f8f8f2  #ff79c6
@@ -29,73 +71,28 @@ client.placeholder        #282a36  #6272a4  #f8f8f2  #8be9fd
 
 client.background         #bd93f9
 
-# Use mod (set to super by default) to move and resize floting windows
-floating_modifier $mod
+#------------------------------
+#   CONFIGURATION
+#------------------------------
 
 font pango:monospace 8
 
 # Dont know what this do so im not going to change it
 set $refresh_i3status killall -SIGUSR1 i3status
 
-# if you want to be able to increase volume past 100% use pactl (be carefull, you >>CAN<< break your computer)
-#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
-#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
-bindsym XF86AudioRaiseVolume exec ~/.config/i3/scripts/volume.bash --up
-bindsym XF86AudioLowerVolume exec ~/.config/i3/scripts/volume.bash --down
-bindsym XF86AudioMute exec ~/.config/i3/scripts/mute.bash 
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+# titleless
+for_window [class="^.*"] border pixel 2
+for_window [title="^DevTools - "] floating enable
+for_window [title="^devtools:"] floating enable
 
-bindsym $mod+Return exec $terminal
+# fibonacci pseudo layout (you may want to change horizontal to vertical)
+default_orientation horizontal
+for_window [class=".*"] split t
+bindsym $mod+shift+q split t kill
 
-# run rofi scripts to exec apps and commands
-bindsym $mod+d exec ~/.config/rofi/launchers-git/launcher.sh
-bindsym $mod+Shift+d exec ~/.config/rofi/scripts/run.sh
-
-# change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
-# move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
-# split in horizontal orientation
-#bindsym $mod+h split h
-
-# split in vertical orientation
-#bindsym $mod+v split v
-
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
-
-# i dont use stacking or tabbed layout
-bindsym $mod+Shift+e layout toggle split
-bindsym $mod+e split toggle
-
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
-
-# focus the parent container
-bindsym $mod+a focus parent
+#------------------------------
+#   WORKSPACES
+#------------------------------
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -146,34 +143,23 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-# This is handled by rofi scripts
-#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+#------------------------------
+#   RESIZE
+#------------------------------
 
-# resize window (you can also use the mouse for that)
+# you can also use the mouse for that
 mode "resize" {
-# These bindings trigger as soon as you enter the resize mode
 
-# Pressing left will shrink the window’s width.
-# Pressing right will grow the window’s width.
-# Pressing up will shrink the window’s height.
-# Pressing down will grow the window’s height.
   bindsym h resize shrink width 2 px or 2 ppt
   bindsym k resize grow height 2 px or 2 ppt
   bindsym j resize shrink height 2 px or 2 ppt
   bindsym l resize grow width 2 px or 2 ppt
 
-# same bindings, but for the arrow keys
   bindsym Left resize shrink width 2 px or 2 ppt
   bindsym Up resize grow height 2 px or 2 ppt
   bindsym Down resize shrink height 2 px or 2 ppt
   bindsym Right resize grow width 2 px or 2 ppt
 
-# back to normal: Enter or Escape or $mod+r
   bindsym Return mode "default"
   bindsym Escape mode "default"
   bindsym $mod+r mode "default"
@@ -181,40 +167,150 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# gaps, top needs to give space to bar
-gaps inner 0
+#------------------------------
+#   RELOAD/RESTART
+#------------------------------
 
-# titleless
-for_window [class="^.*"] border pixel 2
-for_window [title="^DevTools - "] floating enable
-for_window [title="^devtools:"] floating enable
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
 
-# my bindings
-bindsym Control+Shift+h exec ~/.config/i3/scripts/help.sh                         #notificação com ajuda
-bindsym $mod+w exec $primary_browser                                        #navegador programar
-bindsym $mod+shift+w exec $secondary_browser                                            #navegador principal
-bindsym $mod+shift+m exec ~/.config/i3/scripts/monitor.sh              #multihead
-bindsym --release $mod+Escape exec xkill                                         #fechar janela
-bindsym --release $mod+Shift+Escape exec ~/.config/rofi/scripts/powermenu.sh #menu de desligar
-bindsym XF86MonBrightnessUp exec ~/.config/i3/scripts/brightness.bash --up       #brilho
-bindsym XF86MonBrightnessDown exec ~/.config/i3/scripts/brightness.bash --down   #brilho
-bindsym $mod+g exec $terminal -e ranger                                              #ranger file manager
-bindsym $mod+y exec $terminal -e ytop                                                #gtop system monitor
-bindsym $mod+Control+p exec ffmpeg -y -f video4linux2 -s 1280x720 -i /dev/video0 -ss 0:0:1 -frames 1 /tmp/outputphoto.jpg && xclip -selection clipboard -t image/jpg -i /tmp/outputphoto.jpg    #take photo from webcam and copy to clipboard
-bindsym $mod+p exec ffmpeg -y -f video4linux2 -s 1280x720 -i /dev/video0 -ss 0:0:1 -frames 1 ~/Pictures/webcam/"`date +"%Y-%m-%d_%H:%M:%S"`".png                                             #take photo from webcam and save
-bindsym $mod+n exec kitty -e nmtui
+#------------------------------
+#   VOLUME
+#------------------------------
 
-## screenshots
+# if you want to be able to increase volume past 100% use pactl (be carefull, you >>CAN<< break your computer)
+#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
+#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
+
+bindsym XF86AudioRaiseVolume exec ~/.config/i3/scripts/volume.bash --up
+bindsym XF86AudioLowerVolume exec ~/.config/i3/scripts/volume.bash --down
+bindsym XF86AudioMute exec ~/.config/i3/scripts/mute.bash 
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+#------------------------------
+#   BRIGHTNESS
+#------------------------------
+
+bindsym XF86MonBrightnessUp exec ~/.config/i3/scripts/brightness.bash --up
+bindsym XF86MonBrightnessDown exec ~/.config/i3/scripts/brightness.bash --down
+
+#------------------------------
+#   TERMINAL
+#------------------------------
+
+bindsym $mod+Return exec $terminal          
+
+# terminal applications
+bindsym $mod+g exec $terminal -e ranger     #file manager
+bindsym $mod+t exec $terminal -e gotop      #system monitor
+bindsym $mod+n exec $terminal -e nmtui      #network connection
+bindsym $mod+v exec $terminal -e nvim       #text editor
+
+#------------------------------
+#   LAUNCHERS
+#------------------------------
+
+bindsym $mod+d exec ~/.config/rofi/launchers-git/launcher.sh
+bindsym $mod+Shift+d exec ~/.config/rofi/scripts/run.sh
+
+#------------------------------
+#   CHANGE FOCUS
+#------------------------------
+
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+#------------------------------
+#   MOVE WINDOW
+#------------------------------
+
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+#------------------------------
+#   FULLSCREEN
+#------------------------------
+
+bindsym $mod+f fullscreen toggle
+
+#------------------------------
+#   CHANGE SPLIT DIRECTION
+#------------------------------
+
+# i dont use stacking or tabbed layout
+bindsym $mod+Shift+e layout toggle split
+bindsym $mod+e split toggle
+
+#------------------------------
+#   FLOATING
+#------------------------------
+
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+#------------------------------
+#   APPLICATIONS
+#------------------------------
+
+bindsym $mod+w exec $primary_browser
+bindsym $mod+shift+w exec $secondary_browser
+# go to terminal section to see terminal applications
+
+#------------------------------
+#   CLOSE WINDOWS
+#------------------------------
+
+bindsym --release $mod+Escape exec xkill
+
+#------------------------------
+#   SCREENSHOTS
+#------------------------------
+
 ### save
 bindsym --release Print exec ~/.config/i3/scripts/screenshot.bash --print
 bindsym --release shift+Print exec ~/.config/i3/scripts/screenshot.bash --print-area
 bindsym --release $mod+Print exec ~/.config/i3/scripts/screenshot.bash --print-window
+
 ### copy to clipboard
 bindsym --release Control+Print exec ~/.config/i3/scripts/screenshot.bash --copy
 bindsym --release Control+shift+Print exec ~/.config/i3/scripts/screenshot.bash --copy-area
 bindsym --release $mod+Control+Print exec ~/.config/i3/scripts/screenshot.bash --copy-window
 
-#execs
+#------------------------------
+#   OTHERS
+#------------------------------
+
+bindsym Control+Shift+h exec ~/.config/i3/scripts/help.sh
+bindsym --release $mod+Shift+Escape exec ~/.config/rofi/scripts/powermenu.sh
+bindsym $mod+shift+m exec ~/.config/i3/scripts/monitor.bash
+
+## webcampic
+#bindsym $mod+Control+p exec ffmpeg -y -f video4linux2 -s 1280x720 -i /dev/video0 -ss 0:0:1 -frames 1 /tmp/outputphoto.jpg && xclip -selection clipboard -t image/jpg -i /tmp/outputphoto.jpg
+bindsym $mod+p exec ffmpeg -y -f video4linux2 -s 1280x720 -i /dev/video0 -ss 0:0:1 -frames 1 ~/Pictures/webcam/"`date +"%Y-%m-%d_%H:%M:%S"`".png
+
+#------------------------------
+#   EXEC
+#------------------------------
+
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork   #idon't use i3lock but...idk
 exec --no-startup-id nm-applet                                           #idon't use tray too
 exec_always --no-startup-id ~/.fehbg &                                   #background
@@ -222,11 +318,7 @@ exec_always --no-startup-id killall picom & sleep 0.2 && picom &         #compos
 exec_always --no-startup-id dunst &                                      #notifications
 exec_always --no-startup-id ~/.config/polybar/launch.sh                  #status bar
 exec --no-startup-id xrdb -load ~/.Xresources                            #load xresources
-#exec --IMPORTANT--
-exec --no-startup-id setxkbmap -layout br &                              #teclado em pt-br
-exec --no-startup-id xinput set-prop 9 313 1 &                           #tap to click
 
-#fibonacci pseudo layout
-default_orientation horizontal
-for_window [class=".*"] split t
-bindsym $mod+shift+q split t kill
+# IMPORTANT
+exec setxkbmap -layout br &                                              #set keymap to br
+exec xinput set-prop "Elan Touchpad" "libinput Tapping Enabled" 1 &      #enable tap to click
