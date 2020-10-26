@@ -51,9 +51,9 @@ window {
     transparency:                   "real";
     background-color:               @background;
     text-color:                     @foreground;
-    border:                  		    0px;
+    border:                  		    2px 0 0 0;
     border-radius: 0;
-    border-color:                  	@border;
+    border-color:                  	#bd93f9;
     height:                         130px;
     width:                          100%;
     location:                       south;

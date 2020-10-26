@@ -7,6 +7,7 @@
     "coc-prettier": ">=1.1.17",
     "coc-snippets": ">=2.2.1",
     "coc-styled-components": ">=0.3.0",
-    "coc-tsserver": ">=1.5.7"
+    "coc-tsserver": ">=1.5.7",
+    "coc-vimtex": ">=1.0.4"
   }
 }

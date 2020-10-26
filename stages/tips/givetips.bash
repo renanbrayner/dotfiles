@@ -12,9 +12,10 @@ Next steps:
   + run command feh --bg-fill ~/.config/assets/Dracula.png or Dracula2.png
 
   You may want to eddit this list of files:
-  + .config/i3/config: Change displays, browsers, terminal, keyboard maping, etc.
-  + .config/nvim/init.vim: change the custom header and key bindings.
-  + .config/zsh/.zshrc: change aliases.
+  + ~/.config/i3/config: Change displays, browsers, terminal, keyboard maping, etc.
+  + ~/.config/polybar/config: change displays.
+  + ~/.config/nvim/init.vim: change the custom header and key bindings.
+  + ~/.config/zsh/.zshrc: change aliases.
 
   This script lacks:
   + Display manager: lightdm with https://github.com/NoiSek/Aether recomended.

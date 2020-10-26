@@ -6,6 +6,9 @@
 " ██║ ╚████║ ╚████╔╝ ██║██║ ╚═╝ ██║ CONFIG FILE
 " ╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝ BY: github.com/renanbrayner
 
+"==============================
+"          PLUGINS
+"==============================
 
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
 
@@ -42,8 +45,10 @@ autocmd User vim-which-key call which_key#register('<Space>', 'g:which_key_map')
 
 call plug#end()
 
-" ----MY CONFIGS----
-" Wichkey and leader stuff
+"==============================
+"      LEADER MAPPINGS
+"==============================
+
 let mapleader ="\<Space>"
 
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
@@ -53,23 +58,6 @@ let g:which_key_disable_default_offset = 1
 let g:which_key_use_floating_win = 1
 
 let g:which_key_map =  {}
-
-" My bindings
-" windows
-"nnoremap <leader>ww <C-W>W 
-
-"nnoremap <leader>wh <C-W>h
-"nnoremap <leader>wj <C-W>j
-"nnoremap <leader>wk <C-W>k
-"nnoremap <leader>wl <C-W>l
-
-"nnoremap <leader>wv <C-W>v
-"nnoremap <leader>ws <C-W>s
-"nnoremap <leader>w= <C-W>=
-"nnoremap <leader>wm <C-W>_
-
-"nnoremap <leader>wq ZQ
-"nnoremap <leader>wc ZZ
 
 nnoremap <leader>w<Left> <C-W>h
 nnoremap <leader>w<Down> <C-W>j
@@ -96,31 +84,17 @@ let g:which_key_map.w = {
   \ 'c' : ['ZZ'         , 'save-and-close-window'] ,
   \}
 
-" Open Stuff
-"nnoremap <leader>ot :10sp\|:term<CR>
-"nmap <silent> <leader>op :NERDTreeToggle<CR>
-
 let g:which_key_map.o = {
       \ 'name' : '+open' ,
       \ 't' : [':call ChooseTerm("term-slider", 1)<CR>', 'open-terminal-split'] ,
       \ 'p' : [':NERDTreeToggle' , 'open-nerdtree']       ,
       \}
 
-" Close terminal
-tnoremap <Esc> <C-\><C-n>
-tnoremap <C-v><Esc> <Esc>
-
-" Buffers
-"nmap <leader>bb :bn<CR>
-"nmap <leader>bp :bp<CR>
-"nmap <leader>bd :bdelete<CR>
-"nmap <leader>bl :buffers<CR>
-"nmap <leader>bs :w<CR>
 nmap <leader>bc :b 
 
 let g:which_key_map.b = {
       \ 'name' : '+buffers'  ,
-      \ 'b' : [':CtrlPBuffer'     , 'buffer-next']     ,
+      \ 'b' : [':CtrlPBuffer'     , 'buffer-fuzzy-find']     ,
       \ 'n' : [':call NextBufferTab()'     , 'buffer-next']     ,
       \ 'p' : [':call PrevBufferTab()'     , 'buffer-previous'] ,
       \ 'd' : [':bp | bd #', 'buffer-delete']   ,
@@ -130,12 +104,6 @@ let g:which_key_map.b = {
       \ 'c' : 'buffer-command'                    ,
       \}
 
-" Vim
-"nmap <leader>vq :qa!<CR>
-"nmap <leader>vc :wqa<CR>
-"nmap <leader>vs :wa<CR>
-"nmap <leader>vr :source ~/.config/nvim/init.vim<CR>
-
 let g:which_key_map.v = {
       \ 'name' : 'vim',
       \ 'q': [':qa!', 'vim-exit'],
@@ -143,10 +111,21 @@ let g:which_key_map.v = {
       \ 's': [':wa', 'vim-save'],
       \}
 
-" Explore files
+let g:which_key_map.c = {
+      \ 'name' :'Coc',
+      \ 'd': [':<C-u>CocList diagnostics<cr>', 'Coc-show-all-diagnostics'],
+      \ 'e': [':<C-u>CocList extensions<cr>', 'Coc-manage-extensions'],
+      \ 'l': [':<C-u>CocList commands<cr>', 'Coc-list-commands'],
+      \ 'o': [':<C-u>CocList outline<cr>', 'Coc-outline'],
+      \ 's': [':<C-u>CocList -I symbols<cr>', 'Coc-search-symbols'],
+      \ 'j': [':<C-u>CocNext<CR>', 'Coc-action-previous'],
+      \ 'k': [':<C-u>CocPrev<CR>', 'Coc-action-next'],
+      \ 'r': ['<Plug>(coc-range-select)', 'Coc-range-select'],
+      \}
+
 nmap <leader>. :Explore<CR>
 
-" Move line up/down
+" Move lines up and down with ALT + Movement
 nnoremap <A-k> :m .-2<CR>==
 nnoremap <A-Up> :m .-2<CR>==
 nnoremap <A-j> :m .+1<CR>==
@@ -162,18 +141,31 @@ vnoremap <A-Up> :m '<-2<CR>gv=gv
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-Down> :m '>+1<CR>gv=gv
 
-" Basics
+"==============================
+"           CONFIGS
+"==============================
+
+" TODO:Thinking about changing this clipboard  <21-10-20> "
+set clipboard=unnamedplus
 set encoding=utf-8
 set mouse=a
-set clipboard=unnamedplus
 set splitbelow splitright
+set relativenumber number
+set cindent
+set tabstop=2
+set smarttab
+set shiftwidth=2
+set expandtab 
+set inccommand=nosplit
 
+" COC
+set hidden
+set updatetime=300
+set shortmess+=c
+set signcolumn=yes
 
 " No autocomment new line
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
-" Save as root when needed
-command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 
 " Make control p faster
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
@@ -187,13 +179,9 @@ colorscheme dracula
 :set cursorline 
 highlight Normal guibg=NONE ctermbg=NONE
 highlight CursorLine guibg=238 ctermbg=238
- 
 
 " airline tabs
 let g:airline#extensions#tabline#enabled = 1
-
-"au VimEnter *  NERDTree " Auto nerdtree
-autocmd VimEnter * execute("normal \<C-w>W")
 
 " Control/ to comment"
 vmap  <plug>NERDCommenterToggle 
@@ -208,14 +196,21 @@ let g:UltiSnipsEditSplit="vertical"
 " Powerline effect
 let g:airline_powerline_fonts = 1
 
-" NERDTree
+
+"==============================
+"         NERDTREE
+"==============================
+
 let NERDTreeMinimalUI=1
 let NERDTreeWinPos="right"
+let g:NERDTreeGitStatusWithFlags = 1
+let g:NERDTreeIgnore = ['^node_modules$']
+autocmd VimEnter * execute("normal \<C-w>W")
 
-" Live substitute preview
-set inccommand=nosplit
+"==============================
+"         STARTIFY
+"==============================
 
-" Startify
 autocmd VimEnter *
             \   if !argc()
             \ |   Startify
@@ -273,49 +268,12 @@ let g:startify_custom_header = [
       \ '   - LINKEDIN:   linkedin.com/in/renanbrayner',
       \ ] 
 
-" ----END OF MY CONFIGS----
-
-let g:NERDTreeGitStatusWithFlags = 1
-"let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-"let g:NERDTreeGitStatusNodeColorization = 1
-"let g:NERDTreeColorMapCustom = {
-    "\ "Staged"    : "#0ee375",
-    "\ "Modified"  : "#d9bf91",
-    "\ "Renamed"   : "#51C9FC",
-    "\ "Untracked" : "#FCE77C",
-    "\ "Unmerged"  : "#FC51E6",
-    "\ "Dirty"     : "#FFBD61",
-    "\ "Clean"     : "#87939A",
-    "\ "Ignored"   : "#808080"
-    "\ }
-
-
-let g:NERDTreeIgnore = ['^node_modules$']
-
-" vim-prettier
-"let g:prettier#quickfix_enabled = 0
-"let g:prettier#quickfix_auto_focus = 0
-" prettier command for coc
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
-" run prettier on save
-"let g:prettier#autoformat = 0
-"autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
-
-
-" ctrlp
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " j/k will move virtual lines (lines that wrap)
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
-set relativenumber number
-
-set smarttab
-set cindent
-set tabstop=2
-set shiftwidth=2
-set expandtab " always uses spaces instead of tab characters
 
 let g:coc_global_extensions = [
   \ 'coc-snippets',
@@ -325,16 +283,6 @@ let g:coc_global_extensions = [
   \ 'coc-json',
   \ 'coc-css',
   \ ]
-" from readme
-" if hidden is not set, TextEdit might fail.
-set hidden " Some servers have issues with backup files, see #649 set nobackup set nowritebackup " Better display for messages set cmdheight=2 " You will have bad experience for diagnostic messages when it's default 4000.
-set updatetime=300
-
-" don't give |ins-completion-menu| messages.
-set shortmess+=c
-
-" always show signcolumns
-set signcolumn=yes
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -413,7 +361,6 @@ omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
 
 " Use <C-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-nmap <silent> <leader>cr <Plug>(coc-range-select)
 xmap <silent> <leader>cr <Plug>(coc-range-select)
 
 " Use `:Format` to format current buffer
@@ -428,25 +375,13 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
-" Using CocList
-" Show all diagnostics
-nnoremap <silent> <leader>cd  :<C-u>CocList diagnostics<cr>
-" Manage extensions
-nnoremap <silent> <leader>ce  :<C-u>CocList extensions<cr>
-" Show commands
-nnoremap <silent> <leader>cl  :<C-u>CocList commands<cr>
-" Find symbol of current document
-nnoremap <silent> <leader>co  :<C-u>CocList outline<cr>
-" Search workspace symbols
-nnoremap <silent> <leader>cs  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-nnoremap <silent> <leader>cj  :<C-u>CocNext<CR>
-" Do default action for previous item.
-nnoremap <silent> <leader>ck  :<C-u>CocPrev<CR>
-" Resume latest coc list
-"nnoremap <silent> <leader>cr  :<C-u>CocListResume<CR>
+"==============================
+"          TERMINAL
+"==============================
 
-" Terminal configuration
+tnoremap <Esc> <C-\><C-n>
+tnoremap <C-v><Esc> <Esc>
+
 let g:airline#extensions#tabline#ignore_bufadd_pat = 'gundo|undotree|vimfiler|tagbar|nerd_tree|startify|!|term'
 
 au BufEnter * if &buftype == 'terminal' | startinsert | else | stopinsert | endif

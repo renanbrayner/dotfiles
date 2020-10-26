@@ -32,6 +32,8 @@
 #window {
   width: 550px;
   height: 200px;
+  border: 2px;
+  border-color: #bd93f9;
 }
 
 /* ########### */

@@ -11,6 +11,7 @@ alsa-utils \
 arandr \
 aria2 \
 brightnessctl \
+calcurse \
 chromium \
 dunst \
 expac \
@@ -60,6 +61,7 @@ wget \
 woff-fira-code \
 woff2-fira-code \
 xclip \
+xdotool \
 xf86-video-vesa \
 xorg \
 xorg-xinit \

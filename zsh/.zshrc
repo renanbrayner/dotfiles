@@ -14,21 +14,24 @@ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user vi_mode dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator history time)
 
 ## Alias
+alias svim='sudoedit'
 alias vim='nvim'
-alias learn='cd ~/code/learn'
+alias learn='cd ~/code/learn/'
 alias rm='rm -i'
 alias mv='mv -i'
-alias ..='cd ..'
 alias la='ls -A'
-#alias neofetch='neofetch --w3m ~/.config/assets/neofetch/045-dracula.svg --size 30%'
+alias ..='cd ..'
 alias neofetch='neofetch --off'
 alias susp='systemctl suspend'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 alias airbnb='npm install --save-dev eslint-config-airbnb eslint eslint-plugin-jsx-a11y eslint-plugin-import eslint-plugin-react eslint-plugin-react-hooks'
+alias i3lock='i3lock -B 10  -c 282a3688 --insidecolor=00000000 --insidevercolor=00000000 --insidewrongcolor=00000000 --ringvercolor=50fa7b --ringwrongcolor=ff5555 --ringcolor=6272a4 --linecolor=00000000 --keyhlcolor=8be9fd --separatorcolor=00000000 --bshlcolor=ffb86c --verifcolor=50fa7b --wrongcolor=ff5555
+'
 
 ## EXPORTS
 export EDITOR='nvim'
 export LANG='en_US.UTF-8'
+export TERM=xterm-256color
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -150,6 +153,5 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
 zinit light softmoth/zsh-vim-mode
 
-## HACK
 
-cd ~
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

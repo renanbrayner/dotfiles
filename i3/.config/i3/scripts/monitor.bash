@@ -10,13 +10,13 @@ if [[ $connectedCount == 1 ]]
 then
 
   # change line bellow to $HOME/.screenlayout/yourlayoutname
-  $one && notify-send "Displays configuration done" "Display count: $connectedCount" --icon $HOME/.config/assets/monitor.svg
+  $one && notify-send "Display configuration done" "Display count: $connectedCount" --icon $HOME/.config/assets/monitor.svg
 
 elif [[ $connectedCount == 2 ]]
 then
 
   # change line bellow to $HOME/.screenlayout/yourlayoutname
-  $two && notify-send "Displays configuration done" "Display count: $connectedCount" --icon $HOME/.config/assets/monitor.svg
+  $two && notify-send "Display configuration done" "Display count: $connectedCount" --icon $HOME/.config/assets/monitor.svg
 
 elif [[ $connectedCount == 3 ]]
 then
@@ -30,4 +30,4 @@ then
   # change line bellow to $HOME/.screenlayout/yourlayoutname
   notify-send "Error" "Configuration not found for this number of displays, pelase eddit ~/.config/i3/scripts/monitor.bash" --icon $HOME/.config/assets/monitor.svg
 
-fi
+fi && ~/.fehbg

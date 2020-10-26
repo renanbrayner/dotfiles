@@ -26,6 +26,7 @@
 # Mod + N                 : Connect to network
 # Mod + Shift + M         : Configure Displays
 # Mod + V                 : Text Editor
+# Mod + C                 : Open calendar
 # Mod + Shift + C         : Reload this configuration file
 # Mod + Shift + R         : Restart i3 in place
 # Mod + R                 : Resize mode
@@ -50,13 +51,14 @@
 set $mod Mod4
 floating_modifier $mod
 
-set $terminal alacritty
+set $primary_terminal kitty
+set $secondary_terminal alacritty
 set $primary_browser chromium
 set $secondary_browser qutebrowser
 
 # xrandr --listmonitors to find out the name of yours
-set $primary_monitor eDP-1
-set $secondary_monitor HDMI-1
+set $primary_monitor eDP1
+set $secondary_monitor HDMI1
 
 #------------------------------
 #   DRACULA THEME
@@ -88,7 +90,7 @@ for_window [title="^devtools:"] floating enable
 # fibonacci pseudo layout (you may want to change horizontal to vertical)
 default_orientation horizontal
 for_window [class=".*"] split t
-bindsym $mod+shift+q split t kill
+bindsym $mod+Shift+q split t kill
 
 #------------------------------
 #   WORKSPACES
@@ -198,13 +200,30 @@ bindsym XF86MonBrightnessDown exec ~/.config/i3/scripts/brightness.bash --down
 #   TERMINAL
 #------------------------------
 
-bindsym $mod+Return exec $terminal          
+bindsym $mod+Return exec $primary_terminal          
 
-# terminal applications
-bindsym $mod+g exec $terminal -e ranger     #file manager
-bindsym $mod+t exec $terminal -e gotop      #system monitor
-bindsym $mod+n exec $terminal -e nmtui      #network connection
-bindsym $mod+v exec $terminal -e nvim       #text editor
+bindsym $mod+mod1+Return exec $secondary_terminal          
+
+bindsym $mod+g exec $primary_terminal -e ranger            #file manager
+bindsym $mod+s exec $primary_terminal -e gotop             #system monitor
+bindsym $mod+n exec $primary_terminal -e nmtui             #network connection
+bindsym $mod+v exec $primary_terminal -e nvim              #text editor TODO: Fix this shit
+bindsym $mod+c exec $primary_terminal -e calcurse          #calendar in terminal
+bindsym $mod+m exec $primary_terminal -e aerc              #email client in terminal 
+bindsym $mod+t exec $primary_terminal -e tg                #telegram in terminal
+
+bindsym $mod+mod1+g exec $secondary_terminal -e ranger     #file manager
+bindsym $mod+mod1+s exec $secondary_terminal -e gotop      #system monitor
+bindsym $mod+mod1+n exec $secondary_terminal -e nmtui      #network connection
+bindsym $mod+mod1+v exec $secondary_terminal -e nvim       #text editor TODO: Fix this shit
+bindsym $mod+mod1+c exec $secondary_terminal -e calcurse   #calendar in terminal
+bindsym $mod+mod1+m exec $secondary_terminal -e aerc       #email client in terminal 
+bindsym $mod+mod1+t exec $secondary_terminal -e tg         #telegram in terminal
+
+# LAUNCHER FOR TERMINAL APPS
+bindsym $mod+o exec $primary_terminal -e ~/.config/i3/scripts/terminalapps.bash
+
+bindsym $mod+mod1+o exec $secondary_terminal -e ~/.config/i3/scripts/terminalapps.bash
 
 #------------------------------
 #   LAUNCHERS
@@ -272,7 +291,7 @@ bindsym $mod+space focus mode_toggle
 #------------------------------
 
 bindsym $mod+w exec $primary_browser
-bindsym $mod+shift+w exec $secondary_browser
+bindsym $mod+Shift+w exec $secondary_browser
 # go to terminal section to see terminal applications
 
 #------------------------------
@@ -287,12 +306,12 @@ bindsym --release $mod+Escape exec xkill
 
 ### save
 bindsym --release Print exec ~/.config/i3/scripts/screenshot.bash --print
-bindsym --release shift+Print exec ~/.config/i3/scripts/screenshot.bash --print-area
+bindsym --release Shift+Print exec ~/.config/i3/scripts/screenshot.bash --print-area
 bindsym --release $mod+Print exec ~/.config/i3/scripts/screenshot.bash --print-window
 
 ### copy to clipboard
 bindsym --release Control+Print exec ~/.config/i3/scripts/screenshot.bash --copy
-bindsym --release Control+shift+Print exec ~/.config/i3/scripts/screenshot.bash --copy-area
+bindsym --release Control+Shift+Print exec ~/.config/i3/scripts/screenshot.bash --copy-area
 bindsym --release $mod+Control+Print exec ~/.config/i3/scripts/screenshot.bash --copy-window
 
 #------------------------------
@@ -301,7 +320,7 @@ bindsym --release $mod+Control+Print exec ~/.config/i3/scripts/screenshot.bash -
 
 bindsym Control+Shift+h exec ~/.config/i3/scripts/help.sh
 bindsym --release $mod+Shift+Escape exec ~/.config/rofi/scripts/powermenu.sh
-bindsym $mod+shift+m exec ~/.config/i3/scripts/monitor.bash
+bindsym $mod+Shift+m exec ~/.config/i3/scripts/monitor.bash
 
 ## webcampic
 #bindsym $mod+Control+p exec ffmpeg -y -f video4linux2 -s 1280x720 -i /dev/video0 -ss 0:0:1 -frames 1 /tmp/outputphoto.jpg && xclip -selection clipboard -t image/jpg -i /tmp/outputphoto.jpg
@@ -311,14 +330,16 @@ bindsym $mod+p exec ffmpeg -y -f video4linux2 -s 1280x720 -i /dev/video0 -ss 0:0
 #   EXEC
 #------------------------------
 
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork   #idon't use i3lock but...idk
-exec --no-startup-id nm-applet                                           #idon't use tray too
-exec_always --no-startup-id ~/.fehbg &                                   #background
+exec --no-startup-id nm-applet &                                         #idon't use tray too
+exec --no-startup-id xrdb -load ~/.Xresources &                          #load xresources
+exec_always --no-startup-id ~/.config/i3/scripts/monitor.bash &          #display configuration
 exec_always --no-startup-id killall picom & sleep 0.2 && picom &         #compositor
 exec_always --no-startup-id dunst &                                      #notifications
-exec_always --no-startup-id ~/.config/polybar/launch.sh                  #status bar
-exec --no-startup-id xrdb -load ~/.Xresources                            #load xresources
+exec_always --no-startup-id ~/.config/polybar/launch.sh &                #status bar
 
 # IMPORTANT
 exec setxkbmap -layout br &                                              #set keymap to br
 exec xinput set-prop "Elan Touchpad" "libinput Tapping Enabled" 1 &      #enable tap to click
+
+# Screen lock
+exec xautolock -detectsleep -time 15 -locker "i3lock -B 10  -c 282a3688 --insidecolor=00000000 --insidevercolor=00000000 --insidewrongcolor=00000000 --ringvercolor=50fa7b --ringwrongcolor=ff5555 --ringcolor=6272a4 --linecolor=00000000 --keyhlcolor=8be9fd --separatorcolor=00000000 --bshlcolor=ffb86c --verifcolor=50fa7b --wrongcolor=ff5555" -notify 30 -notifier "notify-send -u critical -t 10000 'LOCKING screen in 30 seconds'"

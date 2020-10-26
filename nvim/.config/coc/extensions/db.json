@@ -1,3 +1,8 @@
 {
-  "lastUpdate": 1601421662351
+  "lastUpdate": 1601421662351,
+  "extension": {
+    "coc-snippets": {
+      "disabled": true
+    }
+  }
 }

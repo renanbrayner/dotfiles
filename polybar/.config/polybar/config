@@ -40,7 +40,7 @@ secondary = #50fa7b
 alert = #f1fa8c
 
 [bar/top]
-monitor = ${env:MONITOR:HDMI1}
+monitor = ${env:MONITOR:HDMI-1}
 inherit = bar/bottom
 
 [bar/bottom]
