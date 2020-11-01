@@ -9,12 +9,12 @@ cat << EOF
 
 EOF
 
-./deletebackups.bash
-./stages/prep/backup.bash
-./stages/packages/yayinstall.bash
-./stages/packages/packagesinstall.bash
-./stowall.bash
-./stages/configs/createdirs.bash
-./stages/theming/icons.bash
-./stages/theming/theme.bash
-./stages/tips/givetips.bash
+~/.dotfiles/deletebackups.bash
+~/.dotfiles/stages/prep/backup.bash
+~/.dotfiles/stages/packages/yayinstall.bash
+~/.dotfiles/stages/packages/packagesinstall.bash
+~/.dotfiles/stowall.bash
+~/.dotfiles/stages/configs/createdirs.bash
+~/.dotfiles/stages/theming/icons.bash
+~/.dotfiles/stages/theming/theme.bash
+~/.dotfiles/stages/tips/givetips.bash

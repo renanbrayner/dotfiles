@@ -2,10 +2,11 @@
 cat << EOF
 ------------------------------------STOW ALL FILES------------------------------------
 Comands used:
+  stow alacritty
   stow assets
   stow dunst
   stow i3
-  stow alacritty
+  stow kitty
   stow neofetch
   stow nvim
   stow picom
@@ -18,10 +19,12 @@ Comands used:
 EOF
 
 cd ~/.dotfiles
+
+stow alacritty
 stow assets
 stow dunst
 stow i3
-stow alacritty
+stow kitty
 stow neofetch
 stow nvim
 stow picom
