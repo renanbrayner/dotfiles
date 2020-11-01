@@ -109,9 +109,10 @@ let g:which_key_map.b = {
 
 let g:which_key_map.v = {
 	\ 'name' : '+vim'  ,
-	\ 'q'    : [':qa!' , 'vim-exit']          ,
-	\ 'c'    : [':wqa' , 'vim-save-and-exit'] ,
-	\ 's'    : [':wa'  , 'vim-save']          ,
+	\ 'q'    : [':qa!' , 'vim-exit']                              ,
+	\ 'c'    : [':wqa' , 'vim-save-and-exit']                     ,
+	\ 's'    : [':wa'  , 'vim-save']                              ,
+	\ 'r'    : [':source ~/.config/nvim/init.vim' , 'vim-reload'] ,
 	\}
 
 let g:which_key_map.c = {
@@ -233,9 +234,8 @@ colorscheme dracula
 highlight Normal guibg=NONE ctermbg=NONE
 highlight CursorLine guibg=238 ctermbg=238
 highlight clear SpellBad
-highlight SpellBad cterm=undercurl guisp=#ff5555
-" let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
-" autocmd VimEnter * RainbowParenthese
+highlight SpellBad cterm=undercurl ctermfg=1
+highlight SpellCap cterm=undercurl ctermfg=3
 
 "==============================
 "         NERDTREE
@@ -264,7 +264,7 @@ function! s:gitModified()
 	return map(files, "{'line': v:val, 'path': v:val}")
 endfunction
 
-" same as above, but show untracked files, honouring .gitignore
+" same as above, but show untracked files, honoring .gitignore
 function! s:gitUntracked()
 	let files = systemlist('git ls-files -o --exclude-standard 2>/dev/null')
 	return map(files, "{'line': v:val, 'path': v:val}")
