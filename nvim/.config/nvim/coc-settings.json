@@ -1,14 +1,5 @@
 {
-  "suggest.noselect": false,
-  "eslint.enable": false,
-  "eslint.autoFixOnSave": true,
-  "eslint.filetypes": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ],
-  "prettier.singleQuote": true,
-  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
-  "styled-components.tags": ["styled", "css", "sty", "createGlobalStyle"]
+	"suggest.noselect": false,
+	"typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+"styled-components.tags": ["styled", "css", "sty", "createGlobalStyle"]
 }

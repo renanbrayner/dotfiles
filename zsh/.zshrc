@@ -33,6 +33,10 @@ export EDITOR='nvim'
 export LANG='en_US.UTF-8'
 export TERM=xterm-256color
 
+## PATH STUFF
+PATH=/home/renan/.asdf/installs/nodejs/15.0.1/.npm/lib/node_modules:$PATH
+PATH=/home/renan/.asdf/bin:$PATH
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 

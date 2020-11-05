@@ -24,7 +24,7 @@ Plug 'AndrewRadev/tagalong.vim'                       " auto change both tags
 Plug 'mattn/emmet-vim'                                " good old emmet
 Plug 'jiangmiao/auto-pairs'                           " nice bracket magic
 Plug 'lervag/vimtex'                                  " latex stuff
-Plug 'prettier/vim-prettier', { 'do': 'npm install' } " not just prettier
+Plug 'Chiel92/vim-autoformat'                         " auto format files
 Plug 'jparise/vim-graphql'                            " graphql syntax highlight
 Plug 'PotatoesMaster/i3-vim-syntax'                   " i3 config syntax highlight
 Plug 'HerringtonDarkholme/yats.vim'                   " ts Syntax
@@ -184,7 +184,7 @@ syntax on
 let g:tex_flavor = 'latex'
 
 " JUST STOP
-map q: <Nop>
+map q: <nop>
 nnoremap Q <nop>
 
 " No autocomment new line
@@ -199,8 +199,8 @@ set wildignore+=*/vendor/bundle/*
 set wildignore+=*/node_modules/
 
 " Prettier format on save
-let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
+" let g:prettier#autoformat = 0
+" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
 
 " airline tabs
 let g:airline#extensions#tabline#enabled = 1
@@ -217,6 +217,9 @@ let g:UltiSnipsEditSplit="vertical"
 
 " Powerline effect
 let g:airline_powerline_fonts = 1
+
+" Autoformat on F3 keypress
+noremap <silent> <F3> :Autoformat<CR>
 
 "==============================
 "           RICE
@@ -257,7 +260,6 @@ function! s:gitModified()
 	return map(files, "{'line': v:val, 'path': v:val}")
 endfunction
 
-" same as above, but show untracked files, honoring .gitignore
 function! s:gitUntracked()
 	let files = systemlist('git ls-files -o --exclude-standard 2>/dev/null')
 	return map(files, "{'line': v:val, 'path': v:val}")
@@ -265,7 +267,7 @@ endfunction
 
 function! s:nerdtreeBookmarks()
 	let bookmarks = systemlist("cut -d' ' -f 2 ~/.NERDTreeBookmarks")
-	let bookmarks = bookmarks[0:-2] " Slices an empty last line
+	let bookmarks = bookmarks[0:-2]
 	return map(bookmarks, "{'line': v:val, 'path': v:val}")
 endfunction
 
@@ -322,18 +324,13 @@ endfunction
 
 inoremap <silent><expr> <c-space> coc#refresh()
 
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-
-" j/k will move virtual lines (lines that wrap)
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
-
 
 let g:coc_global_extensions = [
 	\ 'coc-snippets',
 	\ 'coc-pairs',
 	\ 'coc-tsserver',
-	\ 'coc-prettier',
 	\ 'coc-json',
 	\ 'coc-css',
 	\ ]
@@ -348,7 +345,6 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-" Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
@@ -359,52 +355,38 @@ function! s:show_documentation()
 	endif
 endfunction
 
-" Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" Remap for rename current word
 nmap <F2> <Plug>(coc-rename)
 
-" Remap for format selected region
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
 	autocmd!
-	" Setup formatexpr specified filetype(s).
 	autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-	" Update signature help on jump placeholder
 	autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
-" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
 xmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>a  <Plug>(coc-codeaction-selected)
 
-" Remap for do codeAction of current line
 nmap <leader>ac  <Plug>(coc-codeaction)
-" Fix autofix problem of current line
 nmap <leader>qf  <Plug>(coc-fix-current)
 
-" Create mappings for function text object, requires document symbols feature of languageserver.
 xmap if <Plug>(coc-funcobj-i)
 xmap af <Plug>(coc-funcobj-a)
 omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
 
-" Use <C-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
 xmap <silent> <leader>cr <Plug>(coc-range-select)
 
-" Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
 
-" Use `:Fold` to fold current buffer
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
-" use `:OR` for organize import of current buffer
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
-" Add status line support, for integration with other plugin, checkout `:h coc-status`
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 "==============================
