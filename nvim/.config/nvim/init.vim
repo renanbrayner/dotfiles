@@ -11,14 +11,12 @@
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}       " ultimate autocompletion
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'   " my little baby - snip snap! TODO: CHANGE TO COC SNIPETS
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'   " snip snap!
 Plug 'tpope/vim-commentary'                           " autocomment
 Plug 'preservim/nerdtree'                             " file browser inside vim
 Plug 'Xuyuanp/nerdtree-git-plugin'                    " git stauts icons in nerdtree
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'        " syntax highlight in nerdtree
 Plug 'ryanoasis/vim-devicons'                         " icons in nerdtree
-Plug 'junegunn/fzf.vim'                               " fuzzy find files
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'mhinz/vim-startify'                             " fancy start page
 Plug 'dracula/vim', { 'as': 'dracula' }               " colortheme
 Plug 'bling/vim-airline'                              " powerfull statusbar
@@ -27,7 +25,6 @@ Plug 'mattn/emmet-vim'                                " good old emmet
 Plug 'jiangmiao/auto-pairs'                           " nice bracket magic
 Plug 'lervag/vimtex'                                  " latex stuff
 Plug 'prettier/vim-prettier', { 'do': 'npm install' } " not just prettier
-" Plug 'junegunn/rainbow_parentheses.vim'               " backet pair colorizer WAITING FOR JS FIX
 Plug 'jparise/vim-graphql'                            " graphql syntax highlight
 Plug 'PotatoesMaster/i3-vim-syntax'                   " i3 config syntax highlight
 Plug 'HerringtonDarkholme/yats.vim'                   " ts Syntax
@@ -36,6 +33,8 @@ Plug 'mxw/vim-jsx'                                    " jsx syntax highlight
 Plug 'evanleck/vim-svelte'                            " svelte syntax highlight
 Plug 'styled-components/vim-styled-components'        " styled components syntax highlight
 Plug 'ap/vim-css-color'                               " colors syntax highlight ?
+Plug 'junegunn/fzf.vim'                               " fuzzy find files
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fzf needs this
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] } " show command completion at bottom
 
 " ----HACK----
@@ -181,12 +180,6 @@ set encoding=utf-8
 set nocompatible
 syntax on
 
-" COC
-set hidden
-set updatetime=300
-set shortmess+=c
-set signcolumn=yes
-
 " VIMTEX
 let g:tex_flavor = 'latex'
 
@@ -290,23 +283,44 @@ let g:startify_lists = [
 	\ ]
 
 let g:startify_custom_header = [
-	\ '   ██████╗     ███████╗    ███╗   ██╗     █████╗    ███╗   ██╗',
-	\ '   ██╔══██╗    ██╔════╝    ████╗  ██║    ██╔══██╗   ████╗  ██║',
-	\ '   ██████╔╝    █████╗      ██╔██╗ ██║    ███████║   ██╔██╗ ██║',
-	\ '   ██╔══██╗    ██╔══╝      ██║╚██╗██║    ██╔══██║   ██║╚██╗██║',
-	\ '   ██║  ██║    ███████╗    ██║ ╚████║    ██║  ██║   ██║ ╚████║',
-	\ '   ╚═╝  ╚═╝    ╚══════╝    ╚═╝  ╚═══╝    ╚═╝  ╚═╝   ╚═╝  ╚═══╝',
-	\ '   ██████╗ ██████╗  █████╗ ██╗   ██╗███╗   ██╗███████╗██████╗ ',
-	\ '   ██╔══██╗██╔══██╗██╔══██╗╚██╗ ██╔╝████╗  ██║██╔════╝██╔══██╗',
-	\ '   ██████╔╝██████╔╝███████║ ╚████╔╝ ██╔██╗ ██║█████╗  ██████╔╝',
-	\ '   ██╔══██╗██╔══██╗██╔══██║  ╚██╔╝  ██║╚██╗██║██╔══╝  ██╔══██╗',
-	\ '   ██████╔╝██║  ██║██║  ██║   ██║   ██║ ╚████║███████╗██║  ██║',
-	\ '   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝',
-	\ '   - PORTFOLIO:  renanbrayner.vercel.app',
-	\ '   - GITHUB:     github.com/renanbrayner',
-	\ '   - INSTAGRAM:  @renan.brayner',
-	\ '   - LINKEDIN:   linkedin.com/in/renanbrayner',
+	\'    ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗',
+	\'    ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║',
+	\'    ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║',
+	\'    ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║',
+	\'    ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║',
+	\'    ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝',
 	\ ]
+
+"==============================
+"             COC
+"==============================
+
+set hidden
+set nobackup
+set nowritebackup
+set cmdheight=2
+set updatetime=300
+set shortmess+=c
+set signcolumn=yes
+
+if has("patch-8.1.1564")
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
+
+inoremap <silent><expr> <TAB>
+	\ pumvisible() ? "\<C-n>" :
+	\ <SID>check_back_space() ? "\<TAB>" :
+	\ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <c-space> coc#refresh()
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
@@ -324,33 +338,11 @@ let g:coc_global_extensions = [
 	\ 'coc-css',
 	\ ]
 
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-	\ pumvisible() ? "\<C-n>" :
-	\ <SID>check_back_space() ? "\<TAB>" :
-	\ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" Or use `complete_info` if your vim support it, like:
-" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
-" Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
