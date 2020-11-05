@@ -108,18 +108,18 @@ let g:which_key_map.c = {
 	\}
 
 let g:which_key_map.t = {
-	\ 'name' : '+terminal'                           ,
-	\ 'T'    : [':call ChooseTerm("term-slider", 1)' , 'terminal'] ,
-	\ 'f'    : [':FloatermNew fzf'                   , 'fzf']      ,
-	\ 'g'    : [':FloatermNew lazygit'               , 'git']      ,
-	\ 'd'    : [':FloatermNew lazydocker'            , 'docker']   ,
-	\ 'n'    : [':FloatermNew node'                  , 'node']     ,
-	\ 'p'    : [':FloatermNew python'                , 'python']   ,
-	\ 'm'    : [':FloatermNew lazynpm'               , 'npm']      ,
-	\ 'r'    : [':FloatermNew ranger'                , 'ranger']   ,
-	\ 't'    : [':FloatermToggle'                    , 'toggle']   ,
-	\ 's'    : [':FloatermNew gotop'                 , 'gotop']    ,
-	\ 'h'    : [':FloatermNew ncdu'                  , 'ncdu']     ,
+	\ 'name' : '+terminal'                                       ,
+	\ 'T'    : [':call ChooseTerm("term-slider", 1)'             , 'terminal'] ,
+	\ 'f'    : [':FloatermNew fzf'                               , 'fzf']      ,
+	\ 'g'    : [':FloatermNew lazygit'                           , 'git']      ,
+	\ 'd'    : [':FloatermNew lazydocker'                        , 'docker']   ,
+	\ 'n'    : [':FloatermNew node'                              , 'node']     ,
+	\ 'p'    : [':FloatermNew python'                            , 'python']   ,
+	\ 'm'    : [':FloatermNew lazynpm'                           , 'npm']      ,
+	\ 'r'    : [':FloatermNew --width=0.99 --height=0.99 ranger' , 'ranger']   ,
+	\ 't'    : [':FloatermToggle'                                , 'toggle']   ,
+	\ 's'    : [':FloatermNew gotop'                             , 'gotop']    ,
+	\ 'h'    : [':FloatermNew ncdu'                              , 'ncdu']     ,
 	\ }
 
 nmap <leader>. :Explore<CR>
