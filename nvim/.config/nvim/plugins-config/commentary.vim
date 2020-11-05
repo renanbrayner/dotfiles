@@ -1,0 +1,3 @@
+vmap  gc
+nmap  gcc
+
