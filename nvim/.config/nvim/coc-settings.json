@@ -1,5 +1,5 @@
 {
 	"suggest.noselect": false,
 	"typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
-"styled-components.tags": ["styled", "css", "sty", "createGlobalStyle"]
+	"styled-components.tags": ["styled", "css", "sty", "createGlobalStyle"]
 }

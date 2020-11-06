@@ -28,9 +28,8 @@ noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
 let g:coc_global_extensions = [
-	\ 'coc-snippets',
-	\ 'coc-pairs',
 	\ 'coc-tsserver',
+	\ 'coc-snippets',
 	\ 'coc-json',
 	\ 'coc-css',
 	\ ]

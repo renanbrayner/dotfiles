@@ -157,5 +157,4 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
 zinit light softmoth/zsh-vim-mode
 
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

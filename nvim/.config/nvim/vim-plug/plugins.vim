@@ -1,32 +1,44 @@
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
 
-Plug 'AndrewRadev/tagalong.vim'                       " auto change both tags
-Plug 'Chiel92/vim-autoformat'                         " auto format files
+Plug 'neoclide/coc.nvim', {'branch': 'release'}       " ultimate autocompletion
 Plug 'voldikss/vim-floaterm' 						  " floating terminal inside vim!
-Plug 'HerringtonDarkholme/yats.vim'                   " ts Syntax
-Plug 'PotatoesMaster/i3-vim-syntax'                   " i3 config syntax highlight
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'   " snip snap!
-Plug 'Xuyuanp/nerdtree-git-plugin'                    " git stauts icons in nerdtree
-Plug 'ap/vim-css-color'                               " colors syntax highlight ?
-Plug 'bling/vim-airline'                              " powerfull statusbar
-Plug 'dracula/vim', { 'as': 'dracula' }               " colortheme
-Plug 'evanleck/vim-svelte'                            " svelte syntax highlight
-Plug 'jiangmiao/auto-pairs'                           " nice bracket magic
-Plug 'jparise/vim-graphql'                            " graphql syntax highlight
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] } " show command completion at bottom
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fzf needs this
 Plug 'junegunn/fzf.vim'                               " fuzzy find files
-Plug 'lervag/vimtex'                                  " latex stuff
-Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] } " show command completion at bottom
+
+"TRIAL
+	Plug 'justinmk/vim-sneak'                             " friendship ended with s, cl is my new best friend
+Plug 'unblevable/quick-scope'                         " better FfTt
+
+Plug 'Chiel92/vim-autoformat'                         " auto format files
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'   " snip snap!
+Plug 'AndrewRadev/tagalong.vim'                       " auto change both tags
+Plug 'jiangmiao/auto-pairs'                           " nice bracket magic
 Plug 'mattn/emmet-vim'                                " good old emmet
-Plug 'mhinz/vim-startify'                             " fancy start page
-Plug 'mxw/vim-jsx'                                    " jsx syntax highlight
-Plug 'neoclide/coc.nvim', {'branch': 'release'}       " ultimate autocompletion
-Plug 'pangloss/vim-javascript'                        " js syntax highlight
+Plug 'tpope/vim-commentary'                           " autocomment
+
 Plug 'preservim/nerdtree'                             " file browser inside vim
 Plug 'ryanoasis/vim-devicons'                         " icons in nerdtree
-Plug 'styled-components/vim-styled-components'        " styled components syntax highlight
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'        " syntax highlight in nerdtree
-Plug 'tpope/vim-commentary'                           " autocomment
+Plug 'Xuyuanp/nerdtree-git-plugin'                    " git stauts icons in nerdtree
+
+Plug 'mhinz/vim-startify'                             " fancy start page
+Plug 'dracula/vim', { 'as': 'dracula' }               " colortheme
+Plug 'bling/vim-airline'                              " powerfull statusbar
+Plug 'norcalli/nvim-colorizer.lua'                    " nice and colorfull
+
+Plug 'lervag/vimtex'                                  " latex stuff
+
+" TRIAL
+	" Plug 'HerringtonDarkholme/yats.vim'                   " ts syntax
+	" Plug 'PotatoesMaster/i3-vim-syntax'                   " i3 config syntax highlight
+	" Plug 'evanleck/vim-svelte'                            " svelte syntax highlight
+	" Plug 'jparise/vim-graphql'                            " graphql syntax highlight
+	" Plug 'mxw/vim-jsx'                                    " jsx syntax highlight
+	" Plug 'pangloss/vim-javascript'                        " js syntax highlight
+	" Plug 'styled-components/vim-styled-components'        " styled components syntax highlight
+	" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'        " syntax highlight in nerdtree
+
+	Plug 'sheerun/vim-polyglot'  							" syntax highlight for ALL!
 
 " ----HACK----
 " installed this way instead of with CocInstall to prevent server crashing with typescript

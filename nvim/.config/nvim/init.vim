@@ -5,6 +5,7 @@
 " ██║╚██╗██║╚██╗ ██╔╝██║██║╚██╔╝██║
 " ██║ ╚████║ ╚████╔╝ ██║██║ ╚═╝ ██║ CONFIG FILE
 " ╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝ BY: https://github.com/renanbrayner
+
 "==============================
 "          PLUGINS
 "==============================
@@ -18,7 +19,8 @@ source $HOME/.config/nvim/plugins-config/nerdtree.vim
 source $HOME/.config/nvim/plugins-config/startify.vim
 source $HOME/.config/nvim/plugins-config/ultisnips.vim
 source $HOME/.config/nvim/plugins-config/vimtex.vim
-source $HOME/.config/nvim/plugins-config/floaterm.vim
+source $HOME/.config/nvim/plugins-config/vim-floaterm.vim
+source $HOME/.config/nvim/plugins-config/quickscope.vim
 
 "==============================
 "      LEADER MAPPINGS
@@ -44,7 +46,7 @@ noremap <leader>w<Left> <C-W>h
 nnoremap <leader>w<Down> <C-W>j
 nnoremap <leader>w<Up> <C-W>k
 nnoremap <leader>w<Right> <C-W>l
-
+ 
 let g:which_key_map.w = {
 	\ 'name' : '+window'     ,
 	\ 'w'    : ['<C-W>W'     , 'other-window']          ,
@@ -67,23 +69,25 @@ let g:which_key_map.w = {
 
 let g:which_key_map.o = {
 	\ 'name' : '+toggle'                              ,
-	\ 't'    : [':call ChooseTerm("term-slider", 1)'  , 'terminal-split'] ,
-	\ 'p'    : [':NERDTreeToggle'                     , 'nerdtree']       ,
-	\ 's'    : [':setlocal spell! spelllang=en_us,pt' , 'spellcheck']     ,
+	\ 't'    : [':call ChooseTerm("term-slider", 1)'  , 'terminal-split']        ,
+	\ 'p'    : [':NERDTreeToggle'                     , 'nerdtree']              ,
+	\ 'P'    : [':NERDTreeFind | :normal C'           , 'nerdtree-current-file'] ,
+	\ 's'    : [':setlocal spell! spelllang=en_us,pt' , 'spellcheck']            ,
 	\}
 
 nmap <leader>bc :b 
 
 let g:which_key_map.b = {
-	\ 'name' : '+buffers'               ,
-	\ 'b'    : [':Buffers'              , 'buffer-fuzzy-find']      ,
-	\ 'n'    : [':call NextBufferTab()' , 'buffer-next']            ,
-	\ 'p'    : [':call PrevBufferTab()' , 'buffer-previous']        ,
-	\ 'd'    : [':bp | bd #'            , 'buffer-delete']          ,
-	\ 't'    : [':bdelete! term-slider' , 'buffer-terminal-delete'] ,
-	\ 'l'    : [':buffers'              , 'buffer-list-all']        ,
-	\ 's'    : [':w'                    , 'buffer-save']            ,
-	\ 'c'    : 'buffer-command'         ,
+	\ 'name' : '+buffers'                           ,
+	\ 'o'    : [':call BufOnly()' , 'buffer-only']            ,
+	\ 'b'    : [':Buffers'                          , 'buffer-fuzzy-find']      ,
+	\ 'n'    : [':call NextBufferTab()'             , 'buffer-next']            ,
+	\ 'p'    : [':call PrevBufferTab()'             , 'buffer-previous']        ,
+	\ 'd'    : [':bp | bd #'                        , 'buffer-delete']          ,
+	\ 't'    : [':bdelete! term-slider'             , 'buffer-terminal-delete'] ,
+	\ 'l'    : [':buffers'                          , 'buffer-list-all']        ,
+	\ 's'    : [':w'                                , 'buffer-save']            ,
+	\ 'c'    : 'buffer-command'                     ,
 	\}
 
 let g:which_key_map.v = {
@@ -202,18 +206,6 @@ set wildignore+=*/vendor/bundle/*
 set wildignore+=*/node_modules/
 
 "==============================
-"           RICE
-"==============================
-
-colorscheme dracula
-:set cursorline
-highlight Normal guibg=NONE ctermbg=NONE
-highlight CursorLine guibg=238 ctermbg=238
-highlight clear SpellBad
-highlight SpellBad cterm=undercurl ctermfg=1
-highlight SpellCap cterm=undercurl ctermfg=3
-
-"==============================
 "          TERMINAL
 "==============================
 
@@ -229,6 +221,7 @@ function! PrevBufferTab()
 		bprev
 	endif
 endfunction
+
 function! NextBufferTab()
 	bnext
 	if &buftype == 'terminal'
@@ -262,4 +255,69 @@ function! ChooseTerm(termname, slider)
 		:exe "f " a:termname
 	endif
 endfunction
+
+"==============================
+"          FUNCTIONS
+"==============================
+function! BufOnly(buffer, bang)
+	if a:buffer == ''
+		" No buffer provided, use the current buffer.
+		let buffer = bufnr('%')
+	elseif (a:buffer + 0) > 0
+		" A buffer number was provided.
+		let buffer = bufnr(a:buffer + 0)
+	else
+		" A buffer name was provided.
+		let buffer = bufnr(a:buffer)
+	endif
+
+	if buffer == -1
+		echohl ErrorMsg
+		echomsg "No matching buffer for" a:buffer
+		echohl None
+		return
+	endif
+
+	let last_buffer = bufnr('$')
+
+	let delete_count = 0
+	let n = 1
+	while n <= last_buffer
+		if n != buffer && buflisted(n)
+			if a:bang == '' && getbufvar(n, '&modified')
+				echohl ErrorMsg
+				echomsg 'No write since last change for buffer'
+							\ n '(add ! to override)'
+				echohl None
+			else
+				silent exe 'bdel' . a:bang . ' ' . n
+				if ! buflisted(n)
+					let delete_count = delete_count+1
+				endif
+			endif
+		endif
+		let n = n+1
+	endwhile
+
+	if delete_count == 1
+		echomsg delete_count "buffer deleted"
+	elseif delete_count > 1
+		echomsg delete_count "buffers deleted"
+	endif
+
+endfunction
+
+"==============================
+"           RICE
+"==============================
+
+colorscheme dracula
+:set cursorline
+highlight Normal guibg=NONE ctermbg=NONE
+highlight CursorLine guibg=238 ctermbg=238
+highlight clear SpellBad
+highlight SpellBad cterm=undercurl ctermfg=1
+highlight SpellCap cterm=undercurl ctermfg=3
+highlight QuickScopePrimary ctermfg=2 cterm=underline
+highlight QuickScopeSecondary ctermfg=4 cterm=underline
 

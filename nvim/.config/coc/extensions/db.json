@@ -2,6 +2,9 @@
   "lastUpdate": 1601421662351,
   "extension": {
     "coc-snippets": {
+      "disabled": false
+    },
+    "coc-pairs": {
       "disabled": true
     }
   }
