@@ -6,6 +6,7 @@ Comands used:
 
 EOF
 yay -S \
+aerc \
 alacritty \
 alsa-utils \
 arandr \
@@ -16,16 +17,21 @@ chromium \
 dunst \
 expac \
 feh \
+firefox \
 git \
 gotop \
 gvfs \
 i3-wm \
 i3blocks \
-i3lock \
+i3lock-color \
 i3status \
 imagemagick \
+lazydocker \
+lazygit \
+lazynpm \
 libnotify \
 lxappearance \
+ncdu \
 neofetch \
 neovim \
 nerd-fonts-fira-code \
@@ -49,11 +55,15 @@ rofi \
 siji-git \
 stow \
 sxiv \
+telegram-tg \
 thunar \
+transmission-cli \
+tremc \
 ttf-fira-code \
 ttf-fira-mono \
 ttf-fira-sans \
 ttf-nerd-fonts-symbols \
+ueberzug \
 unzip \
 vlc \
 vulkan-intel \
@@ -65,4 +75,6 @@ xdotool \
 xf86-video-vesa \
 xorg \
 xorg-xinit \
+zathura \
+zathura-pdf-mupdf \
 zsh \
