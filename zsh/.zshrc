@@ -14,6 +14,7 @@ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user vi_mode dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator history time)
 
 ## Alias
+alias tree='tree -I node_modules'
 alias svim='sudoedit'
 alias vim='nvim'
 alias learn='cd ~/code/learn/'
