@@ -183,10 +183,10 @@ set cpoptions+=I          " This prevents the autoindent to be errased after mov
 set autoindent
 set cindent
 set copyindent
-set shiftwidth=4
+set shiftwidth=2
+set tabstop=2
 set smartindent
 set smarttab
-set tabstop=4
 
 set encoding=utf-8
 set nocompatible
