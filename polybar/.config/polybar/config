@@ -45,16 +45,17 @@ inherit = bar/bottom
 
 [bar/bottom]
 width = 100%
-height = 27
+height = 22
 fixed-center = true 
 
-background = ${colors.background}
+background-0 = ${colors.background-alt}
+background-1 = ${colors.background}
 foreground = ${colors.foreground}
 
 line-size = 2
 line-color = #f00
 
-border-size = 2
+border-size = 0
 border-color = #282a36
 
 padding-left = 0
@@ -63,9 +64,8 @@ padding-right = 2
 module-margin-left = 0
 module-margin-right = 1
 
-font-0 = "Fira Code:pixelsize=10;1"
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
+font-0 = "Fira Code:pixelsize=10;2"
+font-1 = siji:pixelsize=10;2
 
 modules-left = i3
 modules-center = xwindow
@@ -85,7 +85,6 @@ cursor-scroll = ns-resize
 type = internal/xwindow
 label = %title:0:30:...%
 
-format-underline = ${colors.foreground-alt}
 
 [module/i3]
 type = internal/i3
@@ -102,8 +101,7 @@ label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
 label-focused = %index%
-label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
+label-focused-background = ${colors.background}
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
@@ -113,7 +111,6 @@ label-unfocused-padding = 2
 ; visible = Active workspace on unfocused monitor
 label-visible = %index%
 label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
@@ -143,7 +140,6 @@ type = internal/cpu
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.secondary}
 label = %percentage:2%%
 
 [module/memory]
@@ -151,7 +147,6 @@ type = internal/memory
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.secondary}
 label = %percentage_used%%
 
 [module/wlan]
@@ -160,13 +155,11 @@ interface = wlp2s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-format-connected-underline = ${colors.secondary}
 ;label-connected = %essid%
 label-connected = %local_ip%
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
@@ -182,14 +175,12 @@ type = internal/network
 interface = enp1s0
 interval = 3.0
 
-format-connected-underline = ${colors.secondary}
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
@@ -205,7 +196,6 @@ time-alt = %H:%M:%S
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.secondary}
 
 label = %date% %time%
 
@@ -213,10 +203,8 @@ label = %date% %time%
 type = internal/pulseaudio
 
 format-volume = <label-volume>
-format-volume-underline = ${colors.secondary}
 format-volume-prefix = " "
 format-volume-prefix-foreground = ${colors.foreground-alt}
-format-muted-underline = ${colors.secondary}
 label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
 
@@ -249,14 +237,11 @@ adapter = ADP0
 full-at = 98
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = ${colors.secondary}
 
 format-discharging = <animation-discharging> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
 
 format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = ${self.format-charging-underline}
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
@@ -281,11 +266,10 @@ content = 
 content-foreground = ${colors.secondary}
 click-left = /home/renan/.config/rofi/scripts/powermenu.sh
 ;OPENBOX <----------------
-[module/ewmh]
 
+[module/ewmh]
 type = internal/xworkspaces
 format =" <label-state> "
-format-underline = ${colors.primary}
 
 [settings]
 screenchange-reload = true

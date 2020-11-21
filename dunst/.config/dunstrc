@@ -12,7 +12,7 @@
 
     # The geometry of the window:
     #   [{width}]x{height}[+/-{x}+/-{y}]
-    geometry = "450x300-12+46"
+    geometry = "450x300-12+34"
 
     indicate_hidden = yes
 

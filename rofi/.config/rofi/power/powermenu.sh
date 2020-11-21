@@ -12,18 +12,18 @@
 # row     row_alt     row_circle
 # single     single_circle     single_full     single_full_circle     single_rounded     single_text
 
-style="full_circle"
+style="full_rounded"
 
 rofi_command="rofi -theme power/$style.rasi"
 
 uptime=$(uptime -p | sed -e 's/up //g')
 
 # Options
-shutdown=""
-reboot=""
-lock=""
-suspend=""
-logout=""
+shutdown=""
+reboot="ﰇ"
+lock=""
+suspend="鈴"
+logout=""
 dir="$HOME/.config/rofi/power"
 
 # Variable passed to rofi
@@ -52,7 +52,7 @@ case $chosen in
         fi
         ;;
     $lock)
-        i3lock
+        i3lock -B 10  -c 282a3688 --insidecolor=00000000 --insidevercolor=00000000 --insidewrongcolor=00000000 --ringvercolor=50fa7b --ringwrongcolor=ff5555 --ringcolor=6272a4 --linecolor=00000000 --keyhlcolor=8be9fd --separatorcolor=00000000 --bshlcolor=ffb86c --verifcolor=50fa7b --wrongcolor=ff5555
         ;;
     $suspend)
 		ans=$($dir/confirm.sh)

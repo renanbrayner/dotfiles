@@ -8,10 +8,10 @@
  */
 
 configuration {
-  font:                           "Fira Code 14";
+  font:                           "Noto Sans 12";
   show-icons:                     true;
 	icon-theme: 					          "Papirus";
-  display-run: 					          "";
+  display-run: 					          "";
   drun-display-format:            "{name}";
   threads:                        0;
   scroll-method:                  0;
@@ -37,10 +37,10 @@ configuration {
 
 /* -- Dark -- */
 * {
-    background:                     #282a36;
-    background-alt:                 #6272a4;
-    selected:               		    #44475a;
-    background-ib:                  #44475a;
+    background:                     #00000000;
+    background-color:               #282a36cc;
+    selected:               		    #6272a466;
+    background-ib:                  #6272a466;
     foreground:                     #f8f8f2;
     border:               			    #bd93f900;
     border-sel:               		  #ff79c6;
@@ -49,10 +49,10 @@ configuration {
 
 window {
     transparency:                   "real";
-    background-color:               @background;
+    background-color:               @background-color;
     text-color:                     @foreground;
-    border:                  		    2px 0 0 0;
-    border-radius: 0;
+    /* border:                  		2px 0 0 0; */
+    border-radius:                  0;
     border-color:                  	#bd93f9;
     height:                         130px;
     width:                          100%;
@@ -64,8 +64,8 @@ window {
 
 prompt {
   enabled: 						true;
-	padding: 						0px 8px 0px 8px;
-	background-color: 				@background-ib;
+	padding: 						0px 8px 4px 0px;
+	background-color: 				@background;
 	text-color: 					@foreground;
 	font:							"FantasqueSansMono Nerd Font 20";
 }
@@ -75,16 +75,16 @@ inputbar {
     background-color:               @background-ib;
     text-color:                     @foreground;
     expand:                         false;
-    border:                  		0px 0px 2px 0px;
-    border-radius: 0;
+    /* border:                  		0px 0px 2px 0px; */
+    border-radius:                  6px;
     border-color:                  	@border;
     margin:                         10px 73% 0px 5px;
-    padding:                        6px 6px 0px 6px;
+    padding:                        0px 6px 0px 6px;
     position:                       center;
 }
 
 entry {
-    background-color:               @background-ib;
+    background-color:               @background;
     text-color:                     @foreground;
     placeholder-color:              @foreground;
     expand:                         true;
@@ -95,7 +95,7 @@ entry {
 }
 
 case-indicator {
-    background-color:               @background-ib;
+    background-color:               @background;
     text-color:                     @foreground;
     spacing:                        0;
 }
@@ -121,7 +121,7 @@ element {
     background-color:               @background;
     text-color:                     @foreground;
     orientation:                    vertical;
-    border-radius: 0;
+    border-radius:                  0;
     margin:                         0px 5px 0px 5px;
     padding:                        -10px 0px 15px 0px;
 }
@@ -137,7 +137,7 @@ element normal.urgent,
 element alternate.urgent {
     background-color:               @urgent;
     text-color:                     @foreground;
-    border-radius: 0;
+    border-radius:                  0;
 }
 
 element normal.active,
@@ -149,8 +149,8 @@ element alternate.active {
 element selected {
     background-color:               @selected;
     text-color:                     @foreground;
-    border:                  		0px 0px 3px 0px;
-    border-radius: 0;
+    /* border:                  		0px 0px 3px 0px; */
+    border-radius:                  6px;
     border-color:                  	@border-sel;
 }
 

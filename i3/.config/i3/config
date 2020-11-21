@@ -83,9 +83,13 @@ font pango:monospace 8
 set $refresh_i3status killall -SIGUSR1 i3status
 
 # titleless
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 0
+
 for_window [title="^DevTools - "] floating enable
 for_window [title="^devtools:"] floating enable
+
+# gaps
+gaps inner 4
 
 # fibonacci pseudo layout (you may want to change horizontal to vertical)
 default_orientation horizontal
@@ -315,11 +319,20 @@ bindsym --release Control+Shift+Print exec ~/.config/i3/scripts/screenshot.bash 
 bindsym --release $mod+Control+Print exec ~/.config/i3/scripts/screenshot.bash --copy-window
 
 #------------------------------
+#   CHANGE GAPS
+#------------------------------
+
+bindsym $mod+plus gaps inner all plus 2
+bindsym $mod+Shift+plus gaps inner all plus 6
+bindsym $mod+minus gaps inner all minus 2
+bindsym $mod+Shift+minus gaps inner all minus 6
+
+#------------------------------
 #   OTHERS
 #------------------------------
 
 bindsym Control+Shift+h exec ~/.config/i3/scripts/help.sh
-bindsym --release $mod+Shift+Escape exec ~/.config/rofi/scripts/powermenu.sh
+bindsym --release $mod+Shift+Escape exec ~/.config/rofi/power/powermenu.sh
 bindsym $mod+Shift+m exec ~/.config/i3/scripts/monitor.bash
 
 ## webcampic

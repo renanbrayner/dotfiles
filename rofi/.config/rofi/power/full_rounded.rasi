@@ -8,12 +8,12 @@
  */
 
 configuration {
-	font:							"FantasqueSansMono Nerd Font 16";
-    show-icons:                     false;
+	font:							"FiraCode Nerd Font 16";
+  show-icons:                     false;
 	icon-theme: 					"Papirus";
-    drun-display-format:            "{name}";
-    disable-history:                false;
-    fullscreen:                     true;
+  drun-display-format:            "{name}";
+  disable-history:                false;
+  fullscreen:                     true;
 	hide-scrollbar: 				true;
 	sidebar-mode: 					false;
 }
@@ -35,24 +35,23 @@ window {
 prompt {
     enabled: 						true;
 	padding: 						4px 8px 4px 8px;
-	background-color: 				@background-alt;
+	background-color: 				#00000000;
 	text-color: 					@foreground;
 }
 
 textbox-prompt-colon {
 	expand: 						false;
 	str: 							"System |";
-	background-color: 				@background-alt;
+	background-color: 				#00000000;
 	text-color: 					@foreground;
     padding:                        4px 0px 4px 8px;
 }
 
 inputbar {
 	children: 						[ textbox-prompt-colon, prompt ];
-    background-color:               @background-alt;
+    background-color:               @selected;
     text-color:                     @foreground;
     expand:                         false;
-    border:                  		1px;
     border-radius:                  10px;
     border-color:                  	@border;
     margin:                         0px 60% 0px 0px;
@@ -79,7 +78,7 @@ case-indicator {
 }
 
 listview {
-    background-color:               @background;
+    background-color:               #00000000;
     margin:                         0% 5% 30% 0%;
     spacing:                        2.5%;
     cycle:                          false;
@@ -95,11 +94,11 @@ mainbox {
 }
 
 element {
-    background-color:               @background-alt;
+    background-color:               #00000000;
     text-color:                     @foreground;
     orientation:                    horizontal;
-    border-radius:                  10px;
-    padding:                        0px 0px 0px -5px;
+    border-radius:                  16px;
+    padding:                        10px 28px 10px 20px;
 }
 
 element-icon {
@@ -108,7 +107,7 @@ element-icon {
 }
 
 element-text {
-	font:							"feather 64";
+	font:							"FiraCode Nerd Font 32";
     expand:                         true;
     horizontal-align:               0.5;
     vertical-align:                 0.5;
@@ -124,15 +123,13 @@ element alternate.urgent {
 
 element normal.active,
 element alternate.active {
-    background-color:               @background-alt;
     text-color:                     @foreground;
 }
 
 element selected {
     background-color:               @selected;
     text-color:                     @foreground;
-    border:                  		1px;
-    border-radius:                  10px;
+    border-radius:                  16px;
     border-color:                  	@border;
 }
 

@@ -7,8 +7,6 @@
  *
  */
 
-@import "colors.rasi"
-
 /* ########### */
 
 * {
@@ -25,6 +23,15 @@
   menu-prompt-margin:                    0px 0px 0px -2px;
   menu-element-border:                   10px;
   menu-element-padding:                  20px 35px 22px 0px;
+
+  background:                     #00000000;
+  background-color:               #282a36cc;
+  background-entry:               #00000033;
+  background-alt:                 #6272a466;
+  foreground:                     #f2f2f2EE;
+  foreground-selected:            #ffffffFF;
+  urgent:                         #E91E6366;
+  urgent-selected:                #E91E6377;
 }
 
 /* ########### */
@@ -32,14 +39,14 @@
 #window {
   width: 550px;
   height: 200px;
-  border: 2px;
+  border: 0px;
   border-color: #bd93f9;
+background: @urgent;
 }
 
 /* ########### */
 
 * {
-  background-color: @background;
   text-color: @foreground;
   font: @icon-font;
 }
@@ -47,17 +54,19 @@
 #horibox {
   children: [ listview ];
 }
+
 #listview {
   layout: horizontal;
 }
+
 #element {
-  border-radius: 0;
+  border-radius: 6px;
   padding: @option-element-padding;
-  background-color: @background-light;
 }
+
 #element.selected {
-  background-color: @accent;
-  text-color: @background;
+  background-color: @background-alt;
+  border-radius: 6px;
 }
 
 /* ########### */
@@ -81,17 +90,14 @@ textbox-prompt-colon {
   font: @text-font;
 }
 #prompt {
-  border-radius: 0;
+  border-radius: 0 6px 6px 0;
   margin: @menu-prompt-margin;
-  background-color: @background-light;
   text-color: @accent;
 }
 #textbox-prompt-colon {
-  border-radius: 0;
+  border-radius: 6px 0 0 6px;
   expand: false;
   str: "System";
-  background-color: @accent;
-  text-color: @background;
 }
 #horibox {
   padding: 0px;
@@ -102,25 +108,20 @@ textbox-prompt-colon {
 }
 #element {
   font: @icon-font;
-  border: @menu-element-border;
   padding: @menu-element-padding;
-  border-color: @background-light;
 }
 #element.selected {
   border-color: @accent;
 }
 element.active,
 element.selected.urgent {
-  background-color: @on;
   text-color: @background;
-  border-color: @on;
 }
 element.selected.urgent {
   border-color: @accent;
 }
 element.urgent,
 element.selected.active {
-  background-color: @off;
   text-color: @background;
   border-color: @off;
 }

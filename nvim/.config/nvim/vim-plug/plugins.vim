@@ -6,7 +6,7 @@ Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] } " show comm
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fzf needs this
 Plug 'junegunn/fzf.vim'                               " fuzzy find files
 
-"TRIAL
+"TRIAL LONG
 	Plug 'justinmk/vim-sneak'                             " friendship ended with s, cl is my new best friend
 Plug 'unblevable/quick-scope'                         " better FfTt
 
@@ -28,17 +28,8 @@ Plug 'norcalli/nvim-colorizer.lua'                    " nice and colorfull
 
 Plug 'lervag/vimtex'                                  " latex stuff
 
-" TRIAL
-	" Plug 'HerringtonDarkholme/yats.vim'                   " ts syntax
-	" Plug 'PotatoesMaster/i3-vim-syntax'                   " i3 config syntax highlight
-	" Plug 'evanleck/vim-svelte'                            " svelte syntax highlight
-	" Plug 'jparise/vim-graphql'                            " graphql syntax highlight
-	" Plug 'mxw/vim-jsx'                                    " jsx syntax highlight
-	" Plug 'pangloss/vim-javascript'                        " js syntax highlight
-	" Plug 'styled-components/vim-styled-components'        " styled components syntax highlight
-	" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'        " syntax highlight in nerdtree
-
-	Plug 'sheerun/vim-polyglot'  							" syntax highlight for ALL!
+Plug 'styled-components/vim-styled-components'        " styled components syntax highlight
+Plug 'sheerun/vim-polyglot'  							            " syntax highlight for ALL!
 
 " ----HACK----
 " installed this way instead of with CocInstall to prevent server crashing with typescript

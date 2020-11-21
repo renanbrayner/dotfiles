@@ -21,7 +21,7 @@ firefox \
 git \
 gotop \
 gvfs \
-i3-wm \
+i3-gaps \
 i3blocks \
 i3lock-color \
 i3status \
