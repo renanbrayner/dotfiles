@@ -264,7 +264,7 @@ animation-discharging-framerate = 750
 type = custom/text
 content = 
 content-foreground = ${colors.secondary}
-click-left = /home/renan/.config/rofi/scripts/powermenu.sh
+click-left = /home/renan/.config/rofi/power/powermenu.sh
 ;OPENBOX <----------------
 
 [module/ewmh]

@@ -33,7 +33,7 @@ window {
 }
 
 prompt {
-    enabled: 						true;
+  enabled: 						true;
 	padding: 						4px 8px 4px 8px;
 	background-color: 				#00000000;
 	text-color: 					@foreground;
@@ -44,7 +44,7 @@ textbox-prompt-colon {
 	str: 							"System |";
 	background-color: 				#00000000;
 	text-color: 					@foreground;
-    padding:                        4px 0px 4px 8px;
+  padding:                        4px 0px 4px 8px;
 }
 
 inputbar {
@@ -54,7 +54,7 @@ inputbar {
     expand:                         false;
     border-radius:                  10px;
     border-color:                  	@border;
-    margin:                         0px 60% 0px 0px;
+    margin:                         0px 50% 0px 0px;
     padding:                        8px 8px 8px 8px;
     position:                       center;
 }
@@ -98,7 +98,7 @@ element {
     text-color:                     @foreground;
     orientation:                    horizontal;
     border-radius:                  16px;
-    padding:                        10px 28px 10px 20px;
+    padding:                        10px 28px 34px 20px;
 }
 
 element-icon {

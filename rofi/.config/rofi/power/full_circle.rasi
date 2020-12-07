@@ -131,7 +131,8 @@ element alternate.active {
 element selected {
     background-color:               @selected;
     text-color:                     @foreground;
-    border:                  		1px;
+    padding:                        0 0 10px 0;
+    border:                  		    1px;
     border-radius:                  100%;
     border-color:                  	@border;
 }

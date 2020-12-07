@@ -32,48 +32,20 @@ options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
 chosen="$(echo -e "$options" | $rofi_command -p "Uptime: $uptime" -dmenu -selected-row 2)"
 case $chosen in
     $shutdown)
-		ans=$($dir/confirm.sh)
-		if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
-        systemctl poweroff
-		elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
-        exit
-        else
-        rofi -theme "$dir/message.rasi" -e "Available Options  -  yes / y / no / n"
-        fi
-        ;;
+      systemctl poweroff
+      ;;
     $reboot)
-		ans=$($dir/confirm.sh)
-		if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
-        systemctl reboot
-		elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
-        exit
-        else
-        rofi -theme "$dir/message.rasi" -e "Available Options  -  yes / y / no / n"
-        fi
-        ;;
+      systemctl reboot
+      ;;
     $lock)
-        i3lock -B 10  -c 282a3688 --insidecolor=00000000 --insidevercolor=00000000 --insidewrongcolor=00000000 --ringvercolor=50fa7b --ringwrongcolor=ff5555 --ringcolor=6272a4 --linecolor=00000000 --keyhlcolor=8be9fd --separatorcolor=00000000 --bshlcolor=ffb86c --verifcolor=50fa7b --wrongcolor=ff5555
-        ;;
+      i3lock -B 10  -c 282a3688 --insidecolor=00000000 --insidevercolor=00000000 --insidewrongcolor=00000000 --ringvercolor=50fa7b --ringwrongcolor=ff5555 --ringcolor=6272a4 --linecolor=00000000 --keyhlcolor=8be9fd --separatorcolor=00000000 --bshlcolor=ffb86c --verifcolor=50fa7b --wrongcolor=ff5555
+      ;;
     $suspend)
-		ans=$($dir/confirm.sh)
-		if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
-        mpc -q pause
-        amixer set Master mute
-        systemctl suspend
-		elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
-        exit
-        else
-        rofi -theme "$dir/message.rasi" -e "Available Options  -  yes / y / no / n"
-        fi
-        ;;
+      mpc -q pause
+      amixer set Master mute
+      systemctl suspend
+      ;;
     $logout)
-		ans=$($dir/confirm.sh)
-		if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
-        openbox --exit
-		elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
-        exit
-        else
-        rofi -theme "$dir/message.rasi" -e "Available Options  -  yes / y / no / n"
-        fi
-        ;;
+      i3-msg exit
+      ;;
 esac

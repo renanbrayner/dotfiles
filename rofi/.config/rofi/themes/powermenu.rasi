@@ -41,7 +41,7 @@
   height: 200px;
   border: 0px;
   border-color: #bd93f9;
-background: @urgent;
+  background: @urgent;
 }
 
 /* ########### */
