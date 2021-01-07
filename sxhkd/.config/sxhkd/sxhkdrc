@@ -1,0 +1,123 @@
+#------------------------------
+#   APPLICATIONS
+#------------------------------
+super + w 
+    exec $primary_browser
+super + shift + w 
+    exec $secondary_browser
+super + shift + m 
+    exec arandr
+
+# terminal aplications bellow
+
+#------------------------------
+#   TERMINAL
+#------------------------------
+
+super + Return 
+    exec $primary_terminal          
+
+super + mod1 + Return 
+    exec $secondary_terminal          
+
+super + g 
+    exec $primary_terminal -e ranger            #file manager
+super + s 
+    exec $primary_terminal -e gotop             #system monitor
+super + n 
+    exec $primary_terminal -e nmtui             #network connection
+super + v 
+    exec $primary_terminal -e nvim              #text editor TODO: Fix this shit
+super + c 
+    exec $primary_terminal -e calcurse          #calendar in terminal
+super + m 
+    exec $primary_terminal -e aerc              #email client in terminal 
+
+super + alt + g 
+    exec $secondary_terminal -e ranger     #file manager
+super + alt + s 
+    exec $secondary_terminal -e gotop      #system monitor
+super + alt + n 
+    exec $secondary_terminal -e nmtui      #network connection
+super + alt + v 
+    exec $secondary_terminal -e nvim       #text editor TODO: Fix this shit
+super + alt + c 
+    exec $secondary_terminal -e calcurse   #calendar in terminal
+super + alt + m 
+    exec $secondary_terminal -e aerc       #email client in terminal 
+
+super + o 
+    exec $primary_terminal -e ~/.local/bin/terminalapps.bash
+
+super + alt + o 
+    exec $secondary_terminal -e ~/.local/bin/terminalapps.bash
+
+#------------------------------
+#   BRIGHTNESS
+#------------------------------
+
+XF86MonBrightnessUp
+    exec ~/.local/bin/brightness.bash --up
+XF86MonBrightnessDown
+    exec ~/.local/bin/brightness.bash --down
+
+#------------------------------
+#   VOLUME
+#------------------------------
+
+# if you want to be able to increase volume past 100% use pactl (be carefull, you >>CAN<< break your computer)
+
+XF86AudioRaiseVolume
+    exec ~/.local/bin/volume.bash --up
+XF86AudioLowerVolume
+    exec ~/.local/bin/volume.bash --down
+XF86AudioMute
+    exec ~/.local/bin/volume.bash --mute
+XF86AudioMicMute
+    exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+#------------------------------
+#   SCREENSHOTS
+#------------------------------
+
+### save
+{_,shift,super} + Print
+     exec ~/.local/bin/screenshot.bash {--print,--print-area,--print-window}
+
+### copy to clipboard
+control + {_,shift,super} + Print
+     exec ~/.local/bin/screenshot.bash {--copy,--copy-area,--copy-window}
+
+#------------------------------
+#   LAUNCHERS
+#------------------------------
+
+super + d
+    exec ~/.config/rofi/launchers-git/launcher.sh
+super + shift + d
+    exec ~/.config/rofi/scripts/run.sh
+super + slash
+    exec kill -s USR1 $(pidof deadd-notification-center)
+
+
+#------------------------------
+#   CLOSE WINDOWS
+#------------------------------
+
+super + Escape
+  exec xkill
+
+#------------------------------
+#   OTHERS
+#------------------------------
+control + shift + h 
+    exec ~/.local/bin/help.sh
+super + shift + Escape 
+    exec ~/.config/rofi/power/powermenu.sh
+XF86Display 
+    exec ~/.local/bin/monitor.bash
+
+## webcampic
+#bindsym $mod+Control+p exec ffmpeg -y -f video4linux2 -s 1280x720 -i /dev/video0 -ss 0:0:1 -frames 1 /tmp/outputphoto.jpg && xclip -selection clipboard -t image/jpg -i /tmp/outputphoto.jpg
+#bindsym $mod+p exec ffmpeg -y -f video4linux2 -s 1280x720 -i /dev/video0 -ss 0:0:1 -frames 1 ~/Pictures/webcam/"`date +"%Y-%m-%d_%H:%M:%S"`".png
+

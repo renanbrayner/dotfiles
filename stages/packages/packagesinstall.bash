@@ -5,6 +5,7 @@ Comands used:
   yay -S --needed <package list> 
 
 EOF
+
 yay -S \
 aerc \
 alacritty \
@@ -14,17 +15,13 @@ aria2 \
 brightnessctl \
 calcurse \
 chromium \
-dunst \
+deadd-notification-center-git \
 expac \
 firefox \
 git \
 gotop \
 gvfs \
 gvfs-mtp \
-i3-gaps \
-i3blocks \
-i3lock-color \
-i3status \
 imagemagick \
 lazydocker \
 lazygit \
@@ -48,17 +45,16 @@ otf-fira-sans \
 pamixer \
 pavucontrol \
 picom \
-polybar \
 pulseaudio \
 pulseaudio-alsa \
 qutebrowser \
 ranger \
 rofi \
-siji-git \
 stow \
 sxiv \
 telegram-tg \
 thunar \
+tint2 \
 transmission-cli \
 tremc \
 ttf-fira-code \
@@ -75,6 +71,7 @@ woff2-fira-code \
 xclip \
 xdotool \
 xf86-video-vesa \
+xmonad \
 xorg \
 xorg-xinit \
 zathura \

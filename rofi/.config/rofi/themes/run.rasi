@@ -38,10 +38,10 @@ configuration {
 /* -- Dark -- */
 * {
     background:                     #00000000;
-    background-color:               #282a36cc;
-    selected:               		    #6272a466;
-    background-ib:                  #6272a466;
-    foreground:                     #f8f8f2;
+    background-color:               #272727cc;
+    selected:               		    #ebdbb266;
+    background-ib:                  #ebdbb266;
+    foreground:                     #ebdbb2;
     border:               			    #bd93f900;
     border-sel:               		  #ff79c6;
     urgent:                         #ffb86c;

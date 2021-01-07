@@ -1,3 +1,4 @@
+GPL2
 private
 function
 ret
@@ -50,7 +51,6 @@ box
 pos
 printf
 cout
-GPL2
 i
 padding
 d

@@ -4,17 +4,18 @@ cat << EOF
 Comands used:
   stow alacritty
   stow assets
-  stow dunst
-  stow i3
+  stow deadd
   stow kitty
   stow neofetch
   stow nvim
   stow picom
-  stow polybar
   stow qutebrowser
   stow ranger
   stow rofi
+  stow tint2
   stow vscode
+  stow xmonad
+  stow xresources
 
 EOF
 
@@ -22,14 +23,15 @@ cd ~/.dotfiles
 
 stow alacritty
 stow assets
-stow dunst
-stow i3
+stow deadd
 stow kitty
 stow neofetch
 stow nvim
 stow picom
-stow polybar
 stow qutebrowser
 stow ranger
 stow rofi
+stow tint2
 stow vscode
+stow xmonad
+stow xresources

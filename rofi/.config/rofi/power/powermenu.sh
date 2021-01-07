@@ -46,6 +46,6 @@ case $chosen in
       systemctl suspend
       ;;
     $logout)
-      i3-msg exit
+      i3-msg exit || killall xmonad-x86_64-l
       ;;
 esac
