@@ -1,13 +1,16 @@
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
 
+"TRIAL
+  Plug 'etdev/vim-hexcolor'                               " color highlight
+
 Plug 'neoclide/coc.nvim', {'branch': 'release'}       " ultimate autocompletion
-Plug 'voldikss/vim-floaterm' 						  " floating terminal inside vim!
+
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] } " show command completion at bottom
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fzf needs this
 Plug 'junegunn/fzf.vim'                               " fuzzy find files
+Plug 'antoinemadec/FixCursorHold.nvim'                " fix some shit
 
-"TRIAL LONG
-	Plug 'justinmk/vim-sneak'                             " friendship ended with s, cl is my new best friend
+Plug 'justinmk/vim-sneak'                             " friendship ended with s, cl is my new best friend
 Plug 'unblevable/quick-scope'                         " better FfTt
 
 Plug 'Chiel92/vim-autoformat'                         " auto format files
@@ -16,6 +19,7 @@ Plug 'AndrewRadev/tagalong.vim'                       " auto change both tags
 Plug 'jiangmiao/auto-pairs'                           " nice bracket magic
 Plug 'mattn/emmet-vim'                                " good old emmet
 Plug 'tpope/vim-commentary'                           " autocomment
+Plug 'tpope/vim-surround'                             " autocomment
 
 Plug 'preservim/nerdtree'                             " file browser inside vim
 Plug 'ryanoasis/vim-devicons'                         " icons in nerdtree
@@ -23,8 +27,9 @@ Plug 'Xuyuanp/nerdtree-git-plugin'                    " git stauts icons in nerd
 
 Plug 'mhinz/vim-startify'                             " fancy start page
 Plug 'dracula/vim', { 'as': 'dracula' }               " colortheme
+Plug 'morhetz/gruvbox'                                " another colortheme
 Plug 'bling/vim-airline'                              " powerfull statusbar
-Plug 'norcalli/nvim-colorizer.lua'                    " nice and colorfull
+Plug 'voldikss/vim-floaterm'                          " terminal inside vim
 
 Plug 'lervag/vimtex'                                  " latex stuff
 

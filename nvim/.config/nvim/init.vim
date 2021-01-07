@@ -21,6 +21,8 @@ source $HOME/.config/nvim/plugins-config/ultisnips.vim
 source $HOME/.config/nvim/plugins-config/vimtex.vim
 source $HOME/.config/nvim/plugins-config/vim-floaterm.vim
 source $HOME/.config/nvim/plugins-config/quickscope.vim
+source $HOME/.config/nvim/plugins-config/fixcursorhold.vim
+source $HOME/.config/nvim/plugins-config/fern.vim
 
 "==============================
 "      LEADER MAPPINGS
@@ -46,7 +48,7 @@ noremap <leader>w<Left> <C-W>h
 nnoremap <leader>w<Down> <C-W>j
 nnoremap <leader>w<Up> <C-W>k
 nnoremap <leader>w<Right> <C-W>l
- 
+
 let g:which_key_map.w = {
 	\ 'name' : '+window'     ,
 	\ 'w'    : ['<C-W>W'     , 'other-window']          ,
@@ -316,13 +318,13 @@ endfunction
 "           RICE
 "==============================
 
-colorscheme dracula
+colorscheme gruvbox
 :set cursorline
-highlight Normal guibg=NONE ctermbg=NONE
-highlight CursorLine guibg=238 ctermbg=238
+:set noshowmode
+" highlight Normal guibg=NONE ctermbg=NONE
+" highlight CursorLine guibg=238 ctermbg=238
 highlight clear SpellBad
 highlight SpellBad cterm=undercurl ctermfg=1
 highlight SpellCap cterm=undercurl ctermfg=3
 highlight QuickScopePrimary ctermfg=2 cterm=underline
 highlight QuickScopeSecondary ctermfg=4 cterm=underline
-

@@ -16,11 +16,11 @@ calcurse \
 chromium \
 dunst \
 expac \
-feh \
 firefox \
 git \
 gotop \
 gvfs \
+gvfs-mtp \
 i3-gaps \
 i3blocks \
 i3lock-color \
@@ -31,12 +31,14 @@ lazygit \
 lazynpm \
 libnotify \
 lxappearance \
+lxsession \
 ncdu \
 neofetch \
 neovim \
 nerd-fonts-fira-code \
 nerd-fonts-hermit \
 networkmanager \
+nitrogen \
 noto-fonts \
 noto-fonts-cjk \
 noto-fonts-emoji \

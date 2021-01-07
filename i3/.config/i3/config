@@ -1,4 +1,3 @@
-
 # ██╗██████╗ 
 # ██║╚════██╗
 # ██║ █████╔╝ 
@@ -51,10 +50,19 @@
 set $mod Mod4
 floating_modifier $mod
 
-set $primary_terminal kitty
-set $secondary_terminal alacritty
-set $primary_browser chromium
-set $secondary_browser qutebrowser
+# set $primary_browser chromium
+# set $secondarY_browser qutebrowser
+# set $primary_terminal kitty
+# set $secondary_terminal alacritty
+
+# exec_always killall sxhkd & \
+#          primary_browser=$primary_browser \
+#          secondary_browser=$secondary_browser \
+#          primary_terminal=$primary_terminal \
+#          secondary_terminal=$secondary_terminal \
+#          sxhkd
+
+# exec_always ~/.local/bin/hotkeys.bash
 
 # xrandr --listmonitors to find out the name of yours
 set $primary_monitor eDP1
@@ -65,11 +73,11 @@ set $secondary_monitor HDMI1
 #------------------------------
 
 # COLORS                  IDK      BORDER   TEXT     INDICATOR
-client.focused            #282a36  #bd93f9  #f8f8f2  #ff79c6
-client.unfocused          #282a36  #282a36  #f8f8f2  #44475a
-client.focused_inactive   #282a36  #44475a  #f8f8f2  #6272a4
-client.urgent             #282a36  #f1fa8c  #f8f8f2  #ffb86c
-client.placeholder        #282a36  #6272a4  #f8f8f2  #8be9fd
+client.focused            #282a36  #689d6a  #ebdbb2  #458588
+client.unfocused          #282a36  #a89984  #ebdbb2  #ebdbb2
+client.focused_inactive   #282a36  #a89984  #ebdbb2  #ebdbb2
+client.urgent             #282a36  #f1fa8c  #ebdbb2  #ffb86c
+client.placeholder        #282a36  #6272a4  #ebdbb2  #8be9fd
 
 client.background         #bd93f9
 
@@ -83,16 +91,21 @@ font pango:monospace 8
 set $refresh_i3status killall -SIGUSR1 i3status
 
 # titleless
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 2
 
+# floating
 for_window [title="^DevTools - "] floating enable
 for_window [title="^devtools:"] floating enable
+for_window [title="^Screen Layout Editor"] floating enable
+for_window [title="^Customize Look and Feel"] floating enable
+for_window [title="^Nitrogen"] floating enable
 
 # gaps
-gaps inner 4
+# smart_gaps on
+gaps inner 6
 
 # fibonacci pseudo layout (you may want to change horizontal to vertical)
-default_orientation horizontal
+default_orientation vertical
 for_window [class=".*"] split t
 bindsym $mod+Shift+q split t kill
 
@@ -181,62 +194,6 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 #------------------------------
-#   VOLUME
-#------------------------------
-
-# if you want to be able to increase volume past 100% use pactl (be carefull, you >>CAN<< break your computer)
-#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
-#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
-
-bindsym XF86AudioRaiseVolume exec ~/.config/i3/scripts/volume.bash --up
-bindsym XF86AudioLowerVolume exec ~/.config/i3/scripts/volume.bash --down
-bindsym XF86AudioMute exec ~/.config/i3/scripts/mute.bash 
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
-
-#------------------------------
-#   BRIGHTNESS
-#------------------------------
-
-bindsym XF86MonBrightnessUp exec ~/.config/i3/scripts/brightness.bash --up
-bindsym XF86MonBrightnessDown exec ~/.config/i3/scripts/brightness.bash --down
-
-#------------------------------
-#   TERMINAL
-#------------------------------
-
-bindsym $mod+Return exec $primary_terminal          
-
-bindsym $mod+mod1+Return exec $secondary_terminal          
-
-bindsym $mod+g exec $primary_terminal -e ranger            #file manager
-bindsym $mod+s exec $primary_terminal -e gotop             #system monitor
-bindsym $mod+n exec $primary_terminal -e nmtui             #network connection
-bindsym $mod+v exec $primary_terminal -e nvim              #text editor TODO: Fix this shit
-bindsym $mod+c exec $primary_terminal -e calcurse          #calendar in terminal
-bindsym $mod+m exec $primary_terminal -e aerc              #email client in terminal 
-bindsym $mod+t exec $primary_terminal -e tg                #telegram in terminal
-
-bindsym $mod+mod1+g exec $secondary_terminal -e ranger     #file manager
-bindsym $mod+mod1+s exec $secondary_terminal -e gotop      #system monitor
-bindsym $mod+mod1+n exec $secondary_terminal -e nmtui      #network connection
-bindsym $mod+mod1+v exec $secondary_terminal -e nvim       #text editor TODO: Fix this shit
-bindsym $mod+mod1+c exec $secondary_terminal -e calcurse   #calendar in terminal
-bindsym $mod+mod1+m exec $secondary_terminal -e aerc       #email client in terminal 
-bindsym $mod+mod1+t exec $secondary_terminal -e tg         #telegram in terminal
-
-# LAUNCHER FOR TERMINAL APPS
-bindsym $mod+o exec $primary_terminal -e ~/.config/i3/scripts/terminalapps.bash
-
-bindsym $mod+mod1+o exec $secondary_terminal -e ~/.config/i3/scripts/terminalapps.bash
-
-#------------------------------
-#   LAUNCHERS
-#------------------------------
-
-bindsym $mod+d exec ~/.config/rofi/launchers-git/launcher.sh
-bindsym $mod+Shift+d exec ~/.config/rofi/scripts/run.sh
-
-#------------------------------
 #   CHANGE FOCUS
 #------------------------------
 
@@ -291,34 +248,6 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 #------------------------------
-#   APPLICATIONS
-#------------------------------
-
-bindsym $mod+w exec $primary_browser
-bindsym $mod+Shift+w exec $secondary_browser
-# go to terminal section to see terminal applications
-
-#------------------------------
-#   CLOSE WINDOWS
-#------------------------------
-
-bindsym --release $mod+Escape exec xkill
-
-#------------------------------
-#   SCREENSHOTS
-#------------------------------
-
-### save
-bindsym --release Print exec ~/.config/i3/scripts/screenshot.bash --print
-bindsym --release Shift+Print exec ~/.config/i3/scripts/screenshot.bash --print-area
-bindsym --release $mod+Print exec ~/.config/i3/scripts/screenshot.bash --print-window
-
-### copy to clipboard
-bindsym --release Control+Print exec ~/.config/i3/scripts/screenshot.bash --copy
-bindsym --release Control+Shift+Print exec ~/.config/i3/scripts/screenshot.bash --copy-area
-bindsym --release $mod+Control+Print exec ~/.config/i3/scripts/screenshot.bash --copy-window
-
-#------------------------------
 #   CHANGE GAPS
 #------------------------------
 
@@ -328,31 +257,20 @@ bindsym $mod+minus gaps inner all minus 2
 bindsym $mod+Shift+minus gaps inner all minus 6
 
 #------------------------------
-#   OTHERS
-#------------------------------
-
-bindsym Control+Shift+h exec ~/.config/i3/scripts/help.sh
-bindsym --release $mod+Shift+Escape exec ~/.config/rofi/power/powermenu.sh
-bindsym $mod+Shift+m exec ~/.config/i3/scripts/monitor.bash
-
-## webcampic
-#bindsym $mod+Control+p exec ffmpeg -y -f video4linux2 -s 1280x720 -i /dev/video0 -ss 0:0:1 -frames 1 /tmp/outputphoto.jpg && xclip -selection clipboard -t image/jpg -i /tmp/outputphoto.jpg
-bindsym $mod+p exec ffmpeg -y -f video4linux2 -s 1280x720 -i /dev/video0 -ss 0:0:1 -frames 1 ~/Pictures/webcam/"`date +"%Y-%m-%d_%H:%M:%S"`".png
-
-#------------------------------
 #   EXEC
 #------------------------------
 
-exec --no-startup-id nm-applet &                                         #idon't use tray too
 exec --no-startup-id xrdb -load ~/.Xresources &                          #load xresources
-exec_always --no-startup-id ~/.config/i3/scripts/monitor.bash &          #display configuration
+exec lxsession &                                                         #some autentication stuff
+exec_always --no-startup-id ~/.local/bin/monitor.bash &          #display configuration
 exec_always --no-startup-id killall picom & sleep 0.2 && picom &         #compositor
 exec_always --no-startup-id dunst &                                      #notifications
-exec_always --no-startup-id ~/.config/polybar/launch.sh &                #status bar
+exec_always --no-startup-id ~/.local/bin/i3bar.sh &                  #status bar
 
 # IMPORTANT
-exec setxkbmap -layout br &                                              #set keymap to br
+exec setxkbmap br thinkpad &                                              #set keymap to br
 exec xinput set-prop "Elan Touchpad" "libinput Tapping Enabled" 1 &      #enable tap to click
+exec xinput --set-prop "13" "320" 0.35 &                                 #tackpoint speed
 
 # Screen lock
 exec xautolock -detectsleep -time 15 -locker "i3lock -B 10  -c 282a3688 --insidecolor=00000000 --insidevercolor=00000000 --insidewrongcolor=00000000 --ringvercolor=50fa7b --ringwrongcolor=ff5555 --ringcolor=6272a4 --linecolor=00000000 --keyhlcolor=8be9fd --separatorcolor=00000000 --bshlcolor=ffb86c --verifcolor=50fa7b --wrongcolor=ff5555" -notify 30 -notifier "notify-send -u critical -t 10000 'LOCKING screen in 30 seconds'"
