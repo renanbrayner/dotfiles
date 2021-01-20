@@ -7,6 +7,9 @@ cat << EOF
 |____/ \___/|_| \_|_____(_)
 
 Next steps:
+  Notification setup:
+    you will need to install notify-send.py to get proper notifications
+  
   Theme activation:
   + run lxappearance and select DarK icon theme and dracula gtk theme.
   + run command feh --bg-fill ~/.config/assets/Dracula.png or Dracula2.png

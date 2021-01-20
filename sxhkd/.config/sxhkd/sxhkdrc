@@ -27,7 +27,7 @@ super + s
 super + n 
     exec $primary_terminal -e nmtui             #network connection
 super + v 
-    exec $primary_terminal -e nvim              #text editor TODO: Fix this shit
+    exec $primary_terminal -e /home/renan/.local/bin/vim.sh
 super + c 
     exec $primary_terminal -e calcurse          #calendar in terminal
 super + m 
@@ -40,7 +40,7 @@ super + alt + s
 super + alt + n 
     exec $secondary_terminal -e nmtui      #network connection
 super + alt + v 
-    exec $secondary_terminal -e nvim       #text editor TODO: Fix this shit
+    exec $secondary_terminal -e /home/renan/.loca/bin/vim.sh
 super + alt + c 
     exec $secondary_terminal -e calcurse   #calendar in terminal
 super + alt + m 

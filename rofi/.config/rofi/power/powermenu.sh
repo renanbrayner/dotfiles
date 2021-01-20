@@ -12,7 +12,7 @@
 # row     row_alt     row_circle
 # single     single_circle     single_full     single_full_circle     single_rounded     single_text
 
-style="full_rounded"
+style="single_rounded"
 
 rofi_command="rofi -theme power/$style.rasi"
 

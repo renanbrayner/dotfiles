@@ -8,10 +8,13 @@ import XMonad.Layout.MultiColumns
 import XMonad.Layout.NoBorders
 import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances
+import XMonad.Layout.Dwindle
+import XMonad.Layout.IndependentScreens
+
 
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.EwmhDesktops
-import XMonad.Hooks.ManageHelpers
+import XMonad.Hooks.ManageHelpers (isDialog)
 
 import XMonad.Actions.Search
 
@@ -45,7 +48,8 @@ myModMask       = mod4Mask
 --
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
 --
-myWorkspaces    = ["1","2","3","4","5","6","7","8","9","0"]
+myWorkspaces     = withScreens 2 ["1","2","3","4","5","6","7","8","9","0"]
+ 
 
 -- Border colors for unfocused and focused windows, respectively.
 --
@@ -116,12 +120,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_t     ), withFocused $ windows . W.sink)
 
     -- Increment the number of windows in the master area
-    , ((modm              , xK_comma ), sendMessage (IncMasterN 1))
+    , ((modm              , xK_equal ), sendMessage (IncMasterN 1))
 
     -- Deincrement the number of windows in the master area
-    , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
+    , ((modm              , xK_minus), sendMessage (IncMasterN (-1)))
     -- Toggle full screen
-    , ((modm              , xK_f), sendMessage $ Toggle FULL)
+    , ((modm              , xK_f), sendMessage $ Toggle NBFULL)
 
     -- Toggle the status bar gap
     -- Use this binding with avoidStruts from Hooks.ManageDocks.
@@ -138,9 +142,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- mod-[1..9], Switch to workspace N
     -- mod-shift-[1..9], Move client to workspace N
     --
-    [((m .|. modm, k), windows $ f i)
-        | (i, k) <- zip (XMonad.workspaces conf) [xK_0 .. xK_9]
-        , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
+    [((m .|. mod4Mask, k), windows $ onCurrentScreen f i)
+               | (i, k) <- zip (workspaces' conf) [xK_1 .. xK_9]
+               , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
     ++
 
     --
@@ -148,7 +152,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- mod-shift-{w,e,r}, Move client to screen 1, 2, or 3
     --
     [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
-        | (key, sc) <- zip [xK_w, xK_r, xK_e] [0..]
+        | (key, sc) <- zip [xK_comma, xK_period, xK_semicolon] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
 
@@ -185,18 +189,33 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 
 
 
-myLayout = smartBorders 
-          . mkToggle (NOBORDERS ?? FULL ?? EOT)
-          $ gaps [(U,6), (R,6), (L,46), (D,6)]
-          $ avoidStruts (tiled ||| Mirror tiled ||| Full )
+myLayout = smartBorders
+           . mkToggle ( NOBORDERS ?? NBFULL ?? EOT)
+           $ avoidStruts
+           (
+             full
+             ||| dwindle
+             ||| Mirror dwindle
+             ||| tiled 
+             ||| Mirror tiled
+           )
   where
-     tiled   = spacing 6 $ Tall nmaster delta ratio 
+    tiled   = gaps [(U,6), (R,6), (L,6), (D,6)] 
+                $ spacing 6
+                $ Tall nmaster delta ratio 
 
-     nmaster = 1
+    full    = noBorders Full
 
-     ratio   = 1/2
+    dwindle = gaps [(U,6), (R,6), (L,6), (D,6)] 
+                $ spacing 6 
+                $ Dwindle R CW 1 1.1
 
-     delta   = 3/100
+    nmaster = 1
+
+    ratio   = 1/2
+
+    delta   = 3/100
+
 
 ------------------------------------------------------------------------
 -- Window rules
@@ -225,10 +244,10 @@ myLogHook = return ()
 -- startup
 myStartupHook = do
               spawn "~/.local/bin/monitor.bash"
-              spawnOnce "~/.local/bin/xmonadbar.sh"
-              spawnOnce "clipit"
-              spawnOnce "nm-applet"
+              spawnOnce "lxsession"
               spawnOnce "cbatticon"
+              spawnOnce "~/.local/bin/xmonadbar.sh"
+              spawnOnce "nm-applet"
               spawnOnce "nitrogen --restore"
               spawnOnce "picom"
 

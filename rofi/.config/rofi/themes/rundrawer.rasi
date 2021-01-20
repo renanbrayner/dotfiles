@@ -142,7 +142,7 @@ element normal.urgent,
 element alternate.urgent {
     background-color:               @urgent;
     text-color:                     @foreground;
-    border-radius:                  5px;
+    border-radius:                  6px;
 }
 
 element normal.active,

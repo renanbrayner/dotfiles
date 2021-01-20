@@ -59,11 +59,6 @@
 }
 
 
-button.userbutton:not(:hover):not(:active),
-button.delete-all:not(:hover):not(:active) {
-	border: 0.1em #1A1A1A solid;
-}
-
 button.deadd-noti-center.delete-all {
 	margin-bottom: 2px;
 }
@@ -134,12 +129,32 @@ label.critical {
 /*	color: #fee;*/
 /*}*/
 
+/* button.userbutton:not(:hover):not(:active), */
+/* button.delete-all:not(:hover):not(:active) { */
+/* 	border: 0.2em #1A1A1A solid; */
+/* } */
+
+button.userbutton,
+button.delete-all {
+	border: 0.2em rgba(34, 43, 46, 0.4) solid;
+}
+
+button.userbutton:hover,
+button.delete-all:hover {
+	border: 0.2em rgba(0, 0, 0, 0) solid;
+}
+
+button.userbutton:active,
+button.delete-all:active {
+	background: rgba(255, 255, 255, 0.2);
+}
+
 button.buttonState1 {
-	background: rgba(46, 179, 152, 0.5);
+	background: rgba(255, 255, 255, 0);
 }
 
 button.buttonState2 {
-	background: rgba(255, 255, 255, 0.3);
+	background: rgba(255, 255, 255, 0);
 }
 
 .userbuttonlabel.buttonState1 {

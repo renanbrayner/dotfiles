@@ -1,1 +1,1 @@
-rofi -no-lazy-grab -show run -theme themes/rundrawer.rasi
+rofi -monitor primary -no-lazy-grab -show run -theme themes/rundrawer.rasi

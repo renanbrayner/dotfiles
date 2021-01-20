@@ -151,7 +151,16 @@ vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-Down> :m '>+1<CR>gv=gv
 
 " CtrlP to FZF (faster)
-nnoremap <C-p> :Files<Cr>
+function! ControlP()
+  silent! !git rev-parse --is-inside-work-tree
+  if v:shell_error == 0
+     :GFiles --cached --others --exclude-standard
+  else
+     :Files
+endif
+endfunction
+
+noremap <C-p> :call ControlP()<CR>
 
 " ESC to remove search highlight
 nnoremap <silent> <Esc> :noh<Esc>

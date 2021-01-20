@@ -14,4 +14,4 @@
 
 style="appdrawer"
 
-rofi -no-lazy-grab -show drun -theme launchers-git/"$style".rasi
+rofi -monitor primary -no-lazy-grab -show drun -theme launchers-git/"$style".rasi

@@ -55,7 +55,7 @@ window {
     border-radius:                  0px;
     border-color:                  	@border;
     height:                         100%;
-    width:                          25%;
+    width:                          28%;
     location:                       west;
     anchor:                         west;
     x-offset:                       40px;
@@ -142,7 +142,7 @@ element normal.urgent,
 element alternate.urgent {
     background-color:               @urgent;
     text-color:                     @foreground;
-    border-radius:                  9px;
+    border-radius:                  6px;
 }
 
 element normal.active,
@@ -154,7 +154,7 @@ element alternate.active {
 element selected {
     background-color:               #ffffff33;
     text-color:                     #FFFFFF;
-    border-radius:                  16px;
+    border-radius:                  6px;
 }
 
 element selected.urgent {

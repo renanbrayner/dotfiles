@@ -19,6 +19,9 @@ POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR='\ue0b6'
 POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR='\ue0b7'
 
 ## Alias
+alias sxiv='devour sxiv'
+alias mpv='devour mpv'
+alias zathura='devour zathura'
 alias tree='tree -I node_modules'
 alias svim='sudoedit'
 alias vim='nvim'
@@ -39,6 +42,7 @@ export EDITOR='nvim'
 export LANG='en_US.UTF-8'
 export TERM=xterm-256color
 
+export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
 ## PATH STUFF
 PATH=/home/renan/.asdf/installs/nodejs/15.0.1/.npm/lib/node_modules:$PATH
 PATH=/home/renan/.asdf/bin:$PATH

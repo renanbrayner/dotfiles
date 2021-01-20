@@ -49,9 +49,9 @@ settings:
   tabs.show_switching_delay:
     global: 3000
   url.default_page:
-    global: https://www.google.com/
+    global: file:///home/renan/.config/startpage/index.html
   url.searchengines:
     global:
       DEFAULT: https://www.google.com.ar/search?q={}
   url.start_pages:
-    global: https://www.google.com
+    global: file:///home/renan/.config/startpage/index.html

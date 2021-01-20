@@ -13,6 +13,7 @@ alsa-utils \
 arandr \
 aria2 \
 brightnessctl \
+blueman \
 calcurse \
 chromium \
 deadd-notification-center-git \

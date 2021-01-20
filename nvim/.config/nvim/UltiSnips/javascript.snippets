@@ -182,14 +182,18 @@ export default function ${1}(){
 endsnippet
 
 # STYLED COMPONENTS
+snippet stl "export const ... = styled. ..." b
+export const ${1} = styled.${2}\`
+${3}
+\`
+endsnippet
+
 snippet styled "import styled from 'styled-components'..." b
 import styled from 'styled-components'
 
-const Container = styled.div\`
+export const Container = styled.div\`
 	${1}
 \`
-
-export default Container
 endsnippet
 
 snippet Cont "Description" b
