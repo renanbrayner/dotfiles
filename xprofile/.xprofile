@@ -1,0 +1,2 @@
+setxkbmap br thinkpad
+~/.local/bin/hotkeys.bash
