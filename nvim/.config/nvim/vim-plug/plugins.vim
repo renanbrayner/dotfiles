@@ -21,9 +21,9 @@ Plug 'mattn/emmet-vim'                                " good old emmet
 Plug 'tpope/vim-commentary'                           " autocomment
 Plug 'tpope/vim-surround'                             " autocomment
 
-Plug 'preservim/nerdtree'                             " file browser inside vim
-Plug 'ryanoasis/vim-devicons'                         " icons in nerdtree
-Plug 'Xuyuanp/nerdtree-git-plugin'                    " git stauts icons in nerdtree
+" Plug 'preservim/nerdtree'                             " file browser inside vim 
+" Plug 'ryanoasis/vim-devicons'                         " icons in nerdtree
+" Plug 'Xuyuanp/nerdtree-git-plugin'                    " git stauts icons in nerdtree
 
 Plug 'mhinz/vim-startify'                             " fancy start page
 Plug 'dracula/vim', { 'as': 'dracula' }               " colortheme

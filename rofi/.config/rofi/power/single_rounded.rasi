@@ -54,7 +54,7 @@ element {
     background-color:               @background-alt;
     text-color:                     @foreground;
     orientation:                    horizontal;
-    border-radius:                  15px;
+    border-radius:                  6px;
     padding:                        0px 10px 0px 0px;
 }
 
@@ -75,7 +75,7 @@ element normal.urgent,
 element alternate.urgent {
     background-color:               @urgent;
     text-color:                     @foreground;
-    border-radius:                  10px;
+    border-radius:                  6px;
 }
 
 element normal.active,

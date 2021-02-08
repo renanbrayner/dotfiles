@@ -1,11 +1,3 @@
-autocmd VimEnter *
-	\   if !argc()
-	\ |   Startify
-	\ |   NERDTree
-	\ |   wincmd w
-	\ | endif
-autocmd User StartifyBufferOpened :NERDTreeClose
-
 function! s:gitModified()
 	let files = systemlist('git ls-files -m 2>/dev/null')
 	return map(files, "{'line': v:val, 'path': v:val}")
