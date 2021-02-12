@@ -5,7 +5,7 @@
       "disabled": false
     },
     "coc-pairs": {
-      "disabled": true
+      "disabled": false
     }
   }
 }

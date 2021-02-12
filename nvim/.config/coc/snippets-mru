@@ -1,3 +1,6 @@
+import
+h1
+while
 modeline
 el
 warn
@@ -18,7 +21,6 @@ for
 main
 snippet
 ret
-h1
 val
 class
 h

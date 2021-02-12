@@ -1,4 +1,3 @@
-
 " ███╗   ██╗██╗   ██╗██╗███╗   ███╗
 " ████╗  ██║██║   ██║██║████╗ ████║
 " ██╔██╗ ██║██║   ██║██║██╔████╔██║
@@ -9,7 +8,6 @@
 "==============================
 "          PLUGINS
 "==============================
-
 source $HOME/.config/nvim/vim-plug/plugins.vim
 source $HOME/.config/nvim/plugins-config/airline.vim
 source $HOME/.config/nvim/plugins-config/autoformat.vim
@@ -39,41 +37,40 @@ autocmd FileType which_key setlocal nospell
 let g:which_key_map = {
 	\ '>' : [':call NextBufferTab()'              , 'tab-next']     ,
 	\ '<' : [':call PrevBufferTab()'              , 'tab-previous'] ,
-	\ "'" : [':call ChooseTerm("term-slider", 1)' , 'terminal']
+	\ "'" : [':call ChooseTerm("term-slider", 1)' , 'terminal']     ,
+	\ "." : [':Explore'                           , 'netrw']        ,
+	\ "C" : 'toggle-cheatsheet-comments'          ,
 	\}
-
-noremap <leader>w<Left> <C-W>h
-nnoremap <leader>w<Down> <C-W>j
-nnoremap <leader>w<Up> <C-W>k
-nnoremap <leader>w<Right> <C-W>l
 
 let g:which_key_map.w = {
-	\ 'name' : '+window'     ,
-	\ 'w'    : ['<C-W>W'     , 'other-window']          ,
-	\ 'd'    : ['<C-W>c'     , 'delete-window']         ,
-	\ 's'    : ['<C-W>s'     , 'split-window-below']    ,
-	\ 'v'    : ['<C-W>v'     , 'split-window-aside']    ,
-	\ 'h'    : ['<C-W>h'     , 'window-left']           ,
-	\ 'j'    : ['<C-W>j'     , 'window-below']          ,
-	\ 'l'    : ['<C-W>l'     , 'window-right']          ,
-	\ 'k'    : ['<C-W>k'     , 'window-up']             ,
-	\ 'H'    : ['<C-W>5<'    , 'expand-window-left']    ,
-	\ 'J'    : [':resize +5' , 'expand-window-below']   ,
-	\ 'L'    : ['<C-W>5>'    , 'expand-window-right']   ,
-	\ 'K'    : [':resize -5' , 'expand-window-up']      ,
-	\ '='    : ['<C-W>='     , 'balance-window']        ,
-	\ '-'    : ['<C-W>_'     , 'maximaze-window']       ,
-	\ 'q'    : ['ZQ'         , 'close-window']          ,
-	\ 'c'    : ['ZZ'         , 'save-and-close-window'] ,
+	\ 'name'   : '+window'     ,
+	\ 'w'      : ['<C-W>W'     , 'other-window']          ,
+	\ 'd'      : ['<C-W>c'     , 'delete-window']         ,
+	\ 's'      : ['<C-W>s'     , 'split-window-below']    ,
+	\ 'v'      : ['<C-W>v'     , 'split-window-aside']    ,
+	\ 'h'      : ['<C-W>h'     , 'window-left']           ,
+	\ 'j'      : ['<C-W>j'     , 'window-below']          ,
+	\ 'l'      : ['<C-W>l'     , 'window-right']          ,
+	\ 'k'      : ['<C-W>k'     , 'window-up']             ,
+	\ 'H'      : ['<C-W>5<'    , 'expand-window-left']    ,
+	\ 'J'      : [':resize +5' , 'expand-window-below']   ,
+	\ 'L'      : ['<C-W>5>'    , 'expand-window-right']   ,
+	\ 'K'      : [':resize -5' , 'expand-window-up']      ,
+	\ '='      : ['<C-W>='     , 'balance-window']        ,
+	\ '-'      : ['<C-W>_'     , 'maximaze-window']       ,
+	\ 'q'      : ['ZQ'         , 'close-window']          ,
+	\ 'c'      : ['ZZ'         , 'save-and-close-window'] ,
+	\ '<Left>' : ['<C-W>h'     , 'move-left']             ,
+	\ '<Right>': ['<C-W>l'     , 'move-right']            ,
+	\ '<Up>'   : ['<C-W>k'     , 'move-up']               ,
+	\ '<Down>' : ['<C-W>j'     , 'move-down']             ,
 	\}
-
-	" \ 'p'    : [':NERDTreeToggle'                     , 'nerdtree']              ,
-	" \ 'P'    : [':NERDTreeFind | :normal C'           , 'nerdtree-current-file'] ,
 
 let g:which_key_map.o = {
 	\ 'name' : '+toggle'                              ,
 	\ 't'    : [':call ChooseTerm("term-slider", 1)'  , 'terminal-split']        ,
 	\ 's'    : [':setlocal spell! spelllang=en_us,pt' , 'spellcheck']            ,
+	\ 'p'    : [':CocCommand explorer'                , 'file-tree']             ,
 	\}
 
 nmap <leader>bc :b 
@@ -97,6 +94,17 @@ let g:which_key_map.v = {
 	\ 'c'    : [':wqa' , 'vim-save-and-exit']                            ,
 	\ 's'    : [':wa'  , 'vim-save']                                     ,
 	\ 'r'    : [':source ~/.config/nvim/init.vim' , 'vim-reload-source'] ,
+	\}
+
+let g:which_key_map.K = {
+	\ 'name' :'+cheatsheet'         ,
+	\ 'K'    : 'not-working!'       ,
+	\ 'B'    : 'awnser-on-buffer'   ,
+	\ 'R'    : 'awnser-replace'     ,
+	\ 'P'    : 'awnser-below'       ,
+	\ 'C'    : 'toggle-last-comment',
+	\ 'E'    : 'send-error'         ,
+	\ 'L'    : 'last-query'         ,
 	\}
 
 let g:which_key_map.c = {
@@ -126,8 +134,6 @@ let g:which_key_map.t = {
 	\ 's'    : [':FloatermNew gotop'                             , 'gotop']    ,
 	\ 'h'    : [':FloatermNew ncdu'                              , 'ncdu']     ,
 	\ }
-
-nmap <leader>. :Explore<CR>
 
 "==============================
 "       OTHER MAPPINGS
@@ -179,29 +185,41 @@ nnoremap <silent> <C-s> :w<CR>
 "           CONFIGS
 "==============================
 
-set clipboard=unnamedplus
+" set exrc " calls local vim config when runing 'vim .'
+set updatetime=300        " needed for coc
+set shortmess+=c          " needed for coc
+set signcolumn=yes        " needed for coc (extra space on the left)
+
+
+set clipboard=unnamedplus " paste from outside and to outside
 set go=a
-set mouse=a
-set splitbelow splitright
-set relativenumber number
+set hidden                " needed for coc
+set noerrorbells          " stop noisy bells from ringing
+set mouse=a               " mouse functionality DONT JUDGE ME
+set splitbelow splitright " a non retarded way to open new splits
+set relativenumber number " actual line number in the current line and relativenumbers in other lines
 set inccommand=nosplit
-set incsearch
+set incsearch             " highlight when searching
 set showcmd
 set cpoptions+=I          " This prevents the autoindent to be errased after movement
+set scrolloff=8
+
+set nowritebackup         " needed for coc
+set nobackup              " needed for coc
+" set noswapfile
+" set undodir=~/.config/nvim/undodir
+" set undofile
 
 " TABS
-set autoindent
-set smartindent
-set cindent
-set copyindent
-set shiftwidth=2
-set tabstop=2
-set smarttab
+set expandtab     " Use spaces instead of tabs
+set shiftwidth=2  " Set indentation for >> << == and autoindenting 
+set softtabstop=2 " weird stuff with backspace and tab
+set tabstop=2     " change width of tab character
 
-" For fix it
-set expandtab
-set shiftwidth=2
-set softtabstop=0
+set autoindent  " Copy the indenting of current line in the next line
+set smartindent " Clever autoindenting
+set copyindent  " Copy the structure of the existing lines indent when autoindenting a new line.
+
 
 set encoding=utf-8
 set nocompatible
@@ -224,8 +242,9 @@ set wildignore+=*/node_modules/
 "          TERMINAL
 "==============================
 
-tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
-tnoremap <C-v><Esc> <Esc>
+" tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
+" tnoremap <expr> <Esc> (&filetype == "floaterm") ? "<Esc>" : "<c-\><c-n>"
+tnoremap <C-v><Esc> <c-\><c-n>
 
 let g:airline#extensions#tabline#ignore_bufadd_pat = 'gundo|undotree|vimfiler|tagbar|nerd_tree|startify|!|term'
 
@@ -272,14 +291,15 @@ function! ChooseTerm(termname, slider)
 endfunction
 
 "==============================
-"          FUNCTIONS
+"            LUA
 "==============================
+lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
+" lua require'nvim-treesitter.configs'.setup { indent = { enable = true } } " This is buggy as of early 2021
 
 "==============================
 "           RICE
 "==============================
 
-colorscheme gruvbox
 :set cursorline
 :set noshowmode
 " highlight Normal guibg=NONE ctermbg=NONE
@@ -289,3 +309,12 @@ highlight SpellBad cterm=undercurl ctermfg=1
 highlight SpellCap cterm=undercurl ctermfg=3
 highlight QuickScopePrimary ctermfg=2 cterm=underline
 highlight QuickScopeSecondary ctermfg=4 cterm=underline
+let g:gruvbox_contrast_dark = 'hard'
+
+if exists('+termguicolors')
+	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
+
+colorscheme gruvbox
+set background=dark

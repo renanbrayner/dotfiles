@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =4
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='/home/renan/.config/nvim'
 let g:netrw_dirhist_4='/home/renan/code/rust/tutorial/print_format_macros/src'
 let g:netrw_dirhist_3='/home/renan/notes/other/rust'
 let g:netrw_dirhist_2='/home/renan/Fixit/code/frontend-fixitapp/src/pages/Logon'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_9='/home/renan/exercism/rust/raindrops'
 let g:netrw_dirhist_8='/home/renan/exercism/rust/raindrops/src'
 let g:netrw_dirhist_7='/home/renan/code/react/3dtest/src'
 let g:netrw_dirhist_6='/home/renan/.dotfiles/nvim/.config/nvim'
-let g:netrw_dirhist_5='/home/renan/code/gostack/project/backend/src'
