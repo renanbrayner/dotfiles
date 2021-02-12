@@ -64,10 +64,10 @@ window {
 
 prompt {
   enabled: 						              true;
-	padding: 						              0px 8px 0px 4px;
+	padding: 						              4px 8px 0px 4px;
 	background-color: 			          @background-ib;
 	text-color: 					            @foreground;
-	font:							                "FantasqueSansMono Nerd Font 20";
+  font:                             "NotoSans Nerd Font 12";
 }
 
 
