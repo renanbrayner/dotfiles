@@ -14,7 +14,7 @@ import XMonad.Layout.IndependentScreens
 
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.EwmhDesktops
-import XMonad.Hooks.ManageHelpers (isDialog)
+import XMonad.Hooks.ManageHelpers (isDialog, doCenterFloat)
 
 import XMonad.Actions.Search
 
@@ -221,13 +221,13 @@ myLayout = smartBorders
 -- Window rules
 
 myManageHook = composeAll
-    [ className =? "MPlayer"        --> doFloat
-    , fmap ("DevTools" `isPrefixOf`) title --> doFloat
-    , fmap ("devtools" `isPrefixOf`) title --> doFloat
-    , fmap ("Screen" `isPrefixOf`) title --> doFloat
-    , fmap ("Customize" `isPrefixOf`) title --> doFloat
-    , fmap ("Nitrogen" `isPrefixOf`) title --> doFloat
-    , (isDialog                     --> doFloat )
+    [ className =? "MPlayer"        --> doCenterFloat
+    , fmap ("DevTools" `isPrefixOf`) title --> doCenterFloat
+    , fmap ("devtools" `isPrefixOf`) title --> doCenterFloat
+    , fmap ("Screen" `isPrefixOf`) title --> doCenterFloat
+    , fmap ("Customize" `isPrefixOf`) title --> doCenterFloat
+    , fmap ("Nitrogen" `isPrefixOf`) title --> doCenterFloat
+    , (isDialog                     --> doCenterFloat )
     -- , (isFullscreen                 --> doFullFloat)
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore ]
