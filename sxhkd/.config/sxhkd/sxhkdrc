@@ -1,12 +1,16 @@
+#   The exported variables comes
+#   from the file hotkeys on:
+#   ~/.local/bin/hotkeys.bash
+#
 #------------------------------
 #   APPLICATIONS
 #------------------------------
 super + w 
     exec $primary_browser
-super + shift + w 
+super + alt + w 
     exec $secondary_browser
 super + shift + m 
-    exec arandr
+    exec arandr && nitrogen --restore
 
 # terminal aplications bellow
 

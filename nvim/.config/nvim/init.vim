@@ -13,12 +13,14 @@ source $HOME/.config/nvim/plugins-config/airline.vim
 source $HOME/.config/nvim/plugins-config/autoformat.vim
 source $HOME/.config/nvim/plugins-config/coc.vim
 source $HOME/.config/nvim/plugins-config/commentary.vim
+source $HOME/.config/nvim/plugins-config/fixcursorhold.vim
+source $HOME/.config/nvim/plugins-config/quickscope.vim
+source $HOME/.config/nvim/plugins-config/signify.vim
 source $HOME/.config/nvim/plugins-config/startify.vim
 source $HOME/.config/nvim/plugins-config/ultisnips.vim
-source $HOME/.config/nvim/plugins-config/vimtex.vim
 source $HOME/.config/nvim/plugins-config/vim-floaterm.vim
-source $HOME/.config/nvim/plugins-config/quickscope.vim
-source $HOME/.config/nvim/plugins-config/fixcursorhold.vim
+source $HOME/.config/nvim/plugins-config/vimtex.vim
+source $HOME/.config/nvim/plugins-config/pear-tree.vim
 
 "==============================
 "      LEADER MAPPINGS
@@ -37,10 +39,15 @@ autocmd FileType which_key setlocal nospell
 let g:which_key_map = {
 	\ '>' : [':call NextBufferTab()'              , 'tab-next']     ,
 	\ '<' : [':call PrevBufferTab()'              , 'tab-previous'] ,
-	\ "'" : [':call ChooseTerm("term-slider", 1)' , 'terminal']     ,
+  \ "'" : [':call ChooseTerm("term-slider", 1)' , 'terminal']     ,
 	\ "." : [':Explore'                           , 'netrw']        ,
 	\ "C" : 'toggle-cheatsheet-comments'          ,
 	\}
+
+nmap <leader>w<Up> <C-W>k
+nmap <leader>w<Right> <C-W>l
+nmap <leader>w<Down> <C-W>j
+nmap <leader>w<Left> <C-W>h
 
 let g:which_key_map.w = {
 	\ 'name'   : '+window'     ,
@@ -60,11 +67,11 @@ let g:which_key_map.w = {
 	\ '-'      : ['<C-W>_'     , 'maximaze-window']       ,
 	\ 'q'      : ['ZQ'         , 'close-window']          ,
 	\ 'c'      : ['ZZ'         , 'save-and-close-window'] ,
-	\ '<Left>' : ['<C-W>h'     , 'move-left']             ,
-	\ '<Right>': ['<C-W>l'     , 'move-right']            ,
-	\ '<Up>'   : ['<C-W>k'     , 'move-up']               ,
-	\ '<Down>' : ['<C-W>j'     , 'move-down']             ,
 	\}
+" \ '<Left>' : 'move-left'   ,
+" \ '<Right>': 'move-right'  ,
+" \ '<Up>'   : 'move-up'     ,
+" \ '<Down>' : 'move-down'   ,
 
 let g:which_key_map.o = {
 	\ 'name' : '+toggle'                              ,
@@ -129,16 +136,15 @@ let g:which_key_map.t = {
 	\ 'n'    : [':FloatermNew node'                              , 'node']     ,
 	\ 'p'    : [':FloatermNew python'                            , 'python']   ,
 	\ 'm'    : [':FloatermNew lazynpm'                           , 'npm']      ,
-	\ 'r'    : [':FloatermNew --width=0.99 --height=0.99 ranger' , 'ranger']   ,
 	\ 't'    : [':FloatermToggle'                                , 'toggle']   ,
 	\ 's'    : [':FloatermNew gotop'                             , 'gotop']    ,
 	\ 'h'    : [':FloatermNew ncdu'                              , 'ncdu']     ,
+	\ 'r'    : [':FloatermNew --width=0.99 --height=0.99 /bin/ranger', 'ranger'],
 	\ }
 
 "==============================
 "       OTHER MAPPINGS
 "==============================
-
 " Move lines up and down with ALT + Movement
 nnoremap <A-k> :m .-2<CR>==
 nnoremap <A-Up> :m .-2<CR>==
@@ -181,49 +187,49 @@ nnoremap <S-TAB> :call PrevBufferTab()<CR>
 " Alternate way to save
 nnoremap <silent> <C-s> :w<CR>
 
-"=============================
+"==============================
 "           CONFIGS
 "==============================
 
-" set exrc " calls local vim config when runing 'vim .'
+set exrc                  " calls local vim config when runing 'vim .'
 set updatetime=300        " needed for coc
 set shortmess+=c          " needed for coc
 set signcolumn=yes        " needed for coc (extra space on the left)
 
+set nowritebackup         " needed for coc
+set nobackup              " needed for coc
+set noswapfile            " why have it?
+set undofile              " file for saving history of undo
+set undodir=~/.config/nvim/undodir " save undo file in this dir
+
+set hidden                " needed for coc
 
 set clipboard=unnamedplus " paste from outside and to outside
-set go=a
-set hidden                " needed for coc
-set noerrorbells          " stop noisy bells from ringing
 set mouse=a               " mouse functionality DONT JUDGE ME
 set splitbelow splitright " a non retarded way to open new splits
 set relativenumber number " actual line number in the current line and relativenumbers in other lines
-set inccommand=nosplit
+set noerrorbells          " stop noisy bells from ringing
+set inccommand=nosplit    " search on current buffer not on split
 set incsearch             " highlight when searching
-set showcmd
-set cpoptions+=I          " This prevents the autoindent to be errased after movement
-set scrolloff=8
+set showcmd                " Show command on last line of vim
+" removed because of problems with indentation when autocompleting inside ()
+" set cpoptions+=I          " This prevents the autoindent to be errased after movement
+set scrolloff=8           " Space between end of file and cursor
+set diffopt+=vertical     " starts diff in vertical mode
+set completeopt=menuone,noinsert,noselect
 
-set nowritebackup         " needed for coc
-set nobackup              " needed for coc
-" set noswapfile
-" set undodir=~/.config/nvim/undodir
-" set undofile
+set encoding=utf-8        " utf-8 ofc
 
-" TABS
-set expandtab     " Use spaces instead of tabs
-set shiftwidth=2  " Set indentation for >> << == and autoindenting 
-set softtabstop=2 " weird stuff with backspace and tab
-set tabstop=2     " change width of tab character
-
-set autoindent  " Copy the indenting of current line in the next line
-set smartindent " Clever autoindenting
-set copyindent  " Copy the structure of the existing lines indent when autoindenting a new line.
-
-
-set encoding=utf-8
-set nocompatible
 syntax on
+
+" Indenting
+set list listchars=tab:>\ ,trail:-,eol:$
+set autoindent
+filetype plugin indent on
+
+set tabstop=2             " number of spaces to use on tab character
+set shiftwidth=2          " indenting is 2 spaces
+" set expandtab             " use spaces instead of tab character
 
 " JUST STOP
 map q: <nop>
@@ -302,19 +308,23 @@ lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
 
 :set cursorline
 :set noshowmode
-" highlight Normal guibg=NONE ctermbg=NONE
-" highlight CursorLine guibg=238 ctermbg=238
 highlight clear SpellBad
 highlight SpellBad cterm=undercurl ctermfg=1
 highlight SpellCap cterm=undercurl ctermfg=3
 highlight QuickScopePrimary ctermfg=2 cterm=underline
 highlight QuickScopeSecondary ctermfg=4 cterm=underline
-let g:gruvbox_contrast_dark = 'hard'
 
 if exists('+termguicolors')
 	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
 
+" DRACULA CONFIG
+" colorscheme dracula
+" highlight Normal ctermbg=NONE
+" highlight nonText ctermbg=NONE
+" highlight Normal guibg=NONE ctermbg=NONE
+
+" GRUVBOX CONFIG
 colorscheme gruvbox
-set background=dark
+highlight CursorLine guibg=238 ctermbg=238

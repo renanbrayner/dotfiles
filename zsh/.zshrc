@@ -18,29 +18,16 @@ POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR='\ue0b5'
 POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR='\ue0b6'
 POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR='\ue0b7'
 
-## Alias
-alias sxiv='devour sxiv'
-alias mpv='devour mpv'
-alias zathura='devour zathura'
-alias tree='tree -I node_modules'
-alias svim='sudoedit'
-alias vim='nvim'
-alias learn='cd ~/code/learn/'
-alias rm='rm -i'
-alias mv='mv -i'
-alias la='ls -A'
-alias ..='cd ..'
-alias neofetch='neofetch --off'
-alias susp='systemctl suspend'
-alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
-alias airbnb='npm install --save-dev eslint-config-airbnb eslint eslint-plugin-jsx-a11y eslint-plugin-import eslint-plugin-react eslint-plugin-react-hooks'
-alias i3lock='i3lock -B 10  -c 282a3688 --insidecolor=00000000 --insidevercolor=00000000 --insidewrongcolor=00000000 --ringvercolor=50fa7b --ringwrongcolor=ff5555 --ringcolor=6272a4 --linecolor=00000000 --keyhlcolor=8be9fd --separatorcolor=00000000 --bshlcolor=ffb86c --verifcolor=50fa7b --wrongcolor=ff5555
-'
-
 ## EXPORTS
 export EDITOR='nvim'
 export LANG='en_US.UTF-8'
 export TERM=xterm-256color
+
+# bat as manpager
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+# history on iex
+export ERL_AFLAGS="-kernel shell_history enabled"
 
 export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
 ## PATH STUFF
@@ -169,3 +156,22 @@ zinit light zsh-users/zsh-completions
 zinit light softmoth/zsh-vim-mode
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+## Alias
+alias ls="exa -la --group-directories-first"
+alias sxiv='devour sxiv'
+alias mpv='devour mpv'
+alias zathura='devour zathura'
+alias tree='tree -I node_modules'
+alias svim='sudoedit'
+alias vim='nvim'
+alias learn='cd ~/code/learn/'
+alias rm='rm -i'
+alias mv='mv -i'
+alias ..='cd ..'
+alias neofetch='neofetch --off'
+alias susp='systemctl suspend'
+alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
+alias airbnb='npm install --save-dev eslint-config-airbnb eslint eslint-plugin-jsx-a11y eslint-plugin-import eslint-plugin-react eslint-plugin-react-hooks'
+alias i3lock='i3lock -B 10  -c 282a3688 --insidecolor=00000000 --insidevercolor=00000000 --insidewrongcolor=00000000 --ringvercolor=50fa7b --ringwrongcolor=ff5555 --ringcolor=6272a4 --linecolor=00000000 --keyhlcolor=8be9fd --separatorcolor=00000000 --bshlcolor=ffb86c --verifcolor=50fa7b --wrongcolor=ff5555
+'

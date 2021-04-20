@@ -2,7 +2,7 @@
 cat << EOF
 --------------------------------PACKAGES INSTALLATION---------------------------------
 Comands used:
-  yay -S --needed <package list> 
+  yay -S --needed <package list>
 
 EOF
 
@@ -10,13 +10,19 @@ yay -S \
 aerc \
 alacritty \
 alsa-utils \
+amfora \
 arandr \
 aria2 \
-brightnessctl \
+bat \
 blueman \
+brightnessctl \
 calcurse \
+cbatticon \
 chromium \
+clipit \
 deadd-notification-center-git \
+devour \
+exa \
 expac \
 firefox \
 git \
@@ -24,23 +30,34 @@ gotop \
 gvfs \
 gvfs-mtp \
 imagemagick \
+insomnia \
+kitty \
 lazydocker \
 lazygit \
 lazynpm \
 libnotify \
 lxappearance \
 lxsession \
+mailspring \
+micro \
+mirage \
 ncdu \
 neofetch \
 neovim \
+nerd-fonts-cascadia-code \
 nerd-fonts-fira-code \
 nerd-fonts-hermit \
+nerd-fonts-monoid \
+nerd-fonts-noto-sans-regular-complete \
 networkmanager \
 nitrogen \
 noto-fonts \
 noto-fonts-cjk \
 noto-fonts-emoji \
 noto-fonts-extra \
+nvim \
+obs-studio \
+os-prober \
 otf-fira-mono \
 otf-fira-sans \
 pamixer \

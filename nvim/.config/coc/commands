@@ -1,5 +1,9 @@
 explorer
+eslint.showOutputChannel
+eslint.resetLibraryExecution
+eslint.executeAutofix
+eslint.createConfig
+eslint.lintProject
 tsserver.organizeImports
 snippets.editSnippets
-eslint.createConfig
 snippets.openSnippetFiles
