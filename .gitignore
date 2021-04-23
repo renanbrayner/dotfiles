@@ -3,3 +3,5 @@ xmonad/.xmonad/*
 xmonad/.xmonad/!xmonad.hs
 node_modules/
 **/node_modules
+ranger/.config/ranger/plugins/
+nvim/.config/nvim/undodir/

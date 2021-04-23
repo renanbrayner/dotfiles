@@ -1,5 +1,16 @@
 {
   "coc-rust-analyzer|global": {
-    "release": "2021-02-08"
+    "release": "2021-03-01"
+  },
+  "coc-eslint|global": {
+    "eslintLibraries": {
+      "libs": {
+        "/home/renan/Fixit/code/fixitsite/node_modules/eslint/lib/api.js": true,
+        "/home/renan/Fixit/code/frontend-fixitapp/node_modules/eslint/lib/api.js": true,
+        "/home/renan/code/next/gisele/node_modules/eslint/lib/api.js": true,
+        "/home/renan/code/next/gabriel/node_modules/eslint/lib/api.js": true,
+        "/home/renan/code/nlw#5/podcastr/node_modules/eslint/lib/api.js": true
+      }
+    }
   }
 }
