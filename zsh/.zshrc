@@ -14,8 +14,7 @@ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user vi_mode dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator history time)
 
 POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR='\ue0b4'
-POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR='\ue0b5'
-POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR='\ue0b6'
+POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR='\ue0b5' POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR='\ue0b6'
 POWERLEVEL9K_RIGHT_SUBSEGMENT_SEPARATOR='\ue0b7'
 
 ## EXPORTS
@@ -158,6 +157,7 @@ zinit light softmoth/zsh-vim-mode
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ## Alias
+alias e="exit"
 alias ls="exa -la --group-directories-first"
 alias sxiv='devour sxiv'
 alias mpv='devour mpv'
