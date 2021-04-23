@@ -69,7 +69,7 @@ let g:which_key_map.c = {
 	\ 'c'    : [':CocCommand'              , 'Coc-command']              ,
 	\ 'd'    : [':CocList diagnostics'     , 'Coc-show-all-diagnostics'] ,
 	\ 'e'    : [':CocList extensions'      , 'Coc-manage-extensions']    ,
-	\ 'l'    : [':CocList commands'        , 'Coc-list-commands']        ,
+	\ 'l'    : [':CocList'                 , 'Coc-list']        ,
 	\ 'o'    : [':CocList outline'         , 'Coc-outline']              ,
 	\ 's'    : [':CocList -I symbols'      , 'Coc-search-symbols']       ,
 	\ 'j'    : [':CocNext'                 , 'Coc-action-previous']      ,
