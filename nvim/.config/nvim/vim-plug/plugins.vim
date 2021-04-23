@@ -1,6 +1,5 @@
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
 
-
 Plug 'etdev/vim-hexcolor'                             " color highlight
 Plug 'neoclide/coc.nvim', {'branch': 'release'}       " ultimate autocompletion
 
@@ -28,9 +27,7 @@ Plug 'dbeniamine/cheat.sh-vim'                        " wierd search stuff
 Plug 'mhinz/vim-signify'                              " git symbols at the left
 Plug 'tpope/vim-fugitive'                             " git branch
 
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-treesitter/playground'
-Plug 'sheerun/vim-polyglot'                           " backup syntax highlight
+Plug 'sheerun/vim-polyglot'                           " syntax highlight
 
 Plug 'dracula/vim', { 'as': 'dracula' }               " colortheme
 Plug 'gruvbox-community/gruvbox'                      " colortheme
@@ -39,8 +36,8 @@ Plug 'Chiel92/vim-autoformat'                         " auto format files
 Plug 'tmsvg/pear-tree'                                " nice bracket magic that works
 Plug 'editorconfig/editorconfig-vim'                  " editorconfig per project
 
-" this is causing indentation errors
-" Plug 'styled-components/vim-styled-components'        " styled components syntax highlight
+" this is maybe indentation errors
+Plug 'styled-components/vim-styled-components'        " styled components syntax highlight
 
 " this is adding a new line when coc completing inside a ()
 " Plug 'jiangmiao/auto-pairs'                           " nice bracket magic 

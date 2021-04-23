@@ -49,6 +49,75 @@ nmap <leader>w<Right> <C-W>l
 nmap <leader>w<Down> <C-W>j
 nmap <leader>w<Left> <C-W>h
 
+let g:which_key_map.b = {
+	\ 'name' : '+buffers'                           ,
+	\ 'o'    : [':%bd|e#|bd#'                       , 'buffer-only']            ,
+	\ 'b'    : [':Buffers'                          , 'buffer-fuzzy-find']      ,
+	\ 'n'    : [':call NextBufferTab()'             , 'buffer-next']            ,
+	\ 'p'    : [':call PrevBufferTab()'             , 'buffer-previous']        ,
+	\ 'd'    : [':bp | bd #'                        , 'buffer-delete']          ,
+	\ 't'    : [':bdelete! term-slider'             , 'buffer-terminal-delete'] ,
+	\ 'l'    : [':buffers'                          , 'buffer-list-all']        ,
+	\ 's'    : [':w'                                , 'buffer-save']            ,
+	\ 'c'    : 'buffer-command'                     ,
+	\}
+
+nmap <leader>bc :b 
+
+let g:which_key_map.c = {
+	\ 'name' :'+coc'                       ,
+	\ 'c'    : [':CocCommand'              , 'Coc-command']              ,
+	\ 'd'    : [':CocList diagnostics'     , 'Coc-show-all-diagnostics'] ,
+	\ 'e'    : [':CocList extensions'      , 'Coc-manage-extensions']    ,
+	\ 'l'    : [':CocList commands'        , 'Coc-list-commands']        ,
+	\ 'o'    : [':CocList outline'         , 'Coc-outline']              ,
+	\ 's'    : [':CocList -I symbols'      , 'Coc-search-symbols']       ,
+	\ 'j'    : [':CocNext'                 , 'Coc-action-previous']      ,
+	\ 'k'    : [':CocPrev'                 , 'Coc-action-next']          ,
+	\ 'r'    : ['<Plug>(coc-range-select)' , 'Coc-range-select']         ,
+	\}
+
+let g:which_key_map.K = {
+	\ 'name' :'+cheatsheet'         ,
+	\ 'K'    : 'not-working!'       ,
+	\ 'B'    : 'awnser-on-buffer'   ,
+	\ 'R'    : 'awnser-replace'     ,
+	\ 'P'    : 'awnser-below'       ,
+	\ 'C'    : 'toggle-last-comment',
+	\ 'E'    : 'send-error'         ,
+	\ 'L'    : 'last-query'         ,
+	\}
+
+let g:which_key_map.o = {
+	\ 'name' : '+toggle'                              ,
+	\ 't'    : [':call ChooseTerm("term-slider", 1)'  , 'terminal-split']        ,
+	\ 's'    : [':setlocal spell! spelllang=en_us,pt' , 'spellcheck']            ,
+	\ 'p'    : [':CocCommand explorer'                , 'file-tree']             ,
+	\}
+
+let g:which_key_map.t = {
+	\ 'name' : '+terminal'                                       ,
+	\ 'T'    : [':call ChooseTerm("term-slider", 1)'             , 'terminal'] ,
+	\ 'f'    : [':FloatermNew fzf'                               , 'fzf']      ,
+	\ 'g'    : [':FloatermNew lazygit'                           , 'git']      ,
+	\ 'd'    : [':FloatermNew lazydocker'                        , 'docker']   ,
+	\ 'n'    : [':FloatermNew node'                              , 'node']     ,
+	\ 'p'    : [':FloatermNew python'                            , 'python']   ,
+	\ 'm'    : [':FloatermNew lazynpm'                           , 'npm']      ,
+	\ 't'    : [':FloatermToggle'                                , 'toggle']   ,
+	\ 's'    : [':FloatermNew gotop'                             , 'gotop']    ,
+	\ 'h'    : [':FloatermNew ncdu'                              , 'ncdu']     ,
+	\ 'r'    : [':FloatermNew --width=0.99 --height=0.99 /bin/ranger', 'ranger'],
+	\ }
+
+let g:which_key_map.v = {
+	\ 'name' : '+vim'  ,
+	\ 'q'    : [':qa!' , 'vim-exit']                                     ,
+	\ 'c'    : [':wqa' , 'vim-save-and-exit']                            ,
+	\ 's'    : [':wa'  , 'vim-save']                                     ,
+	\ 'r'    : [':source ~/.config/nvim/init.vim' , 'vim-reload-source'] ,
+	\}
+
 let g:which_key_map.w = {
 	\ 'name'   : '+window'     ,
 	\ 'w'      : ['<C-W>W'     , 'other-window']          ,
@@ -72,75 +141,6 @@ let g:which_key_map.w = {
 " \ '<Right>': 'move-right'  ,
 " \ '<Up>'   : 'move-up'     ,
 " \ '<Down>' : 'move-down'   ,
-
-let g:which_key_map.o = {
-	\ 'name' : '+toggle'                              ,
-	\ 't'    : [':call ChooseTerm("term-slider", 1)'  , 'terminal-split']        ,
-	\ 's'    : [':setlocal spell! spelllang=en_us,pt' , 'spellcheck']            ,
-	\ 'p'    : [':CocCommand explorer'                , 'file-tree']             ,
-	\}
-
-nmap <leader>bc :b 
-
-let g:which_key_map.b = {
-	\ 'name' : '+buffers'                           ,
-	\ 'o'    : [':%bd|e#|bd#'                       , 'buffer-only']            ,
-	\ 'b'    : [':Buffers'                          , 'buffer-fuzzy-find']      ,
-	\ 'n'    : [':call NextBufferTab()'             , 'buffer-next']            ,
-	\ 'p'    : [':call PrevBufferTab()'             , 'buffer-previous']        ,
-	\ 'd'    : [':bp | bd #'                        , 'buffer-delete']          ,
-	\ 't'    : [':bdelete! term-slider'             , 'buffer-terminal-delete'] ,
-	\ 'l'    : [':buffers'                          , 'buffer-list-all']        ,
-	\ 's'    : [':w'                                , 'buffer-save']            ,
-	\ 'c'    : 'buffer-command'                     ,
-	\}
-
-let g:which_key_map.v = {
-	\ 'name' : '+vim'  ,
-	\ 'q'    : [':qa!' , 'vim-exit']                                     ,
-	\ 'c'    : [':wqa' , 'vim-save-and-exit']                            ,
-	\ 's'    : [':wa'  , 'vim-save']                                     ,
-	\ 'r'    : [':source ~/.config/nvim/init.vim' , 'vim-reload-source'] ,
-	\}
-
-let g:which_key_map.K = {
-	\ 'name' :'+cheatsheet'         ,
-	\ 'K'    : 'not-working!'       ,
-	\ 'B'    : 'awnser-on-buffer'   ,
-	\ 'R'    : 'awnser-replace'     ,
-	\ 'P'    : 'awnser-below'       ,
-	\ 'C'    : 'toggle-last-comment',
-	\ 'E'    : 'send-error'         ,
-	\ 'L'    : 'last-query'         ,
-	\}
-
-let g:which_key_map.c = {
-	\ 'name' :'+coc'                       ,
-	\ 'c'    : [':CocCommand'              , 'Coc-command']              ,
-	\ 'd'    : [':CocList diagnostics'     , 'Coc-show-all-diagnostics'] ,
-	\ 'e'    : [':CocList extensions'      , 'Coc-manage-extensions']    ,
-	\ 'l'    : [':CocList commands'        , 'Coc-list-commands']        ,
-	\ 'o'    : [':CocList outline'         , 'Coc-outline']              ,
-	\ 's'    : [':CocList -I symbols'      , 'Coc-search-symbols']       ,
-	\ 'j'    : [':CocNext'                 , 'Coc-action-previous']      ,
-	\ 'k'    : [':CocPrev'                 , 'Coc-action-next']          ,
-	\ 'r'    : ['<Plug>(coc-range-select)' , 'Coc-range-select']         ,
-	\}
-
-let g:which_key_map.t = {
-	\ 'name' : '+terminal'                                       ,
-	\ 'T'    : [':call ChooseTerm("term-slider", 1)'             , 'terminal'] ,
-	\ 'f'    : [':FloatermNew fzf'                               , 'fzf']      ,
-	\ 'g'    : [':FloatermNew lazygit'                           , 'git']      ,
-	\ 'd'    : [':FloatermNew lazydocker'                        , 'docker']   ,
-	\ 'n'    : [':FloatermNew node'                              , 'node']     ,
-	\ 'p'    : [':FloatermNew python'                            , 'python']   ,
-	\ 'm'    : [':FloatermNew lazynpm'                           , 'npm']      ,
-	\ 't'    : [':FloatermToggle'                                , 'toggle']   ,
-	\ 's'    : [':FloatermNew gotop'                             , 'gotop']    ,
-	\ 'h'    : [':FloatermNew ncdu'                              , 'ncdu']     ,
-	\ 'r'    : [':FloatermNew --width=0.99 --height=0.99 /bin/ranger', 'ranger'],
-	\ }
 
 "==============================
 "       OTHER MAPPINGS
@@ -299,7 +299,7 @@ endfunction
 "==============================
 "            LUA
 "==============================
-lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
+" lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
 " lua require'nvim-treesitter.configs'.setup { indent = { enable = true } } " This is buggy as of early 2021
 
 "==============================
@@ -320,11 +320,9 @@ if exists('+termguicolors')
 endif
 
 " DRACULA CONFIG
-" colorscheme dracula
-" highlight Normal ctermbg=NONE
-" highlight nonText ctermbg=NONE
-" highlight Normal guibg=NONE ctermbg=NONE
+colorscheme dracula
+highlight CursorLine guibg=238 ctermbg=238
 
 " GRUVBOX CONFIG
-colorscheme gruvbox
-highlight CursorLine guibg=238 ctermbg=238
+" colorscheme gruvbox
+" highlight CursorLine guibg=238 ctermbg=238
