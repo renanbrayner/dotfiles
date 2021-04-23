@@ -21,6 +21,9 @@ source $HOME/.config/nvim/plugins-config/ultisnips.vim
 source $HOME/.config/nvim/plugins-config/vim-floaterm.vim
 source $HOME/.config/nvim/plugins-config/vimtex.vim
 source $HOME/.config/nvim/plugins-config/pear-tree.vim
+" source $HOME/.config/nvim/plugins-config/telescope.vim
+" source $HOME/.config/nvim/plugins-config/devicons.vim
+
 
 "==============================
 "      LEADER MAPPINGS
@@ -248,8 +251,8 @@ set wildignore+=*/node_modules/
 "          TERMINAL
 "==============================
 
-" tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
-" tnoremap <expr> <Esc> (&filetype == "floaterm") ? "<Esc>" : "<c-\><c-n>"
+tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : "<c-\><c-n>"
+tnoremap <expr> <Esc> (&filetype == "floaterm") ? "<Esc>" : "<c-\><c-n>"
 tnoremap <C-v><Esc> <c-\><c-n>
 
 let g:airline#extensions#tabline#ignore_bufadd_pat = 'gundo|undotree|vimfiler|tagbar|nerd_tree|startify|!|term'
@@ -295,12 +298,6 @@ function! ChooseTerm(termname, slider)
 		:exe "f " a:termname
 	endif
 endfunction
-
-"==============================
-"            LUA
-"==============================
-" lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
-" lua require'nvim-treesitter.configs'.setup { indent = { enable = true } } " This is buggy as of early 2021
 
 "==============================
 "           RICE

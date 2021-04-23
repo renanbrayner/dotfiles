@@ -7,5 +7,9 @@
   ],
   "L2hvbWUvcmVuYW4vY29kZS9uZXh0L2dpc2VsZS9wYWdlcw==": [
     "eslint"
+  ],
+  "L2hvbWUvcmVuYW4vLmRvdGZpbGVz": [
+    "extensions",
+    "list"
   ]
 }

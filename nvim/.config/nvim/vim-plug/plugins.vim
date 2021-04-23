@@ -4,6 +4,7 @@ Plug 'etdev/vim-hexcolor'                             " color highlight
 Plug 'neoclide/coc.nvim', {'branch': 'release'}       " ultimate autocompletion
 
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] } " show command completion at bottom
+
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " fzf needs this
 Plug 'junegunn/fzf.vim'                               " fuzzy find files
 Plug 'antoinemadec/FixCursorHold.nvim'                " fix some shit
@@ -38,9 +39,6 @@ Plug 'editorconfig/editorconfig-vim'                  " editorconfig per project
 
 " this is maybe indentation errors
 Plug 'styled-components/vim-styled-components'        " styled components syntax highlight
-
-" this is adding a new line when coc completing inside a ()
-" Plug 'jiangmiao/auto-pairs'                           " nice bracket magic 
 
 " ----HACK----
 " installed this way instead of with CocInstall to prevent server crashing with typescript
