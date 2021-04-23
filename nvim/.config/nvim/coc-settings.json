@@ -1,34 +1,13 @@
 {
-	"suggest.noselect": false,
-	"typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
-	"suggest.completionItemKindLabels": {
-    "method": "  ",
-    "function": "  ",
-    "variable": "[]",
-    "field": "  ",
-    "typeParameter": "<>",
-    "constant": "  ",
-    "class": " פּ ",
-    "interface": " 蘒",
-    "struct": "  ",
-    "event": "  ",
-    "operator": "  ",
-    "module": "  ",
-    "property": "  ",
-    "enum": " 練",
-    "reference": "  ",
-    "keyword": "  ",
-    "file": "  ",
-    "folder": " ﱮ ",
-    "color": "  ",
-    "unit": " 塞 ",
-    "snippet": "  ",
-    "text": "  ",
-    "constructor": "  ",
-    "value": "  ",
-    "enumMember": "  "
-  },
+  "suggest.noselect": false,
+  "suggest.languageSourcePriority": 99,
+
   "styled-components.tags": ["styled", "css", "sty", "createGlobalStyle"],
+
+  "tabnine.priority": 999,
+
+	"typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+
 	"explorer.icon.enableNerdfont": true,
 	"explorer.position": "right",
 	"explorer.file.showHiddenFiles": true,
