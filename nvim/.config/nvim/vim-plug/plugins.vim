@@ -32,13 +32,14 @@ Plug 'sheerun/vim-polyglot'                           " syntax highlight
 
 Plug 'dracula/vim', { 'as': 'dracula' }               " colortheme
 Plug 'gruvbox-community/gruvbox'                      " colortheme
+Plug 'yonlu/omni.vim'                                 " colortheme
 
 Plug 'Chiel92/vim-autoformat'                         " auto format files
 Plug 'tmsvg/pear-tree'                                " nice bracket magic that works
 Plug 'editorconfig/editorconfig-vim'                  " editorconfig per project
 
 " this is maybe indentation errors
-Plug 'styled-components/vim-styled-components'        " styled components syntax highlight
+" Plug 'styled-components/vim-styled-components'        " styled components syntax highlight
 
 " ----HACK----
 " installed this way instead of with CocInstall to prevent server crashing with typescript

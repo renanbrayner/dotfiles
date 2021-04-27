@@ -223,7 +223,7 @@ set completeopt=menuone,noinsert,noselect
 
 set encoding=utf-8        " utf-8 ofc
 
-syntax on
+syntax enable
 
 " Indenting
 set list listchars=tab:>\ ,trail:-,eol:$
@@ -323,3 +323,6 @@ highlight CursorLine guibg=238 ctermbg=238
 " GRUVBOX CONFIG
 " colorscheme gruvbox
 " highlight CursorLine guibg=238 ctermbg=238
+
+" OMNI
+" colorscheme omni
