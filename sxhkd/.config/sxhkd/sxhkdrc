@@ -11,6 +11,8 @@ super + alt + w
     exec $secondary_browser
 super + shift + m 
     exec arandr && nitrogen --restore
+super + m
+    exec mailspring
 
 # terminal aplications bellow
 
@@ -34,8 +36,6 @@ super + v
     exec $primary_terminal -e /home/renan/.local/bin/vim.sh
 super + c 
     exec $primary_terminal -e calcurse          #calendar in terminal
-super + m 
-    exec $primary_terminal -e aerc              #email client in terminal 
 
 super + alt + g 
     exec $secondary_terminal -e ranger     #file manager
@@ -47,8 +47,6 @@ super + alt + v
     exec $secondary_terminal -e /home/renan/.loca/bin/vim.sh
 super + alt + c 
     exec $secondary_terminal -e calcurse   #calendar in terminal
-super + alt + m 
-    exec $secondary_terminal -e aerc       #email client in terminal 
 
 super + o 
     exec $primary_terminal -e ~/.local/bin/terminalapps.bash

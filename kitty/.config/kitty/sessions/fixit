@@ -1,0 +1,12 @@
+layout tall
+cd ~/Fixit/code/frontend-fixitapp
+launch zsh -l -c "PATH=/home/renan/.zinit/polaris/bin:/home/renan/.asdf/shims:/home/renan/.asdf/bin:/home/renan/.local/bin:/home/renan/.asdf/installs/nodejs/15.0.1/.npm/lib/node_modules:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin:/home/renan/.fzf/bin:$PATH; nvim"
+
+new_tab
+cd ~/Fixit/code/frontend-fixitapp
+launch lazygit
+launch zsh
+
+new_tab
+cd ~/Fixit/code/frontend-fixitapp
+launch yarn start
