@@ -10,11 +10,11 @@
 # full     full_circle     full_rounded     full_alt
 # card     card_circle     column     column_circle
 # row     row_alt     row_circle
-# single     single_circle     single_full     single_full_circle     single_rounded     single_text
+# single     single_circle     single_full     single_full_circle     single_rounded    single_rounded_dracula     single_text
 
 style="single_rounded"
 
-rofi_command="rofi -monitor primary -theme power/$style.rasi"
+rofi_command="rofi -monitor eDP1 -theme power/$style.rasi"
 
 uptime=$(uptime -p | sed -e 's/up //g')
 

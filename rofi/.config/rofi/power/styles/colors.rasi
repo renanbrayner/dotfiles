@@ -3,8 +3,8 @@
  *
  * Available Color Schemes
  *
- * bluish    berry    nordic    nightly    gotham    mask    faded    cocoa dracula gruvbox
+ * bluish    berry    nordic    nightly    gotham    mask    faded    cocoa dracula gruvbox darkglass
  *
  */
 
-@import "darkglass.rasi"
+@import "dracula.rasi"

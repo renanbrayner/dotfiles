@@ -1,1 +1,1 @@
-rofi -monitor primary -no-lazy-grab -show run -theme themes/rundrawer.rasi
+rofi -monitor eDP1 -no-lazy-grab -show run -theme themes/runblurrydracula.rasi

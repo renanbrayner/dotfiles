@@ -64,9 +64,7 @@ element-icon {
 }
 
 element-text {
-    background-color:               @background-alt;
-    text-color:                     @foreground;
-    font:							"FiraCode Nerd Font 24";
+	font:							"FiraCode Nerd Font 24";
     expand:                         true;
     horizontal-align:               0.5;
     vertical-align:                 0.5;

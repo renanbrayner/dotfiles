@@ -9,9 +9,9 @@
 
 configuration {
     font:                           "Noto Sans 10";
-    show-icons:                     true;
+    show-icons:                     false;
 		icon-theme: 										"Papirus";
-    display-drun: 									"";
+    display-run: 									"";
     drun-display-format:            "{name}";
     threads:                        0;
     scroll-method:                  0;
@@ -70,7 +70,7 @@ entry {
     placeholder-color:              @foreground;
     expand:                         true;
     horizontal-align:               0;
-    placeholder:                    "Search";
+    placeholder:                    "Run";
     blink:                          true;
 }
 
@@ -83,7 +83,7 @@ case-indicator {
 
 listview {
     background-color:               @background;
-    columns:                        5;
+    columns:                        4;
     spacing:                        4px;
     cycle:                          false;
     dynamic:                        true;
@@ -102,7 +102,7 @@ element {
     text-color:                     @foreground;
     orientation:                    vertical;
     border-radius:                  6px;
-    padding:                        10px 0px 10px 0px;
+    padding:                        2px 0px 8px 0px;
 }
 
 element-icon {
