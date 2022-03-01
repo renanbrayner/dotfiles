@@ -1,3 +1,0 @@
-INDEX VERSION 1.131+/home/renan/.dotfiles/nvim/.config/coc/extensions/coc-java-data/jdt_ws_c165ce870a02f45810fd821239c00f53/.metadata/.plugins/org.eclipse.jdt.core
-3197704993.index
-3842426239.index

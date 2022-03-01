@@ -1,9 +1,14 @@
 explorer
-eslint.showOutputChannel
+prettier.formatFile
+extensions.forceUpdateAll
+extensions.toggleAutoUpdate
+snippets.openSnippetFiles
 eslint.resetLibraryExecution
-eslint.executeAutofix
+eslint.manageLibraryExecution
+eslint.showOutputChannel
+tsserver.restart
 eslint.createConfig
+eslint.executeAutofix
 eslint.lintProject
 tsserver.organizeImports
 snippets.editSnippets
-snippets.openSnippetFiles

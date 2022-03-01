@@ -2,11 +2,15 @@
   "suggest.noselect": false,
   "suggest.languageSourcePriority": 99,
 
-  "styled-components.tags": ["styled", "css", "sty", "createGlobalStyle"],
-
-  "tabnine.priority": 999,
+  "eslint.autoFixOnSave": true,
+  "eslint.packageManager": "yarn",
+  "eslint.validate": [".", "--ext", ".ts"],
+  "eslint.run": "onSave",
+  // "coc.preferences.formatOnSaveFiletypes": ["vue"],
 
 	"typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+
+  "emmet.includeLanguages": {"javascript": "javascriptreact", "typescript": "typescriptreact"},
 
 	"explorer.icon.enableNerdfont": true,
 	"explorer.position": "right",
@@ -93,5 +97,6 @@
     "]c": ["wait", "markNext:git"],
     "<<": "gitStage",
     ">>": "gitUnstage"
-  }
+  },
+  "coc.preferences.extensionUpdateCheck": "never"
 }

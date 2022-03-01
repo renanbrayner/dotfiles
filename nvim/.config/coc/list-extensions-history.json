@@ -14,7 +14,9 @@
     "ht"
   ],
   "L2hvbWUvcmVuYW4vRml4aXQvY29kZS9mcm9udGVuZC1maXhpdGFwcA==": [
-    "pa"
+    "pa",
+    "pr",
+    " q"
   ],
   "L2hvbWUvcmVuYW4vY29kZS9ub2RlL3NtYWxsc3R1ZmY=": [
     "pair",
@@ -22,5 +24,14 @@
   ],
   "L2hvbWUvcmVuYW4vY29kZS9ubHcjNC9yb2NrZXRwYXk=": [
     "pair"
+  ],
+  "L2hvbWUvcmVuYW4vY29kZS9mcmF0ZXJuaWRhZGUvc3JjL3BhZ2Vz": [
+    "eslint"
+  ],
+  "L2hvbWUvcmVuYW4vY29kZS9mcmF0ZXJuaWRhZGU=": [
+    "es"
+  ],
+  "L2hvbWUvcmVuYW4vUGFub3BzL2NvZGUvemFiYml4X2ltcG9ydF9lbGVjdHJvbg==": [
+    "  "
   ]
 }

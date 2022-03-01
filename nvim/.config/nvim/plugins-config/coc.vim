@@ -25,6 +25,7 @@ let g:coc_global_extensions = [
 	\ 'coc-snippets',
 	\ 'coc-json',
 	\ 'coc-css',
+	\ 'coc-eslint'
 	\ ]
 
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
