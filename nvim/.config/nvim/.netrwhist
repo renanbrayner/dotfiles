@@ -1,12 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =7
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/home/renan/Fixit/code/frontend-fixitsite/src'
+let g:netrw_dirhist_0='/home/renan/.config/deadd'
+let g:netrw_dirhist_9='/home/renan/code/rust/programs/notes'
+let g:netrw_dirhist_8='/home/renan/.config'
 let g:netrw_dirhist_7='/home/renan/Fixit/code/frontend-fixitapp/src/components/OptionsBtn'
 let g:netrw_dirhist_6='/home/renan/Fixit/code/frontend-fixitapp/src/components/Layout'
 let g:netrw_dirhist_5='/home/renan/Fixit/code/frontend-fixitapp/src/components/Sidebar'
 let g:netrw_dirhist_4='/home/renan/Fixit/code/frontend-fixitapp/src/pages/CustomSolution'
 let g:netrw_dirhist_3='/home/renan/Fixit/code/frontend-fixitapp/src/components/OrderBox'
 let g:netrw_dirhist_2='/home/renan/Fixit/code/frontend-fixitapp/src/components/OrdersList'
-let g:netrw_dirhist_1='/home/renan/code/rust/programs/notes-backup/notes/src'
-let g:netrw_dirhist_0='/home/renan/code/rust/programs/notes-backup/notes'
-let g:netrw_dirhist_9='/home/renan/code/rust/programs/notes-backup'
-let g:netrw_dirhist_8='/home/renan/Fixit/code/frontend-fixitapp/src/components/OrdersList'
