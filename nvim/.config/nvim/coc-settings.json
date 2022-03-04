@@ -1,17 +1,21 @@
 {
+  "coc.preferences.extensionUpdateCheck": "never",
   "suggest.noselect": false,
   "suggest.languageSourcePriority": 99,
-
   "eslint.autoFixOnSave": true,
   "eslint.packageManager": "yarn",
   "eslint.validate": [".", "--ext", ".ts"],
   "eslint.run": "onSave",
   // "coc.preferences.formatOnSaveFiletypes": ["vue"],
-
+  
+  "sumneko-lua.enableNvimLuaDev": true,
+  "Lua.telemetry.enable": false,
+  "Lua.workspace.checkThirdParty": false,
+  "Lua.workspace.library": [
+    "/home/renan/.local/share/nvim/site/pack/packer/start/packer.nvim/lua"
+  ],
 	"typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
-
   "emmet.includeLanguages": {"javascript": "javascriptreact", "typescript": "typescriptreact"},
-
 	"explorer.icon.enableNerdfont": true,
 	"explorer.position": "right",
 	"explorer.file.showHiddenFiles": true,
@@ -97,6 +101,5 @@
     "]c": ["wait", "markNext:git"],
     "<<": "gitStage",
     ">>": "gitUnstage"
-  },
-  "coc.preferences.extensionUpdateCheck": "never"
+  }
 }

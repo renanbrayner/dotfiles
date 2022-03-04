@@ -1,4 +1,4 @@
-vim.g.indent_blankline_filetype_exclude = { 'alpha', 'coc-explorer', 'help' }
+vim.g.indent_blankline_filetype_exclude = { 'alpha', 'coc-explorer', 'help', 'packer' }
 
 vim.cmd [[highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine]]
 vim.cmd [[highlight IndentBlanklineIndent2 guifg=#E5C07B gui=nocombine]]

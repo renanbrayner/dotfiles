@@ -1,7 +1,9 @@
 local wk = require("which-key")
+local map = vim.api.nvim_set_keymap
+local nrmp = { noremap = true }
 
---- ATENTION ---
--- Some mappings are in the ~/.config/nvim/init.vim file
+-- SET LEADER KEY
+vim.g.mapleader = ' '
 
 wk.setup({
     window = {
@@ -18,16 +20,16 @@ wk.setup({
   })
 
 wk.register({
-    ["<C-p>"]    = { "<cmd>call ControlP()<cr>"     , "search-files"},
-    ["<C-s>"]    = { "<cmd>:w<cr>"                  , "save-file" },
-    ["<A-Up>"]   = { "<cmd>m .-2<CR>=="             , "move-line-up"},
-    ["<A-k>"]    = { "<cmd>m .-2<CR>=="             , "move-line-up"},
-    ["<A-Down>"] = { "<cmd>m .+1<CR>=="             , "move-line-down"},
-    ["<A-j>"]    = { "<cmd>m .+1<CR>=="             , "move-line-down"},
+    ["<C-p>"]    = { "<cmd>call ControlP()<cr>"         , "search-files"},
+    ["<C-s>"]    = { "<cmd>:w<cr>"                      , "save-file" },
+    ["<A-Up>"]   = { "<cmd>m .-2<CR>=="                 , "move-line-up"},
+    ["<A-k>"]    = { "<cmd>m .-2<CR>=="                 , "move-line-up"},
+    ["<A-Down>"] = { "<cmd>m .+1<CR>=="                 , "move-line-down"},
+    ["<A-j>"]    = { "<cmd>m .+1<CR>=="                 , "move-line-down"},
     ["<A-,>"]    = { "<cmd>BufferPrevious<CR>"          , "previous-buffer"},
     ["<A-.>"]    = { "<cmd>BufferNext<CR>"              , "next-buffer"},
     ["<A-<>"]    = { "<cmd>BufferMovePrevious<CR>"      , "move-buffer-previous"},
-    ["<A->>"]    = { "<cmd>BufferMoveNext<CR>"         , "move-buffer-next"},
+    ["<A->>"]    = { "<cmd>BufferMoveNext<CR>"          , "move-buffer-next"},
     ["<A-1>"]    = { "<cmd>BufferGoto 1<CR>"            , "go-to-buffer-1"},
     ["<A-2>"]    = { "<cmd>BufferGoto 2<CR>"            , "go-to-buffer-2"},
     ["<A-3>"]    = { "<cmd>BufferGoto 3<CR>"            , "go-to-buffer-3"},
@@ -39,41 +41,52 @@ wk.register({
     ["<A-9>"]    = { "<cmd>BufferGoto 9<CR>"            , "go-to-buffer-9"},
     ["<A-0>"]    = { "<cmd>BufferLast<CR>"              , "go-to-last-buffer"},
     ["<A-c>"]    = { "<cmd>BufferClose<CR>"             , "close-buffer"},
+    ["<A-n>"]    = { "<cmd>Alpha<cr>"                   , "new-tap"},
+    ["<Esc>"]    = { ":noh<Esc>"                        , "Esc-removing-highlight"},
+    ["q:"]       = { "<nop>"                            , "disabled"},
+    ["<F3>"]     = { "<cmd>Autoformat<CR>"              , "autoformat-file" },
+    Q            = { "<nop>"                            , "disabled"},
   })
 
 wk.register({
-    ["<leader>,"] = { "<cmd>BufferNext<cr>"              , "tab-next"} ,
-    ["<leader>."] = { "<cmd>BufferPrevious<cr>"              , "tab-previous"} ,
-    ["<leader>'"] = { "<cmd>call ChooseTerm('term-slider', 1)<cr>" , "terminal"} ,
-    ["<leader>C"] = "toggle-cheatsheet-comments"                   ,
-  })
-
-wk.register({
-    ["<A-k>"] = "move-selection-up",
-    ["<A-Up>"] = "move-selection-up",
-    ["<A-j>"] = "move-selection-down",
-    ["<A-Down>"] = "move-selection-down",
+    [">"]        = { ">gv", "indent-selection" },
+    ["<"]        = { "<gv", "remove-indent-selection" },
+    ["<A-k>"]    =          "move-selection-up",
+    ["<A-Up>"]   =          "move-selection-up",
+    ["<A-j>"]    =          "move-selection-down",
+    ["<A-Down>"] =          "move-selection-down",
   }, { mode = "v" })
 
 wk.register({
-    ["<A-k>"] = { "<Esc>:m .-2<CR>==gi", "move-line-up" },
-    ["<A-Up>"] = { "<Esc>:m .-2<CR>==gi", "move-line-up" },
-    ["<A-j>"] = { "<Esc>:m .+1<CR>==gi", "move-line-down" },
+    ["<A-k>"]    = { "<Esc>:m .-2<CR>==gi", "move-line-up" },
+    ["<A-Up>"]   = { "<Esc>:m .-2<CR>==gi", "move-line-up" },
+    ["<A-j>"]    = { "<Esc>:m .+1<CR>==gi", "move-line-down" },
     ["<A-Down>"] = { "<Esc>:m .+1<CR>==gi", "move-line-down" },
   }, { mode = "i" })
 
 wk.register({
+    ["<leader>,"] = { "<cmd>BufferNext<cr>"                       , "tab-next"} ,
+    ["<leader>."] = { "<cmd>BufferPrevious<cr>"                   , "tab-previous"} ,
+    ["<leader>'"] = { "<cmd>call ChooseTerm('term-slider', 1)<cr>", "terminal"} ,
+    ["<leader>C"] =                                                 "toggle-cheatsheet-comments",
+  })
+
+wk.register({
+    ["<Esc>"]      = { '(&filetype == "fzf") ? "<Esc>" : (&filetype == "floaterm") ? "<Esc>" : "<c-\\><c-n>"', "remap-esc-on-fzf", expr = true },
+  }, { mode = "t"})
+
+wk.register({
     b = {
-      name = "buffers"                        ,
-      o    = { "<cmd>BufferCloseAllButCurrent<cr>"          , "buffer-only" },
-      b    = { "<cmd>Buffers<cr>"             , "buffer-fuzzy-find" },
-      n    = { "<cmd>BufferNext<cr>", "buffer-next" },
-      p    = { "<cmd>BufferPrevious<cr>", "buffer-previous" },
-      d    = { "<cmd>bp | bd #<cr>"           , "buffer-delete" },
-      t    = { "<cmd>bdelete! term-slider<cr>", "buffer-terminal-delete" },
-      l    = { "<cmd>buffers<cr>"             , "buffer-list-all" },
-      s    = { "<cmd>w<cr>"                   , "buffer-save" },
-      c    = { ":b "                          , "buffer-command"}
+      name = "buffers"                            ,
+      o    = { "<cmd>BufferCloseAllButCurrent<cr>", "buffer-only" },
+      b    = { "<cmd>Buffers<cr>"                 , "buffer-fuzzy-find" },
+      n    = { "<cmd>BufferNext<cr>"              , "buffer-next" },
+      p    = { "<cmd>BufferPrevious<cr>"          , "buffer-previous" },
+      d    = { "<cmd>bp | bd #<cr>"               , "buffer-delete" },
+      t    = { "<cmd>bdelete! term-slider<cr>"    , "buffer-terminal-delete" },
+      l    = { "<cmd>buffers<cr>"                 , "buffer-list-all" },
+      s    = { "<cmd>w<cr>"                       , "buffer-save" },
+      c    = { ":b "                              , "buffer-command"}
     }
   }, { prefix = "<leader>" })
 
@@ -84,7 +97,7 @@ wk.register({
       d    = { "<cmd>CocList diagnostics<cr>"           , "Coc-show-all-diagnostics" },
       e    = { "<cmd>CocList extensions<cr>"            , "Coc-manage-extensions" },
       f    = { "<cmd>CocCommand prettier.formatFile<cr>", "Coc-format-file" },
-      l    = { "<cmd>CocList<cr>", "Coc-list" }         ,
+      l    = { "<cmd>CocList<cr>"                       , "Coc-list" },
       o    = { "<cmd>CocList outline<cr>"               , "Coc-outline" },
       s    = { "<cmd>CocList -I symbols<cr>"            , "Coc-search-symbols" },
       j    = { "<cmd>CocNext<cr>"                       , "Coc-action-previous" },
@@ -114,6 +127,7 @@ wk.register({
       p    = { "<cmd>CocCommand explorer<cr>"               , "file-tree" },
       l    = { "<cmd>set list!<cr>"                         , "list-chars" },
       n    = { "<cmd>set relativenumber!<cr>"               , "relativenumber" },
+      i    = { "<cmd>IndentBlanklineToggle<cr>"             , "toggle-indentline" }
     }
   }, { prefix = "<leader>" })
 
@@ -146,11 +160,11 @@ wk.register({
 
 wk.register({
     f = {
-      name = "fzf",
-      f    = { "<cmd>Files<cr>", "files" },
-      g    = { "<cmd>GFiles<cr>", "git-files" },
+      name = "fzf"               ,
+      f    = { "<cmd>Files<cr>"  , "files" },
+      g    = { "<cmd>GFiles<cr>" , "git-files" },
       h    = { "<cmd>History<cr>", "recent-files" },
-      r    = { "<cmd>Rg<cr>", "text" },
+      r    = { "<cmd>Rg<cr>"     , "text" },
     }
   }, { prefix = "<leader>" })
 
@@ -186,3 +200,16 @@ wk.register({
       d = { ":cd %:p:h<CR>:pwd<CR>", "change-workdir" }
     }
   }, { prefix = "<leader>" })
+
+
+
+-- Can't map these
+map('t', '<C-v><Esc>', '<c-\\><c-n>', nrmp)
+
+map('v', '', 'gcgv', {})  -- comment area
+map('n', '', 'gcc', {}) -- comment line
+
+map('v', '<A-k>', ":m '<-2<CR>gv=gv", nrmp) -- move selection up
+map('v', '<A-Up>', ":m '<-2<CR>gv=gv", nrmp) -- move selection up
+map('v', '<A-j>', ":m '>+1<CR>gv=gv", nrmp) -- move selection down
+map('v', '<A-Down>', ":m '>+1<CR>gv=gv", nrmp) -- move selection down

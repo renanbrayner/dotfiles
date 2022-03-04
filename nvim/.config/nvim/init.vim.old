@@ -2,8 +2,10 @@
 " ████╗  ██║██║   ██║██║████╗ ████║
 " ██╔██╗ ██║██║   ██║██║██╔████╔██║
 " ██║╚██╗██║╚██╗ ██╔╝██║██║╚██╔╝██║
-" ██║ ╚████║ ╚████╔╝ ██║██║ ╚═╝ ██║ CONFIG FILE
-" ╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝ BY: https://github.com/renanbrayner
+" ██║ ╚████║ ╚████╔╝ ██║██║ ╚═╝ ██║
+" ╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝
+"           CONFIG FILE
+" BY: https://github.com/renanbrayner
 
 "==============================
 "          PLUGINS
@@ -64,6 +66,8 @@ nmap  gcc
 "           CONFIGS
 "==============================
 
+lua require('porting/opts')
+
 set exrc                  " calls local vim config when runing 'vim .'
 set updatetime=300        " needed for coc
 set shortmess+=c          " needed for coc
@@ -95,16 +99,16 @@ set encoding=utf-8        " utf-8 ofc
 
 syntax enable
 
-" Show invisible characters
-" set list listchars=tab:>\ ,trail:-,eol:$
+Show invisible characters
+set list listchars=tab:>\ ,trail:-,eol:$
 
-" Indenting
+Indenting
 set autoindent
 filetype plugin indent on
 
 set tabstop=2             " number of spaces to use on tab character
 set shiftwidth=2          " indenting is 2 spaces
-" set expandtab             " use spaces instead of tab character
+set expandtab             " use spaces instead of tab character
 
 " JUST STOP
 map q: <nop>
