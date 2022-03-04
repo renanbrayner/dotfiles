@@ -139,6 +139,11 @@ _G.packer_plugins = {
     path = "/home/renan/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  ["nvim-notify"] = {
+    loaded = true,
+    path = "/home/renan/.local/share/nvim/site/pack/packer/start/nvim-notify",
+    url = "https://github.com/rcarriga/nvim-notify"
+  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/home/renan/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",

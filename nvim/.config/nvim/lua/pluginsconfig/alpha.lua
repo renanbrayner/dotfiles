@@ -1,10 +1,16 @@
 local alpha = require("alpha")
 local dashboard = require("alpha.themes.dashboard")
 
+-- opts
+-- dashboard.config.opts = {
+--   noautocmd = false
+-- }
+
 -- Set menu
 dashboard.section.buttons.val = {
   dashboard.button( "f", "  Find file", ":call ControlP()<CR>"),
   dashboard.button( "r", "  Recent"   , ":History<CR>"),
+  dashboard.button( "l", "  Last session", ":SessionManager load_last_session<CR>"),
   -- dashboard.button( "m", "  Bookmarks", ":Marks <CR>"),
   dashboard.button( "s", "  Settings" , ":e $MYVIMRC<CR>:cd %:p:h<CR>:pwd<CR>"),
   dashboard.button( "e", "  New file" , ":ene<CR>"),
@@ -24,9 +30,9 @@ dashboard.section.footer.val = footer()
 -- Disable folding on alpha buffer
 vim.cmd([[
 autocmd FileType alpha setlocal nofoldenable
+autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
 ]])
 -- Add this to vim.cmd to disable tabline on alpha
--- autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
 
 -- Set header
 -- dashboard.section.header.val = {

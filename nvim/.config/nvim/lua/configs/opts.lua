@@ -1,11 +1,6 @@
 local set = vim.opt
 
 vim.cmd("filetype plugin indent on")
-vim.cmd([[
-    autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-    au BufEnter * if &buftype == 'terminal' | startinsert | else | stopinsert | endif
-    set undodir="~/.config/nvim/undodir"
-  ]])
 set.exrc = true
 set.updatetime = 300
 set.shortmess = set.shortmess + "c"

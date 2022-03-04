@@ -1,8 +1,20 @@
-return require('packer').startup(function()
+local packer = require 'packer'
+
+packer.init {
+  display = {
+    open_fn = require('packer.util').float
+  }
+}
+
+local use = packer.use
+packer.reset()
+
+packer.startup(function()
   use {
     'wbthomason/packer.nvim',
     opt = false
   }
+  use 'rcarriga/nvim-notify'            -- better notifications
   use 'lewis6991/impatient.nvim'        -- better performance for lua plugins
   use 'farmergreg/vim-lastplace'        -- reopen vim with cursor on the same position
   use 'lilydjwg/colorizer'              -- color highlight alt(norcalli/nvim-colorizer.lua)
@@ -39,5 +51,9 @@ return require('packer').startup(function()
   use {
     'romgrk/barbar.nvim',
     requires = {'kyazdani42/nvim-web-devicons'}
+  }
+  use {
+    'Shatur/neovim-session-manager',
+    requires = {'nvim-lua/plenary.nvim'}
   }
 end)

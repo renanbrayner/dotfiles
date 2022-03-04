@@ -41,7 +41,7 @@ wk.register({
     ["<A-9>"]    = { "<cmd>BufferGoto 9<CR>"            , "go-to-buffer-9"},
     ["<A-0>"]    = { "<cmd>BufferLast<CR>"              , "go-to-last-buffer"},
     ["<A-c>"]    = { "<cmd>BufferClose<CR>"             , "close-buffer"},
-    ["<A-n>"]    = { "<cmd>Alpha<cr>"                   , "new-tap"},
+    ["<A-q>"]    = { "<cmd>%bd<cr>"                     , "close-all-buffers" },
     ["<Esc>"]    = { ":noh<Esc>"                        , "Esc-removing-highlight"},
     ["q:"]       = { "<nop>"                            , "disabled"},
     ["<F3>"]     = { "<cmd>Autoformat<CR>"              , "autoformat-file" },
@@ -80,6 +80,7 @@ wk.register({
       name = "buffers"                            ,
       o    = { "<cmd>BufferCloseAllButCurrent<cr>", "buffer-only" },
       b    = { "<cmd>Buffers<cr>"                 , "buffer-fuzzy-find" },
+      a    = { "<cmd>%bd<cr>"                     , "buffer-close-all" },
       n    = { "<cmd>BufferNext<cr>"              , "buffer-next" },
       p    = { "<cmd>BufferPrevious<cr>"          , "buffer-previous" },
       d    = { "<cmd>bp | bd #<cr>"               , "buffer-delete" },
@@ -122,12 +123,12 @@ wk.register({
 wk.register({
     o = {
       name = "toggle",
-      t    = { "<cmd>call ChooseTerm('term-slider', 1)<cr>" , "terminal-split" },
-      s    = { "<cmd>setlocal spell! spelllang=en_us,pt<cr>", "spellcheck" },
-      p    = { "<cmd>CocCommand explorer<cr>"               , "file-tree" },
-      l    = { "<cmd>set list!<cr>"                         , "list-chars" },
-      n    = { "<cmd>set relativenumber!<cr>"               , "relativenumber" },
-      i    = { "<cmd>IndentBlanklineToggle<cr>"             , "toggle-indentline" }
+      t    = { "<cmd>call ChooseTerm('term-slider', 1)<cr>"  , "terminal-split" },
+      s    = { "<cmd>setlocal spell! spelllang=en_us,pt<cr>" , "spellcheck" },
+      p    = { "<cmd>CocCommand explorer<cr>"                ,"file-tree" },
+      l    = { "<cmd>set list!<cr>"                          , "list-chars" },
+      n    = { "<cmd>set relativenumber!<cr>"                , "relativenumber" },
+      i    = { "<cmd>IndentBlanklineToggle<cr>"              , "toggle-indentline" }
     }
   }, { prefix = "<leader>" })
 

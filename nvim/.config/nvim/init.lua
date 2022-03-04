@@ -11,28 +11,11 @@
 --           PLUGINS
 -- ==============================
 
-require('impatient')
--- " NOT LUA PLUGINS START
-require('config/polyglot')
+require'impatient'
 vim.cmd("source $HOME/.config/nvim/plugins-config/coc.vim")
-require('config/fixcursorhold')
-require('config/quickscope')
-require('config/signify')
-require('config/ultisnips')
-require('config/floaterm')
-require('config/vimtex')
-require('config/peartree')
-require('config/fzf')
--- " NOT LUA PLUGINS END
-require('config/indentblankline')
-require('config/barbar')
-require('config/alpha')
-require('config/whichkey')
-require('config/lualine')
-require('config/devicons')
-require('plugins')
-
-require('porting/opts')
+require'pluginsconfig'
+require'plugins'
+require'configs'
 
 vim.cmd([[
 function! ChooseTerm(termname, slider)
@@ -62,6 +45,9 @@ function! ChooseTerm(termname, slider)
 endfunction
 
 function! ControlP()
+	if &filetype == 'coc-explorer'
+		:wincmd h
+	endif
 	silent! !git rev-parse --is-inside-work-tree
 	if v:shell_error == 0
 		:GFiles --cached --others --exclude-standard
@@ -69,8 +55,8 @@ function! ControlP()
 	else
 		:Files
 		" :Telescope
-endif
+	endif
 endfunction
 ]])
 
-require('porting/rice')
+require'rice'
