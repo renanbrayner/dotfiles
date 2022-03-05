@@ -2,11 +2,14 @@
 
 ![Screenshot](./screenshot.png)
 
-My dotfiles for Arch/i3-gaps!
+My dotfiles for Arch/xmonad!
 ## instalation
 
-### Dont Worry!
-all your the files modified/added by the script are backuped at the start!
+<!-- ### Dont Worry! -->
+### ATENTION!
+**DON'T TRY THIS YET, MANY CHANGES WERE MADE, I NEED TO REVIEW IT**
+
+~~all your the files modified/added by the script are backuped at the start!~~
 
 #### Backuped files
 
