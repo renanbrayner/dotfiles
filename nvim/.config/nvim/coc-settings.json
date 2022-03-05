@@ -31,7 +31,7 @@
 	"explorer.file.showHiddenFiles": true,
 	"explorer.width": 30,
   "explorer.contentWidthType": "win-width",
-  "explorer.previewAction.onHover": "labeling",
+  "explorer.previewAction.onHover": false,
   "explorer.buffer.child.labelingTemplate": "[name][bufname][fullpath][modified][readonly][diagnosticError][diagnosticWarning][git]",
   "explorer.sources": [
     {

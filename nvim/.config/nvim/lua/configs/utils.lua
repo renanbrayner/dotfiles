@@ -30,7 +30,7 @@ function! ChooseTerm(termname, slider)
 endfunction
 
 function! ControlP()
-	if &filetype == 'coc-explorer'
+	if &filetype == 'coc-explorer' || &filetype == 'NvimTree'
 		:wincmd h
 	endif
 	silent! !git rev-parse --is-inside-work-tree
@@ -44,11 +44,14 @@ function! ControlP()
 endfunction
 
 function! s:init_explorer()
-	set winhighlight=Normal:CocExplorer
+	set winhighlight=Normal:MyExplorer
 endfunction
 
-augroup CocExplorerCustom
-	autocmd!
-	autocmd FileType coc-explorer call <SID>init_explorer()
-augroup END
+" augroup CustomExplorer
+" 	autocmd!
+" 	autocmd FileType coc-explorer call <SID>init_explorer()
+" augroup END
+
+autocmd FileType NvimTree set winhighlight=Normal:MyExplorer
+
   ]])

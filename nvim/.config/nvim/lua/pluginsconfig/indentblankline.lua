@@ -1,4 +1,10 @@
-vim.g.indent_blankline_filetype_exclude = { 'alpha', 'coc-explorer', 'help', 'packer' }
+vim.g.indent_blankline_filetype_exclude = {
+    'alpha',
+    'coc-explorer',
+    'help',
+    'packer',
+    'NvimTree'
+}
 
 vim.opt.list = true
 vim.opt.listchars:append("space:·")

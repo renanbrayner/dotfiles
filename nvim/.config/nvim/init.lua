@@ -10,6 +10,9 @@
 
 -- Press leader (deffault = <space>) to see keybindings
 
+-- This was made in a vertical screen, maybe some things wont fit
+-- porprely on horizontal screens
+
 -- Recomended font: JetBrainsMono Nerd Font Mono
 
 --lua

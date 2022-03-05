@@ -42,6 +42,10 @@ packer.startup(function()
     'wbthomason/packer.nvim',
     opt = false
   }
+  use {
+    'kyazdani42/nvim-tree.lua',
+    requires = { 'kyazdani42/nvim-web-devicons' },
+  }
   use 'nvim-lua/popup.nvim'
   use {'stevearc/dressing.nvim'}        -- vim.ui select
   use 'rcarriga/nvim-notify'            -- better notifications

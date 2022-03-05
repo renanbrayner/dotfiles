@@ -1,7 +1,9 @@
 local set = vim.opt
 
-vim.cmd"filetype plugin indent on"
-vim.cmd'set undodir="~/.config/nvim/undodir"'
+vim.cmd([[
+filetype plugin indent on"
+set undodir=~/.config/nvim/undodir
+  ]])
 set.exrc = true
 set.updatetime = 300
 set.shortmess = set.shortmess + "c"

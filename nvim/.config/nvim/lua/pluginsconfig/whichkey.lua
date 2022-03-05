@@ -7,7 +7,7 @@ vim.g.mapleader = ' '
 
 wk.setup({
     window = {
-      border = "single",
+      border = "none",
       margin = { 1, 0, 1, 0 },
       padding = { 2, 2, 2, 2 },
     },
@@ -26,22 +26,23 @@ wk.register({
     ["<A-k>"]    = { "<cmd>m .-2<CR>=="                 , "Move line up"},
     ["<A-Down>"] = { "<cmd>m .+1<CR>=="                 , "Move line down"},
     ["<A-j>"]    = { "<cmd>m .+1<CR>=="                 , "Move line down"},
-    ["<A-,>"]    = { "<cmd>BufferPrevious<CR>"          , "Previous buffer"},
-    ["<A-.>"]    = { "<cmd>BufferNext<CR>"              , "Next buffer"},
-    ["<A-<>"]    = { "<cmd>BufferMovePrevious<CR>"      , "Move buffer previous"},
-    ["<A->>"]    = { "<cmd>BufferMoveNext<CR>"          , "Move buffer next"},
-    ["<A-1>"]    = { "<cmd>BufferGoto 1<CR>"            , "Go to buffer 1"},
-    ["<A-2>"]    = { "<cmd>BufferGoto 2<CR>"            , "Go to buffer 2"},
-    ["<A-3>"]    = { "<cmd>BufferGoto 3<CR>"            , "Go to buffer 3"},
-    ["<A-4>"]    = { "<cmd>BufferGoto 4<CR>"            , "Go to buffer 4"},
-    ["<A-5>"]    = { "<cmd>BufferGoto 5<CR>"            , "Go to buffer 5"},
-    ["<A-6>"]    = { "<cmd>BufferGoto 6<CR>"            , "Go to buffer 6"},
-    ["<A-7>"]    = { "<cmd>BufferGoto 7<CR>"            , "Go to buffer 7"},
-    ["<A-8>"]    = { "<cmd>BufferGoto 8<CR>"            , "Go to buffer 8"},
-    ["<A-9>"]    = { "<cmd>BufferGoto 9<CR>"            , "Go to buffer 9"},
-    ["<A-0>"]    = { "<cmd>BufferLast<CR>"              , "Go to last buffer"},
-    ["<A-c>"]    = { "<cmd>BufferClose<CR>"             , "Close buffer"},
-    ["<A-q>"]    = { "<cmd>%bd<cr>"                     , "Close all buffers" },
+    ["<A-,>"]    = { "<cmd>BufferPrevious<CR>"          , "Previous tab"},
+    ["<A-.>"]    = { "<cmd>BufferNext<CR>"              , "Next tab"},
+    ["<A-<>"]    = { "<cmd>BufferMovePrevious<CR>"      , "Move tab previous"},
+    ["<A->>"]    = { "<cmd>BufferMoveNext<CR>"          , "Move tab next"},
+    ["<A-1>"]    = { "<cmd>BufferGoto 1<CR>"            , "Go to tab 1"},
+    ["<A-2>"]    = { "<cmd>BufferGoto 2<CR>"            , "Go to tab 2"},
+    ["<A-3>"]    = { "<cmd>BufferGoto 3<CR>"            , "Go to tab 3"},
+    ["<A-4>"]    = { "<cmd>BufferGoto 4<CR>"            , "Go to tab 4"},
+    ["<A-5>"]    = { "<cmd>BufferGoto 5<CR>"            , "Go to tab 5"},
+    ["<A-6>"]    = { "<cmd>BufferGoto 6<CR>"            , "Go to tab 6"},
+    ["<A-7>"]    = { "<cmd>BufferGoto 7<CR>"            , "Go to tab 7"},
+    ["<A-8>"]    = { "<cmd>BufferGoto 8<CR>"            , "Go to tab 8"},
+    ["<A-9>"]    = { "<cmd>BufferGoto 9<CR>"            , "Go to tab 9"},
+    ["<A-0>"]    = { "<cmd>BufferLast<CR>"              , "Go to last tab"},
+    ["<A-c>"]    = { "<cmd>BufferClose<CR>"             , "Close tab"},
+    ["<A-o>"]    = { "<cmd>BufferCloseAllButCurrent<cr>", "Close all but current tab" },
+    ["<A-q>"]    = { "<cmd>%bd<cr>"                     , "Close all tabs" },
     ["<A-n>"]    = { "<cmd>Alpha<cr>"                   , "Open alpha" },
     ["<Esc>"]    = { ":noh<Esc>"                        , "Esc removing highlight"},
     ["q:"]       = { "<nop>"                            , "Disabled"},
@@ -71,10 +72,6 @@ wk.register({
     ["<leader>'"] = { "<cmd>call ChooseTerm('term-slider', 1)<cr>", "Terminal"} ,
     ["<leader>C"] =                                                 "Toggle cheatsheet comments",
   })
-
-wk.register({
-    ["<Esc>"]      = { '(&filetype == "fzf") ? "<Esc>" : (&filetype == "floaterm") ? "<Esc>" : "<c-\\><c-n>"', "Esc to leave fzf", expr = true },
-  }, { mode = "t"})
 
 wk.register({
     b = {
@@ -108,6 +105,24 @@ wk.register({
     }
   }, { prefix = "<leader>" })
 
+-- wk.register({
+--     c = {
+--       name = "C",
+--       d = { ":cd %:p:h<CR>:pwd<CR>", "Change workdir" }
+--     }
+--   }, { prefix = "<leader>" })
+
+wk.register({
+    f = {
+      name = "fzf"               ,
+      f    = { "<cmd>Files<cr>"  , "Files" },
+      g    = { "<cmd>GFiles<cr>" , "Git files" },
+      h    = { "<cmd>History<cr>", "Recent files" },
+      r    = { "<cmd>Rg<cr>"     , "Search text on files" },
+      l    = { "<cmd>Lines<cr>"  , "Search text on open files"}
+    }
+  }, { prefix = "<leader>" })
+
 wk.register({
     K = {
       name = "cheatsheet",
@@ -126,7 +141,7 @@ wk.register({
       name = "toggle",
       t    = { "<cmd>call ChooseTerm('term-slider', 1)<cr>" , "Terminal split" },
       s    = { "<cmd>setlocal spell! spelllang=en_us,pt<cr>", "Spellcheck" },
-      p    = { "<cmd>CocCommand explorer<cr>"               , "File tree" },
+      p    = { "<cmd>NvimTreeToggle<cr>"               , "File tree" },
       l    = { "<cmd>set list!<cr>"                         , "List chars" },
       n    = { "<cmd>set relativenumber!<cr>"               , "Relativenumber" },
       i    = { "<cmd>IndentBlanklineToggle<cr>"             , "Toggle indentline" }
@@ -161,17 +176,6 @@ wk.register({
   }, { prefix = "<leader>" })
 
 wk.register({
-    f = {
-      name = "fzf"               ,
-      f    = { "<cmd>Files<cr>"  , "Files" },
-      g    = { "<cmd>GFiles<cr>" , "Git files" },
-      h    = { "<cmd>History<cr>", "Recent files" },
-      r    = { "<cmd>Rg<cr>"     , "Search text on files" },
-      l    = { "<cmd>Lines<cr>"  , "Search text on open files"}
-    }
-  }, { prefix = "<leader>" })
-
-wk.register({
     w = {
       name        = "window"              ,
       w           = { "<C-W>W"            , "Move to other window" },
@@ -197,16 +201,12 @@ wk.register({
     }
   }, { prefix = "<leader>" })
 
-wk.register({
-    c = {
-      name = "C",
-      d = { ":cd %:p:h<CR>:pwd<CR>", "Change workdir" }
-    }
-  }, { prefix = "<leader>" })
-
 
 
 -- Can't map these
+vim.cmd([[
+tnoremap <expr> <Esc> (&filetype == "fzf") ? "<Esc>" : (&filetype == "floaterm") ? "<Esc>" : "<c-\><c-n>"
+  ]])
 map('t', '<C-v><Esc>', '<c-\\><c-n>', nrmp)
 
 map('v', '', 'gcgv', {})  -- comment area

@@ -6,7 +6,7 @@ require('lualine').setup({
       -- section_separators = { left = '', right = ''},
       component_separators = { left = '│', right = '│'},
       section_separators = { left = '█', right = '█'},
-      disabled_filetypes = {'coc-explorer'},
+      disabled_filetypes = {'coc-explorer', 'NvimTree'},
       always_divide_middle = true,
     },
     sections = {

@@ -9,7 +9,7 @@ vim.g.bufferline = {
   tabpages = true,
 
   -- Enable/disable close button
-  closable = false,
+  closable = true,
 
   -- Enables/disable clickable tabs
   --  - left-click: go to buffer
@@ -35,7 +35,7 @@ vim.g.bufferline = {
   icon_separator_active = '▎',
   icon_separator_inactive = '▎',
   icon_close_tab = '',
-  icon_close_tab_modified = '●',
+  icon_close_tab_modified = '',
   icon_pinned = '車',
 
   -- If true, new buffers will be inserted at the start/end of the list.
