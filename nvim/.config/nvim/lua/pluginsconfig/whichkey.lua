@@ -20,185 +20,187 @@ wk.setup({
   })
 
 wk.register({
-    ["<C-p>"]    = { "<cmd>call ControlP()<cr>"         , "search-files"},
-    ["<C-s>"]    = { "<cmd>:w<cr>"                      , "save-file" },
-    ["<A-Up>"]   = { "<cmd>m .-2<CR>=="                 , "move-line-up"},
-    ["<A-k>"]    = { "<cmd>m .-2<CR>=="                 , "move-line-up"},
-    ["<A-Down>"] = { "<cmd>m .+1<CR>=="                 , "move-line-down"},
-    ["<A-j>"]    = { "<cmd>m .+1<CR>=="                 , "move-line-down"},
-    ["<A-,>"]    = { "<cmd>BufferPrevious<CR>"          , "previous-buffer"},
-    ["<A-.>"]    = { "<cmd>BufferNext<CR>"              , "next-buffer"},
-    ["<A-<>"]    = { "<cmd>BufferMovePrevious<CR>"      , "move-buffer-previous"},
-    ["<A->>"]    = { "<cmd>BufferMoveNext<CR>"          , "move-buffer-next"},
-    ["<A-1>"]    = { "<cmd>BufferGoto 1<CR>"            , "go-to-buffer-1"},
-    ["<A-2>"]    = { "<cmd>BufferGoto 2<CR>"            , "go-to-buffer-2"},
-    ["<A-3>"]    = { "<cmd>BufferGoto 3<CR>"            , "go-to-buffer-3"},
-    ["<A-4>"]    = { "<cmd>BufferGoto 4<CR>"            , "go-to-buffer-4"},
-    ["<A-5>"]    = { "<cmd>BufferGoto 5<CR>"            , "go-to-buffer-5"},
-    ["<A-6>"]    = { "<cmd>BufferGoto 6<CR>"            , "go-to-buffer-6"},
-    ["<A-7>"]    = { "<cmd>BufferGoto 7<CR>"            , "go-to-buffer-7"},
-    ["<A-8>"]    = { "<cmd>BufferGoto 8<CR>"            , "go-to-buffer-8"},
-    ["<A-9>"]    = { "<cmd>BufferGoto 9<CR>"            , "go-to-buffer-9"},
-    ["<A-0>"]    = { "<cmd>BufferLast<CR>"              , "go-to-last-buffer"},
-    ["<A-c>"]    = { "<cmd>BufferClose<CR>"             , "close-buffer"},
-    ["<A-q>"]    = { "<cmd>%bd<cr>"                     , "close-all-buffers" },
-    ["<Esc>"]    = { ":noh<Esc>"                        , "Esc-removing-highlight"},
-    ["q:"]       = { "<nop>"                            , "disabled"},
-    ["<F3>"]     = { "<cmd>Autoformat<CR>"              , "autoformat-file" },
-    Q            = { "<nop>"                            , "disabled"},
+    ["<C-p>"]    = { "<cmd>call ControlP()<cr>"         , "Search files"},
+    ["<C-s>"]    = { "<cmd>:w<cr>"                      , "Save file" },
+    ["<A-Up>"]   = { "<cmd>m .-2<CR>=="                 , "Move line up"},
+    ["<A-k>"]    = { "<cmd>m .-2<CR>=="                 , "Move line up"},
+    ["<A-Down>"] = { "<cmd>m .+1<CR>=="                 , "Move line down"},
+    ["<A-j>"]    = { "<cmd>m .+1<CR>=="                 , "Move line down"},
+    ["<A-,>"]    = { "<cmd>BufferPrevious<CR>"          , "Previous buffer"},
+    ["<A-.>"]    = { "<cmd>BufferNext<CR>"              , "Next buffer"},
+    ["<A-<>"]    = { "<cmd>BufferMovePrevious<CR>"      , "Move buffer previous"},
+    ["<A->>"]    = { "<cmd>BufferMoveNext<CR>"          , "Move buffer next"},
+    ["<A-1>"]    = { "<cmd>BufferGoto 1<CR>"            , "Go to buffer 1"},
+    ["<A-2>"]    = { "<cmd>BufferGoto 2<CR>"            , "Go to buffer 2"},
+    ["<A-3>"]    = { "<cmd>BufferGoto 3<CR>"            , "Go to buffer 3"},
+    ["<A-4>"]    = { "<cmd>BufferGoto 4<CR>"            , "Go to buffer 4"},
+    ["<A-5>"]    = { "<cmd>BufferGoto 5<CR>"            , "Go to buffer 5"},
+    ["<A-6>"]    = { "<cmd>BufferGoto 6<CR>"            , "Go to buffer 6"},
+    ["<A-7>"]    = { "<cmd>BufferGoto 7<CR>"            , "Go to buffer 7"},
+    ["<A-8>"]    = { "<cmd>BufferGoto 8<CR>"            , "Go to buffer 8"},
+    ["<A-9>"]    = { "<cmd>BufferGoto 9<CR>"            , "Go to buffer 9"},
+    ["<A-0>"]    = { "<cmd>BufferLast<CR>"              , "Go to last buffer"},
+    ["<A-c>"]    = { "<cmd>BufferClose<CR>"             , "Close buffer"},
+    ["<A-q>"]    = { "<cmd>%bd<cr>"                     , "Close all buffers" },
+    ["<A-n>"]    = { "<cmd>Alpha<cr>"                   , "Open alpha" },
+    ["<Esc>"]    = { ":noh<Esc>"                        , "Esc removing highlight"},
+    ["q:"]       = { "<nop>"                            , "Disabled"},
+    ["<F3>"]     = { "<cmd>Autoformat<CR>"              , "Autoformat file" },
+    Q            = { "<nop>"                            , "Disabled"},
   })
 
 wk.register({
-    [">"]        = { ">gv", "indent-selection" },
-    ["<"]        = { "<gv", "remove-indent-selection" },
-    ["<A-k>"]    =          "move-selection-up",
-    ["<A-Up>"]   =          "move-selection-up",
-    ["<A-j>"]    =          "move-selection-down",
-    ["<A-Down>"] =          "move-selection-down",
+    [">"]        = { ">gv", "Indent selection" },
+    ["<"]        = { "<gv", "Remove indent selection" },
+    ["<A-k>"]    =          "Move selection up",
+    ["<A-Up>"]   =          "Move selection up",
+    ["<A-j>"]    =          "Move selection down",
+    ["<A-Down>"] =          "Move selection down",
   }, { mode = "v" })
 
 wk.register({
-    ["<A-k>"]    = { "<Esc>:m .-2<CR>==gi", "move-line-up" },
-    ["<A-Up>"]   = { "<Esc>:m .-2<CR>==gi", "move-line-up" },
-    ["<A-j>"]    = { "<Esc>:m .+1<CR>==gi", "move-line-down" },
-    ["<A-Down>"] = { "<Esc>:m .+1<CR>==gi", "move-line-down" },
+    ["<A-k>"]    = { "<Esc>:m .-2<CR>==gi", "Move line up" },
+    ["<A-Up>"]   = { "<Esc>:m .-2<CR>==gi", "Move line up" },
+    ["<A-j>"]    = { "<Esc>:m .+1<CR>==gi", "Move line down" },
+    ["<A-Down>"] = { "<Esc>:m .+1<CR>==gi", "Move line down" },
   }, { mode = "i" })
 
 wk.register({
-    ["<leader>,"] = { "<cmd>BufferNext<cr>"                       , "tab-next"} ,
-    ["<leader>."] = { "<cmd>BufferPrevious<cr>"                   , "tab-previous"} ,
-    ["<leader>'"] = { "<cmd>call ChooseTerm('term-slider', 1)<cr>", "terminal"} ,
-    ["<leader>C"] =                                                 "toggle-cheatsheet-comments",
+    ["<leader>,"] = { "<cmd>BufferNext<cr>"                       , "Tab next"} ,
+    ["<leader>."] = { "<cmd>BufferPrevious<cr>"                   , "Tab previous"} ,
+    ["<leader>'"] = { "<cmd>call ChooseTerm('term-slider', 1)<cr>", "Terminal"} ,
+    ["<leader>C"] =                                                 "Toggle cheatsheet comments",
   })
 
 wk.register({
-    ["<Esc>"]      = { '(&filetype == "fzf") ? "<Esc>" : (&filetype == "floaterm") ? "<Esc>" : "<c-\\><c-n>"', "remap-esc-on-fzf", expr = true },
+    ["<Esc>"]      = { '(&filetype == "fzf") ? "<Esc>" : (&filetype == "floaterm") ? "<Esc>" : "<c-\\><c-n>"', "Esc to leave fzf", expr = true },
   }, { mode = "t"})
 
 wk.register({
     b = {
       name = "buffers"                            ,
-      o    = { "<cmd>BufferCloseAllButCurrent<cr>", "buffer-only" },
-      b    = { "<cmd>Buffers<cr>"                 , "buffer-fuzzy-find" },
-      a    = { "<cmd>%bd<cr>"                     , "buffer-close-all" },
-      n    = { "<cmd>BufferNext<cr>"              , "buffer-next" },
-      p    = { "<cmd>BufferPrevious<cr>"          , "buffer-previous" },
-      d    = { "<cmd>bp | bd #<cr>"               , "buffer-delete" },
-      t    = { "<cmd>bdelete! term-slider<cr>"    , "buffer-terminal-delete" },
-      l    = { "<cmd>buffers<cr>"                 , "buffer-list-all" },
-      s    = { "<cmd>w<cr>"                       , "buffer-save" },
-      c    = { ":b "                              , "buffer-command"}
+      o    = { "<cmd>BufferCloseAllButCurrent<cr>", "Buffer only" },
+      b    = { "<cmd>Buffers<cr>"                 , "Buffer fuzzy-find" },
+      a    = { "<cmd>%bd<cr>"                     , "Buffer close-all" },
+      n    = { "<cmd>BufferNext<cr>"              , "Buffer next" },
+      p    = { "<cmd>BufferPrevious<cr>"          , "Buffer previous" },
+      d    = { "<cmd>bp | bd #<cr>"               , "Buffer delete" },
+      t    = { "<cmd>bdelete! term-slider<cr>"    , "Buffer terminal-delete" },
+      l    = { "<cmd>buffers<cr>"                 , "Buffer list-all" },
+      s    = { "<cmd>w<cr>"                       , "Buffer save" },
+      c    = { ":b "                              , "Buffer command"}
     }
   }, { prefix = "<leader>" })
 
 wk.register({
     c = {
       name = "coc"                                      ,
-      c    = { "<cmd>CocCommand<cr>"                    , "Coc-command" },
-      d    = { "<cmd>CocList diagnostics<cr>"           , "Coc-show-all-diagnostics" },
-      e    = { "<cmd>CocList extensions<cr>"            , "Coc-manage-extensions" },
-      f    = { "<cmd>CocCommand prettier.formatFile<cr>", "Coc-format-file" },
-      l    = { "<cmd>CocList<cr>"                       , "Coc-list" },
-      o    = { "<cmd>CocList outline<cr>"               , "Coc-outline" },
-      s    = { "<cmd>CocList -I symbols<cr>"            , "Coc-search-symbols" },
-      j    = { "<cmd>CocNext<cr>"                       , "Coc-action-previous" },
-      k    = { "<cmd>CocPrev<cr>"                       , "Coc-action-next" },
-      r    = { "<Plug>(coc-range-select)"               , "Coc-range-select" },
+      c    = { "<cmd>CocCommand<cr>"                    , "Coc command" },
+      d    = { "<cmd>CocList diagnostics<cr>"           , "Coc show all diagnostics" },
+      e    = { "<cmd>CocList extensions<cr>"            , "Coc manage extensions" },
+      f    = { "<cmd>CocCommand prettier.formatFile<cr>", "Coc format file" },
+      l    = { "<cmd>CocList<cr>"                       , "Coc list" },
+      o    = { "<cmd>CocList outline<cr>"               , "Coc outline" },
+      s    = { "<cmd>CocList -I symbols<cr>"            , "Coc search symbols" },
+      j    = { "<cmd>CocNext<cr>"                       , "Coc action previous" },
+      k    = { "<cmd>CocPrev<cr>"                       , "Coc action next" },
+      r    = { "<Plug>(coc-range-select)"               , "Coc range select" },
     }
   }, { prefix = "<leader>" })
 
 wk.register({
     K = {
       name = "cheatsheet",
-      K    = "not-working!",
-      B    = "awnser-on-buffer",
-      R    = "awnser-replace",
-      P    = "awnser-below",
-      C    = "toggle-last-comment",
-      E    = "send-error",
-      L    = "last-query",
+      K    = "not working!",
+      B    = "awnser on-buffer",
+      R    = "awnser replace",
+      P    = "awnser below",
+      C    = "toggle last-comment",
+      E    = "send error",
+      L    = "last query",
     }
   }, { prefix = "<leader>" })
 
 wk.register({
     o = {
       name = "toggle",
-      t    = { "<cmd>call ChooseTerm('term-slider', 1)<cr>"  , "terminal-split" },
-      s    = { "<cmd>setlocal spell! spelllang=en_us,pt<cr>" , "spellcheck" },
-      p    = { "<cmd>CocCommand explorer<cr>"                ,"file-tree" },
-      l    = { "<cmd>set list!<cr>"                          , "list-chars" },
-      n    = { "<cmd>set relativenumber!<cr>"                , "relativenumber" },
-      i    = { "<cmd>IndentBlanklineToggle<cr>"              , "toggle-indentline" }
+      t    = { "<cmd>call ChooseTerm('term-slider', 1)<cr>" , "Terminal split" },
+      s    = { "<cmd>setlocal spell! spelllang=en_us,pt<cr>", "Spellcheck" },
+      p    = { "<cmd>CocCommand explorer<cr>"               , "File tree" },
+      l    = { "<cmd>set list!<cr>"                         , "List chars" },
+      n    = { "<cmd>set relativenumber!<cr>"               , "Relativenumber" },
+      i    = { "<cmd>IndentBlanklineToggle<cr>"             , "Toggle indentline" }
     }
   }, { prefix = "<leader>" })
 
 wk.register({
     t = {
       name = "terminal"                                                     ,
-      T    = { "<cmd>call ChooseTerm('term-slider', 1)<cr>"                 , "terminal" },
-      f    = { "<cmd>FloatermNew fzf<cr>"                                   , "fzf" },
-      g    = { "<cmd>FloatermNew lazygit<cr>"                               , "git" },
-      d    = { "<cmd>FloatermNew lazydocker<cr>"                            , "docker" },
-      n    = { "<cmd>FloatermNew node<cr>"                                  , "node" },
-      p    = { "<cmd>FloatermNew python<cr>"                                , "python" },
-      m    = { "<cmd>FloatermNew lazynpm<cr>"                               , "npm" },
-      t    = { "<cmd>FloatermToggle<cr>"                                    , "toggle" },
-      s    = { "<cmd>FloatermNew gotop<cr>"                                 , "gotop" },
-      h    = { "<cmd>FloatermNew ncdu<cr>"                                  , "ncdu" },
-      r    = { "<cmd>FloatermNew --width=0.99 --height=0.99 /bin/ranger<cr>", "ranger" },
+      T    = { "<cmd>call ChooseTerm('term-slider', 1)<cr>"                 , "Terminal" },
+      f    = { "<cmd>FloatermNew fzf<cr>"                                   , "Fzf" },
+      g    = { "<cmd>FloatermNew lazygit<cr>"                               , "Git" },
+      d    = { "<cmd>FloatermNew lazydocker<cr>"                            , "Docker" },
+      n    = { "<cmd>FloatermNew node<cr>"                                  , "Node" },
+      p    = { "<cmd>FloatermNew python<cr>"                                , "Python" },
+      m    = { "<cmd>FloatermNew lazynpm<cr>"                               , "Npm" },
+      t    = { "<cmd>FloatermToggle<cr>"                                    , "Toggle" },
+      s    = { "<cmd>FloatermNew gotop<cr>"                                 , "Gotop" },
+      h    = { "<cmd>FloatermNew ncdu<cr>"                                  , "Ncdu" },
+      r    = { "<cmd>FloatermNew --width=0.99 --height=0.99 /bin/ranger<cr>", "Ranger" },
     }
   }, { prefix = "<leader>" })
 
 wk.register({
     v = {
       name = "vim"                                      ,
-      q    = { "<cmd>qa!<cr>"                           , "vim-exit" },
-      c    = { "<cmd>wqa<cr>"                           , "vim-save-and-exit" },
-      s    = { "<cmd>wa<cr>"                            , "vim-save" },
-      r    = { "<cmd>source ~/.config/nvim/init.vim<cr>", "vim-reload-source" },
+      q    = { "<cmd>qa!<cr>"                           , "Exit vim" },
+      c    = { "<cmd>wqa<cr>"                           , "Save and exit" },
+      s    = { "<cmd>wa<cr>"                            , "Save all files" },
+      r    = { "<cmd>source ~/.config/nvim/init.lua<cr>", "Reload source" },
     }
   }, { prefix = "<leader>" })
 
 wk.register({
     f = {
       name = "fzf"               ,
-      f    = { "<cmd>Files<cr>"  , "files" },
-      g    = { "<cmd>GFiles<cr>" , "git-files" },
-      h    = { "<cmd>History<cr>", "recent-files" },
-      r    = { "<cmd>Rg<cr>"     , "text" },
+      f    = { "<cmd>Files<cr>"  , "Files" },
+      g    = { "<cmd>GFiles<cr>" , "Git files" },
+      h    = { "<cmd>History<cr>", "Recent files" },
+      r    = { "<cmd>Rg<cr>"     , "Search text on files" },
+      l    = { "<cmd>Lines<cr>"  , "Search text on open files"}
     }
   }, { prefix = "<leader>" })
 
 wk.register({
     w = {
       name        = "window"              ,
-      w           = { "<C-W>W"            , "other-window" },
-      d           = { "<C-W>c"            , "delete-window" },
-      s           = { "<C-W>s"            , "split-window-below" },
-      v           = { "<C-W>v"            , "split-window-aside" },
-      k           = { "<C-W>k"            , "window-above" },
-      l           = { "<C-W>l"            , "window-right" },
-      j           = { "<C-W>j"            , "window-below" },
-      h           = { "<C-W>h"            , "window-left" },
-      H           = { "<C-W>5<"           , "expand-window-left" },
-      J           = { "<cmd>resize +5<cr>", "expand-window-below" },
-      L           = { "<C-W>5>"           , "expand-window-right" },
-      K           = { "<cmd>resize -5<cr>", "expand-window-up" },
-      ["="]       = { "<C-W>="            , "balance-window" },
-      ["-"]       = { "<C-W>_"            , "maximaze-window" },
-      q           = { "ZQ"                , "close-window" },
-      c           = { "ZZ"                , "save-and-close-window" },
-      ["<Up>"]    = { "<C-W>k"            , "window-above" },
-      ["<Right>"] = { "<C-W>l"            , "window-right" },
-      ["<Down>"]  = { "<C-W>j"            , "window-below" },
-      ["<Left>"]  = { "<C-W>h"            , "window-left" },
+      w           = { "<C-W>W"            , "Move to other window" },
+      d           = { "<C-W>c"            , "Delete window" },
+      s           = { "<C-W>s"            , "Split window below" },
+      v           = { "<C-W>v"            , "Split window aside" },
+      k           = { "<C-W>k"            , "Move above" },
+      l           = { "<C-W>l"            , "Move right" },
+      j           = { "<C-W>j"            , "Move below" },
+      h           = { "<C-W>h"            , "Move left" },
+      H           = { "<C-W>5<"           , "Expand window left" },
+      J           = { "<cmd>resize +5<cr>", "Expand window below" },
+      L           = { "<C-W>5>"           , "Expand window right" },
+      K           = { "<cmd>resize -5<cr>", "Expand window up" },
+      ["="]       = { "<C-W>="            , "Balance window" },
+      ["-"]       = { "<C-W>_"            , "Maximaze window" },
+      q           = { "ZQ"                , "Close window" },
+      c           = { "ZZ"                , "Save and close window" },
+      ["<Up>"]    = { "<C-W>k"            , "Move above" },
+      ["<Right>"] = { "<C-W>l"            , "Move right" },
+      ["<Down>"]  = { "<C-W>j"            , "Move below" },
+      ["<Left>"]  = { "<C-W>h"            , "Move left" },
     }
   }, { prefix = "<leader>" })
 
 wk.register({
     c = {
       name = "C",
-      d = { ":cd %:p:h<CR>:pwd<CR>", "change-workdir" }
+      d = { ":cd %:p:h<CR>:pwd<CR>", "Change workdir" }
     }
   }, { prefix = "<leader>" })
 

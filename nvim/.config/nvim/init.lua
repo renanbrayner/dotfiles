@@ -1,62 +1,35 @@
---  ███╗   ██╗██╗   ██╗██╗███╗   ███╗
---  ████╗  ██║██║   ██║██║████╗ ████║
---  ██╔██╗ ██║██║   ██║██║██╔████╔██║
---  ██║╚██╗██║╚██╗ ██╔╝██║██║╚██╔╝██║
---  ██║ ╚████║ ╚████╔╝ ██║██║ ╚═╝ ██║
---  ╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝
---            CONFIG FILE
---  BY: https://github.com/renanbrayner
 
--- ==============================
---           PLUGINS
--- ==============================
+-- ███╗   ██╗██╗   ██╗██╗███╗   ███╗
+-- ████╗  ██║██║   ██║██║████╗ ████║
+-- ██╔██╗ ██║██║   ██║██║██╔████╔██║
+-- ██║╚██╗██║╚██╗ ██╔╝██║██║╚██╔╝██║
+-- ██║ ╚████║ ╚████╔╝ ██║██║ ╚═╝ ██║
+-- ╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝
+--           CONFIG FILE
+-- BY: https://github.com/renanbrayner
+
+-- Press leader (deffault = <space>) to see keybindings
+
+-- Recomended font: JetBrainsMono Nerd Font Mono
+
+--lua
+-- ├── configs
+-- │   ├── init.lua   imports everything on configs
+-- │   ├── opts.lua   set options
+-- │   └── utils.lua  autocmds, functions and misc
+-- │
+-- ├── plugins
+-- │   └── init.lua   packer config and plugins
+-- │
+-- ├── pluginsconfig  plugins configuration files
+-- │   └── init.lua   imports every plugin configuration
+-- │
+-- └── rice
+--     └── init.lua   highlights and colortheme
 
 require'impatient'
-vim.cmd("source $HOME/.config/nvim/plugins-config/coc.vim")
+vim.cmd("source $HOME/.config/nvim/plugins-config/coc.vim") -- Last surviving vim file
 require'pluginsconfig'
 require'plugins'
 require'configs'
-
-vim.cmd([[
-function! ChooseTerm(termname, slider)
-	let pane = bufwinnr(a:termname)
-	let buf = bufexists(a:termname)
-	if pane > 0
-		" pane is visible
-		if a:slider > 0
-			:exe pane . "wincmd c"
-		else
-			:exe "e #"
-		endif
-	elseif buf > 0
-		" buffer is not in pane
-		if a:slider
-			:exe "botright 10sp"
-		endif
-		:exe "buffer " . a:termname
-	else
-		" buffer is not loaded, create
-		if a:slider
-			:exe "botright 10sp"
-		endif
-		:terminal
-		:exe "f " a:termname
-	endif
-endfunction
-
-function! ControlP()
-	if &filetype == 'coc-explorer'
-		:wincmd h
-	endif
-	silent! !git rev-parse --is-inside-work-tree
-	if v:shell_error == 0
-		:GFiles --cached --others --exclude-standard
-		" :Telescope git-files
-	else
-		:Files
-		" :Telescope
-	endif
-endfunction
-]])
-
 require'rice'

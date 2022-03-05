@@ -10,9 +10,10 @@ local dashboard = require("alpha.themes.dashboard")
 dashboard.section.buttons.val = {
   dashboard.button( "f", "  Find file", ":call ControlP()<CR>"),
   dashboard.button( "r", "  Recent"   , ":History<CR>"),
-  dashboard.button( "l", "  Last session", ":SessionManager load_last_session<CR>"),
+  dashboard.button( "l", "  Load Last session", ":SessionManager load_last_session<CR>"),
+  dashboard.button( "s", "  Load session", ":SessionManager load_session<CR>"),
   -- dashboard.button( "m", "  Bookmarks", ":Marks <CR>"),
-  dashboard.button( "s", "  Settings" , ":e $MYVIMRC<CR>:cd %:p:h<CR>:pwd<CR>"),
+  dashboard.button( "c", "  Configuration" , ":e $MYVIMRC<CR>:cd %:p:h<CR>:pwd<CR>"),
   dashboard.button( "e", "  New file" , ":ene<CR>"),
   dashboard.button( "q", "  Quit NVIM", ":qa<CR>"),
 }

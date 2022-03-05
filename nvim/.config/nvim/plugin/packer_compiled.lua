@@ -104,6 +104,11 @@ _G.packer_plugins = {
     path = "/home/renan/.local/share/nvim/site/pack/packer/start/dracula",
     url = "https://github.com/dracula/vim"
   },
+  ["dressing.nvim"] = {
+    loaded = true,
+    path = "/home/renan/.local/share/nvim/site/pack/packer/start/dressing.nvim",
+    url = "https://github.com/stevearc/dressing.nvim"
+  },
   ["editorconfig-vim"] = {
     loaded = true,
     path = "/home/renan/.local/share/nvim/site/pack/packer/start/editorconfig-vim",
@@ -139,6 +144,11 @@ _G.packer_plugins = {
     path = "/home/renan/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  ["neovim-session-manager"] = {
+    loaded = true,
+    path = "/home/renan/.local/share/nvim/site/pack/packer/start/neovim-session-manager",
+    url = "https://github.com/Shatur/neovim-session-manager"
+  },
   ["nvim-notify"] = {
     loaded = true,
     path = "/home/renan/.local/share/nvim/site/pack/packer/start/nvim-notify",
@@ -158,6 +168,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/renan/.local/share/nvim/site/pack/packer/start/pear-tree",
     url = "https://github.com/tmsvg/pear-tree"
+  },
+  ["plenary.nvim"] = {
+    loaded = true,
+    path = "/home/renan/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+    url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["popup.nvim"] = {
+    loaded = true,
+    path = "/home/renan/.local/share/nvim/site/pack/packer/start/popup.nvim",
+    url = "https://github.com/nvim-lua/popup.nvim"
   },
   ["quick-scope"] = {
     loaded = true,
