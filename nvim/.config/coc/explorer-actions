@@ -1,0 +1,4 @@
+select
+workspaceFolders
+cd
+addDirectory

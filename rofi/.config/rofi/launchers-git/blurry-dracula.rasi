@@ -47,10 +47,10 @@ window {
 
 prompt {
     enabled:                         true;
-    padding:                         0px 8px 0px 4px;
-    background-color:               @background;
-    text-color:                     @foreground;
-    font:                            "FantasqueSansMono Nerd Font 16";
+    padding:                         3px 13px 5px 5px;
+    background-color:                @background;
+    text-color:                      @foreground;
+    font:                            "FantasqueSansMono Nerd Font 10";
 }
 
 inputbar {
@@ -59,7 +59,7 @@ inputbar {
     expand:                         false;
     border-radius:                  6px;
     margin:                         0px 0px 0px 0px;
-    padding:                        10px 10px 0px 10px;
+    padding:                        5px 5px 5px 5px;
     position:                       center;
 }
 

@@ -1,4 +1,4 @@
-nvim/.config/nvim/plugged/
+nvim
 xmonad/.xmonad/*
 xmonad/.xmonad/!xmonad.hs
 node_modules/
