@@ -1,0 +1,32 @@
+#!/bin/bash
+brightness () {
+  brightnessctl --device=intel_backlight s $1
+  actual=`cat /sys/class/backlight/intel_backlight/actual_brightness`
+  max=`cat /sys/class/backlight/intel_backlight/max_brightness`
+  perc=`expr $actual "*" 100 "/" $max`
+  if [ $1 = '+10%' ]
+  then
+    message="increased"
+  else
+    message="decreased"
+  fi
+  NOTI_ID=$( notify-send.py "Brightness $message by 10%" "current brightness: $perc%" \
+              --expire-time=900 \
+              --hint string:image-path:file://home/renan/.config/assets/sun.svg boolean:transient:true \
+              --hint int:has-percentage:$perc)
+}
+
+while [ ! $# -eq 0 ]
+do
+  case "$1" in
+    --up)
+      brightness +10%
+    exit
+    ;;
+    --down)
+      brightness 10%-
+    exit
+    ;;
+  esac
+  shift
+done
