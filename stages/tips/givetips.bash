@@ -37,5 +37,7 @@ Next steps:
     and eddit the ~/.local/bin/monitor.bash (its really bad code im
     a total noob at bash/shell scripting)
 
+  If you want to remove the backups created with the script just run ./deletebackups.bash
+
 -------------------------------------END OF SETUP-------------------------------------
 EOF
