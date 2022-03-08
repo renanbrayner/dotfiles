@@ -2,6 +2,7 @@
 cat << EOF
 -----------------------------------DELETING BACKUPS-----------------------------------
 Comands used:
+  rm -rf ~/.Xresources.backup
   rm -rf ~/.config/alacritty.backup
   rm -rf ~/.config/assets.backup
   rm -rf ~/.config/calcurse.backup
@@ -13,16 +14,15 @@ Comands used:
   rm -rf ~/.config/ranger.backup
   rm -rf ~/.config/rofi.backup
   rm -rf ~/.config/sxhkd.backup
+  rm -rf ~/.local/bin.backup
+  rm -rf ~/.xmonad.backup
   rm -rf ~/.xprofile.backup
-  rm -rf ~/.Xresources.backup
-  rm -rf ~/.zshrc.backup
-  rm -rf ~/.icons.backup
-  rm -rf ~/.themes.backup
 
 Warning: be sure you don't have any important files under the names above
 
 EOF
 
+rm -rf ~/.Xresources.backup
 rm -rf ~/.config/alacritty.backup
 rm -rf ~/.config/assets.backup
 rm -rf ~/.config/calcurse.backup
@@ -34,8 +34,6 @@ rm -rf ~/.config/qutebrowser.backup
 rm -rf ~/.config/ranger.backup
 rm -rf ~/.config/rofi.backup
 rm -rf ~/.config/sxhkd.backup
+rm -rf ~/.local/bin.backup
+rm -rf ~/.xmonad.backup
 rm -rf ~/.xprofile.backup
-rm -rf ~/.Xresources.backup
-rm -rf ~/.zshrc.backup
-rm -rf ~/.icons.backup
-rm -rf ~/.themes.backup
