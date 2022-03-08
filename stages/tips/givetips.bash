@@ -10,13 +10,12 @@ Next steps:
   Notification setup:
     you will need to install notify-send.py to get proper notifications
   
-  Theme activation:
-  + run lxappearance and select DarK icon theme and dracula gtk theme.
-  + run command feh --bg-fill ~/.config/assets/Dracula.png or Dracula2.png
+  Theme setup:
+    i recommend installing the dracula gtk theme and the tela icons theme
 
   You may want to eddit this list of files:
-  + ~/.config/i3/config: Change displays, browsers, terminal, keyboard maping, etc.
-  + ~/.config/polybar/config: change displays.
+  + ~/.xmonad/xmonad.hs: change window manager configuration
+  + ~/.config/sxhkd/sxhkdrc: change keybinds
   + ~/.config/nvim/init.vim: change the custom header and key bindings.
   + ~/.config/zsh/.zshrc: change aliases.
 
@@ -24,7 +23,7 @@ Next steps:
   + Display manager: lightdm with https://github.com/NoiSek/Aether recomended.
   + Shell configuration: run setupzsh.bash after starting xsession if you want.
   + Other stuff: i usually change the beep sound for the bell sound etc.
-  
+
   Changing ugly PC speaker beep sound:
     Add this two lines to the end of /etc/pulse/default.pa:
 
@@ -35,7 +34,7 @@ Next steps:
 
   Configure multiple displays:
     to confiure multiple displays run arandr save your layout
-    and eddit the ~/.config/i3/scripts/monitor.bash (its really bad code im
+    and eddit the ~/.local/bin/monitor.bash (its really bad code im
     a total noob at bash/shell scripting)
 
 -------------------------------------END OF SETUP-------------------------------------
