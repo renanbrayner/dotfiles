@@ -7,9 +7,14 @@ cat << EOF
 |____/ \___/|_| \_|_____(_)
 
 Next steps:
+  Some extra packages that can be usefull:
+    vulkan-item
+    xf86-video-intel
+    xf86-video-vesa
+
   Notification setup:
     you will need to install notify-send.py to get proper notifications
-  
+
   Theme setup:
     i recommend installing the dracula gtk theme and the tela icons theme
 

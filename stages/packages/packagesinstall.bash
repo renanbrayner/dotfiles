@@ -52,11 +52,11 @@ ncpamixer \
 neofetch \
 neovim \
 nerd-fonts-cascadia-code \
-nerd-fonts-complete \
 nerd-fonts-fira-code \
 nerd-fonts-hermit \
 nerd-fonts-monoid \
 nerd-fonts-noto-sans-regular-complete \
+nerd-fonts-complete \
 network-manager-applet \
 networkmanager \
 nitrogen \
@@ -96,14 +96,11 @@ ueberzug \
 unrar \
 unzip \
 vlc \
-vulkan-intel \
 wget \
 woff-fira-code \
 woff2-fira-code \
 xclip \
 xdotool \
-xf86-video-intel \
-xf86-video-vesa \
 xmobar \
 xmonad \
 xmonad-contrib \
