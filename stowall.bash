@@ -35,8 +35,8 @@ stow picom
 stow qutebrowser
 stow ranger
 stow rofi
+stow scripts
 stow sxhkd
+stow xmonad
 stow xprofile
 stow xresources
-stow xmonad
-stow scripts

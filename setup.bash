@@ -14,6 +14,7 @@ This script will call these files in order:
 ~/.dotfiles/stages/prep/backup.bash               # Backup all files modified by the script
 ~/.dotfiles/stages/packages/paruinstall.bash      # Install paru as AUR helper
 ~/.dotfiles/stages/packages/packagesinstall.bash  # Install packages with paru
+~/.dotfiles/stages/submodules/neovim.bash         # Add my neovim config submodule
 ~/.dotfiles/stowall.bash                          # Stow files (link to .config)
 ~/.dotfiles/stages/configs/createdirs.bash        # Create needed directories
 ~/.dotfiles/stages/tips/givetips.bash             # Give tips on next steps
