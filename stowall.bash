@@ -6,20 +6,20 @@ Comands used:
 
   stow alacritty
   stow assets
+  stow calcurse
   stow deadd
   stow kitty
-  stow neofetch
   stow nvim
   stow picom
   stow qutebrowser
   stow ranger
   stow rofi
-  stow tint2
-  stow vscode
-  stow xmonad
-  stow xresources
-  stow xmonad
   stow scripts
+  stow sxhkd
+  stow xmobar
+  stow xmonad
+  stow xprofile
+  stow xresources
 
 EOF
 
@@ -37,6 +37,7 @@ stow ranger
 stow rofi
 stow scripts
 stow sxhkd
+stow xmobar
 stow xmonad
 stow xprofile
 stow xresources
