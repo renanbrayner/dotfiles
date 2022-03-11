@@ -15,6 +15,7 @@ This script will call these files in order:
 ~/.dotfiles/stages/packages/paruinstall.bash      # Install paru as AUR helper
 ~/.dotfiles/stages/packages/packagesinstall.bash  # Install packages with paru
 ~/.dotfiles/stages/submodules/neovim.bash         # Add my neovim config submodule
+~/.dotfiles/stages/submodules/ranger.bash         # Add ranger plugins
 ~/.dotfiles/stowall.bash                          # Stow files (link to .config)
 ~/.dotfiles/stages/configs/createdirs.bash        # Create needed directories
 ~/.dotfiles/stages/tips/givetips.bash             # Give tips on next steps
@@ -30,6 +31,8 @@ read -p "Press enter to continue"
 ~/.dotfiles/stages/prep/backup.bash
 ~/.dotfiles/stages/packages/paruinstall.bash
 ~/.dotfiles/stages/packages/packagesinstall.bash
+~/.dotfiles/stages/submodules/neovim.bash
+~/.dotfiles/stages/submodules/ranger.bash
 ~/.dotfiles/stowall.bash
 ~/.dotfiles/stages/configs/createdirs.bash
 # ~/.dotfiles/stages/theming/icons.bash
