@@ -16,7 +16,8 @@ Next steps:
     you will need to install notify-send.py to get proper notifications
 
   Theme setup:
-    i recommend installing the dracula gtk theme and the tela icons theme
+    i recommend installing the dracula gtk theme and icons the file index.theme
+    to inherit from other theme you like
 
   You may want to eddit this list of files:
   + ~/.xmonad/xmonad.hs: change window manager configuration
