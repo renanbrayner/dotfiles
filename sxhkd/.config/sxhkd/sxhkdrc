@@ -1,14 +1,13 @@
 #   The exported variables comes
-#   from the file hotkeys on:
-#   ~/.local/bin/hotkeys.bash
+#   from the file .zshrc
 #
 #------------------------------
 #   APPLICATIONS
 #------------------------------
 super + w 
-    exec $primary_browser
+    exec $my_primary_browser
 super + alt + w 
-    exec $secondary_browser
+    exec $my_secondary_browser
 super + shift + m 
     exec arandr && nitrogen --restore
 super + m
@@ -21,42 +20,45 @@ super + m
 #------------------------------
 
 super + Return 
-    exec $primary_terminal          
+    exec $my_primary_terminal          
 
 super + mod1 + Return 
-    exec $secondary_terminal          
+    exec $my_secondary_terminal -e tmux
 
 super + g 
-    exec $primary_terminal -e ranger            #file manager
+    exec $my_primary_terminal -e ranger            #file manager
 super + s 
-    exec $primary_terminal -e gotop             #system monitor
+    exec $my_primary_terminal -e gotop             #system monitor
+#network connection
 super + n 
-    exec $primary_terminal -e nmtui             #network connection
+    exec $my_primary_terminal -e nmtui
 super + v 
-    exec $primary_terminal -e /home/renan/.local/bin/vim.sh
+    exec $my_primary_terminal -e /home/renan/.local/bin/vim.sh
 super + c 
-    exec $primary_terminal -e calcurse          #calendar in terminal
+    exec $my_primary_terminal -e calcurse          #calendar in terminal
 
 super + alt + g 
-    exec $secondary_terminal -e ranger     #file manager
+    exec $my_secondary_terminal -e ranger     #file manager
 super + alt + s 
-    exec $secondary_terminal -e gotop      #system monitor
+    exec $my_secondary_terminal -e gotop      #system monitor
 super + alt + n 
-    exec $secondary_terminal -e nmtui      #network connection
+    exec $my_secondary_terminal -e nmtui      #network connection
 super + alt + v 
-    exec $secondary_terminal -e /home/renan/.loca/bin/vim.sh
+    exec $my_secondary_terminal -e /home/renan/.loca/bin/vim.sh
 super + alt + c 
-    exec $secondary_terminal -e calcurse   #calendar in terminal
+    exec $my_secondary_terminal -e calcurse   #calendar in terminal
 
 super + o 
-    exec $primary_terminal -e ~/.local/bin/terminalapps.bash
+    exec $my_primary_terminal -e ~/.local/bin/terminalapps.bash
 
 super + alt + o 
-    exec $secondary_terminal -e ~/.local/bin/terminalapps.bash
+    exec $my_secondary_terminal -e ~/.local/bin/terminalapps.bash
 
 #------------------------------
 #   BRIGHTNESS
 #------------------------------
+
+# for some reason sxhkd isn't able to call notifications from this scripts.
 
 XF86MonBrightnessUp
     exec ~/.local/bin/brightness.bash --up
