@@ -1,16 +1,16 @@
 #!/bin/bash
-cat << EOF
+at << EOF
 --------------------------------PACKAGES INSTALLATION---------------------------------
 Comands used:
+  paru -Syu
   paru -S --needed <big package list>
 
 EOF
 
+paru -Syu
 paru -S --needed \
 aerc \
 alacritty \
-tumbler \
-ffmpegthumbnailer \
 alsa-utils \
 arandr \
 aria2 \
@@ -29,6 +29,7 @@ dialog \
 discord_arch_electron \
 exa \
 expac \
+ffmpegthumbnailer \
 figlet \
 firefox \
 fuseiso \
@@ -54,11 +55,11 @@ ncpamixer \
 neofetch \
 neovim \
 nerd-fonts-cascadia-code \
+nerd-fonts-complete \
 nerd-fonts-fira-code \
 nerd-fonts-hermit \
 nerd-fonts-monoid \
 nerd-fonts-noto-sans-regular-complete \
-nerd-fonts-complete \
 network-manager-applet \
 networkmanager \
 nitrogen \
@@ -94,6 +95,7 @@ ttf-fira-mono \
 ttf-fira-sans \
 ttf-nerd-fonts-symbols \
 ttf-ubuntu-font-family \
+tumbler \
 ueberzug \
 unrar \
 unzip \
