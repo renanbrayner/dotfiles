@@ -4,15 +4,15 @@ cat << EOF
 Comands used:
   mkdir ~/Pictures
   mkdir ~/Pictures/screenshots
-  mkdir ~/Pictures/webcam
+  mkdir ~/.icons
+  mkdir ~/.themes
 
-This step is needed to use the print and webcampic script
+This step is needed to use the printscreen, setup icons and themes
 
 EOF
 
 
 mkdir ~/Pictures
 mkdir ~/Pictures/screenshots
-mkdir ~/Pictures/webcam
 mkdir ~/.icons
 mkdir ~/.themes

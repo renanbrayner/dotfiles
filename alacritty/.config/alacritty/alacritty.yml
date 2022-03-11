@@ -1,10 +1,18 @@
+# font:
+#   normal:
+#     family: JetBrainsMono Nerd Font Mono
+#   bold:
+#     family: JetBrainsMono Nerd Font Mono
+#   italic:
+#     family: JetBrainsMono Nerd Font Mono
+
 font:
   normal:
-    family: Cascadia Code
+    family: JetBrainsMono Nerd Font
   bold:
-    family: Cascadia Code
+    family: JetBrainsMono Nerd Font
   italic:
-    family: Cascadia Code
+    family: JetBrainsMono Nerd Font
 
 # UNCOMMENT ONE TO ACTIVATE THEME COLOR
 
@@ -104,3 +112,10 @@ window:
 # mouse:
 #   url:
 #     launcher: xdg-open
+
+# tmux
+# shell:
+#   program: /bin/zsh
+#   args:
+#     - --login
+#     - c tmux
