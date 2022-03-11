@@ -1,4 +1,4 @@
 #!/bin/bash
 
 cd ~/.dotfiles
-git submodule add https://github.com/renanbrayner/notvim nvim/.config/nvim
+git submodule add -f https://github.com/renanbrayner/notvim nvim/.config/nvim
