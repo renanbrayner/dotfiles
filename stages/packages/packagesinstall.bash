@@ -9,6 +9,8 @@ EOF
 paru -S --needed \
 aerc \
 alacritty \
+tumbler \
+ffmpegthumbnailer \
 alsa-utils \
 arandr \
 aria2 \
