@@ -1,0 +1,25 @@
+#!/bin/bash
+toggle-corners () {
+  grep -q "# corner-radius" "$XDG_CONFIG_HOME/picom.conf" && sed -i '/^# corner-radius/ s/# //' "$XDG_CONFIG_HOME/picom.conf" || sed -i '/^corner-radius/ s/./# &/' "$XDG_CONFIG_HOME/picom.conf"
+}
+
+toggle-picom () {
+  pidof -q picom && killall picom || picom &
+}
+
+while [ ! $# -eq 0 ]
+do
+	case "$1" in
+		--toggle-rounded-corners)
+        toggle-corners
+			exit
+			;;
+		--toggle-picom)
+        toggle-picom
+			exit
+			;;
+    -h|--help)
+      echo "screenshot [--toggle-rounded-corners]"
+	esac
+	shift
+done
