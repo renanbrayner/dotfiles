@@ -47,7 +47,7 @@ window {
 
 prompt {
     enabled:                         true;
-    padding:                         3px 13px 5px 5px;
+    padding:                         4px 13px 5px 5px;
     background-color:                @background;
     text-color:                      @foreground;
     font:                            "FantasqueSansMono Nerd Font 10";
@@ -62,7 +62,6 @@ inputbar {
     padding:                        5px 5px 5px 5px;
     position:                       center;
 }
-
 
 entry {
     background-color:               @background;
@@ -79,7 +78,6 @@ case-indicator {
     text-color:                     @foreground;
     spacing:                        0;
 }
-
 
 listview {
     background-color:               @background;
@@ -99,6 +97,7 @@ mainbox {
 }
 
 element {
+    background-color:               @background;
     orientation:                    vertical;
     border-radius:                  6px;
     padding:                        10px 0px 10px 0px;

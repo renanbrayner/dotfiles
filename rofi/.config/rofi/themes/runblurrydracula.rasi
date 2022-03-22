@@ -10,15 +10,15 @@
 configuration {
     font:                           "Noto Sans 10";
     show-icons:                     false;
-		icon-theme: 										"Papirus";
-    display-run: 									"";
+    icon-theme:                     "Papirus";
+    display-run:                    "";
     drun-display-format:            "{name}";
     threads:                        0;
     scroll-method:                  0;
     disable-history:                false;
     fullscreen:                     false;
-		hide-scrollbar: 								true;
-		sidebar-mode: 									false;
+    hide-scrollbar:                 true;
+    sidebar-mode:                   false;
 }
 
 * {
@@ -46,11 +46,11 @@ window {
 }
 
 prompt {
-    enabled: 					              true;
-    padding: 						            0px 8px 0px 4px;
-	  background-color: 				      @background;
-	  text-color: 					          @foreground;
-	  font:							              "FantasqueSansMono Nerd Font 16";
+    enabled:                         true;
+    padding:                         4px 13px 5px 5px;
+    background-color:                @background;
+    text-color:                      @foreground;
+    font:                            "FantasqueSansMono Nerd Font 10";
 }
 
 inputbar {
@@ -59,10 +59,9 @@ inputbar {
     expand:                         false;
     border-radius:                  6px;
     margin:                         0px 0px 0px 0px;
-    padding:                        10px 10px 0px 10px;
+    padding:                        5px 5px 5px 5px;
     position:                       center;
 }
-
 
 entry {
     background-color:               @background;
@@ -79,7 +78,6 @@ case-indicator {
     text-color:                     @foreground;
     spacing:                        0;
 }
-
 
 listview {
     background-color:               @background;
