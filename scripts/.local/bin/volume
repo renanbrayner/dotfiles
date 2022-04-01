@@ -1,14 +1,14 @@
-#!/bin/bash
+#!/bin/sh
 
-if [ "$1" == "--up" ]; then
+if [ "$1" = "--up" ]; then
    amixer -q sset Master 10%+
 fi
 
-if [ "$1" == "--down" ]; then
+if [ "$1" = "--down" ]; then
    amixer -q sset Master 10%-
 fi
 
-if [ "$1" == "--mute" ]; then
+if [ "$1" = "--mute" ]; then
     exec pactl set-sink-mute @DEFAULT_SINK@ toggle 
 fi
 
@@ -24,15 +24,23 @@ else if [ "$VOLUME" -le 60 ]; then
          ICON=audio-volume-high
      fi
 fi
-if [ "$MUTE" == "[off]" ]; then
+if [ "$MUTE" = "[off]" ]; then
     ICON=audio-volume-muted
 fi 
 
-notify-send.sh "Volume" "$VOLUME/100" \
+notify-send.sh "Volume" \
     -a "" \
     --hint int:has-percentage:$VOLUME \
     --hint string:image-path:$ICON \
     --hint int:transient:1 \
     --replace-file=/tmp/volumenotification
+
+# WITH NUMBER
+# notify-send.sh "Volume" "$VOLUME/100" \
+#     -a "" \
+#     --hint int:has-percentage:$VOLUME \
+#     --hint string:image-path:$ICON \
+#     --hint int:transient:1 \
+#     --replace-file=/tmp/volumenotification
 
 paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
