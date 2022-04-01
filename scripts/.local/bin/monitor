@@ -4,6 +4,8 @@
 reset_windowmanager() {
   nitrogen --restore &
   killall picom && picom || picom &
+  # TODO: Fix trayer spawning twice some times
+  # killall trayer && trayer --edge top --align right --widthtype pixel --height 18 --width 90 --monitor 1 --tint 0x22282a36 --alpha 0 --transparent true || trayer --edge top --align right --widthtype pixel --height 18 --width 90 --monitor 1 --tint 0x22282a36 --alpha 0 --transparent true &
   exec xmonad --restart &
 }
 
