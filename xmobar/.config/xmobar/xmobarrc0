@@ -7,12 +7,16 @@ Config { font    = "xft:Ubuntu:weight=bold:pixelsize=11:antialias=true:hinting=t
                            , "xft:Font Awesome 5 Free Solid:pixelsize=12"
                            , "xft:Font Awesome 5 Brands:pixelsize=12"
                            ]
-       , bgColor = "#282a36"
-       , fgColor = "#f8f8f2"
+-- ATTENTION DON'T UNCOMMENT/COMMENT THIS MANUALLY!!! USE rice-ctrl --set-theme-dracula INSTEAD
+--       , bgColor = "#282a36" -- SED_DRACULA
+--       , fgColor = "#f8f8f2" -- SED_DRACULA
+-- ATTENTION DON'T UNCOMMENT/COMMENT THIS MANUALLY!!! USE rice-ctrl --set-theme-gruvbox INSTEAD
+       , bgColor = "#282828" -- SED_GRUVBOX
+       , fgColor = "#ebdbb2" -- SED_GRUVBOX
        , position = Top
        , lowerOnStart = True
        , hideOnStart = False
-       , allDesktops = True
+       , allDesktops = False
        , persistent = True
        , iconRoot = "/home/renan/.config/assets/xpm/"  -- default: "."
        , commands = [
@@ -28,5 +32,8 @@ Config { font    = "xft:Ubuntu:weight=bold:pixelsize=11:antialias=true:hinting=t
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " <icon=haskell_20.xpm/>   <fc=#666666>|</fc> %UnsafeStdinReader% }{  <fc=#666666>|</fc>  <fc=#f1fa8c> <action=`kitty -e gotop`>%cpu%</action> </fc> <fc=#666666>|</fc>  <fc=#50fa7b> <action=`kitty -e gotop`>%memory%</action> </fc> <fc=#666666>|</fc>  <fc=#8be9fd> <action=`kitty -e ncdu $HOME`>%disku%</action> </fc> <fc=#666666>|</fc>  <fc=#ff79c6> <action=`kitty -e calcurse`>%date%</action>  </fc> <fc=#666666>|</fc>                              "
+       -- ATTENTION DON'T UNCOMMENT/COMMENT THIS MANUALLY!!! USE rice-ctrl --set-theme-dracula INSTEAD
+--        , template = " <icon=haskell_20.xpm/>   <fc=#666666>|</fc> %UnsafeStdinReader% }{  <fc=#666666>|</fc>  <fc=#f1fa8c> <action=`kitty -e gotop`>%cpu%</action> </fc> <fc=#666666>|</fc>  <fc=#50fa7b> <action=`kitty -e gotop`>%memory%</action> </fc> <fc=#666666>|</fc>  <fc=#8be9fd> <action=`kitty -e ncdu $HOME`>%disku%</action> </fc> <fc=#666666>|</fc>  <fc=#ff79c6> <action=`kitty -e calcurse`>%date%</action>  </fc> <fc=#666666>|</fc>                              " -- SED_DRACULA
+        -- ATTENTION DON'T UNCOMMENT/COMMENT THIS MANUALLY!!! USE rice-ctrl --set-theme-gruvbox INSTEAD
+       , template = " <icon=haskell_20.xpm/>   <fc=#504945>|</fc> %UnsafeStdinReader% }{  <fc=#504945>|</fc>  <fc=#fabd2f> <action=`kitty -e gotop`>%cpu%</action> </fc> <fc=#504945>|</fc>  <fc=#8ec97c> <action=`kitty -e gotop`>%memory%</action> </fc> <fc=#504945>|</fc>  <fc=#458588> <action=`kitty -e ncdu $HOME`>%disku%</action> </fc> <fc=#504945>|</fc>  <fc=#d3869b> <action=`kitty -e calcurse`>%date%</action>  </fc> <fc=#504945>|</fc>                              " -- SED_GRUVBOX
        }

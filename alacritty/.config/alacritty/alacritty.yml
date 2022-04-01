@@ -1,107 +1,102 @@
-# font:
-#   normal:
-#     family: JetBrainsMono Nerd Font Mono
-#   bold:
-#     family: JetBrainsMono Nerd Font Mono
-#   italic:
-#     family: JetBrainsMono Nerd Font Mono
-
 font:
+  size: 12
   normal:
-    family: JetBrainsMono Nerd Font
+    family: Terminus
   bold:
-    family: JetBrainsMono Nerd Font
+    family: Terminus
   italic:
-    family: JetBrainsMono Nerd Font
+    family: Terminus
 
-# UNCOMMENT ONE TO ACTIVATE THEME COLOR
-
-# GRUVBOX
-# colors:
-#   # Default colors
-#   primary:
-#     # hard contrast: background = '#1d2021'
-#     background: '#282828'
-#     # soft contrast: background = '#32302f'
-#     foreground: '#ebdbb2'
-#   # Normal colors
+# font:
+#   size: 10.5
 #   normal:
-#     black:   '#282828'
-#     red:     '#cc241d'
-#     green:   '#98971a'
-#     yellow:  '#d79921'
-#     blue:    '#458588'
-#     magenta: '#b16286'
-#     cyan:    '#689d6a'
-#     white:   '#a89984'
-#   # Bright colors
-#   bright:
-#     black:   '#928374'
-#     red:     '#fb4934'
-#     green:   '#b8bb26'
-#     yellow:  '#fabd2f'
-#     blue:    '#83a598'
-#     magenta: '#d3869b'
-#     cyan:    '#8ec07c'
-#     white:   '#ebdbb2'
+#     family: JetBrainsMono Nerd Font
+#   bold:
+#     family: JetBrainsMono Nerd Font
+#   italic:
+#     family: JetBrainsMono Nerd Font
 
-# DRACULA
-colors:
-  primary:
-    background: '#282a36'
-    foreground: '#f8f8f2'
-    bright_foreground: '#ffffff'
-  cursor:
-    text: CellBackground
-    cursor: CellForeground
-  vi_mode_cursor:
-    text: CellBackground
-    cursor: CellForeground
-  search:
-    matches:
-      foreground: '#44475a'
-      background: '#50fa7b'
-    focused_match:
-      foreground: '#44475a'
-      background: '#ffb86c'
-    bar:
-      background: '#282a36'
-      foreground: '#f8f8f2'
-  hints:
-    start:
-      foreground: '#282a36'
-      background: '#f1fa8c'
-    end:
-      foreground: '#f1fa8c'
-      background: '#282a36'
-  line_indicator:
-    foreground: None
-    background: None
-  selection:
-    text: CellForeground
-    background: '#44475a'
-  normal:
-    black: '#21222c'
-    red: '#ff5555'
-    green: '#50fa7b'
-    yellow: '#f1fa8c'
-    blue: '#bd93f9'
-    magenta: '#ff79c6'
-    cyan: '#8be9fd'
-    white: '#f8f8f2'
-  bright:
-    black: '#6272a4'
-    red: '#ff6e6e'
-    green: '#69ff94'
-    yellow: '#ffffa5'
-    blue: '#d6acff'
-    magenta: '#ff92df'
-    cyan: '#a4ffff'
-    white: '#ffffff'
+# ATTENTION DON'T CHANGE THESE LINES MANUALLY, USE rice-ctrl --set-theme-gruvbox INSTEAD
+colors: # SED_GRUVBOX
+  primary: # SED_GRUVBOX
+    background: '#282828' # SED_GRUVBOX
+    foreground: '#ebdbb2' # SED_GRUVBOX
+  normal: # SED_GRUVBOX
+    black:   '#282828' # SED_GRUVBOX
+    red:     '#cc241d' # SED_GRUVBOX
+    green:   '#98971a' # SED_GRUVBOX
+    yellow:  '#d79921' # SED_GRUVBOX
+    blue:    '#458588' # SED_GRUVBOX
+    magenta: '#b16286' # SED_GRUVBOX
+    cyan:    '#689d6a' # SED_GRUVBOX
+    white:   '#a89984' # SED_GRUVBOX
+  bright: # SED_GRUVBOX
+    black:   '#928374' # SED_GRUVBOX
+    red:     '#fb4934' # SED_GRUVBOX
+    green:   '#b8bb26' # SED_GRUVBOX
+    yellow:  '#fabd2f' # SED_GRUVBOX
+    blue:    '#83a598' # SED_GRUVBOX
+    magenta: '#d3869b' # SED_GRUVBOX
+    cyan:    '#8ec07c' # SED_GRUVBOX
+    white:   '#ebdbb2' # SED_GRUVBOX
+
+# ATTENTION DON'T CHANGE THESE LINES MANUALLY, USE rice-ctrl --set-theme-dracula INSTEAD
+# colors: # SED_DRACULA
+#   primary: # SED_DRACULA
+#     background: '#282a36' # SED_DRACULA
+#     foreground: '#f8f8f2' # SED_DRACULA
+#     bright_foreground: '#ffffff' # SED_DRACULA
+#   cursor: # SED_DRACULA
+#     text: CellBackground # SED_DRACULA
+#     cursor: CellForeground # SED_DRACULA
+#   vi_mode_cursor: # SED_DRACULA
+#     text: CellBackground # SED_DRACULA
+#     cursor: CellForeground # SED_DRACULA
+#   search: # SED_DRACULA
+#     matches: # SED_DRACULA
+#       foreground: '#44475a' # SED_DRACULA
+#       background: '#50fa7b' # SED_DRACULA
+#     focused_match: # SED_DRACULA
+#       foreground: '#44475a' # SED_DRACULA
+#       background: '#ffb86c' # SED_DRACULA
+#     bar: # SED_DRACULA
+#       background: '#282a36' # SED_DRACULA
+#       foreground: '#f8f8f2' # SED_DRACULA
+#   hints: # SED_DRACULA
+#     start: # SED_DRACULA
+#       foreground: '#282a36' # SED_DRACULA
+#       background: '#f1fa8c' # SED_DRACULA
+#     end: # SED_DRACULA
+#       foreground: '#f1fa8c' # SED_DRACULA
+#       background: '#282a36' # SED_DRACULA
+#   line_indicator: # SED_DRACULA
+#     foreground: None # SED_DRACULA
+#     background: None # SED_DRACULA
+#   selection: # SED_DRACULA
+#     text: CellForeground # SED_DRACULA
+#     background: '#44475a' # SED_DRACULA
+#   normal: # SED_DRACULA
+#     black: '#21222c' # SED_DRACULA
+#     red: '#ff5555' # SED_DRACULA
+#     green: '#50fa7b' # SED_DRACULA
+#     yellow: '#f1fa8c' # SED_DRACULA
+#     blue: '#bd93f9' # SED_DRACULA
+#     magenta: '#ff79c6' # SED_DRACULA
+#     cyan: '#8be9fd' # SED_DRACULA
+#     white: '#f8f8f2' # SED_DRACULA
+#   bright: # SED_DRACULA
+#     black: '#6272a4' # SED_DRACULA
+#     red: '#ff6e6e' # SED_DRACULA
+#     green: '#69ff94' # SED_DRACULA
+#     yellow: '#ffffa5' # SED_DRACULA
+#     blue: '#d6acff' # SED_DRACULA
+#     magenta: '#ff92df' # SED_DRACULA
+#     cyan: '#a4ffff' # SED_DRACULA
+#     white: '#ffffff' # SED_DRACULA
 
 # background_opacity: 0.85
 window:
-  opacity: 0.85
+  opacity: 0.88
 
 # hints:
 #   command: xdg-open

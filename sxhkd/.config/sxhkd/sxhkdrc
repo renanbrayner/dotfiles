@@ -1,14 +1,19 @@
 #   The exported variables comes
 #   from the file .zshrc
 #
+#   mappings used for xmonad:
+#   super + shift + q (kill window)
+#   super + q (refresh xmonad)
+#   super + tab (next layout)
+#   super + shift + tab (default layout)
 #------------------------------
 #   APPLICATIONS
 #------------------------------
-super + w 
+super + w
     exec $my_primary_browser
-super + alt + w 
+super + alt + w
     exec $my_secondary_browser
-super + shift + m 
+super + shift + m
     exec arandr && nitrogen --restore
 super + m
     exec mailspring
@@ -19,11 +24,11 @@ super + m
 #   TERMINAL
 #------------------------------
 
-super + Return 
-    exec $my_primary_terminal          
+super + Return
+    exec $my_primary_terminal -e tmux new-session -A -s main
 
-super + mod1 + Return 
-    exec $my_secondary_terminal -e tmux
+super + mod1 + Return
+    exec $my_secondary_terminal
 
 super + g 
     exec $my_primary_terminal -e ranger            #file manager
@@ -31,7 +36,7 @@ super + s
     exec $my_primary_terminal -e gotop             #system monitor
 #network connection
 super + n 
-    exec $my_primary_terminal -e nmtui
+    exec $my_primary_terminal -e notes             #my notes program
 super + v 
     exec $my_primary_terminal -e /home/renan/.local/bin/vim.sh
 super + c 
@@ -48,22 +53,14 @@ super + alt + v
 super + alt + c 
     exec $my_secondary_terminal -e calcurse   #calendar in terminal
 
-super + o 
-    exec $my_primary_terminal -e ~/.local/bin/terminalapps.bash
-
-super + alt + o 
-    exec $my_secondary_terminal -e ~/.local/bin/terminalapps.bash
-
 #------------------------------
 #   BRIGHTNESS
 #------------------------------
 
 # for some reason sxhkd isn't able to call notifications from this scripts.
 
-XF86MonBrightnessUp
-    exec ~/.local/bin/brightness.bash --up
-XF86MonBrightnessDown
-    exec ~/.local/bin/brightness.bash --down
+XF86MonBrightness{Down,Up}
+    exec ~/.local/bin/brightness {--down,--up}
 
 #------------------------------
 #   VOLUME
@@ -71,12 +68,11 @@ XF86MonBrightnessDown
 
 # if you want to be able to increase volume past 100% use pactl (be carefull, you >>CAN<< break your computer)
 
-XF86AudioRaiseVolume
-    exec ~/.local/bin/volume.bash --up
-XF86AudioLowerVolume
-    exec ~/.local/bin/volume.bash --down
+XF86Audio{Raise,Lower}Volume
+    exec ~/.local/bin/volume {--up,--down}
 XF86AudioMute
-    exec ~/.local/bin/volume.bash --mute
+    exec ~/.local/bin/volume --mute
+
 XF86AudioMicMute
     exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
@@ -86,11 +82,11 @@ XF86AudioMicMute
 
 ### save
 {_,shift,super} + Print
-     exec ~/.local/bin/screenshot.bash {--print,--print-area,--print-window}
+     exec ~/.local/bin/screenshot {--print,--print-area,--print-window}
 
 ### copy to clipboard
 control + {_,shift,super} + Print
-     exec ~/.local/bin/screenshot.bash {--copy,--copy-area,--copy-window}
+     exec ~/.local/bin/screenshot {--copy,--copy-area,--copy-window}
 
 #------------------------------
 #   LAUNCHERS
@@ -116,12 +112,109 @@ super + Escape
 #------------------------------
 control + shift + h 
     exec ~/.local/bin/help.sh
-super + shift + Escape 
+super + shift + Escape
     exec ~/.config/rofi/power/powermenu.sh
 XF86Display 
-    exec ~/.local/bin/monitor.bash
+    exec ~/.local/bin/monitor
+super + {_,shift} + p
+    exec ~/.local/bin/rice-ctrl {--toggle-rounded-corners,--toggle-picom}
 
 ## webcampic
 #bindsym $mod+Control+p exec ffmpeg -y -f video4linux2 -s 1280x720 -i /dev/video0 -ss 0:0:1 -frames 1 /tmp/outputphoto.jpg && xclip -selection clipboard -t image/jpg -i /tmp/outputphoto.jpg
 #bindsym $mod+p exec ffmpeg -y -f video4linux2 -s 1280x720 -i /dev/video0 -ss 0:0:1 -frames 1 ~/Pictures/webcam/"`date +"%Y-%m-%d_%H:%M:%S"`".png
 
+# #------------------------------
+# #   BSPWM BINDINGS
+# #------------------------------
+# # Restart bspwm
+# super + q
+#   bspc wm -r
+#
+# # Kill Window
+# # super + shift + q
+# #   crystal --close
+# super + shift + q
+#   bspc node -c
+#
+# # Focus on window in direction
+# super + {h,j,k,l}
+# 	bspc node -f {west,south,north,east}
+#
+# #	Send window to desktop
+# # super + shift + {0-9}
+# #   crystal --send {0-9}
+#
+# # focus or send to the given desktop
+# super + {_,shift + }{1-9,0}
+# 	bspc {desktop -f,node -d} '^{1-9,10}'
+#
+# # Send window to desktop and swap to desktop
+# super + control + {0-9}
+#   bspc node -d {0-9} && bspunhide && bspc desktop -f {0-9}
+#
+# # Swap nodes the tree from the current nodes parent
+# super + control + {Up, Down}
+#   bspc node @parent -C {forward, backward}
+#
+# # Rotate the tree from the current nodes parent
+# super + control + {Right, Left}
+# 	bspc node @parent --rotate {90,270}
+#
+# # Flip the tree from the current nodes parent
+# super + control + {h,j,k,l}
+#   bspc node @parent -F {vertical,horizontal,horizontal,vertical}
+#
+# # # Toggle fullscreen on and off
+# # super + f
+# #   crystal --fullscreen
+#
+# # Toggle floating on and off
+# super + t
+#   bspc node focused.tiled -t floating || bspc node focused.floating -t tiled
+#
+# # Swap window with direction
+# super + shift + {h,j,k,l}
+# 	bspc node -s {west,south,north,east}
+#
+# # # Focus on desktop
+# # super + {0-9}
+# # 	crystal --focus {0-9}
+#
+# # # Cycle through desktops
+# # super + alt + {Left, Right}
+# #   crystal --focus {prev, next}
+#
+# # Close all receptacle
+# super + shift + i
+#   for win in `bspc query -N -n .leaf.\!window`; do bspc node $win -k ; done;
+#
+# # Insert receptacle
+# super + i; {h,j,k,l}
+#   bspc node --presel-dir {west,south,north,east} -i
+#
+# # Move to rectacle
+# super + r
+#   bspreceptacle
+#
+# # Balance nodes
+# super + e
+#   bspc node @/ -B
+#
+# # Expand a window by moving one of its side outward
+# # ctrl + alt + {h,j,k,l}
+# # 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+#
+# # Contract a window by moving one of its side inward
+# # ctrl + alt + shift + {h,j,k,l}
+# # 	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+#
+# # Move a floating window
+# # ctrl + alt + {Left,Right,Up,Down}
+# #   xdo move {-x -20, -x +20, -y -20, -y +20}
+#
+# # Dropdown terminal
+# # super + alt + Return
+# # 	tdrop -ma -w 1916 -y 0 st
+#
+#  # super + shift + o
+#  #   reloadpolybar

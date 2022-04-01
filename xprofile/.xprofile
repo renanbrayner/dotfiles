@@ -1,12 +1,14 @@
-export my_primary_terminal='kitty'
-export my_secondary_terminal='alacritty'
-export my_primary_browser='brave'
-export my_secondary_browser='chromium'
+# confis
 export DISPLAY=:0
-
 setxkbmap br thinkpad &
-~/.local/bin/monitor.bash
 
-# xrandr --newmode "1360x768_60.00"  84.72  1360 1424 1568 1776  768 769 772 795  -HSync +Vsync
-# xrandr --addmode VGA1 "1360x768_60.00"
-# xset r rate 300 50
+# programs
+lxsession &
+cbatticon &
+nitrogen --restore &
+picom &
+nm-applet &
+
+# my scripts
+~/.local/bin/hotkeys &
+~/.local/bin/monitor &
