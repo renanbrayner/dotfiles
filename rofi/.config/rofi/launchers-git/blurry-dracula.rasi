@@ -21,15 +21,17 @@ configuration {
     sidebar-mode:                   false;
 }
 
+@import "../themes/colorschemes/colors.rasi"
+
 * {
-    background:                     #00000000;
-    background-color:               #282a36cc;
-    background-entry:               #00000033;
-    background-alt:                 #bd93f922;
-    foreground:                     #f2f2f2EE;
-    foreground-selected:            #ffffffFF;
-    urgent:                         #E91E6366;
-    urgent-selected:                #E91E6377;
+    background:                     @transparent;
+    background-color:               @bg;
+    background-entry:               @semi-transparent;
+    background-alt:                 @bg-alt;
+    foreground:                     @fg;
+    foreground-selected:            @fg-alt;
+    urgent:                         @urgent-color;
+    urgent-selected:                @urgent-color;
 }
 
 window {
@@ -129,12 +131,12 @@ element alternate.urgent {
 
 element normal.active,
 element alternate.active {
-    background-color:               @background-alt;
+    background-color:               @selected;
     text-color:                     @foreground;
 }
 
 element selected {
-    background-color:               @background-alt;
+    background-color:               @selected;
     text-color:                     @foreground-selected;
 }
 

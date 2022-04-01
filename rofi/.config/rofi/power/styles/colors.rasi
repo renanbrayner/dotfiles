@@ -1,10 +1,4 @@
-/*
- * Change the colorscheme for every menu simply by editing this file...
- *
- * Available Color Schemes
- *
- * bluish    berry    nordic    nightly    gotham    mask    faded    cocoa dracula gruvbox darkglass
- *
- */
+/* Edit the import to change the powermenu theme                    */
+/* You can find the themes in the ../../themes/colorschemes/ folder */
 
-@import "dracula.rasi"
+@import "../../themes/colorschemes/colors.rasi"
