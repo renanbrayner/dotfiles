@@ -25,7 +25,7 @@ super + m
 #------------------------------
 
 super + Return
-    exec $my_primary_terminal -e tmux new-session -A -s main
+    exec $my_primary_terminal -e tmux new-session -A -s 1
 
 super + mod1 + Return
     exec $my_secondary_terminal
