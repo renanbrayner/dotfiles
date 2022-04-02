@@ -24,8 +24,8 @@ window {
     transparency:                   "real";
     background-color:               @bg;
     text-color:                     @fg;
-    height:                         20%;
-    width:                          43%;
+    height:                         160px;
+    width:                          578px;
     location:                       center;
     x-offset:                       0;
     y-offset:                       0;

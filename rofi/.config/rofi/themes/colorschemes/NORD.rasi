@@ -1,0 +1,16 @@
+* {
+  transparent: #00000000;
+  semi-transparent: #00000033;
+  accent: #ff79c6;
+  bg-alt: #2e344022;
+  background-light: #2e3440;
+  bg: #2e3440cc;
+  border-alt: #81a1c100;
+  border: #8fbcbb00;
+  fg: #f8f8f2;
+  fg-alt: #ffffff;
+  urgent-color: #bf616a;
+  off: #5e81ac;
+  on: #88c0d0;
+  selected: #88c0d033;
+}
