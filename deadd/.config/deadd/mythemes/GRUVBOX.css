@@ -1,6 +1,6 @@
 .blurredBG, #main_window, .blurredBG.low, .blurredBG.normal {
-  background: rgba(40, 42, 54, 0.8);
-  color: #f8f8f2;
+  background: rgba(40, 40, 40, 0.8);
+  color: #ebdbb2;
 }
 
 .title {
@@ -13,7 +13,7 @@
 }
 
 .button-close:hover {
-  background: #ff5555;
+  background: #cc241d;
 }
 
 .appname {
@@ -46,13 +46,13 @@ button {
 
 button:hover {
   color: rgb(40, 42, 54);
-  background: #bd93f9;
+  background: #98971a;
 }
 
 .blurredBG.notification.critical {
-  background: rgba(255, 85, 85, 0.8);
+  background: rgba(204, 36, 29, 0.8);
 }
 
 .notificationInCenter.critical {
-  background: rgba(255, 85, 85, 0.8);
+  background: rgba(204, 36, 29, 0.8);
 }
