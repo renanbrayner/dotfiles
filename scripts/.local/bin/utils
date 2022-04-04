@@ -1,0 +1,112 @@
+#!/bin/sh
+
+### VARIABLES
+# Colors
+tput setaf 1 > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+  tp=tput
+else
+  tp=/bin/true
+fi
+
+black=$($tp setaf 0)
+red=$($tp setaf 1)
+green=$($tp setaf 2)
+yellow=$($tp setaf 3)
+blue=$($tp setaf 4)
+magenta=$($tp setaf 5)
+cyan=$($tp setaf 6)
+white=$($tp setaf 7)
+
+bgblack=$($tp setab 0)
+bgred=$($tp setab 1)
+bggreen=$($tp setab 2)
+bgyellow=$($tp setab 3)
+bgblue=$($tp setab 4)
+bgmagenta=$($tp setab 5)
+bgcyan=$($tp setab 6)
+bgwhite=$($tp setab 7)
+
+bold=$($tp bold)
+underline=$($tp smul)
+
+normal=$($tp sgr0)
+
+### FUNCTIONS
+# PICOM
+picom_toggle_rounded_borders () {
+  if grep -q "# corner-radius" "$XDG_CONFIG_HOME/picom.conf"; then
+    sed -i '/^# corner-radius/ s/# //' "$XDG_CONFIG_HOME/picom.conf"
+    echo "${green}Turning on${normal} rounded corners"
+  else
+    sed -i '/^corner-radius/ s/./# &/' "$XDG_CONFIG_HOME/picom.conf"
+    echo "${red}Turning off${normal} rounded corners"
+  fi
+}
+
+picom_toggle () {
+  if pidof -q picom; then
+    killall picom
+  else
+    picom & disown
+  fi
+}
+
+# RESTARTS
+restart_trayer () {
+  if pidof -q trayer; then
+    killall trayer && \
+      trayer -l --edge top --align right --widthtype pixel --height 18 --width 90 --monitor 1 --tint 0x00000000 --transparent false & disown
+  else
+    trayer -l --edge top --align right --widthtype pixel --height 18 --width 90 --monitor 1 --tint 0x00000000 --transparent false & disown
+  fi
+
+  if pidof -q clipit; then
+    killall clipit && \
+      clipit & disown
+  else
+    clipit & disown
+  fi
+
+  if pidof -q cbatticon; then
+    killall cbatticon && \
+      cbatticon & disown
+  else
+    cbatticon & disown
+  fi
+
+  if pidof -q nm-applet; then
+    killall nm-applet && \
+      nm-applet & disown
+  else
+    nm-applet & disown
+  fi
+}
+
+restart_deadd () {
+  if pidof -q deadd-notification-center; then
+    killall deadd-notification-center && \
+    deadd-notification-center & disown
+  else
+    deadd-notification-center & disown
+  fi
+}
+
+restart_picom() {
+  if pidof -q picom; then
+    killall picom && \
+    sleep 0.2 &&\
+    picom & disown
+  else
+    picom & disown
+  fi
+}
+
+restart_wm () {
+  restart_deadd
+  restart_picom
+  nitrogen --restore & disown
+  xmonad --recompile
+  xmonad --restart
+  restart_trayer
+}
