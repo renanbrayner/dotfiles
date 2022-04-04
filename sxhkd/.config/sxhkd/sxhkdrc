@@ -15,8 +15,8 @@ super + alt + w
     exec $my_secondary_browser
 super + shift + m
     exec arandr && nitrogen --restore
-super + m
-    exec mailspring
+# super + m
+#     exec mailspring
 
 # terminal aplications bellow
 
