@@ -1,11 +1,20 @@
-font:
-  size: 12
-  normal:
-    family: Terminus
-  bold:
-    family: Terminus
-  italic:
-    family: Terminus
+font: # SED_TERMINUS
+  size: 12 # SED_TERMINUS
+  normal: # SED_TERMINUS
+    family: Terminus # SED_TERMINUS
+  bold: # SED_TERMINUS
+    family: Terminus # SED_TERMINUS
+  italic: # SED_TERMINUS
+    family: Terminus # SED_TERMINUS
+
+# font: # SED_COZETTE
+#   size: 8 # SED_COZETTE
+#   normal: # SED_COZETTE
+#     family: Cozette # SED_COZETTE
+#   bold: # SED_COZETTE
+#     family: Cozette # SED_COZETTE
+#   italic: # SED_COZETTE
+#     family: Cozette # SED_COZETTE
 
 # font:
 #   size: 10.5
@@ -19,57 +28,34 @@ font:
 window:
   opacity: 0.88
 
-# DRACULA COLORS
+# ATENTION!
+# Don't remove the comments bellow, they are used by rice-ctrl to change the theme.
+# Changes between the comments will be overridden, if you want to write permanent changes
+# eddit the files inside the ~/.config/rice-themes/alacritty/ folder
+# THEME_START
+# SOLARIZED
 colors:
   primary:
-    background: '#282a36'
-    foreground: '#f8f8f2'
-    bright_foreground: '#ffffff'
-  cursor:
-    text: CellBackground
-    cursor: CellForeground
-  vi_mode_cursor:
-    text: CellBackground
-    cursor: CellForeground
-  search:
-    matches:
-      foreground: '#44475a'
-      background: '#50fa7b'
-    focused_match:
-      foreground: '#44475a'
-      background: '#ffb86c'
-    bar:
-      background: '#282a36'
-      foreground: '#f8f8f2'
-  hints:
-    start:
-      foreground: '#282a36'
-      background: '#f1fa8c'
-    end:
-      foreground: '#f1fa8c'
-      background: '#282a36'
-  line_indicator:
-    foreground: None
-    background: None
-  selection:
-    text: CellForeground
-    background: '#44475a'
+    background: '#002b36'
+    foreground: '#839496'
   normal:
-    black:   '#21222c'
-    red:     '#ff5555'
-    green:   '#50fa7b'
-    yellow:  '#f1fa8c'
-    blue:    '#bd93f9'
-    magenta: '#ff79c6'
-    cyan:    '#8be9fd'
-    white:   '#f8f8f2'
+    black:   '#073642'
+    red:     '#dc322f'
+    green:   '#859900'
+    yellow:  '#b58900'
+    blue:    '#268bd2'
+    magenta: '#d33682'
+    cyan:    '#2aa198'
+    white:   '#eee8d5'
   bright:
-    black:   '#6272a4'
-    red:     '#ff6e6e'
-    green:   '#69ff94'
-    yellow:  '#ffffa5'
-    blue:    '#d6acff'
-    magenta: '#ff92df'
-    cyan:    '#a4ffff'
-    white:   '#ffffff'
+    # black:   '#002b36' Changed this color because of autocomplete plugin low visibility on background
+    black:   '#586e75'
+    red:     '#cb4b16'
+    green:   '#586e75'
+    yellow:  '#657b83'
+    blue:    '#839496'
+    magenta: '#6c71c4'
+    cyan:    '#93a1a1'
+    white:   '#fdf6e3'
 
+# THEME_END
