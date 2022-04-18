@@ -53,7 +53,8 @@ setopt HIST_SAVE_NO_DUPS
 # PLUGINS
 source ~/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.config/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.config/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+# source ~/.config/zsh-vi-mode/zsh-vi-mode.plugin.zsh TEMPORARY SOLUTION
+[[ -n $DISPLAY ]] && source ~/.config/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 # EXPORTS
 export EDITOR='nvim'
