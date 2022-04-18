@@ -1,37 +1,22 @@
 #!/bin/sh
-tput setaf 1 > /dev/null 2>&1
-if [ $? -eq 0 ]
-then
-  tp=tput
-else
-  tp=/bin/true
-fi
+#
+# Steps to add a new theme:
+# add lines with SED_THEMENAME comment at the end into ~/.config/nvim/lua/rice/init.lua
+# add lines with SED_THEMENAME comment at the end into ~/.config/xmobar/xmobarrc0
+# add lines with SED_THEMENAME comment at the end into ~/.tmux.conf
+# add lines with SED_THEMENAME comment at the end into ~/.xmonad/xmonad.hs for border colors
+# add lines with SED_THEMENAME comment at the end into ~/.xmonad/xmonad.hs for xmobar workspaces and window on focus indicator
+# add a file named THEMENAME.yml inside ~/.config/alacritty/mythemes/
+# add a wallpaper named THEMENAME.png at ~/.config/assets/wppr/
+# add a file named THEMENAME.css into ~/.config/deadd/
+# add a file named THEMENAME.rasi into ~/.config/rofi/themes/colorschemes/
+# add new theme, cursor and icons into ~/.themes and ~/.icons
+# add a new flag at the end of script and call the set_theme function passing THEMENAME as first arg and current_theme as second arg
 
-black=$($tp setaf 0)
-red=$($tp setaf 1)
-green=$($tp setaf 2)
-yellow=$($tp setaf 3)
-blue=$($tp setaf 4)
-magenta=$($tp setaf 5)
-cyan=$($tp setaf 6)
-white=$($tp setaf 7)
-normal=$($tp sgr0)/
+# source utils
+. $(dirname "$0")/utils
 
-picom_toggle_rounded_borders () {
-  if grep -q "# corner-radius" "$XDG_CONFIG_HOME/picom.conf"; then
-    sed -i '/^# corner-radius/ s/# //' "$XDG_CONFIG_HOME/picom.conf"
-    echo "${green}Turning on${normal} rounded corners"
-  else
-    sed -i '/^corner-radius/ s/./# &/' "$XDG_CONFIG_HOME/picom.conf"
-    echo "${red}Turning off${normal} rounded corners"
-  fi
-}
-
-picom_toggle () {
-  pidof -q picom && killall picom || picom &
-}
-
-set_theme () {
+set_alacritty_font () {
   # ARGS: THEME_TO_ADD THEME_TO_REMOVE COMMENT_STRING FILE
   grep_and_sed_file () {
     # Check if the theme its trying to switch to is inactive and if it isn't throw error
@@ -49,52 +34,118 @@ set_theme () {
     fi
   }
 
-  grep_and_sed_file $1 $2 "--" ~/.config/nvim/lua/rice/init.lua # nvim
-  grep_and_sed_file $1 $2 "--" ~/.config/xmobar/xmobarrc0 # xmobar right side and bg
-  grep_and_sed_file $1 $2 "#" ~/.config/alacritty/alacritty.yml # alacritty
-  grep_and_sed_file $1 $2 "#" ~/.tmux.conf && tmux source-file ~/.tmux.conf # tmux
-  grep_and_sed_file $1 $2 "--" ~/.xmonad/xmonad.hs && xmonad --recompile && xmonad --restart # xmonad borders and xmobar left side
+  grep_and_sed_file $1 $2 "#" ~/.config/alacritty/alacritty.yml
+}
 
-  nitrogen --save --set-zoom-fill ~/.config/assets/wppr/$1.png # wallpaper
+# ARGS: theme_to_set
+set_theme () {
+  # write contents of a file in a section of another file
+  # ARGS: path_of_theme_file path_of_config_file sectio_name
+  write_to_section () {
+    if [ -f "$1"]; then
+      echo "${red} $1 doesn't exist."
+      return
+    fi
 
-  # deadd-notification-center
-  cat ~/.config/deadd/$1.txt > ~/.config/deadd/deadd.css && \
-    killall deadd-notification-center && \
-    deadd-notification-center & disown
+    if [ -f "$2"]; then
+      echo "${red} $2 doesn't exist."
+      return
+    fi
 
-  sed -i "/$2/ s/$2/$1/" ~/.config/rofi/themes/colorschemes/colors.rasi # rofi
+    section="${3:-THEME}"
+    sed -i "/${section}_START/,/${section}_END/ {//!d}; /${section}_START/r $1" $2
+  }
 
-  # GTK-3
-  sed -i "/gtk-theme-name=$2/ s/gtk-theme-name=$2/gtk-theme-name=$1/" ~/.config/gtk-3.0/settings.ini
-  sed -i "/gtk-icon-theme-name=$2/ s/gtk-icon-theme-name=$2/gtk-icon-theme-name=$1/" ~/.config/gtk-3.0/settings.ini
-  sed -i "/gtk-cursor-theme-name=$2/ s/gtk-cursor-theme-name=$2/gtk-cursor-theme-name=$1/" ~/.config/gtk-3.0/settings.ini
-  # GTK-2
-  sed -i "/gtk-theme-name=$2/ s/gtk-theme-name=$2/gtk-theme-name=$1/" ~/.gtkrc-2.0
-  sed -i "/gtk-icon-theme-name=$2/ s/gtk-icon-theme-name=$2/gtk-icon-theme-name=$1/" ~/.gtkrc-2.0
-  sed -i "/gtk-cursor-theme-name=$2/ s/gtk-cursor-theme-name=$2/gtk-cursor-theme-name=$1/" ~/.gtkrc-2.0
+  # TODO: HELP ME!
+  # I Couldn't figure out a way to change the gtk theme, icons and cursor theme ;(
+  # the cursor and trayer background would not change after changing the files
+  # ~/.gtkrc-2.0 and ~/.config/gtk-3.0/settings.ini
+
+  echo "
+  ${blue}
+  ▖  ▖▄▖▄▖▄▖▄▖▖ ▖▄▖  ▄▖▄▖▄▖  ▖ ▖▖▄▖▄▖▄▖▄▖▄▖▄▖▄▖▖ ▖▄▖▄▖  ▄▖▄▖  ▄▖▖ ▄▖▄▖▄▖
+  ▌▞▖▌▌▌▐ ▐ ▐ ▛▖▌▌   ▙▖▌▌▙▘  ▌ ▚▘▌▌▙▌▙▌▙▖▌▌▙▘▌▌▛▖▌▌ ▙▖  ▐ ▌▌  ▌ ▌ ▌▌▚ ▙▖
+  ▛ ▝▌▛▌▟▖▐ ▟▖▌▝▌▙▌  ▌ ▙▌▌▌  ▙▖▌▌▛▌▌ ▌ ▙▖▛▌▌▌▛▌▌▝▌▙▖▙▖  ▐ ▙▌  ▙▖▙▖▙▌▄▌▙▖
+  change:
+  ${magenta}•${normal} Icon
+  ${magenta}•${normal} Theme
+  ${magenta}•${normal} Cursor
+  and close lxappearance to continue
+  ${normal}"
+
+  lxappearance
+
+  write_to_section "$XDG_CONFIG_HOME/rice-themes/xmobar/${1}_BG" "$XDG_CONFIG_HOME/xmobar/xmobarrc0" "BG"
+  write_to_section "$XDG_CONFIG_HOME/rice-themes/xmobar/$1" "$XDG_CONFIG_HOME/xmobar/xmobarrc0"
+  write_to_section "$XDG_CONFIG_HOME/rice-themes/xmonad/${1}_BAR.hs" "$HOME/.xmonad/xmonad.hs" "XMOBAR" # BAR
+  write_to_section "$XDG_CONFIG_HOME/rice-themes/xmonad/$1.hs" "$HOME/.xmonad/xmonad.hs" # BORDERS
+  write_to_section "$XDG_CONFIG_HOME/rice-themes/tmux/$1.conf" "$HOME/.tmux.conf"
+  write_to_section "$XDG_CONFIG_HOME/rice-themes/nvim/$1.lua" "$XDG_CONFIG_HOME/nvim/lua/rice/init.lua"
+  write_to_section "$XDG_CONFIG_HOME/rice-themes/alacritty/$1.yml" "$XDG_CONFIG_HOME/alacritty/alacritty.yml"
+  write_to_section "$XDG_CONFIG_HOME/rice-themes/deadd/$1.css" "$XDG_CONFIG_HOME/deadd/deadd.css"
+
+
+  cp "$XDG_CONFIG_HOME/rice-themes/wppr/$1.png" "$XDG_CONFIG_HOME/assets/wppr/rice-wallpaper.png"
+  nitrogen --save --set-zoom-fill ~/.config/assets/wppr/rice-wallpaper.png
+
+  cat "$XDG_CONFIG_HOME/rice-themes/rofi/$1.rasi" > "$XDG_CONFIG_HOME/rofi/themes/colorschemes/colors.rasi"
+
+  # READ TODO ABOVE
+  # sed -i "/gtk-theme-name=$2/ s/gtk-theme-name=$2/gtk-theme-name=$1/" ~/.config/gtk-3.0/settings.ini
+  # sed -i "/gtk-icon-theme-name=$2/ s/gtk-icon-theme-name=$2/gtk-icon-theme-name=$1/" ~/.config/gtk-3.0/settings.ini
+  # sed -i "/gtk-cursor-theme-name=$2/ s/gtk-cursor-theme-name=$2/gtk-cursor-theme-name=$1/" ~/.config/gtk-3.0/settings.ini
+  #
+  # sed -i "/gtk-theme-name=$2/ s/gtk-theme-name=$2/gtk-theme-name=$1/" ~/.gtkrc-2.0
+  # sed -i "/gtk-icon-theme-name=$2/ s/gtk-icon-theme-name=$2/gtk-icon-theme-name=$1/" ~/.gtkrc-2.0
+  # sed -i "/gtk-cursor-theme-name=$2/ s/gtk-cursor-theme-name=$2/gtk-cursor-theme-name=$1/" ~/.gtkrc-2.0
+
+  restart_trayer
+  restart_tmux
+  restart_deadd
+  restart_xmonad
 }
 
 while [ ! $# -eq 0 ]
 do
-	case "$1" in
-		--toggle-rounded-corners)
+  case "$1" in
+    --toggle-rounded-corners)
         picom_toggle_rounded_borders
-			exit
-			;;
-		--toggle-picom)
+      exit
+      ;;
+    --toggle-picom)
         picom_toggle
-			exit
-			;;
+      exit
+      ;;
+    --restart-wm)
+        restart_wm
+      exit
+      ;;
     --set-theme-dracula)
-        set_theme DRACULA GRUVBOX
+        set_theme DRACULA
       exit
       ;;
     --set-theme-gruvbox)
-        set_theme GRUVBOX DRACULA
+        set_theme GRUVBOX
+      exit
+      ;;
+    --set-theme-nord)
+        set_theme NORD
+      exit
+      ;;
+    --set-theme-solarized)
+        set_theme SOLARIZED
+      exit
+      ;;
+    --set-font-terminus)
+        set_alacritty_font TERMINUS COZETTE
+      exit
+      ;;
+    --set-font-cozette)
+        set_alacritty_font COZETTE TERMINUS
       exit
       ;;
     -h|--help)
-      echo "rice-ctrl [--toggle-rounded-corners]"
-	esac
-	shift
+      echo "rice-ctrl [--set-theme-themename]"
+  esac
+  shift
 done
