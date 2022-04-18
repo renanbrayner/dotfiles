@@ -6,15 +6,22 @@
 #   super + q (refresh xmonad)
 #   super + tab (next layout)
 #   super + shift + tab (default layout)
+
+#------------------------------
+#   RELOAD
+#------------------------------
+super + r
+  killall -SIGUSR1 sxhkd
+
 #------------------------------
 #   APPLICATIONS
 #------------------------------
 super + w
-    exec $my_primary_browser
+  exec $my_primary_browser
 super + alt + w
-    exec $my_secondary_browser
+  exec $my_secondary_browser
 super + shift + m
-    exec arandr && nitrogen --restore
+  exec arandr && nitrogen --restore
 # super + m
 #     exec mailspring
 
@@ -25,33 +32,33 @@ super + shift + m
 #------------------------------
 
 super + Return
-    exec $my_primary_terminal -e tmux new-session -A -s 1
+  exec $my_primary_terminal -e tmux new-session -A -s 1
 
 super + mod1 + Return
-    exec $my_secondary_terminal
+  exec $my_secondary_terminal
 
 super + g 
-    exec $my_primary_terminal -e ranger            #file manager
+  exec $my_primary_terminal -e ranger            #file manager
 super + s 
-    exec $my_primary_terminal -e gotop             #system monitor
+  exec $my_primary_terminal -e gotop             #system monitor
 #network connection
 super + n 
-    exec $my_primary_terminal -e notes             #my notes program
+  exec $my_primary_terminal -e notes             #my notes program
 super + v 
-    exec $my_primary_terminal -e /home/renan/.local/bin/vim.sh
+  exec $my_primary_terminal -e /home/renan/.local/bin/vim.sh
 super + c 
-    exec $my_primary_terminal -e calcurse          #calendar in terminal
+  exec $my_primary_terminal -e calcurse          #calendar in terminal
 
 super + alt + g 
-    exec $my_secondary_terminal -e ranger     #file manager
+  exec $my_secondary_terminal -e ranger     #file manager
 super + alt + s 
-    exec $my_secondary_terminal -e gotop      #system monitor
+  exec $my_secondary_terminal -e gotop      #system monitor
 super + alt + n 
-    exec $my_secondary_terminal -e nmtui      #network connection
+  exec $my_secondary_terminal -e nmtui      #network connection
 super + alt + v 
-    exec $my_secondary_terminal -e /home/renan/.loca/bin/vim.sh
+  exec $my_secondary_terminal -e /home/renan/.loca/bin/vim.sh
 super + alt + c 
-    exec $my_secondary_terminal -e calcurse   #calendar in terminal
+  exec $my_secondary_terminal -e calcurse   #calendar in terminal
 
 #------------------------------
 #   BRIGHTNESS
@@ -60,7 +67,7 @@ super + alt + c
 # for some reason sxhkd isn't able to call notifications from this scripts.
 
 XF86MonBrightness{Down,Up}
-    exec ~/.local/bin/brightness {--down,--up}
+  exec ~/.local/bin/brightness {--down,--up}
 
 #------------------------------
 #   VOLUME
@@ -69,12 +76,12 @@ XF86MonBrightness{Down,Up}
 # if you want to be able to increase volume past 100% use pactl (be carefull, you >>CAN<< break your computer)
 
 XF86Audio{Raise,Lower}Volume
-    exec ~/.local/bin/volume {--up,--down}
+  exec ~/.local/bin/volume {--up,--down}
 XF86AudioMute
-    exec ~/.local/bin/volume --mute
+  exec ~/.local/bin/volume --mute
 
 XF86AudioMicMute
-    exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+  exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 #------------------------------
 #   SCREENSHOTS
@@ -82,22 +89,22 @@ XF86AudioMicMute
 
 ### save
 {_,shift,super} + Print
-     exec ~/.local/bin/screenshot {--print,--print-area,--print-window}
+   exec ~/.local/bin/screenshot {--print,--print-area,--print-window}
 
 ### copy to clipboard
 control + {_,shift,super} + Print
-     exec ~/.local/bin/screenshot {--copy,--copy-area,--copy-window}
+   exec ~/.local/bin/screenshot {--copy,--copy-area,--copy-window}
 
 #------------------------------
 #   LAUNCHERS
 #------------------------------
 
 super + d
-    exec ~/.config/rofi/launchers-git/launcher.sh
+  exec ~/.config/rofi/launchers-git/launcher.sh
 super + shift + d
-    exec ~/.config/rofi/scripts/run.sh
+  exec ~/.config/rofi/scripts/run.sh
 super + slash
-    exec kill -s USR1 $(pidof deadd-notification-center)
+  exec kill -s USR1 $(pidof deadd-notification-center)
 
 
 #------------------------------
@@ -105,116 +112,26 @@ super + slash
 #------------------------------
 
 super + Escape
-  exec xkill
+exec xkill
 
 #------------------------------
 #   OTHERS
 #------------------------------
 control + shift + h 
-    exec ~/.local/bin/help.sh
+  exec ~/.local/bin/help.sh
 super + shift + Escape
-    exec ~/.config/rofi/power/powermenu.sh
+  exec ~/.config/rofi/power/powermenu.sh
 XF86Display 
-    exec ~/.local/bin/monitor
+  exec ~/.local/bin/monitor
+
+#------------------------------
+#   RICE-CTRL
+#------------------------------
 super + {_,shift} + p
-    exec ~/.local/bin/rice-ctrl {--toggle-rounded-corners,--toggle-picom}
+  exec ~/.local/bin/rice-ctrl {--toggle-rounded-corners,--toggle-picom}
+super + a ; {t, c}
+  exec ~/.local/bin/rice-ctrl {--set-font-terminus,--set-font-cozette}
 
 ## webcampic
 #bindsym $mod+Control+p exec ffmpeg -y -f video4linux2 -s 1280x720 -i /dev/video0 -ss 0:0:1 -frames 1 /tmp/outputphoto.jpg && xclip -selection clipboard -t image/jpg -i /tmp/outputphoto.jpg
 #bindsym $mod+p exec ffmpeg -y -f video4linux2 -s 1280x720 -i /dev/video0 -ss 0:0:1 -frames 1 ~/Pictures/webcam/"`date +"%Y-%m-%d_%H:%M:%S"`".png
-
-# #------------------------------
-# #   BSPWM BINDINGS
-# #------------------------------
-# # Restart bspwm
-# super + q
-#   bspc wm -r
-#
-# # Kill Window
-# # super + shift + q
-# #   crystal --close
-# super + shift + q
-#   bspc node -c
-#
-# # Focus on window in direction
-# super + {h,j,k,l}
-# 	bspc node -f {west,south,north,east}
-#
-# #	Send window to desktop
-# # super + shift + {0-9}
-# #   crystal --send {0-9}
-#
-# # focus or send to the given desktop
-# super + {_,shift + }{1-9,0}
-# 	bspc {desktop -f,node -d} '^{1-9,10}'
-#
-# # Send window to desktop and swap to desktop
-# super + control + {0-9}
-#   bspc node -d {0-9} && bspunhide && bspc desktop -f {0-9}
-#
-# # Swap nodes the tree from the current nodes parent
-# super + control + {Up, Down}
-#   bspc node @parent -C {forward, backward}
-#
-# # Rotate the tree from the current nodes parent
-# super + control + {Right, Left}
-# 	bspc node @parent --rotate {90,270}
-#
-# # Flip the tree from the current nodes parent
-# super + control + {h,j,k,l}
-#   bspc node @parent -F {vertical,horizontal,horizontal,vertical}
-#
-# # # Toggle fullscreen on and off
-# # super + f
-# #   crystal --fullscreen
-#
-# # Toggle floating on and off
-# super + t
-#   bspc node focused.tiled -t floating || bspc node focused.floating -t tiled
-#
-# # Swap window with direction
-# super + shift + {h,j,k,l}
-# 	bspc node -s {west,south,north,east}
-#
-# # # Focus on desktop
-# # super + {0-9}
-# # 	crystal --focus {0-9}
-#
-# # # Cycle through desktops
-# # super + alt + {Left, Right}
-# #   crystal --focus {prev, next}
-#
-# # Close all receptacle
-# super + shift + i
-#   for win in `bspc query -N -n .leaf.\!window`; do bspc node $win -k ; done;
-#
-# # Insert receptacle
-# super + i; {h,j,k,l}
-#   bspc node --presel-dir {west,south,north,east} -i
-#
-# # Move to rectacle
-# super + r
-#   bspreceptacle
-#
-# # Balance nodes
-# super + e
-#   bspc node @/ -B
-#
-# # Expand a window by moving one of its side outward
-# # ctrl + alt + {h,j,k,l}
-# # 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
-#
-# # Contract a window by moving one of its side inward
-# # ctrl + alt + shift + {h,j,k,l}
-# # 	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
-#
-# # Move a floating window
-# # ctrl + alt + {Left,Right,Up,Down}
-# #   xdo move {-x -20, -x +20, -y -20, -y +20}
-#
-# # Dropdown terminal
-# # super + alt + Return
-# # 	tdrop -ma -w 1916 -y 0 st
-#
-#  # super + shift + o
-#  #   reloadpolybar
