@@ -102,11 +102,20 @@ restart_picom() {
   fi
 }
 
+restart_tmux () {
+  tmux source-file ~/.tmux.conf
+}
+
+restart_xmonad () {
+  xmonad --recompile
+  xmonad --restart
+}
+
 restart_wm () {
   restart_deadd
   restart_picom
   nitrogen --restore & disown
-  xmonad --recompile
-  xmonad --restart
+  restart_tmux
+  restart_xmonad
   restart_trayer
 }
