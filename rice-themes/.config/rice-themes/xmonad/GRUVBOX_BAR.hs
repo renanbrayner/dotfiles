@@ -1,0 +1,6 @@
+ppCurrent = xmobarColor "#b8bb26" "",
+ppVisible = xmobarColor "#83a598" "",
+ppHidden = xmobarColor "#d3869b" "",
+ppTitle = xmobarColor "#928374" "" . shorten 60,
+ppSep = "<fc=#666666> <fn=1>|</fn> </fc>",
+ppUrgent = xmobarColor "#fb4934" "" . wrap "!" "!",
