@@ -67,6 +67,7 @@ export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
 
 
 # PATH
+PATH=/home/renan/.cargo/bin:$PATH
 PATH=/home/renan/.local/bin:$PATH
 PATH=$PATH:$ANDROID_SDK_ROOT/tools
 PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
