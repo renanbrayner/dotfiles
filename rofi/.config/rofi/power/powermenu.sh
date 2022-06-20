@@ -31,21 +31,26 @@ options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
 
 chosen="$(echo -e "$options" | $rofi_command -p "Uptime: $uptime" -dmenu -selected-row 2)"
 case $chosen in
-    $shutdown)
-      systemctl poweroff
-      ;;
-    $reboot)
-      systemctl reboot
-      ;;
-    $lock)
-      i3lock -B 10  -c 282a3688 --insidecolor=00000000 --insidevercolor=00000000 --insidewrongcolor=00000000 --ringvercolor=50fa7b --ringwrongcolor=ff5555 --ringcolor=6272a4 --linecolor=00000000 --keyhlcolor=8be9fd --separatorcolor=00000000 --bshlcolor=ffb86c --verifcolor=50fa7b --wrongcolor=ff5555
-      ;;
-    $suspend)
-      mpc -q pause
-      amixer set Master mute
-      systemctl suspend
-      ;;
-    $logout)
-      i3-msg exit || killall xmonad-x86_64-l
-      ;;
+	$shutdown)
+		systemctl poweroff
+		;;
+	$reboot)
+		systemctl reboot
+		;;
+	$lock)
+		notify-send.sh "Blocking screen..." \
+			"This will take a couple seconds."\
+			-a "" \
+			--hint string:image-path:system-lock-screen\
+			--hint int:transient:1
+		i3lock-fancy-multimonitor -b=0x8 -n
+		;;
+	$suspend)
+		mpc -q pause
+		amixer set Master mute
+		systemctl suspend
+		;;
+	$logout)
+		killall xmonad-x86_64-linux
+		;;
 esac
