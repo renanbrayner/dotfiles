@@ -90,7 +90,7 @@ alias neofetch='neofetch --source ~/.config/assets/heart.txt'
 alias susp='systemctl suspend'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 alias airbnb='npm install --save-dev eslint-config-airbnb eslint eslint-plugin-jsx-a11y eslint-plugin-import eslint-plugin-react eslint-plugin-react-hooks'
-alias i3lock='i3lock -B 10  -c 282a3688 --insidecolor=00000000 --insidevercolor=00000000 --insidewrongcolor=00000000 --ringvercolor=50fa7b --ringwrongcolor=ff5555 --ringcolor=6272a4 --linecolor=00000000 --keyhlcolor=8be9fd --separatorcolor=00000000 --bshlcolor=ffb86c --verifcolor=50fa7b --wrongcolor=ff5555'
+alias i3lock='i3lock-fancy-multimonitor -b=0x8 -n'
 
 # PLUGINS
 source ~/.config/zshplugins/zsh-autosuggestions/zsh-autosuggestions.zsh
