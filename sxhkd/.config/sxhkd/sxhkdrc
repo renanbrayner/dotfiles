@@ -16,12 +16,18 @@ super + r
 #------------------------------
 #   APPLICATIONS
 #------------------------------
+XF86Tools
+  spotify
 super + w
   exec $my_primary_browser
 super + alt + w
   exec $my_secondary_browser
 super + shift + m
   exec arandr && nitrogen --restore
+super + o; {a, d, f, i, k, s, t, c}
+  exec {alacritty, discord, firefox, insomnia, kitty, spotify, teams, ~/.local/bin/qalculate}
+XF86Calculator
+  ~/.local/bin/qalculate
 # super + m
 #     exec mailspring
 
@@ -37,27 +43,24 @@ super + Return
 super + mod1 + Return
   exec $my_secondary_terminal
 
-super + g 
+super + g
   exec $my_primary_terminal -e ranger            #file manager
-super + s 
+super + s
   exec $my_primary_terminal -e gotop             #system monitor
-#network connection
-super + n 
-  exec $my_primary_terminal -e notes             #my notes program
-super + v 
+super + v
   exec $my_primary_terminal -e /home/renan/.local/bin/vim.sh
-super + c 
+super + c
   exec $my_primary_terminal -e calcurse          #calendar in terminal
 
-super + alt + g 
+super + alt + g
   exec $my_secondary_terminal -e ranger     #file manager
-super + alt + s 
+super + alt + s
   exec $my_secondary_terminal -e gotop      #system monitor
-super + alt + n 
+super + alt + n
   exec $my_secondary_terminal -e nmtui      #network connection
-super + alt + v 
+super + alt + v
   exec $my_secondary_terminal -e /home/renan/.loca/bin/vim.sh
-super + alt + c 
+super + alt + c
   exec $my_secondary_terminal -e calcurse   #calendar in terminal
 
 #------------------------------
@@ -81,7 +84,7 @@ XF86AudioMute
   exec ~/.local/bin/volume --mute
 
 XF86AudioMicMute
-  exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+  pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 #------------------------------
 #   SCREENSHOTS
@@ -101,6 +104,8 @@ control + {_,shift,super} + Print
 
 super + d
   exec ~/.config/rofi/launchers-git/launcher.sh
+Menu
+  exec ~/.config/rofi/launchers-git/launcher.sh
 super + shift + d
   exec ~/.config/rofi/scripts/run.sh
 super + slash
@@ -112,7 +117,7 @@ super + slash
 #------------------------------
 
 super + Escape
-exec xkill
+  exec xkill
 
 #------------------------------
 #   OTHERS
