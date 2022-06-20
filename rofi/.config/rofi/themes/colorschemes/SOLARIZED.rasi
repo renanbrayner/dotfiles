@@ -12,5 +12,5 @@
   urgent-color: #dc322f;
   off: #6c71c4;
   on: #d33682;
-  selected: #bd93f933;
+  selected: #2aa19833;
 }
