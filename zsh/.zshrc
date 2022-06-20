@@ -50,12 +50,6 @@ setopt HIST_IGNORE_SPACE
 setopt HIST_FIND_NO_DUPS
 setopt HIST_SAVE_NO_DUPS
 
-# PLUGINS
-source ~/.config/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.config/zsh-autosuggestions/zsh-autosuggestions.zsh
-# source ~/.config/zsh-vi-mode/zsh-vi-mode.plugin.zsh TEMPORARY SOLUTION
-[[ -n $DISPLAY ]] && source ~/.config/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-
 # EXPORTS
 export EDITOR='nvim'
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
@@ -97,3 +91,9 @@ alias susp='systemctl suspend'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 alias airbnb='npm install --save-dev eslint-config-airbnb eslint eslint-plugin-jsx-a11y eslint-plugin-import eslint-plugin-react eslint-plugin-react-hooks'
 alias i3lock='i3lock -B 10  -c 282a3688 --insidecolor=00000000 --insidevercolor=00000000 --insidewrongcolor=00000000 --ringvercolor=50fa7b --ringwrongcolor=ff5555 --ringcolor=6272a4 --linecolor=00000000 --keyhlcolor=8be9fd --separatorcolor=00000000 --bshlcolor=ffb86c --verifcolor=50fa7b --wrongcolor=ff5555'
+
+# PLUGINS
+source ~/.config/zshplugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source ~/.config/zshplugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh TEMPORARY SOLUTION
+[[ -n $DISPLAY ]] && source ~/.config/zshplugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+source ~/.config/zshplugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
