@@ -76,7 +76,7 @@ PATH=/snap/bin:$PATH
 ## only use icons in exa alias if not on tty
 [[ -n $DISPLAY ]] && alias ls="exa -a --group-directories-first --icons" || alias ls="exa -a --group-directories-first"
 [[ -n $DISPLAY ]] && alias tree='f(){exa -T -a --group-directories-first --icons "$@"; unset -f f; }; f' || alias tree='f(){exa -T -a --group-directories-first "$@"; unset -f f; }; f'
-alias e="exit"
+alias e='exit'
 alias sxiv='devour sxiv'
 alias mpv='devour mpv'
 alias zathura='devour zathura'
