@@ -98,3 +98,5 @@ source ~/.config/zshplugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # source ~/.config/zshplugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh TEMPORARY SOLUTION
 [[ -n $DISPLAY ]] && source ~/.config/zshplugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source ~/.config/zshplugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
