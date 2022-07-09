@@ -1,6 +1,6 @@
 # confis
 export DISPLAY=:0
-setxkbmap br thinkpad &
+setxkbmap br &
 
 # programs
 lxsession &
@@ -8,7 +8,7 @@ cbatticon &
 nitrogen --restore &
 picom &
 nm-applet &
-sleep 3 && trayer -l --edge top --align right --widthtype pixel --height 18 --width 90 --monitor 1 --tint 0x00000000 --transparent false &
+sleep 3 && trayer -l --edge top --align right --widthtype pixel --height 18 --width 90 --monitor 2 --tint 0x00000000 --transparent false &
 
 # my scripts
 ~/.local/bin/hotkeys &
