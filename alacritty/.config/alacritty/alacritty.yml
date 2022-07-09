@@ -6,7 +6,7 @@ font: # SED_TERMINUS
     family: Terminus # SED_TERMINUS
   italic: # SED_TERMINUS
     family: Terminus # SED_TERMINUS
-
+#
 # font: # SED_COZETTE
 #   size: 8 # SED_COZETTE
 #   normal: # SED_COZETTE
@@ -17,7 +17,7 @@ font: # SED_TERMINUS
 #     family: Cozette # SED_COZETTE
 
 # font:
-#   size: 10.5
+#   size: 10
 #   normal:
 #     family: JetBrainsMono Nerd Font
 #   bold:
