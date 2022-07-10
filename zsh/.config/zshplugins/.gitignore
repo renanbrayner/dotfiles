@@ -1,0 +1,3 @@
+# this will allow the empty folder to be added to the repo
+*
+!.gitignore
