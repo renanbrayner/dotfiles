@@ -1,6 +1,6 @@
 nvim
 xmonad/.xmonad/*
-xmonad/.xmonad/!xmonad.hs
+!xmonad/.xmonad/xmonad.hs
 node_modules/
 **/node_modules
 ranger/.config/ranger/plugins/
