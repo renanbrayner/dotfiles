@@ -95,6 +95,7 @@ ttf-fira-mono \
 ttf-fira-sans \
 ttf-nerd-fonts-symbols \
 ttf-ubuntu-font-family \
+tmux \
 tumbler \
 ueberzug \
 unrar \
