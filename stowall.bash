@@ -20,6 +20,7 @@ Comands used:
   stow xmonad
   stow xprofile
   stow xresources
+  stow zsh
 
 EOF
 
@@ -41,3 +42,4 @@ stow xmobar
 stow xmonad
 stow xprofile
 stow xresources
+stow zsh
