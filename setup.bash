@@ -29,12 +29,11 @@ read -p "Press enter to continue"
 
 ~/.dotfiles/deletebackups.bash
 ~/.dotfiles/stages/prep/backup.bash
+~/.dotfiles/stages/configs/createdirs.bash
 ~/.dotfiles/stages/packages/paruinstall.bash
 ~/.dotfiles/stages/packages/packagesinstall.bash
 ~/.dotfiles/stages/submodules/neovim.bash
 ~/.dotfiles/stages/submodules/ranger.bash
+~/.dotfiles/stages/submodules/zshplugins.bash
 ~/.dotfiles/stowall.bash
-~/.dotfiles/stages/configs/createdirs.bash
-# ~/.dotfiles/stages/theming/icons.bash
-# ~/.dotfiles/stages/theming/theme.bash
 ~/.dotfiles/stages/tips/givetips.bash
