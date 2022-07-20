@@ -13,3 +13,6 @@
 [submodule "zsh/.config/zshplugins/zsh-vi-mode"]
 	path = zsh/.config/zshplugins/zsh-vi-mode
 	url = https://github.com/jeffreytse/zsh-vi-mode
+[submodule "nvim/.config/nvim"]
+	path = nvim/.config/nvim
+	url = https://github.com/renanbrayner/notvim
