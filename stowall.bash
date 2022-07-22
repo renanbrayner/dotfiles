@@ -8,6 +8,7 @@ Comands used:
   stow assets
   stow calcurse
   stow deadd
+  stow fonts
   stow kitty
   stow nvim
   stow picom
@@ -30,6 +31,7 @@ stow alacritty
 stow assets
 stow calcurse
 stow deadd
+stow fonts
 stow kitty
 stow nvim
 stow picom
