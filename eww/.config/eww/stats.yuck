@@ -1,0 +1,200 @@
+(defwindow stats
+           :monitor 0
+           :geometry (geometry :x "48px" ;bar width
+                               :y "1%"
+                               :width "320px"
+                               :anchor "left top")
+           :stack "fg"
+           :windowtype "dock"
+           :wm-ignore false
+(stats))
+
+(defwidget stats []
+           (box :class "stats"
+                :vexpand "true"
+                :hexpand "true"
+                :orientation "v"
+                :valign "start"
+                :spacing 10
+                :space-evenly "false"
+(about)
+(ram)
+(cpu)
+(temps)
+(ssdlinux)
+; (ssdwin)
+))
+
+(defwidget about []
+           (box :class "stats__about"
+                :space-evenly false
+                :orientation "v"
+                (box :class "stats__image"
+                     :width 64
+                     :height 64
+                     :halign "center")
+                (label :class "stats__about--name"
+                       :wrap "false"
+                       :halign "center"
+                       :markup name)
+                (label :class "stats__about--static"
+                       :wrap "false"
+                       :halign "start"
+                       :markup static_info)
+                (label :class "stats__about--dynamic"
+                       :wrap "true"
+                       :halign "start"
+                       :markup dynamic_info))
+)
+
+(defpoll name :interval "1s"
+              :run-while false
+              'echo "<b>$USER@$(cat /etc/hostname)</b>"')
+(defpoll static_info :interval "1000000s"
+                     :run-while false
+                     "$XDG_CONFIG_HOME/eww/scripts/system_info.bash --static")
+(defpoll dynamic_info :interval "60s"
+                     "$XDG_CONFIG_HOME/eww/scripts/system_info.bash --dynamic")
+
+(defwidget ram []
+           (box :class "stats__ram"
+                :space-evenly false
+                :orientation "h"
+                :spacing 10
+                (box :class "stats__ram-circular-wrapper"
+                     :orientation "v"
+                     :height 112
+                     :space-evenly false
+                     :spacing 4
+                     (label :class "stats__ram-label"
+                            :text "RAM")
+                     (circular-progress :class "stats__ram-circular"
+                                        :value "${EWW_RAM.used_mem_perc}"
+                                        :start-at 25
+                                        :height 50
+                                        :width 80
+                                        :thickness 4
+                                        (label :class "stats__ram-icon"
+                                               :text "﬙"
+                                               :xalign "0.48"))
+                     (label :class "stats__ram-label"
+                            :text "${round(EWW_RAM.used_mem_perc, 2)}%"))
+                (box :class "stats__ram-wrapper" 
+                     :spacing 10 
+                     (graph :value "${EWW_RAM.used_mem_perc}"
+                            :class "stats__ram-graph"
+                            :line-style "round"
+                            :thickness 3
+                            :width 210
+                            :height 100
+                            :time-range "60s"
+                            :dynamic true)))
+)
+
+(defwidget cpu []
+           (box :class "stats__cpu"
+                :space-evenly false
+                :orientation "h"
+                :spacing 10
+                (box :class "stats__cpu-circular-wrapper"
+                     :orientation "v"
+                     :height 112
+                     :space-evenly false
+                     :spacing 4
+                     (label :class "stats__cpu-label"
+                            :text "CPU")
+                     (circular-progress :class "stats__cpu-circular"
+                                        :value "${EWW_CPU.avg}"
+                                        :start-at 25
+                                        :height 50
+                                        :width 80
+                                        :thickness 4
+                                        (label :class "stats__cpu-icon"
+                                               :text ""
+                                               :xalign "0.48"))
+                     (label :class "stats__cpu-label"
+                            :text "${round(EWW_CPU.avg, 2)}%"))
+                (box :class "stats__cpu-wrapper" 
+                     :spacing 10 
+                     (graph :value "${EWW_CPU.avg}"
+                            :class "stats__cpu-graph"
+                            :line-style "round"
+                            :thickness 3
+                            :width 210
+                            :height 100
+                            :time-range "60s"
+                            :dynamic true)))
+)
+
+(defwidget temps []
+           (box :class "stats__temps"
+                :space-evenly false
+                :orientation "h"
+                :spacing 10
+                (box :class "stats__temps-circular-wrapper"
+                     :orientation "v"
+                     :height 112
+                     :space-evenly false
+                     :spacing 4
+                     (label :class "stats__temps-label"
+                            :text "TEMP")
+                     (circular-progress :class "stats__temps-circular"
+                                        :value "${(EWW_TEMPS.TCTL - 85 + EWW_TEMPS.TCTL * 1.225) > 100 ? '100' : (EWW_TEMPS.TCTL - 90 + EWW_TEMPS.TCTL * 1.225) < 0 ? '0' : (EWW_TEMPS.TCTL - 90 + EWW_TEMPS.TCTL * 1.225)}"
+                                        :start-at 25
+                                        :height 50
+                                        :width 80
+                                        :thickness 4
+                                        (label :class "stats__temps-icon"
+                                               :text "﨎"
+                                               :xalign "0.5"))
+                     (label :class "stats__temps-label"
+                            :text "${round(EWW_TEMPS.TCTL, 2)}Cº"))
+                (box :class "stats__temps-wrapper"
+                     :spacing 10
+                     (graph :value "${EWW_TEMPS.TCTL}"
+                            :class "stats__temps-graph"
+                            :line-style "round"
+                            :thickness 3
+                            :max 0
+                            :width 210
+                            :height 100
+                            :time-range "60s"
+                            :dynamic true)))
+)
+
+(defwidget ssdlinux []
+           (box :class "stats__ssdlinux"
+                :space-evenly false
+                :orientation "h"
+                :spacing 6
+                (label :class "stats__sddlinux-label"
+                       :text " ${round(EWW_DISK['/'].used * 0.000000001, 0)}G"
+                       :xalign "0.5")
+                "- 0G"
+                (progress :class "stats__ssdlinux-bar"
+                          :valign "center"
+                          :value "${EWW_DISK['/'].used_perc}"
+                          :tooltip "${round(EWW_DISK['/'].used_perc, 2)}%"
+                          :hexpand "true"
+                          :orientation "h")
+                "${round(EWW_DISK['/'].total * 0.000000001, 0)}G"
+             )
+)
+
+; (defwidget ssdwin []
+;            (box :class "stats__ssdwin"
+;                 :space-evenly false
+;                 :orientation "h"
+;                 :spacing 6
+;                 (label :class "stats__sddwin-label"
+;                        :text " ${round(EWW_DISK['/dev/nvme0n1p1'].used * 0.000000001, 0)}G"
+;                        :xalign "0.5")
+;                 "0G"
+;                 (progress :class "stats__ssdwin-bar"
+;                           :valign "center"
+;                           :value "${EWW_DISK['/dev/nvme0n1p1'].used_perc}"
+;                           :hexpand "true"
+;                           :orientation "h")
+;                 "${round(EWW_DISK['/dev/nvme0n1p1'].total * 0.000000001, 0)}G"
+;              )
+; )

@@ -4,12 +4,12 @@
 
 Config { font    = "xft:Ubuntu:weight=bold:pixelsize=11:antialias=true:hinting=true"
        , additionalFonts = [ "xft:Mononoki Nerd Font:pixelsize=11:antialias=true:hinting=true"
-                           , "xft:Font Awesome 5 Free Solid:pixelsize=12"
-                           , "xft:Font Awesome 5 Brands:pixelsize=12"
+                           , "xft:Font Awesome 6 Free Solid:pixelsize=12"
+                           , "xft:Font Awesome 6 Brands:pixelsize=12"
                            ]
 -- BG_START
-, bgColor = "#002b36" -- SED_SOLARIZED
-, fgColor = "#839496" -- SED_SOLARIZED
+, bgColor = "#3b4252"
+, fgColor = "#d8dee9"
 -- BG_END
        , position = Top
        , lowerOnStart = True
@@ -32,6 +32,6 @@ Config { font    = "xft:Ubuntu:weight=bold:pixelsize=11:antialias=true:hinting=t
        , alignSep = "}{"
        -- ATTENTION DON'T UNCOMMENT/COMMENT THIS MANUALLY!!! USE rice-ctrl --set-theme-dracula INSTEAD
 -- THEME_START
-, template = " <icon=haskell_20.xpm/>   <fc=#666666>|</fc> %UnsafeStdinReader% }{  <fc=#666666>|</fc>  <fc=#b58900> <action=`kitty -e gotop`>%cpu%</action> </fc> <fc=#666666>|</fc>  <fc=#859900> <action=`kitty -e gotop`>%memory%</action> </fc> <fc=#666666>|</fc>  <fc=#2aa198> <action=`kitty -e ncdu $HOME`>%disku%</action> </fc> <fc=#666666>|</fc>  <fc=#d33682> <action=`kitty -e calcurse`>%date%</action>  </fc> <fc=#666666>|</fc>                                 " -- SED_SOLARIZED
+, template = " <icon=haskell_20.xpm/>   <fc=#666666>|</fc> %UnsafeStdinReader% }{  <fc=#666666> </fc>  <fc=#ebcb8b> <action=`kitty -e gotop`>%cpu%</action> </fc> <fc=#666666>|</fc>  <fc=#a3be8c> <action=`kitty -e gotop`>%memory%</action> </fc> <fc=#666666>|</fc>  <fc=#88c0d0> <action=`kitty -e ncdu $HOME`>%disku%</action> </fc> <fc=#666666>|</fc>  <fc=#b48ead> <action=`kitty -e calcurse`>%date%</action>  </fc> <fc=#666666>|</fc>                              " -- SED_NORD
 -- THEME_END
        }

@@ -1,0 +1,3 @@
+editor = "nvim"
+directory_name = "notes"
+filetype = ".md"

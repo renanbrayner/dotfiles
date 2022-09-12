@@ -1,0 +1,22 @@
+.power {
+  background: $background; // COLOR
+  border-radius: 10px;
+  padding: 5px;
+  font-size: 30px;
+}
+
+.power__off {
+  color: $red;
+}
+
+.power__reboot {
+  color: $green;
+}
+
+.power__lock {
+  color: $yellow;
+}
+
+.power__sleep {
+  color: $cyan;
+}

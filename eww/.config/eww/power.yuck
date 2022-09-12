@@ -1,0 +1,46 @@
+(defwindow power
+           :monitor 0
+           :geometry (geometry :x "48px" ;bar width
+                               :y "-1%"
+                               :width "320px"
+                               :height "60px"
+                               :anchor "left bottom")
+           :stack "fg"
+           :windowtype "dock"
+           :wm-ignore false
+           :hexpand "false"
+           :vexpand "false"
+(button_list))
+
+(defwidget button_list []
+           (eventbox :onhoverlost "eww close power"
+                     (box :class "power"
+                          :orientation "h"
+                          :valign "center"
+                          :space-evenly "true"
+                          (button :class "power__off"
+                                  :onclick "systemctl poweroff"
+                                  :orientation "v"
+                                  :valign "center"
+                                  :halign "center" "襤")
+                          (button :class "power__reboot"
+                                  :onclick "systemctl reboot"
+                                  :orientation "v"
+                                  :valign "center"
+                                  :halign "center" "累")
+                          (button :class "power__lock"
+                                  :onclick "notify-send.sh 'lockscreen'"
+                                  :orientation "v"
+                                  :valign "center"
+                                  :halign "center" "")
+                          (button :class "power__sleep"
+                                  :onclick "systemctl suspend"
+                                  :orientation "v"
+                                  :valign "center"
+                                  :halign "center" "鈴")
+                          (button :class "power__logout"
+                                  :onclick "killall xmonad-x86_64-linux"
+                                  :orientation "v"
+                                  :valign "center"
+                                  :halign "center" "")
+)))

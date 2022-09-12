@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # Steps to add a new theme:
 # add lines with SED_THEMENAME comment at the end into ~/.config/nvim/lua/rice/init.lua
@@ -42,13 +42,13 @@ set_theme () {
   # write contents of a file in a section of another file
   # ARGS: path_of_theme_file path_of_config_file sectio_name
   write_to_section () {
-    if [ -f "$1"]; then
-      echo "${red} $1 doesn't exist."
+    if [ ! -f "$1" ]; then
+      echo "${red} $1 doesn't exist.${normal}"
       return
     fi
 
-    if [ -f "$2"]; then
-      echo "${red} $2 doesn't exist."
+    if [ ! -f "$2" ]; then
+      echo "${red} $2 doesn't exist.${normal}"
       return
     fi
 
@@ -75,14 +75,15 @@ set_theme () {
 
   lxappearance
 
-  write_to_section "$XDG_CONFIG_HOME/rice-themes/xmobar/${1}_BG" "$XDG_CONFIG_HOME/xmobar/xmobarrc0" "BG"
-  write_to_section "$XDG_CONFIG_HOME/rice-themes/xmobar/$1" "$XDG_CONFIG_HOME/xmobar/xmobarrc0"
+  # write_to_section "$XDG_CONFIG_HOME/rice-themes/xmobar/${1}_BG" "$XDG_CONFIG_HOME/xmobar/xmobarrc0" "BG" # BG
+  # write_to_section "$XDG_CONFIG_HOME/rice-themes/xmobar/$1" "$XDG_CONFIG_HOME/xmobar/xmobarrc0"
   write_to_section "$XDG_CONFIG_HOME/rice-themes/xmonad/${1}_BAR.hs" "$HOME/.xmonad/xmonad.hs" "XMOBAR" # BAR
   write_to_section "$XDG_CONFIG_HOME/rice-themes/xmonad/$1.hs" "$HOME/.xmonad/xmonad.hs" # BORDERS
   write_to_section "$XDG_CONFIG_HOME/rice-themes/tmux/$1.conf" "$HOME/.tmux.conf"
   write_to_section "$XDG_CONFIG_HOME/rice-themes/nvim/$1.lua" "$XDG_CONFIG_HOME/nvim/lua/rice/init.lua"
   write_to_section "$XDG_CONFIG_HOME/rice-themes/alacritty/$1.yml" "$XDG_CONFIG_HOME/alacritty/alacritty.yml"
   write_to_section "$XDG_CONFIG_HOME/rice-themes/deadd/$1.css" "$XDG_CONFIG_HOME/deadd/deadd.css"
+  write_to_section "$XDG_CONFIG_HOME/rice-themes/eww/$1.scss" "$XDG_CONFIG_HOME/eww/eww.scss"
 
 
   cp "$XDG_CONFIG_HOME/rice-themes/wppr/$1.png" "$XDG_CONFIG_HOME/assets/wppr/rice-wallpaper.png"

@@ -1,0 +1,7 @@
+#!/bin/sh
+color=$(xcolor -f "${1:-hex}")
+printf $color | xclip -selection c
+notify-send.sh "Copied color to clipboard using ${1:-hex} format" "color code: $color" \
+  --hint string:image-path:color-select \
+  --hint int:transient:1 \
+  --expire-time=5500

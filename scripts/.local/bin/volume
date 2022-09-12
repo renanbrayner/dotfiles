@@ -28,12 +28,12 @@ if [ "$MUTE" = "[off]" ]; then
     ICON=audio-volume-muted
 fi 
 
-notify-send.sh "Volume" \
-    -a "" \
-    --hint int:has-percentage:$VOLUME \
-    --hint string:image-path:$ICON \
-    --hint int:transient:1 \
-    --replace-file=/tmp/volumenotification
+# notify-send.sh "Volume" \
+#     -a "" \
+#     --hint int:has-percentage:$VOLUME \
+#     --hint string:image-path:$ICON \
+#     --hint int:transient:1 \
+#     --replace-file=/tmp/volumenotification
 
 # WITH NUMBER
 # notify-send.sh "Volume" "$VOLUME/100" \

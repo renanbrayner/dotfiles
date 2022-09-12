@@ -1,0 +1,59 @@
+.cal {
+  background: $background; // COLOR
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 15px;
+  font-family: 'JetBrainsMono Nerd Font';
+}
+
+.cal__calendar-container,
+.cal__todo {
+  background-color: $background-alt;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+}
+
+.cal__calendar-container {
+  padding: 40px 10px 10px 10px;
+}
+
+.cal__calendar {
+  padding: 1.05em 0.3em 0;
+  font-weight: bold;
+
+  &:selected {
+    color: $green;
+    font-weight: bolder;
+    border-radius: 50%;
+  }
+
+  &:indeterminate {
+    color: $gray;
+  }
+}
+
+.cal__calendar.highlight {
+  color: $cyan;
+  font-weight: bold;
+}
+
+.cal__todo {
+  padding: 20px
+}
+
+.cal__todo-label {
+  margin: 8px 0px 20px 0px;
+  font-weight: bold;
+}
+
+.cal__todo-input {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  padding:  8px 8px;
+  margin-bottom: 14px;
+}
+
+.cal__todo-delete {
+  font-size: 20px;
+  color: $red;
+}

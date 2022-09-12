@@ -14,7 +14,7 @@
 
 style="single_rounded"
 
-rofi_command="rofi -monitor eDP1 -theme power/$style.rasi"
+rofi_command="rofi -monitor DisplayPort-0 -theme power/$style.rasi"
 
 uptime=$(uptime -p | sed -e 's/up //g')
 
@@ -46,8 +46,6 @@ case $chosen in
 		i3lock-fancy-multimonitor -b=0x8 -n
 		;;
 	$suspend)
-		mpc -q pause
-		amixer set Master mute
 		systemctl suspend
 		;;
 	$logout)

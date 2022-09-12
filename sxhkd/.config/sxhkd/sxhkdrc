@@ -49,8 +49,6 @@ super + s
   exec $my_primary_terminal -e gotop             #system monitor
 super + v
   exec $my_primary_terminal -e /home/renan/.local/bin/vim.sh
-super + c
-  exec $my_primary_terminal -e calcurse          #calendar in terminal
 
 super + alt + g
   exec $my_secondary_terminal -e ranger     #file manager
@@ -60,8 +58,13 @@ super + alt + n
   exec $my_secondary_terminal -e nmtui      #network connection
 super + alt + v
   exec $my_secondary_terminal -e /home/renan/.loca/bin/vim.sh
-super + alt + c
-  exec $my_secondary_terminal -e calcurse   #calendar in terminal
+
+#------------------------------
+#   COLOR PICKER
+#------------------------------
+
+super + c
+  exec ~/.local/bin/colorpick
 
 #------------------------------
 #   BRIGHTNESS
@@ -82,8 +85,9 @@ XF86Audio{Raise,Lower}Volume
   exec ~/.local/bin/volume {--up,--down}
 XF86AudioMute
   exec ~/.local/bin/volume --mute
-
 XF86AudioMicMute
+  pactl set-source-mute @DEFAULT_SOURCE@ toggle
+super + m
   pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 #------------------------------

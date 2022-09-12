@@ -1,0 +1,69 @@
+(defwindow calendar
+           :monitor 0
+           :geometry (geometry :x "48px" ;bar width
+                               :y "1%"
+                               :width "320px"
+                               :anchor "left top")
+           :stack "fg"
+           :windowtype "dialog"
+           :focusable "true"
+  ; :wm-ignore true
+           ; :windowtype "dock"
+  (cal)
+)
+
+(defwidget cal []
+           (box :class "cal"
+                :space-evenly "false"
+                :orientation "v"
+                :spacing "10"
+                (box :class "cal__calendar-container"
+                     :space-evenly "false"
+                     :orientation "v"
+                     (label :class "cal__label"
+                            :text label
+                            :halign "center")
+                     (calendar :class "cal__calendar"
+                               :halign "center"
+                               :active false
+                               :day day
+                               :month month
+                               :year year
+                               :show-details false
+                               :show-heading false
+                               :show-day-names true))
+                     (todo_list) )
+)
+
+(defwidget todo_list []
+                      (box :class "cal__todo"
+                          :space-evenly "false"
+                          :orientation "vertical"
+                          (label :class "cal__todo-label"
+                                 :text "TODO:"
+                                 :halign "center")
+                          (input :class "cal__todo-input"
+                                 :value new_todo
+                                 :onchange "eww update new_todo='{}'"
+                                 :onaccept 'echo "◼ {}" >> $XDG_CONFIG_HOME/eww/assets/todo.txt && eww update todo_file="$($XDG_CONFIG_HOME/eww/scripts/todo.lua read)" && eww update new_todo=""')
+                          (literal :content todo_file))
+)
+
+(defvar new_todo "")
+
+(defpoll todo_file :interval "1000000s"
+                   :run-while "false"
+                   "$XDG_CONFIG_HOME/eww/scripts/todo.lua read")
+
+(defpoll label :interval "1000000s"
+               :run-while "false"
+               "date '+%a, %d %b'")
+
+(defpoll day :interval "60s"
+             "date '+$d'")
+
+(defpoll month :interval "60s"
+             "date '+$m'")
+
+(defpoll year :interval "60s"
+             "date '+$Y'")

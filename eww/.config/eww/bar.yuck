@@ -1,0 +1,218 @@
+(defwindow bar
+           :monitor 0
+           :geometry (geometry :x "0"
+                               :y "1%"
+                               :width "38px" ;bar width
+                               :height "98%"
+                               :anchar "left center")
+           :stacking "bg"
+           :reserve (struts :distance "38px" :side "left") ;bar width
+           :windowtype "dock"
+           :wm-ignore false
+           :hexpand "false"
+           :vexpand "false"
+(bar))
+
+(defwidget bar []
+           (centerbox :class "bar"
+                :orientation "v"
+(top) 
+(workspace_widget)
+(bottom)))
+
+(defwidget top []
+           (box :class "bar__top"
+                :orientation "v"
+                :valign "start"
+                :spacing "1"
+                :space-evenly "false"
+(main_button)
+(time_widget)
+(system_monitor)))
+
+(defwidget main_button []
+           (button :class "bar__mainbutton"
+                   :onclick "dunstify 'fix me'" 
+                  '')
+)
+
+(defwidget time_widget []
+           (eventbox :onclick "eww open --toggle calendar"
+                     :cursor "pointer"
+                     (box :class "bar__time" time))
+)
+
+(defpoll time :interval "4s"
+  "date '+%H
+%M'")
+
+(defwidget system_monitor []
+          (eventbox :onclick "eww open --toggle stats"
+                    :cursor "pointer"
+                    (box :class "bar__system-monitor"
+                         :orientation "h"
+                         :halign "center"
+                         :space-evenly "false"
+                         :spacing 8
+                         (box :class "bar__ram-container"
+                              :orientation "v"
+                              :halign "center"
+                              :space-evenly "false"
+                              :spacing 2
+                              :tooltip "ram: ${round(EWW_RAM.used_mem_perc, 1)}%"
+                              (progress :class "bar__ram-usage"
+                                        :value "${round(EWW_RAM.used_mem_perc, 0)}"
+                                        :orientation "v"
+                                        :flipped "true")
+                              (label :class "bar__ram-usage__label"
+                                     :text "﬙"
+                                     :xalign 0.5))
+                         (box :class "bar__ram-container"
+                              :orientation "v"
+                              :halign "center"
+                              :space-evenly "false"
+                              :spacing 2
+                              :tooltip "cpu: ${round(EWW_CPU.avg, 2)}%"
+                              (progress :class "bar__cpu-usage"
+                                        :value "${round(EWW_CPU.avg, 0)}"
+                                        :orientation "v"
+                                        :flipped "true")
+                              (label :class "bar__cpu-usage__label"
+                                     :text ""))))
+)
+
+(defwidget workspace_widget []
+           (literal :content workspace_listener)
+)
+
+(defpoll workspace_listener :interval "0.25s"
+                            "$XDG_CONFIG_HOME/eww/scripts/workspace.lua")
+
+(defwidget bottom []
+           (box :class "bar__bottom"
+                :orientation "v"
+                :valign "end"
+                :spacing "1"
+                :space-evenly "false"
+(control)
+(close_slider)))
+
+(defwidget control []
+           (box :class "bar__control"
+                :spacing 2
+                :orientation "v"
+                :space-evenly false
+(mic_slider)
+(audio_slider)))
+
+(defwidget mic_slider []
+           (eventbox :onhover "eww update show_mic=true"
+                     :onhoverlost "eww update show_mic=false"
+                     :cursor "pointer"
+                     (box :orientation "v"
+                          :space-evenly "false"
+                          :spacing "2"
+                          (revealer :transition "slideup"
+                                    :reveal show_mic
+                                    :duration "0.5s"
+                                    (box :class "bar__volume-bar"
+                                         :orientation "v"
+                                         :space-evenly false
+                                         :spacing 0
+                                         (scale :value audio_input
+                                                :orientation "v"
+                                                :flipped true
+                                                :max 101
+                                                :min 1
+                                                :onchange "amixer set Capture {}%" )))
+                          (button :onclick "$XDG_CONFIG_HOME/eww/scripts/audio.bash --mute-input" 
+                                  :class "bar__volume-icon" {is_input_muted ? "" : ""})))
+)
+(defvar show_mic false)
+(defpoll is_input_muted :interval "2s"
+                        "$XDG_CONFIG_HOME/eww/scripts/audio.bash --watch-mute-input")
+(defpoll audio_input :interval "4s"
+                     "$XDG_CONFIG_HOME/eww/scripts/audio.bash --watch-input")
+
+(defwidget audio_slider []
+           (eventbox :onhover "eww update show_volume=true"
+                     :onhoverlost "eww update show_volume=false"
+                     :cursor "pointer"
+                     (box :orientation "v"
+                          :space-evenly "false"
+                          :spacing "2"
+                          (revealer :transition "slideup"
+                                    :reveal show_volume
+                                    :duration "0.5s"
+                                    (box :class "bar__volume-bar"
+                                         :orientation "v"
+                                         :space-evenly false
+                                         :spacing 0
+                                         (scale :value audio_output
+                                                :orientation "v"
+                                                :flipped true
+                                                :max 101
+                                                :min 1
+                                                :onchange "amixer set Master {}%" )))
+                          (button :onclick "$XDG_CONFIG_HOME/eww/scripts/audio.bash --mute-output"
+                                  :class "bar__volume-icon" "${is_output_muted ? '婢' : '墳'}")))
+  )
+(defvar show_volume false)
+(defpoll is_output_muted :interval "2s"
+                        "$XDG_CONFIG_HOME/eww/scripts/audio.bash --watch-mute-output")
+(defpoll audio_output :interval "2s"
+                      "$XDG_CONFIG_HOME/eww/scripts/audio.bash --watch-output")
+
+(defwidget close_slider []
+           (eventbox :onhover "eww update show_close=true"
+                     :onhoverlost "eww update show_close=false"
+                     :cursor "pointer"
+                     (box :class "bar__power"
+                          :orientation "v"
+                          :space-evenly "false"
+                          :spacing "2"
+                          (revealer :transition "slideup"
+                                    :reveal show_close
+                                    :duration "0.5s"
+                                    (box :class "bar__power__list"
+                                         :orientation "v"
+                                         :valign "center"
+                                         :space-evenly "true"
+                                         (button :class "bar__power__lock"
+                                                 :onclick "notify-send.sh 'lockscreen'"
+                                                 :tooltip "Lock screen"
+                                                 :orientation "v"
+                                                 :valign "center"
+                                                 :halign "center" "")
+                                         (button :class "bar__power__logout"
+                                                 :onclick "killall xmonad-x86_64-linux"
+                                                 :tooltip "Logout"
+                                                 :orientation "v"
+                                                 :valign "center"
+                                                 :halign "center" "")
+                                         (button :class "bar__power__sleep"
+                                                 :onclick "systemctl suspend"
+                                                 :tooltip "Suspend"
+                                                 :orientation "v"
+                                                 :valign "center"
+                                                 :halign "center" "鈴")
+                                         (button :class "bar__power__reboot"
+                                                 :onclick "systemctl reboot"
+                                                 :tooltip "Reboot"
+                                                 :orientation "v"
+                                                 :valign "center"
+                                                 :halign "center" "累")
+                                    ))
+                         (button :class "bar__power__off"
+                                 :onclick "systemctl poweroff"
+                                 :tooltip "Shutdown"
+                                 :orientation "v"
+                                 :valign "center"
+                                 :halign "center" "襤")))
+)
+
+(defvar show_close false)
+
+(defwidget close_btn []
+           (button :class "bar__close-btn"
+                   :onclick "eww open --toggle power" "襤"))

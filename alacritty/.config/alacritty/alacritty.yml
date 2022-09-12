@@ -1,5 +1,5 @@
 font: # SED_TERMINUS
-  size: 12 # SED_TERMINUS
+  size: 14 # SED_TERMINUS
   normal: # SED_TERMINUS
     family: Terminus # SED_TERMINUS
   bold: # SED_TERMINUS
@@ -26,7 +26,7 @@ font: # SED_TERMINUS
 #     family: JetBrainsMono Nerd Font
 
 window:
-  opacity: 0.88
+  opacity: 0.78
 
 # ATENTION!
 # Don't remove the comments bellow, they are used by rice-ctrl to change the theme.

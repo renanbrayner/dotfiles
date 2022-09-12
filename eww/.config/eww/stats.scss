@@ -1,0 +1,102 @@
+.stats {
+  background: $background; // COLOR
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 16px;
+  font-family: 'JetBrainsMono Nerd Font';
+}
+
+.stats__ram-circular-wrapper,
+.stats__temps-circular-wrapper,
+.stats__cpu-circular-wrapper {
+  padding-top: 8px;
+}
+
+.stats__temps-circular-wrapper {
+  color: $orange;
+}
+
+.stats__ram-circular-wrapper {
+  color: $yellow;
+}
+
+.stats__cpu-circular-wrapper {
+  color: $purple;
+}
+
+.stats__ram-circular,
+.stats__temps-circular,
+.stats__cpu-circular {
+  font-size: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: $gray;
+}
+
+.stats__ram-label,
+.stats__temps-label,
+.stats__cpu-label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.stats__cpu-wrapper,
+.stats__ram-wrapper, 
+.stats__temps-wrapper, 
+.stats__temps-circular-wrapper,
+.stats__ram-circular-wrapper,
+.stats__cpu-circular-wrapper,
+.stats__about {
+  background-color: $background-alt;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+}
+
+.stats__temps-graph {
+  color: $orange;
+  background-color: rgba($orange, 0.5);
+}
+
+.stats__cpu-graph {
+  color: $purple;
+  background-color: rgba($purple, 0.5);
+}
+
+.stats__ram-graph {
+  color: $yellow;
+  background-color: rgba($yellow, 0.5);
+}
+
+
+.stats__ssdlinux-bar trough, 
+.stats__ssdwin trough {
+  all: unset;
+  background-color: $gray;
+  border-radius: 10px;
+}
+
+.stats__ssdlinux-bar trough progress,
+.stats__ssdwin-bar trough progress {
+  background-color: $cyan;
+  border-radius: 10px;
+}
+
+.stats__about {
+  padding: 0 30px 20px 30px;
+  font-size: 14px;
+  font-family: 'Roboto';
+}
+
+.stats__about--name {
+  font-size: 16px;
+  color: $cyan;
+  padding-bottom: 10px;
+}
+
+.stats__image { 
+  padding: 60px;
+  background-size: 100px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("./assets/logo.png")
+}

@@ -7,10 +7,8 @@
 connectedCount=$(xrandr --query | grep -c " connected")
 
 "$HOME/.screenlayout/$connectedCount.sh"
-notify-send.sh "Display configuration done" \
+dunstify "Display configuration done" \
   "Display count: $connectedCount"\
-  -a "" \
-  --hint string:image-path:video-display\
-  --hint int:transient:1
+  -i $XDG_CONFIG_HOME/assets/icons/display.jpg
 
-restart_wm
+restart_wm # This calls trayer and picom

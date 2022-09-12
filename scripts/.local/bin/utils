@@ -48,7 +48,7 @@ picom_toggle () {
   if pidof -q picom; then
     killall picom
   else
-    picom & disown
+    picom --experimental-backend & disown
   fi
 }
 
@@ -56,9 +56,9 @@ picom_toggle () {
 restart_trayer () {
   if pidof -q trayer; then
     killall trayer && \
-      trayer -l --edge top --align right --widthtype pixel --height 18 --width 90 --monitor 2 --tint 0x00000000 --transparent false & disown
+      trayer -l --edge top --align right --widthtype pixel --height 18 --width 90 --monitor 1 --transparent true --alpha 255 & disown
   else
-    trayer -l --edge top --align right --widthtype pixel --height 18 --width 90 --monitor 2 --tint 0x00000000 --transparent false & disown
+    trayer -l --edge top --align right --widthtype pixel --height 18 --width 90 --monitor 1 --transparent true --alpha 255 & disown
   fi
 
   if pidof -q clipit; then
@@ -96,9 +96,9 @@ restart_picom() {
   if pidof -q picom; then
     killall picom && \
     sleep 0.2 &&\
-    picom & disown
+    picom --experimental-backend & disown
   else
-    picom & disown
+    picom --experimental-backend & disown
   fi
 }
 
@@ -111,6 +111,15 @@ restart_xmonad () {
   xmonad --restart
 }
 
+restart_eww () {
+  if pidof -q eww; then
+    killall eww && \
+      eww open bar & disown
+  else
+    eww open bar
+  fi
+}
+
 restart_wm () {
   restart_deadd
   restart_picom
@@ -118,4 +127,5 @@ restart_wm () {
   restart_tmux
   restart_xmonad
   restart_trayer
+  restart_eww
 }
