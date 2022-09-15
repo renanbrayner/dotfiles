@@ -14,7 +14,7 @@
 
 style="single_rounded"
 
-rofi_command="rofi -monitor DisplayPort-0 -theme power/$style.rasi"
+rofi_command="rofi -monitor primary -theme power/$style.rasi"
 
 uptime=$(uptime -p | sed -e 's/up //g')
 
