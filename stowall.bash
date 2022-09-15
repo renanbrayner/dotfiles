@@ -27,9 +27,10 @@ EOF
 cd ~/.dotfiles
 
 stow alacritty
+stow mpv
+stow notes
 stow assets
 stow calcurse
-stow deadd
 stow kitty
 stow nvim
 stow picom
