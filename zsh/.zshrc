@@ -51,6 +51,8 @@ setopt HIST_FIND_NO_DUPS
 setopt HIST_SAVE_NO_DUPS
 
 # EXPORTS
+export ANDROID_HOME="$HOME/Android/Sdk"
+export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
 export EDITOR='nvim'
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export ERL_AFLAGS="-kernel shell_history enabled"
@@ -71,6 +73,7 @@ export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
 export LUA_PATH='/usr/share/lua/5.4/?.lua;/usr/share/lua/5.4/?/init.lua;/usr/lib/lua/5.4/?.lua;/usr/lib/lua/5.4/?/init.lua;./?.lua;./?/init.lua;/home/renan/.luarocks/share/lua/5.4/?.lua;/home/renan/.luarocks/share/lua/5.4/?/init.lua'
 export LUA_CPATH='/usr/lib/lua/5.4/?.so;/usr/lib/lua/5.4/loadall.so;./?.so;/home/renan/.luarocks/lib/lua/5.4/?.so'
 
+PATH=$PATH:$ANDROID_SDK_ROOT/tools; PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 PATH=/home/renan/.luarocks/bin:$PATH
 PATH=/home/renan/.cargo/bin:$PATH
 PATH=/home/renan/.local/bin:$PATH
