@@ -1,6 +1,7 @@
 #!/bin/lua
 -- local params = { ... }
 -- TODO: add params to allow for easy config
+-- TODO: make this work with one display only
 function os.capture(cmd, raw)
   local f = assert(io.popen(cmd, "r"))
   local s = assert(f:read("*a"))
@@ -80,13 +81,13 @@ for i = 1, 4 do
 end
 
 local output_left = "(box :class 'bar__workspace' :valign 'center' :orientation 'v' :spacing 0 '𝗟'"
-for k, button in pairs(buttons_left) do
+for _, button in pairs(buttons_left) do
   output_left = output_left .. button
 end
 output_left = output_left .. ")"
 
 local output_right = "(box :class 'bar__workspace' :valign 'center' :orientation 'v' :spacing 0 '𝗥'"
-for k, button in pairs(buttons_right) do
+for _, button in pairs(buttons_right) do
   output_right = output_right .. button
 end
 output_right = output_right .. ")"

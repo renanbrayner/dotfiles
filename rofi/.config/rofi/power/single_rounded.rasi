@@ -25,7 +25,7 @@ window {
     background-color:               @bg;
     text-color:                     @fg;
     height:                         160px;
-    width:                          578px;
+    width:                          600px;
     location:                       center;
     x-offset:                       0;
     y-offset:                       0;

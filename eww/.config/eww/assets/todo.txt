@@ -1,2 +1,7 @@
 ◼ Botar tooltip no ponto verde
 ◼ Scroll campo editar wifi
+◼ Log repetindo em troca de contrato
+◼ Botão buscar fornecedor mesmo em contratos cancelados
+◼ Viasat colocar oq o dev vende
+◼ Linha digitável do boleto
+☑ Plano antigo não carrega na recarga

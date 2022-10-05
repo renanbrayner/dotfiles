@@ -1,6 +1,6 @@
 # confis
 export DISPLAY=:0
-setxkbmap br &
+setxkbmap br thinkpad &
 
 # programs
 deadd-notification-center &
