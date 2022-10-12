@@ -1,6 +1,7 @@
 # confis
 export DISPLAY=:0
 setxkbmap br &
+xsetroot -cursor_name left_ptr
 
 # programs
 deadd-notification-center &
