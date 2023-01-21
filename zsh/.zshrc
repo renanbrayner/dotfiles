@@ -57,6 +57,7 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
 export FZF_DEFAULT_OPTS='--border'
 export BAT_THEME='ansi'
+export GOPATH="$HOME/go"
 
 # CLEAN-UP
 export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
@@ -76,6 +77,7 @@ PATH=/home/renan/.local/bin:$PATH
 PATH=$PATH:$ANDROID_SDK_ROOT/tools
 PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 PATH=/snap/bin:$PATH
+PATH=/home/renan/go/bin:$PATH
 
 # ALIAS
 ## only use icons in exa alias if not on tty
