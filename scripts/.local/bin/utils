@@ -113,8 +113,9 @@ restart_xmonad () {
 
 restart_eww () {
   if pidof -q eww; then
-    killall eww && \
-      eww open bar & disown
+    killall eww
+    sleep 0.2 &&\
+    eww open bar
   else
     eww open bar
   fi

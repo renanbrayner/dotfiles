@@ -162,6 +162,8 @@ myManageHook =
 --           ]
 
 -- myLogHook = dynamicLogWithPP $ xmobarPP $ def { ppOutput = hPutStrLn xmproc }
+-- myStartupHook = do
+--   spawnOnce "eww open bar"
 
 main = do
   nScreens <- countScreens
@@ -184,6 +186,7 @@ main = do
             mouseBindings = myMouseBindings,
             -- hooks, layouts
             layoutHook = myLayout,
+            -- startupHook = myStartupHook,
             manageHook = myManageHook
             -- handleEventHook    = myEventHook,
 --             logHook =
@@ -198,5 +201,4 @@ main = do
 -- ppUrgent = xmobarColor "#fb4934" "" . wrap "!" "!",
 --                     ppOrder = \(ws : _ : t : ex) -> [formatWs ws, t]
 --                   }
-                  -- startupHook        = myStartupHook
           }
