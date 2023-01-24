@@ -18,6 +18,7 @@ print_window () {
 print_area () {
   import -silent ~/Pictures/screenshots/"`date +"%Y-%m-%d_%H_%M_%S"`".png
   dunstify "Screenshoot Selected Area" "Saved to ~/Pictures/screenshots" \
+  -i $XDG_CONFIG_HOME/assets/icons/display.jpg
 
   paplay /usr/share/sounds/freedesktop/stereo/camera-shutter.oga
 }
