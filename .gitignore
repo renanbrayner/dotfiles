@@ -5,3 +5,4 @@ node_modules/
 **/node_modules
 ranger/.config/ranger/plugins/
 **/undodir
+./eww/.config/eww/assets/todo.txt
