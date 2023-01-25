@@ -22,7 +22,7 @@
     gap_size = 10
     separator_color = frame
     sort = yes
-    default_icon = $XDG_CONFIG_HOME/assets/icons/default_icon.png
+    default_icon = notifyconf
     font = JetBrainsMono Nerd Font 10
     line_height = 0
     markup = full
@@ -38,7 +38,7 @@
     enable_recursive_icon_lookup = true
     icon_theme = "Papirus,Zafiro-Icons-Dark"
     icon_position = left
-    min_icon_size = 32
+    min_icon_size = 128
     max_icon_size = 128
     icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
     sticky_history = yes
