@@ -20,7 +20,7 @@
 (about)
 (ram)
 (cpu)
-(temps)
+; (temps)
 (ssdlinux)
 ; (ssdwin)
 ))
@@ -49,7 +49,7 @@
 
 (defpoll name :interval "1s"
               :run-while false
-              'echo "<b>$USER@$(cat /etc/hostname)</b>"')
+              'echo "<b>$USER</b>"')
 (defpoll static_info :interval "1000000s"
                      :run-while false
                      "$XDG_CONFIG_HOME/eww/scripts/system_info.bash --static")
@@ -139,7 +139,7 @@
                      (label :class "stats__temps-label"
                             :text "TEMP")
                      (circular-progress :class "stats__temps-circular"
-                                        :value "${(EWW_TEMPS.TCTL - 85 + EWW_TEMPS.TCTL * 1.225) > 100 ? '100' : (EWW_TEMPS.TCTL - 90 + EWW_TEMPS.TCTL * 1.225) < 0 ? '0' : (EWW_TEMPS.TCTL - 90 + EWW_TEMPS.TCTL * 1.225)}"
+                                        :value "${(EWW_TEMPS.CPU - 85 + EWW_TEMPS.CPU * 1.225) > 100 ? '100' : (EWW_TEMPS.CPU - 90 + EWW_TEMPS.CPU * 1.225) < 0 ? '0' : (EWW_TEMPS.CPU - 90 + EWW_TEMPS.CPU * 1.225)}"
                                         :start-at 25
                                         :height 50
                                         :width 80
@@ -148,10 +148,10 @@
                                                :text "﨎"
                                                :xalign "0.5"))
                      (label :class "stats__temps-label"
-                            :text "${round(EWW_TEMPS.TCTL, 2)}Cº"))
+                            :text "${round(EWW_TEMPS.CPU, 2)}Cº"))
                 (box :class "stats__temps-wrapper"
                      :spacing 10
-                     (graph :value "${EWW_TEMPS.TCTL}"
+                     (graph :value "${EWW_TEMPS.CPU}"
                             :class "stats__temps-graph"
                             :line-style "round"
                             :thickness 3
