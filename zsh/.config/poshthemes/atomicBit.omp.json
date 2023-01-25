@@ -81,6 +81,12 @@
           "type": "angular"
         },
         {
+          "foreground": "#ffffff",
+          "style": "plain",
+          "template": "<#1e293b>(</>{{ if .Error }}{{ .Error }}{{ else }}Nx {{ .Full }}{{ end }}<#1e293b>)</>",
+          "type": "nx"
+        },
+        {
           "foreground": "#359a25",
           "style": "plain",
           "template": "<#ffffff>(</>{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}<#ffffff>)</>",
@@ -143,7 +149,7 @@
             "time_format": "_2,15:04"
           },
           "style": "plain",
-          "template": "<#ffffff>[</>{{ .CurrentDate | date .Format }}<#ffffff>]</>",
+          "template": "<#ffffff>[</>\uf5ef{{ .CurrentDate | date .Format }}<#ffffff>]</>",
           "type": "time"
         }
       ],
@@ -171,9 +177,7 @@
         },
         {
           "foreground": "#ecf7fa",
-          "foreground_templates": [
-            "{{ if gt .Code 0 }}#ef5350{{ end }}"
-          ],
+          "foreground_templates": ["{{ if gt .Code 0 }}#ef5350{{ end }}"],
           "properties": {
             "always_enabled": true
           },
@@ -185,6 +189,5 @@
       "type": "prompt"
     }
   ],
-  "osc99": true,
   "version": 2
 }
