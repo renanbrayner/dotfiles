@@ -4,7 +4,7 @@ print () {
   dunstify "Screenshoot Entire Screen" "Saved to ~/Pictures/screenshots" \
   -i $XDG_CONFIG_HOME/assets/icons/display.jpg
 
-  paplay /usr/share/sounds/freedesktop/stereo/camera-shutter.oga
+  # paplay /usr/share/sounds/freedesktop/stereo/camera-shutter.oga
 }
 
 print_window () {
@@ -12,14 +12,14 @@ print_window () {
   dunstify "Screenshoot Selected Window" "Saved to ~/Pictures/screenshots" \
   -i $XDG_CONFIG_HOME/assets/icons/display.jpg
 
-  paplay /usr/share/sounds/freedesktop/stereo/camera-shutter.oga
+  # paplay /usr/share/sounds/freedesktop/stereo/camera-shutter.oga
 }
 
 print_area () {
   import -silent ~/Pictures/screenshots/"`date +"%Y-%m-%d_%H_%M_%S"`".png
   dunstify "Screenshoot Selected Area" "Saved to ~/Pictures/screenshots" \
 
-  paplay /usr/share/sounds/freedesktop/stereo/camera-shutter.oga
+  # paplay /usr/share/sounds/freedesktop/stereo/camera-shutter.oga
 }
 
 copy () {
@@ -27,7 +27,7 @@ copy () {
   dunstify "Screenshoot Entire Screen" "Copied to clipboard" \
   -i $XDG_CONFIG_HOME/assets/icons/display.jpg
 
-  paplay /usr/share/sounds/freedesktop/stereo/camera-shutter.oga
+  # paplay /usr/share/sounds/freedesktop/stereo/camera-shutter.oga
 }
 
 copy_window () {
@@ -35,7 +35,7 @@ copy_window () {
   dunstify "Screenshoot Selected Window" "Copied to clipboard" \
   -i $XDG_CONFIG_HOME/assets/icons/display.jpg
 
-  paplay /usr/share/sounds/freedesktop/stereo/camera-shutter.oga
+  # paplay /usr/share/sounds/freedesktop/stereo/camera-shutter.oga
 }
 
 copy_area () {
@@ -43,7 +43,7 @@ copy_area () {
   dunstify "Screenshoot Selecetd Area" "Copied to clipboard" \
   -i $XDG_CONFIG_HOME/assets/icons/display.jpg
 
-  paplay /usr/share/sounds/freedesktop/stereo/camera-shutter.oga
+  # paplay /usr/share/sounds/freedesktop/stereo/camera-shutter.oga
 }
 
 while [ ! $# -eq 0 ]
