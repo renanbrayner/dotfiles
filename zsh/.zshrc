@@ -51,14 +51,15 @@ setopt HIST_FIND_NO_DUPS
 setopt HIST_SAVE_NO_DUPS
 
 # EXPORTS
-export ANDROID_HOME="$HOME/Android/Sdk"
-export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
+# export ANDROID_HOME="$HOME/Android/Sdk"
+# export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
 export EDITOR='nvim'
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export ERL_AFLAGS="-kernel shell_history enabled"
 export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
 export FZF_DEFAULT_OPTS='--border'
 export BAT_THEME='ansi'
+export GOPATH="$HOME/go"
 
 # CLEAN-UP
 export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
@@ -66,6 +67,7 @@ export ANDROID_HOME="$XDG_CONFIG_HOME/Android/Sdk"
 export ANDROID_SDK_ROOT="$XDG_CONFIG_HOME/Android/Sdk"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
+export KUBECONFIG="$XDG_CONFIG_HOME/kube"
 
 
 # PATH
@@ -79,6 +81,7 @@ PATH=/home/renan/.local/bin:$PATH
 PATH=$PATH:$ANDROID_SDK_ROOT/tools
 PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 PATH=/snap/bin:$PATH
+PATH=/home/renan/go/bin:$PATH
 
 # ALIAS
 ## only use icons in exa alias if not on tty
