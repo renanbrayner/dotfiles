@@ -5,16 +5,16 @@
       "alignment": "left",
       "segments": [
         {
-          "background": "#adbccd",
-          "foreground": "#0f1225",
+          "background": "#6272a4",
+          "foreground": "#f8f8f2",
           "leading_diamond": "\ue0b6",
           "style": "diamond",
           "template": "{{ .UserName }} ",
           "type": "session"
         },
         {
-          "background": "#f1ece6",
-          "foreground": "#0f1225",
+          "background": "#bd93f9",
+          "foreground": "#f8f8f2",
           "powerline_symbol": "\ue0b0",
           "properties": {
             "style": "folder"
@@ -24,35 +24,35 @@
           "type": "path"
         },
         {
-          "background": "#90a7c4",
-          "foreground": "#0f1225",
+          "background": "#ffb86c",
+          "foreground": "#f8f8f2",
           "powerline_symbol": "\ue0b0",
           "properties": {
             "branch_icon": "",
             "fetch_stash_count": true,
-            "fetch_status": true,
+            "fetch_status": false,
             "fetch_upstream_icon": true
           },
           "style": "powerline",
-          "template": " \u279c ({{ .UpstreamIcon }}{{ .HEAD }}{{ if gt .StashCount 0 }} \uf692 {{ .StashCount }}{{ end }}) ",
+          "template": " \ue725 ({{ .UpstreamIcon }}{{ .HEAD }}{{ if gt .StashCount 0 }} \uf692 {{ .StashCount }}{{ end }}) ",
           "type": "git"
         },
         {
-          "background": "#86BBD8",
-          "foreground": "#ffffff",
+          "background": "#8be9fd",
+          "foreground": "#f8f8f2",
           "powerline_symbol": "\ue0b0",
           "style": "powerline",
           "template": " \ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} ",
           "type": "node"
         },
         {
-          "background": "#1f4b8e",
-          "foreground": "#ffffff",
+          "background": "#ff79c6",
+          "foreground": "#f8f8f2",
           "properties": {
             "time_format": "15:04"
           },
           "style": "diamond",
-          "template": " \uf9b6{{ .CurrentDate | date .Format }} ",
+          "template": " \u2665 {{ .CurrentDate | date .Format }} ",
           "trailing_diamond": "\ue0b0",
           "type": "time"
         }
@@ -60,26 +60,22 @@
       "type": "prompt"
     },
     {
+      "alignment": "left",
       "segments": [
         {
-          "background": "#1f4b8e",
-          "foreground": "#ffffff",
+          "background": "#f1fa8c",
+          "foreground": "#282a36",
+          "invert_powerline": true,
           "leading_diamond": "\ue0b2",
           "style": "diamond",
-          "template": " \uf1bb {{ .Env.DAYS }} days till Christmas ",
+          "template": " \ue7ad {{.Profile}}{{if .Region}}@{{.Region}}{{end}}",
           "trailing_diamond": "\ue0b4",
-          "type": "text"
+          "type": "aws"
         }
       ],
       "type": "rprompt"
     }
   ],
-  "console_title_template": "{{ .Shell }} in {{ .Folder }}",
   "final_space": true,
-  "transient_prompt": {
-    "background": "transparent",
-    "foreground": "#ffffff",
-    "template": "<#1f4b8e,transparent>\ue0b6</><#ffffff,#1f4b8e>\uf2dc</><#1f4b8e,transparent>\ue0b4</> {{ .Command }}"
-  },
   "version": 2
 }
