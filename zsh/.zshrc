@@ -74,7 +74,6 @@ export KUBECONFIG="$XDG_CONFIG_HOME/kube"
 export LUA_PATH='/usr/share/lua/5.4/?.lua;/usr/share/lua/5.4/?/init.lua;/usr/lib/lua/5.4/?.lua;/usr/lib/lua/5.4/?/init.lua;./?.lua;./?/init.lua;/home/renan/.luarocks/share/lua/5.4/?.lua;/home/renan/.luarocks/share/lua/5.4/?/init.lua'
 export LUA_CPATH='/usr/lib/lua/5.4/?.so;/usr/lib/lua/5.4/loadall.so;./?.so;/home/renan/.luarocks/lib/lua/5.4/?.so'
 
-PATH=$PATH:$ANDROID_SDK_ROOT/tools; PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 PATH=/home/renan/.luarocks/bin:$PATH
 PATH=/home/renan/.cargo/bin:$PATH
 PATH=/home/renan/.local/bin:$PATH
