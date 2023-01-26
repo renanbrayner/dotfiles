@@ -51,6 +51,8 @@ setopt HIST_FIND_NO_DUPS
 setopt HIST_SAVE_NO_DUPS
 
 # EXPORTS
+# export ANDROID_HOME="$HOME/Android/Sdk"
+# export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
 export EDITOR='nvim'
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export ERL_AFLAGS="-kernel shell_history enabled"
@@ -65,6 +67,7 @@ export ANDROID_HOME="$XDG_CONFIG_HOME/Android/Sdk"
 export ANDROID_SDK_ROOT="$XDG_CONFIG_HOME/Android/Sdk"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
+export KUBECONFIG="$XDG_CONFIG_HOME/kube"
 
 
 # PATH
@@ -105,4 +108,4 @@ source ~/.config/zshplugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 [[ -n $DISPLAY ]] && source ~/.config/zshplugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source ~/.config/zshplugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

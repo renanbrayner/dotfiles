@@ -8,6 +8,7 @@ Comands used:
   stow assets
   stow calcurse
   stow deadd
+  stow dunst
   stow kitty
   stow nvim
   stow picom
@@ -29,8 +30,10 @@ cd ~/.dotfiles
 stow alacritty
 stow assets
 stow calcurse
-stow deadd
+stow dunst
 stow kitty
+stow mpv
+stow notes
 stow nvim
 stow picom
 stow qutebrowser
