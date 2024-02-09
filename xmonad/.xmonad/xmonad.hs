@@ -152,6 +152,7 @@ myManageHook =
       fmap ("Customize" `isPrefixOf`) title --> doCenterFloat,
       fmap ("Nitrogen" `isPrefixOf`) title --> doCenterFloat,
       isDialog --> doCenterFloat,
+      ((stringProperty "WM_WINDOW_ROLE" =? "pop-up") --> doCenterFloat),
       -- (isFullscreen                 --> doFullFloat)
       resource =? "desktop_window" --> doIgnore,
       resource =? "kdesktop" --> doIgnore
