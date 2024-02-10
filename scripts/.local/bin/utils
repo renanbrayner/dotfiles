@@ -48,7 +48,7 @@ picom_toggle () {
   if pidof -q picom; then
     killall picom
   else
-    picom --experimental-backend & disown
+    picom & disown
   fi
 }
 
@@ -96,9 +96,9 @@ restart_picom() {
   if pidof -q picom; then
     killall picom && \
     sleep 0.2 &&\
-    picom --experimental-backend & disown
+    picom & disown
   else
-    picom --experimental-backend & disown
+    picom & disown
   fi
 }
 
@@ -121,6 +121,12 @@ restart_eww () {
   fi
 }
 
+setup_touch () {
+  if xinput | grep -q "Wacom"; then
+    xinput map-to-output "Wacom TOUCH Finger" HDMI-0
+  fi
+}
+
 restart_wm () {
   restart_deadd
   restart_picom
@@ -129,4 +135,5 @@ restart_wm () {
   restart_xmonad
   restart_trayer
   restart_eww
+  setup_touch
 }

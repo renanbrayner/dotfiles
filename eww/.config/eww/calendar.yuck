@@ -1,9 +1,9 @@
 (defwindow calendar
            :monitor 0
-           :geometry (geometry :x "48px" ;bar width
+           :geometry (geometry :x "-48px" ;bar width
                                :y "1%"
                                :width "320px"
-                               :anchor "left top")
+                               :anchor "right top")
            :stack "fg"
            :windowtype "dialog"
            :focusable "true"

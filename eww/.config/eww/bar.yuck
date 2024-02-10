@@ -1,12 +1,12 @@
 (defwindow bar
            :monitor 0
            :geometry (geometry :x "0"
-                               :y "1%"
+                               :y "0"
                                :width "38px" ;bar width
                                :height "98%"
-                               :anchar "left center")
+                               :anchor "right center")
            :stacking "bg"
-           :reserve (struts :distance "38px" :side "left") ;bar width
+           :reserve (struts :distance "38px" :side "right") ;bar width
            :windowtype "dock"
            :wm-ignore false
            :hexpand "false"
@@ -14,9 +14,9 @@
 (bar))
 
 (defwidget bar []
-           (centerbox :class "bar"
+          (centerbox :class "bar"
                 :orientation "v"
-(top) 
+(top)
 (workspace_widget)
 (bottom)))
 

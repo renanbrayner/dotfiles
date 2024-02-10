@@ -1,7 +1,7 @@
 /* THEME_START */
 .blurredBG, #main_window, .blurredBG.low, .blurredBG.normal {
-  background: rgba(0, 43, 54, 0.8);
-  color: #839496;
+  background: rgba(40, 42, 54, 0.8);
+  color: #f8f8f2;
 }
 
 .title {
@@ -14,7 +14,7 @@
 }
 
 .button-close:hover {
-  background: #dc322f;
+  background: #ff5555;
 }
 
 .appname {
@@ -46,15 +46,15 @@ button {
 }
 
 button:hover {
-  color: #002b36;
-  background: #2aa198;
+  color: rgb(40, 42, 54);
+  background: #bd93f9;
 }
 
 .blurredBG.notification.critical {
-  background: rgba(191, 97, 106, 0.8);
+  background: rgba(255, 85, 85, 0.8);
 }
 
 .notificationInCenter.critical {
-  background: rgba(191, 97, 106, 0.8);
+  background: rgba(255, 85, 85, 0.8);
 }
 /* THEME_END */

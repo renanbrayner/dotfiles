@@ -38,8 +38,8 @@ myModMask = mod4Mask
 
 -- Comments used by rice-ctrl script
 -- THEME_START
-myNormalBorderColor = "#073642"
-myFocusedBorderColor = "#2aa198"
+myNormalBorderColor = "#6272a4"
+myFocusedBorderColor = "#ff79c6"
 -- THEME_END
 
 -- most keybinds are defined in ~/.config/sxhkd/sxhkdrc
@@ -81,7 +81,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
       ]
       ++
       [ ((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
-        | (key, sc) <- zip [xK_period, xK_comma, xK_semicolon] [0 ..],
+        | (key, sc) <- zip [xK_semicolon, xK_period, xK_comma] [0 ..],
           (f, m) <- [(W.view, 0), (W.shift, shiftMask)]
       ]
 

@@ -60,6 +60,7 @@ export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{n
 export FZF_DEFAULT_OPTS='--border'
 export BAT_THEME='ansi'
 export GOPATH="$HOME/go"
+export CAPACITOR_ANDROID_STUDIO_PATH='/bin/android-studio'
 
 # CLEAN-UP
 export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
