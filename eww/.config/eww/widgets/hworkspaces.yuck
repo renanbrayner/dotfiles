@@ -1,0 +1,5 @@
+(defwidget hworkspaces []
+  (literal :content workspace_listener))
+
+(defpoll workspace_listener :interval "0.25s"
+  "$XDG_CONFIG_HOME/eww/scripts/workspace.lua 3 h") ;; Find way to remove hardcoded 3

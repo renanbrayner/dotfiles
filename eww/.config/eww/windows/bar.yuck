@@ -1,0 +1,19 @@
+(include './widgets/index.yuck'); imports all widgets
+
+(defwindow bar
+  :monitor 0
+  :geometry (geometry
+    :x "0%"
+    :y "-8px"
+    :width "99%"
+    :height "48px"
+    :anchor "bottom center")
+  :stacking "fg"
+  :reserve (struts :distance "56px" :side "bottom"); distance is geometry height + |geometry y|
+  :windowtype "dock"
+  :wm-ignore false
+  (centerbox
+    :valign "center"; center all the bar vertically
+    "foo"
+    (hworkspaces)
+    "foo"))

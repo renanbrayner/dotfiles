@@ -33,7 +33,7 @@ myFocusFollowsMouse = True
 myClickJustFocuses :: Bool
 myClickJustFocuses = False
 
-myBorderWidth = 3
+myBorderWidth = 1
 myModMask = mod4Mask
 
 -- Comments used by rice-ctrl script
@@ -81,7 +81,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
       ]
       ++
       [ ((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
-        | (key, sc) <- zip [xK_semicolon, xK_period, xK_comma] [0 ..],
+        | (key, sc) <- zip [xK_comma, xK_period, xK_semicolon] [0 ..],
           (f, m) <- [(W.view, 0), (W.shift, shiftMask)]
       ]
 

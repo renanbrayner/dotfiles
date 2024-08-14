@@ -1,3 +1,4 @@
+;; (include "./windows/bar.yuck")
 (include "./bar.yuck")
 (include "./power.yuck")
 (include "./stats.yuck")

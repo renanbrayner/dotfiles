@@ -86,7 +86,7 @@
 )
 
 (defpoll workspace_listener :interval "0.25s"
-  "$XDG_CONFIG_HOME/eww/scripts/workspace.lua")
+  "$XDG_CONFIG_HOME/eww/scripts/workspace.lua 3") ;; Find way to remove hardcoded 3
 
 (defwidget bottom []
 (box :class "bar__bottom"
@@ -181,32 +181,27 @@
         (button :class "bar__power__lock"
             :onclick "notify-send.sh 'lockscreen'"
             :tooltip "Lock screen"
-            :orientation "v"
             :valign "center"
             :halign "center" "")
         (button :class "bar__power__logout"
             :onclick "killall xmonad-x86_64-linux"
             :tooltip "Logout"
-            :orientation "v"
             :valign "center"
             :halign "center" "")
         (button :class "bar__power__sleep"
             :onclick "systemctl suspend"
             :tooltip "Suspend"
-            :orientation "v"
             :valign "center"
             :halign "center" "鈴")
         (button :class "bar__power__reboot"
             :onclick "systemctl reboot"
             :tooltip "Reboot"
-            :orientation "v"
             :valign "center"
             :halign "center" "累")
         ))
     (button :class "bar__power__off"
         :onclick "systemctl poweroff"
         :tooltip "Shutdown"
-        :orientation "v"
         :valign "center"
         :halign "center" "襤")))
 )

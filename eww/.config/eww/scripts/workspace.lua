@@ -1,6 +1,4 @@
 #!/bin/lua
--- local params = { ... }
--- TODO: add params to allow for easy config
 function os.capture(cmd, raw)
   local f = assert(io.popen(cmd, "r"))
   local s = assert(f:read("*a"))
@@ -26,14 +24,22 @@ local function split_string(inputstr, sep)
 end
 
 local workspaces = {}
-for i = 0, 3 do
+local display_count = 2
+local orientation = 'v'
+
+if arg[1] ~= nil then
+  display_count = arg[1] + 0 -- use + 0 convet to int
+end
+if arg[2] ~= nil then
+  orientation = arg[2]
+end
+
+-- populate workspace array
+for i = 0, (display_count * 4) do
   workspaces[i] = "bar__workspace__right--inactive"
 end
 
-for i = 4, 7 do
-  workspaces[i] = "bar__workspace__left--inactive"
-end
-
+-- set class of used workspaces
 local used = os.capture("wmctrl -l", true)
 
 for k, line in pairs(split_string(used, "\n")) do
@@ -52,6 +58,7 @@ for k, line in pairs(split_string(used, "\n")) do
   end
 end
 
+-- set class of current workspace
 local current_workspace = tonumber(os.capture("xdotool get_desktop"))
 if current_workspace > 3 then
   ---@diagnostic disable-next-line: need-check-nil
@@ -61,34 +68,50 @@ else
   workspaces[current_workspace] = "bar__workspace__right--current"
 end
 
-local buttons_left = {}
-for i = 1, 4 do
-  local cap = "' '●')"
+-- create array of buttons
 
-  buttons_left[i] = "(button :timeout '0.4s' :onclick './scripts/change_focus.bash 384 680 33 " .. i + 3 .. "' :class '"
-      .. workspaces[i + 3]
-      .. cap
+local keybinds = {
+  ',',
+  '.',
+  ';',
+  '/', -- in case I get a fourth display
+}
+
+local buttons = {}
+for i = 0, display_count - 1 do
+
+  local button = {}
+  for j = 0, 3 do
+    local cap = "' '●')"
+
+    button[j + 1] ="(button :timeout '0.4s' :onclick './scripts/change_focus.bash " .. i .. "' :class '"
+    .. workspaces[j + (4 * i)]
+    .. cap
+  end
+  buttons[i] = button
 end
 
-local buttons_right = {}
-for i = 1, 4 do
-  local cap = "' '●')"
-
-  buttons_right[i] ="(button :timeout '0.4s' :onclick './scripts/change_focus.bash 1728 680 -33 " .. i - 1 .. "' :class '"
-      .. workspaces[i - 1]
-      .. cap
+local spacing = 0
+if orientation == "h" then
+  spacing = 5
 end
 
-local output_left = "(box :class 'bar__workspace' :valign 'center' :orientation 'v' :spacing 0 '𝗟'"
-for k, button in pairs(buttons_left) do
-  output_left = output_left .. button
-end
-output_left = output_left .. ")"
+local boxes = {}
+for i = 0, display_count - 1 do
+  local box = "(box :class 'bar__workspace' :valign 'center' :orientation '" .. orientation .. "' :spacing " .. spacing .. " '" .. keybinds[i + 1] .. "'"
 
-local output_right = "(box :class 'bar__workspace' :valign 'center' :orientation 'v' :spacing 0 '𝗥'"
-for k, button in pairs(buttons_right) do
-  output_right = output_right .. button
-end
-output_right = output_right .. ")"
+  for k, button in pairs(buttons[i]) do
+    box = box .. button
+  end
 
-print("(box :class 'workspaces' :valign 'center' :orientation 'v' :spacing 5 " .. output_left .. output_right .. ")")
+  box = box .. ")"
+  boxes[i] = box
+end
+
+local output = "(box :class 'workspaces' :valign 'center' :orientation '" .. orientation .. "' :spacing 5 "
+for i = 0, display_count - 1 do
+  output = output .. boxes[i]
+end
+output = output .. ")"
+
+print(output)

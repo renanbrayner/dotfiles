@@ -53,7 +53,7 @@ setopt HIST_SAVE_NO_DUPS
 # EXPORTS
 # export ANDROID_HOME="$HOME/Android/Sdk"
 # export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
-export EDITOR='nvim'
+export EDITOR='zeditor'
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export ERL_AFLAGS="-kernel shell_history enabled"
 export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
@@ -61,6 +61,7 @@ export FZF_DEFAULT_OPTS='--border'
 export BAT_THEME='ansi'
 export GOPATH="$HOME/go"
 export CAPACITOR_ANDROID_STUDIO_PATH='/bin/android-studio'
+export VUE_EDITOR=nvim
 
 # CLEAN-UP
 export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
@@ -87,6 +88,7 @@ PATH=/home/renan/go/bin:$PATH
 ## only use icons in exa alias if not on tty
 [[ -n $DISPLAY ]] && alias ls="exa -a --group-directories-first --icons" || alias ls="exa -a --group-directories-first"
 [[ -n $DISPLAY ]] && alias tree='f(){exa -T -a --group-directories-first --icons "$@"; unset -f f; }; f' || alias tree='f(){exa -T -a --group-directories-first "$@"; unset -f f; }; f'
+alias hx='helix'
 alias e='exit'
 alias sxiv='devour sxiv'
 alias mpv='devour mpv'
