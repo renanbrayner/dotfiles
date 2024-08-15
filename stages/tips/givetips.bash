@@ -1,12 +1,19 @@
 #!/bin/bash
 cat << EOF
- ____   ___  _   _ _____ _ 
+ ____   ___  _   _ _____ _
 |  _ \ / _ \| \ | | ____| |
 | | | | | | |  \| |  _| | |
 | |_| | |_| | |\  | |___|_|
 |____/ \___/|_| \_|_____(_)
 
 Next steps:
+  Configuring XDG env vars:
+    go into /etc/security/pam_env.conf and write:
+      XDG_CONFIG_HOME DEFAULT=@{HOME}/.config
+      XDG_CACHE_HOME  DEFAULT=@{HOME}/.cache
+      XDG_DATA_HOME   DEFAULT=@{HOME}/.local/share
+      XDG_STATE_HOME  DEFAULT=@{HOME}/.local/state
+
   Some extra packages that can be usefull:
     vulkan-item
     xf86-video-intel
@@ -34,7 +41,7 @@ Next steps:
     Add this two lines to the end of /etc/pulse/default.pa:
 
       load-sample-lazy x11-bell /usr/share/sounds/freedesktop/stereo/bell.oga
-      load-module module-x11-bell sample=x11-bell 
+      load-module module-x11-bell sample=x11-bell
 
     Or change the bell.oga to any sound that fits your taste
 

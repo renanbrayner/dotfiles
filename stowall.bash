@@ -19,6 +19,7 @@ Comands used:
   stow sxhkd
   stow xmobar
   stow xmonad
+  stow rice-themes
   stow xprofile
   stow xresources
   stow zsh
@@ -37,6 +38,7 @@ stow notes
 stow nvim
 stow picom
 stow qutebrowser
+stow rice-themes
 stow ranger
 stow rofi
 stow scripts
