@@ -38,8 +38,8 @@ myModMask = mod4Mask
 
 -- Comments used by rice-ctrl script
 -- THEME_START
-myNormalBorderColor = "#073642"
-myFocusedBorderColor = "#2aa198"
+myNormalBorderColor = "#928374"
+myFocusedBorderColor = "#b8bb26"
 -- THEME_END
 
 -- most keybinds are defined in ~/.config/sxhkd/sxhkdrc

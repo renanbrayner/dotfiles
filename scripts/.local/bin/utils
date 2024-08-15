@@ -48,7 +48,7 @@ picom_toggle () {
   if pidof -q picom; then
     killall picom
   else
-    picom --experimental-backend & disown
+    picom & disown
   fi
 }
 

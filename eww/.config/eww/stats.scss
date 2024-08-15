@@ -3,7 +3,7 @@
   border-radius: 10px;
   padding: 10px;
   font-size: 16px;
-  font-family: 'JetBrainsMono Nerd Font';
+  font-family: 'CaskaydiaCove Nerd Font';
 }
 
 .stats__ram-circular-wrapper,
@@ -41,8 +41,8 @@
 }
 
 .stats__cpu-wrapper,
-.stats__ram-wrapper, 
-.stats__temps-wrapper, 
+.stats__ram-wrapper,
+.stats__temps-wrapper,
 .stats__temps-circular-wrapper,
 .stats__ram-circular-wrapper,
 .stats__cpu-circular-wrapper,
@@ -68,7 +68,7 @@
 }
 
 
-.stats__ssdlinux-bar trough, 
+.stats__ssdlinux-bar trough,
 .stats__ssdwin trough {
   all: unset;
   background-color: $gray;
@@ -84,7 +84,7 @@
 .stats__about {
   padding: 0 30px 20px 30px;
   font-size: 14px;
-  font-family: 'Roboto';
+  font-family: 'CaskaydiaCove Nerd Font';
 }
 
 .stats__about--name {
@@ -93,7 +93,7 @@
   padding-bottom: 10px;
 }
 
-.stats__image { 
+.stats__image {
   padding: 60px;
   background-size: 100px;
   background-position: center;

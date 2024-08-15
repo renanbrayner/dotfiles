@@ -16,7 +16,7 @@
 (defwidget bar []
            (centerbox :class "bar"
                 :orientation "v"
-(top) 
+(top)
 (workspace_widget)
 (bottom)))
 
@@ -32,7 +32,7 @@
 
 (defwidget main_button []
            (button :class "bar__mainbutton"
-                   :onclick "dunstify 'fix me'" 
+                   :onclick "dunstify 'fix me'"
                   '')
 )
 
@@ -125,7 +125,7 @@
                                                 :max 101
                                                 :min 1
                                                 :onchange "amixer set Capture {}%" )))
-                          (button :onclick "$XDG_CONFIG_HOME/eww/scripts/audio.bash --mute-input" 
+                          (button :onclick "$XDG_CONFIG_HOME/eww/scripts/audio.bash --mute-input"
                                   :class "bar__volume-icon" {is_input_muted ? "" : ""})))
 )
 (defvar show_mic false)
@@ -164,54 +164,13 @@
                       "$XDG_CONFIG_HOME/eww/scripts/audio.bash --watch-output")
 
 (defwidget close_slider []
-           (eventbox :onhover "eww update show_close=true"
-                     :onhoverlost "eww update show_close=false"
-                     :cursor "pointer"
-                     (box :class "bar__power"
-                          :orientation "v"
-                          :space-evenly "false"
-                          :spacing "2"
-                          (revealer :transition "slideup"
-                                    :reveal show_close
-                                    :duration "0.5s"
-                                    (box :class "bar__power__list"
-                                         :orientation "v"
-                                         :valign "center"
-                                         :space-evenly "true"
-                                         (button :class "bar__power__lock"
-                                                 :onclick "notify-send.sh 'lockscreen'"
-                                                 :tooltip "Lock screen"
-                                                 :orientation "v"
-                                                 :valign "center"
-                                                 :halign "center" "")
-                                         (button :class "bar__power__logout"
-                                                 :onclick "killall xmonad-x86_64-linux"
-                                                 :tooltip "Logout"
-                                                 :orientation "v"
-                                                 :valign "center"
-                                                 :halign "center" "")
-                                         (button :class "bar__power__sleep"
-                                                 :onclick "systemctl suspend"
-                                                 :tooltip "Suspend"
-                                                 :orientation "v"
-                                                 :valign "center"
-                                                 :halign "center" "鈴")
-                                         (button :class "bar__power__reboot"
-                                                 :onclick "systemctl reboot"
-                                                 :tooltip "Reboot"
-                                                 :orientation "v"
-                                                 :valign "center"
-                                                 :halign "center" "累")
-                                    ))
-                         (button :class "bar__power__off"
-                                 :onclick "systemctl poweroff"
-                                 :tooltip "Shutdown"
-                                 :orientation "v"
-                                 :valign "center"
-                                 :halign "center" "襤")))
+  (button :class "bar__power"
+    :onclick "exec ~/.config/rofi/power/powermenu.sh"
+    :tooltip "Shutdown"
+    :orientation "v"
+    :valign "center"
+    :halign "center" "󰐥")
 )
-
-(defvar show_close false)
 
 (defwidget close_btn []
            (button :class "bar__close-btn"

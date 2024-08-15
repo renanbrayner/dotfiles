@@ -19,11 +19,11 @@ rofi_command="rofi -monitor primary -theme power/$style.rasi"
 uptime=$(uptime -p | sed -e 's/up //g')
 
 # Options
-shutdown=""
-reboot="ﰇ"
-lock=""
-suspend="鈴"
-logout=""
+shutdown="󰐥"
+reboot="󰜉"
+lock="󰌾"
+suspend="󰒲"
+logout="󰍃"
 dir="$HOME/.config/rofi/power"
 
 # Variable passed to rofi

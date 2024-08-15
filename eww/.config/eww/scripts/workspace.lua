@@ -79,13 +79,13 @@ for i = 1, 4 do
       .. cap
 end
 
-local output_left = "(box :class 'bar__workspace' :valign 'center' :orientation 'v' :spacing 0 '𝗟'"
+local output_left = "(box :class 'bar__workspace' :valign 'center' :orientation 'v' :spacing 0 '1'"
 for k, button in pairs(buttons_left) do
   output_left = output_left .. button
 end
 output_left = output_left .. ")"
 
-local output_right = "(box :class 'bar__workspace' :valign 'center' :orientation 'v' :spacing 0 '𝗥'"
+local output_right = "(box :class 'bar__workspace' :valign 'center' :orientation 'v' :spacing 0 '0'"
 for k, button in pairs(buttons_right) do
   output_right = output_right .. button
 end

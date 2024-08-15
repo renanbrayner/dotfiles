@@ -1,10 +1,9 @@
 # confis
 export DISPLAY=:0
-setxkbmap br &
+setxkbmap br thinkpad &
 xsetroot -cursor_name left_ptr
 
 # programs
-deadd-notification-center &
 lxsession &
 nm-applet &
 

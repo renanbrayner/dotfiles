@@ -7,7 +7,7 @@
 .bar__mainbutton {
   color: $foreground; // COLOR
   font-size: 30px;
-  font-family: 'JetBrainsMono Nerd Font Mono';
+  font-family: 'CaskaydiaCove Nerd FontMono';
 }
 
 .bar__time {
@@ -46,14 +46,14 @@
 
 .bar__cpu-usage__label,
 .bar__ram-usage__label {
-  font-family: 'JetBrainsMono Nerd Font';
+  font-family: 'CaskaydiaCove Nerd FontMono';
   font-size: 12px;
 }
 
 .bar__workspace,
 .bar__time,
 .bar__control {
-  font-family: 'JetBrainsMono Nerd Font';
+  font-family: 'CaskaydiaCove Nerd FontMono';
   font-weight: bold;
   background: $background-alt;
   padding: 4px;
@@ -108,31 +108,7 @@
 }
 
 .bar__power {
-  font-size: 24px;
-}
-
-.bar__power__list {
-  margin-top: 8px;
-}
-
-.bar__power__off {
-  color: $red;
-}
-
-.bar__power__reboot {
-  color: $green;
-}
-
-.bar__power__lock {
-  color: $yellow;
-}
-
-.bar__power__sleep {
-  color: $cyan;
-}
-
-.bar__close-btn {
-  padding: 5px;
   font-size: 30px;
+  font-family: 'CaskaydiaCove Nerd FontMono';
   color: $red;
 }

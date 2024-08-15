@@ -53,7 +53,7 @@ setopt HIST_SAVE_NO_DUPS
 # EXPORTS
 # export ANDROID_HOME="$HOME/Android/Sdk"
 # export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
-export EDITOR='nvim'
+export EDITOR='zeditor'
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export ERL_AFLAGS="-kernel shell_history enabled"
 export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'

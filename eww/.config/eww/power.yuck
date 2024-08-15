@@ -22,7 +22,7 @@
                                   :onclick "systemctl poweroff"
                                   :orientation "v"
                                   :valign "center"
-                                  :halign "center" "襤")
+                                  :halign "center" "")
                           (button :class "power__reboot"
                                   :onclick "systemctl reboot"
                                   :orientation "v"
