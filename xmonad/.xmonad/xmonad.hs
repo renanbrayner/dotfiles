@@ -131,9 +131,9 @@ myLayout =
 
     nmaster = 1
 
-    gapSize = 5
+    gapSize = 12
 
-    spaceingSize = 5
+    spaceingSize = 12
 
     ratio = 1 / 2
 
