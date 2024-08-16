@@ -96,9 +96,9 @@ restart_picom() {
   if pidof -q picom; then
     killall picom && \
     sleep 0.2 &&\
-    picom --experimental-backend & disown
+    picom & disown
   else
-    picom --experimental-backend & disown
+    picom & disown
   fi
 }
 
