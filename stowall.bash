@@ -7,21 +7,23 @@ Comands used:
   stow alacritty
   stow assets
   stow calcurse
-  stow deadd
   stow dunst
   stow kitty
+  stow mpv
+  stow notes
   stow nvim
   stow picom
   stow qutebrowser
   stow ranger
+  stow rice-themes
   stow rofi
   stow scripts
   stow sxhkd
   stow xmobar
   stow xmonad
-  stow rice-themes
   stow xprofile
   stow xresources
+  stow zed
   stow zsh
 
 EOF
@@ -38,8 +40,8 @@ stow notes
 stow nvim
 stow picom
 stow qutebrowser
-stow rice-themes
 stow ranger
+stow rice-themes
 stow rofi
 stow scripts
 stow sxhkd
@@ -47,4 +49,5 @@ stow xmobar
 stow xmonad
 stow xprofile
 stow xresources
+stow zed
 stow zsh
