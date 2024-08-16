@@ -28,6 +28,8 @@ super + o; {a, d, f, i, k, s, t, c}
   exec {alacritty, discord, firefox, insomnia, kitty, spotify, teams, ~/.local/bin/qalculate}
 XF86Calculator
   ~/.local/bin/qalculate
+super + z
+  exec zeditor
 # super + m
 #     exec mailspring
 
@@ -126,11 +128,11 @@ super + Escape
 #------------------------------
 #   OTHERS
 #------------------------------
-control + shift + h 
+control + shift + h
   exec ~/.local/bin/help.sh
 super + shift + Escape
   exec ~/.config/rofi/power/powermenu.sh
-XF86Display 
+XF86Display
   exec ~/.local/bin/monitor
 
 #------------------------------
