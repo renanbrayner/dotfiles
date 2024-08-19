@@ -3,8 +3,8 @@
     follow = none
     width = 450
     height = 300
-    origin = top-right
-    offset = 10x10
+    origin = bottom-right
+    offset = 24x24
     scale = 1
     notification_limit = 0
     progress_bar = true
@@ -60,17 +60,17 @@
 
 # THEME_START
 [urgency_low]
-    background = "#002b36"
-    foreground = "#586e75"
+    background = "#282828"
+    foreground = "#928374"
     timeout = 10
 
 [urgency_normal]
-    background = "#002b36"
-    foreground = "#93a1a1"
+    background = "#282828"
+    foreground = "#ebdbb2"
     timeout = 10
 
 [urgency_critical]
-    background = "#002b36"
-    foreground = "#cb4b16"
+    background = "#282828"
+    foreground = "#d65d0e"
     timeout = 0
 # THEME_END

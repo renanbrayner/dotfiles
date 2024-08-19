@@ -12,6 +12,7 @@ paru -S --needed \
 aerc \
 alacritty \
 alsa-utils \
+xcolor \
 arandr \
 aria2 \
 asdf-vm \
@@ -52,6 +53,8 @@ lxsession \
 mirage \
 nvim-packer-git \
 ncdu \
+dunst \
+notify-send.sh \
 neofetch \
 neovim \
 nerd-fonts-noto-sans-regular-complete \
@@ -155,4 +158,5 @@ gtk-engine-murrine \
 sassc \
 gnome-themes-extra \
 git-credential-manager \
+bpytop \
 # clipit \

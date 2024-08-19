@@ -26,13 +26,13 @@ foreground = "#ebdbb2"
 size = 14
 
 [font.bold]
-family = "Hurmit Nerd Font Mono"
+family = "CaskaydiaCove Nerd Font Mono"
 
 [font.italic]
-family = "Hurmit Nerd Font Mono"
+family = "CaskaydiaCove Nerd Font Mono"
 
 [font.normal]
-family = "Hurmit Nerd Font Mono"
+family = "CaskaydiaCove Nerd Font Mono"
 
 [window]
 opacity = 0.78

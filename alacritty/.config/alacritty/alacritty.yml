@@ -19,11 +19,11 @@
 font:
   size: 10
   normal:
-    family: JetBrainsMono Nerd Font
+    family: CaskaydiaCove Nerd Font Mono
   bold:
-    family: JetBrainsMono Nerd Font
+    family: CaskaydiaCove Nerd Font Mono
   italic:
-    family: JetBrainsMono Nerd Font
+    family: CaskaydiaCove Nerd Font Mono
 
 window:
   opacity: 0.78
