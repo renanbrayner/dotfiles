@@ -23,7 +23,8 @@
   {
     "context": "vim_mode == normal",
     "bindings": {
-      "space b c": "pane::CloseActiveItem"
+      "space b c": "pane::CloseActiveItem",
+      "space o p": "project_panel::ToggleFocus"
     }
   }
 ]
