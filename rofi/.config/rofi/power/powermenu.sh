@@ -38,11 +38,9 @@ case $chosen in
 		systemctl reboot -i
 		;;
 	$lock)
-		notify-send.sh "Blocking screen..." \
+		dunstify "Blocking screen..." \
 			"This will take a couple seconds."\
-			-a "" \
-			--hint string:image-path:system-lock-screen\
-			--hint int:transient:1
+			-i $XDG_CONFIG_HOME/assets/icons/lock.png
 		i3lock-fancy-multimonitor -b=0x8 -n
 		;;
 	$suspend)
