@@ -35,7 +35,7 @@ case $chosen in
 		systemctl poweroff
 		;;
 	$reboot)
-		systemctl reboot
+		systemctl reboot -i
 		;;
 	$lock)
 		notify-send.sh "Blocking screen..." \
