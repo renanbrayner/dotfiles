@@ -160,6 +160,5 @@ xorg-xwud \
 zathura \
 zathura-pdf-mupdf \
 zed \
+diodon-git \
 zsh \
-
-# clipit \

@@ -61,11 +61,11 @@ restart_trayer () {
     trayer -l --edge top --align right --widthtype pixel --height 18 --width 90 --monitor 0 --transparent true --alpha 255 & disown
   fi
 
-  if pidof -q clipit; then
-    killall clipit && \
-      clipit & disown
+  if pidof -q diodon; then
+    killall diodon && \
+      diodon & disown
   else
-    clipit & disown
+    diodon & disown
   fi
 
   if pidof -q cbatticon; then
