@@ -47,7 +47,8 @@ for k, line in pairs(split_string(used, "\n")) do
     break
   end
 
-  local used_workspace = tonumber(string.sub(line, 13, 13))
+  local columns = split_string(line, "%s+")
+  local used_workspace = tonumber(columns[2])
 
   if used_workspace > 3 then
     ---@diagnostic disable-next-line: need-check-nil
@@ -72,8 +73,8 @@ end
 
 local keybinds = {
   ',',
-  '.',
   ';',
+  '.',
   '/', -- in case I get a fourth display
 }
 
