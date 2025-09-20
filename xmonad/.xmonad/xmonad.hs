@@ -81,7 +81,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
       ]
       ++
       [ ((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
-        | (key, sc) <- zip [xK_comma, xK_period, xK_semicolon] [0 ..],
+        | (key, sc) <- zip [xK_period, xK_comma, xK_semicolon] [0 ..],
           (f, m) <- [(W.view, 0), (W.shift, shiftMask)]
       ]
 
@@ -131,9 +131,9 @@ myLayout =
 
     nmaster = 1
 
-    gapSize = 5
+    gapSize = 0
 
-    spaceingSize = 5
+    spaceingSize = 0
 
     ratio = 1 / 2
 

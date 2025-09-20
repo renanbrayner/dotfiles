@@ -3,7 +3,7 @@
   :geometry (geometry :x "0"
     :y "0"
     :width "38px" ;bar width
-    :height "98%"
+    :height "100%"
     :anchor "right center")
   :stacking "bg"
   :reserve (struts :distance "38px" :side "right") ;bar width
@@ -32,7 +32,7 @@
 
 (defwidget main_button []
 (button :class "bar__mainbutton"
-    :onclick "dunstify 'fix me'" 
+    :onclick "dunstify 'fix me'"
     '')
 )
 
@@ -125,7 +125,7 @@
             :max 101
             :min 1
             :onchange "amixer set Capture {}%" )))
-    (button :onclick "$XDG_CONFIG_HOME/eww/scripts/audio.bash --mute-input" 
+    (button :onclick "$XDG_CONFIG_HOME/eww/scripts/audio.bash --mute-input"
         :class "bar__volume-icon" {is_input_muted ? "" : ""})))
 )
 (defvar show_mic false)

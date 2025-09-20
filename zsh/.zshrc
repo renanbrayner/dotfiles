@@ -37,7 +37,6 @@ if [ "$TERM" = "linux" ]; then
   echo "foo"
 fi
 
-. /opt/asdf-vm/asdf.sh
 HISTFILE=~/.zshhist
 HISTSIZE=2000
 SAVEHIST=2000
@@ -54,14 +53,20 @@ setopt HIST_SAVE_NO_DUPS
 # export ANDROID_HOME="$HOME/Android/Sdk"
 # export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
 export EDITOR='zeditor'
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANPAGER="bat"
 export ERL_AFLAGS="-kernel shell_history enabled"
 export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
 export FZF_DEFAULT_OPTS='--border'
 export BAT_THEME='ansi'
 export GOPATH="$HOME/go"
 export CAPACITOR_ANDROID_STUDIO_PATH='/bin/android-studio'
-export VUE_EDITOR=nvim
+export VUE_EDITOR='zeditor'
+export DOTNET_ROOT=/usr/share/dotnet
+
+# Blue
+export NUGET_URL="https://gitlab.equipeblue.com.br/api/v4/projects/14/packages/nuget/index.json" # url dos nuggets da blue
+export NUGET_USER="renanbrayner" # meu usuário gitlab
+export NUGET_PASS="haha" # nuget-docker-build gitlab read-ap
 
 # CLEAN-UP
 export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
@@ -83,6 +88,9 @@ PATH=$PATH:$ANDROID_SDK_ROOT/tools
 PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 PATH=/snap/bin:$PATH
 PATH=/home/renan/go/bin:$PATH
+PATH="$PATH:/home/renan/.dotnet/tools" # DOTNET instalado pelo ASDF
+PATH="$HOME/.asdf/shims:$PATH"
+# PATH="${ASDF_DATA_DIR:$-HOME/.asdf}/shims:$PATH"
 
 # ALIAS
 ## only use icons in exa alias if not on tty
@@ -99,7 +107,7 @@ alias learn='cd ~/code/learn/'
 alias rm='rm -i'
 alias mv='mv -i'
 alias ..='cd ..'
-alias neofetch='neofetch --source ~/.config/assets/heart.txt'
+alias neofetch='neofetch --source ~/.config/assets/neofetch/neofetch.txt'
 alias susp='systemctl suspend'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 alias airbnb='npm install --save-dev eslint-config-airbnb eslint eslint-plugin-jsx-a11y eslint-plugin-import eslint-plugin-react eslint-plugin-react-hooks'

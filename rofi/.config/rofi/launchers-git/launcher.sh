@@ -12,6 +12,6 @@
 # gnome_do	slingshot		appdrawer			appfolder		column
 # row		row_center		screen				row_dock		row_dropdown
 
-style="blurry-dracula"
+style="blurry-dracula-full"
 
 rofi -monitor primary -no-lazy-grab -show drun -theme launchers-git/"$style".rasi

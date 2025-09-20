@@ -63,13 +63,13 @@ text = "CellBackground"
 size = 10
 
 [font.bold]
-family = "JetBrainsMono Nerd Font"
+family = "CaskaydiaCove Nerd Font"
 
 [font.italic]
-family = "JetBrainsMono Nerd Font"
+family = "CaskaydiaCove Nerd Font"
 
 [font.normal]
-family = "JetBrainsMono Nerd Font"
+family = "CaskaydiaCove Nerd Font"
 
 [window]
 opacity = 0.78
